@@ -6,6 +6,7 @@ public class SpawnTiles : MonoBehaviour
 {
     public Transform spawnpt;
     public GameObject tile;
+    bool once=true;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,20 @@ public class SpawnTiles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("yes");
+        //spawn tiles at designated area by either calling the manager or spawning the tiles itself
+        if (other.GetComponent<Player>())//only the player collision will spawn the tile
+        {
+            if (once)
+            {
+                Instantiate(tile, spawnpt.position, spawnpt.rotation);
+            }
+
+        }
     }
 }
