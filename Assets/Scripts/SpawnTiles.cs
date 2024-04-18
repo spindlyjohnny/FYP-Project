@@ -9,8 +9,9 @@ public class SpawnTiles : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //for (int i = 0; i < 10; i++) {
-        //    Destroy(Instantiate(tile, spawnpt.position, spawnpt.rotation), 2f);
+        //Destroy(Instantiate(tile, spawnpt.position, spawnpt.rotation), 2f);
+        //for (int i = 0; i < 1; i++) {
+
         //}
     }
 
