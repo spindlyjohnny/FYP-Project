@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
     public Transform target;
     public float smoothing = 1f;
+    public Vector3 targetposition;
     //public bool followtarget;
     // Start is called before the first frame update
     void Start() {
@@ -13,10 +14,10 @@ public class CameraController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        Vector3 targetposition = new Vector3(transform.position.x, transform.position.y, target.position.z);
+        targetposition = new Vector3(target.position.x, transform.position.y, transform.position.z);
         transform.position = Vector3.Lerp(transform.position, targetposition, Time.deltaTime * smoothing);
         //if (followtarget) {
-
+            
         //}
     }
 }

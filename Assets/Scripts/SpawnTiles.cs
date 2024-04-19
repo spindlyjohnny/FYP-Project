@@ -24,7 +24,6 @@ public class SpawnTiles : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("yes");
         //spawn tiles at designated area by either calling the manager or spawning the tiles itself
         if (other.GetComponent<Player>())//only the player collision will spawn the tile
         {
