@@ -7,9 +7,11 @@ public class SpawnTiles : MonoBehaviour
     public Transform spawnpt;
     public GameObject tile;
     bool once=true;
+    [SerializeField]GameObject NPC;
     // Start is called before the first frame update
     void Start()
     {
+        NPC = GetComponentInChildren<NPC>(true).gameObject;
         //Destroy(Instantiate(tile, spawnpt.position, spawnpt.rotation), 2f);
         //for (int i = 0; i < 1; i++) {
 
@@ -30,6 +32,8 @@ public class SpawnTiles : MonoBehaviour
             if (once)
             {
                 Instantiate(tile, spawnpt.position, spawnpt.rotation);
+                if (Random.Range(0, 2) == 0) NPC.SetActive(false); else NPC.SetActive(true);
+                once = false;
             }
 
         }

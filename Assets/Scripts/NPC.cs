@@ -15,7 +15,8 @@ public class NPC : MonoBehaviour
     public TMP_Text nametext;
     public float wordspeed;
     public int currentline;
-    //public Transform camPos;
+    bool spoken;
+    //[SerializeField] Vector3 spawnpoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,9 +31,9 @@ public class NPC : MonoBehaviour
         
     }
     private void OnTriggerEnter(Collider other) {
-        if (other.GetComponent<Player>()) {
+        if (other.GetComponent<Player>() && !spoken) {
             player.canMove = false;
-            //CameraPan();
+            CameraPan();
             StartDialogue();
         }
     }
@@ -57,6 +58,12 @@ public class NPC : MonoBehaviour
     }
     void EndDialogue() {
         dialoguebox.SetActive(false);
+        player.canMove = true;
+        cam.target = player.transform;
+        cam.NPC = false;
+        cam.transform.position = cam.originalposition;
+        cam.smoothing = 1;
+        spoken = true;
         //dialoguetext.text = "";
         //if (!spoken) { // ensures spokencount is only increased once
         //    spoken = true;
@@ -71,8 +78,9 @@ public class NPC : MonoBehaviour
         }
     }
     void CameraPan() {
-        cam.target = transform;
-        cam.targetposition = player.transform.position;//camPos.position;
+        cam.target = transform.GetChild(0);
+        cam.NPC = true;
+        cam.smoothing = 2f;
         cam.transform.position = Vector3.Lerp(transform.position, cam.targetposition, Time.deltaTime * cam.smoothing);
     }
 }

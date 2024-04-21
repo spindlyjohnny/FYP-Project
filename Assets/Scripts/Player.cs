@@ -17,6 +17,6 @@ public class Player : MonoBehaviour
     void Update()
     {
         movement = new Vector3(Input.GetAxisRaw("Vertical"), 0, -Input.GetAxisRaw("Horizontal"));
-        if (canMove)transform.Translate(movement * movespeed * Time.deltaTime);
+        if (canMove)transform.Translate(movespeed * Time.deltaTime * movement);
     }
 }
