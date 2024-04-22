@@ -6,10 +6,11 @@ public class CameraController : MonoBehaviour {
     public Transform target;
     public float smoothing = 1f;
     public Vector3 targetposition,originalposition;
-    public bool NPC;
+    public bool NPC,train;
     // Start is called before the first frame update
     void Start() {
         NPC = false;
+        train = false;
         originalposition = transform.position;
     }
 

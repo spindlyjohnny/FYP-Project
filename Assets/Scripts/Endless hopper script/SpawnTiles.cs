@@ -31,8 +31,13 @@ public class SpawnTiles : MonoBehaviour
         {
             if (once)
             {
-                Instantiate(tile, spawnpt.position, spawnpt.rotation);
-                if (Random.Range(0, 2) == 0) NPC.SetActive(false); else NPC.SetActive(true);
+                GameObject go = Instantiate(tile, spawnpt.position, spawnpt.rotation);
+                if (Random.Range(0, 2) == 0) {
+                    go.GetComponent<SpawnTiles>().NPC.SetActive(false);
+                }
+                else {
+                    go.GetComponent<SpawnTiles>().NPC.SetActive(true);
+                }
                 once = false;
             }
 
