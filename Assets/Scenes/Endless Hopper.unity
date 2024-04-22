@@ -123,6 +123,140 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &106113617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 106113618}
+  - component: {fileID: 106113620}
+  - component: {fileID: 106113619}
+  m_Layer: 5
+  m_Name: Explanation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &106113618
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106113617}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.80555, y: 0.80555, z: 0.80555}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 667861107}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -258, y: -25}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &106113619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106113617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: jok explain
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 40.66
+  m_fontSizeBase: 40.66
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: -65.60313, y: 0, z: -703.93524, w: -457.9631}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &106113620
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106113617}
+  m_CullTransparentMesh: 1
 --- !u!1 &181431301
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,6 +269,7 @@ GameObject:
   - component: {fileID: 181431305}
   - component: {fileID: 181431304}
   - component: {fileID: 181431303}
+  - component: {fileID: 181431306}
   m_Layer: 5
   m_Name: Option C Button
   m_TagString: Untagged
@@ -205,7 +340,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 181431304}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 181431306}
+        m_TargetAssemblyTypeName: Question, Assembly-CSharp
+        m_MethodName: AnswerQuestion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &181431304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +391,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181431301}
   m_CullTransparentMesh: 1
+--- !u!114 &181431306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181431301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcfa93491337ac246975872c54fc90e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  option: 1
 --- !u!1 &323359539
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +422,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &323359540
 RectTransform:
   m_ObjectHideFlags: 0
@@ -524,6 +684,7 @@ GameObject:
   - component: {fileID: 385452751}
   - component: {fileID: 385452750}
   - component: {fileID: 385452749}
+  - component: {fileID: 385452752}
   m_Layer: 5
   m_Name: Option B Button
   m_TagString: Untagged
@@ -594,7 +755,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 385452750}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 385452752}
+        m_TargetAssemblyTypeName: Question, Assembly-CSharp
+        m_MethodName: AnswerQuestion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &385452750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -633,6 +806,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385452747}
   m_CullTransparentMesh: 1
+--- !u!114 &385452752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385452747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcfa93491337ac246975872c54fc90e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  option: 1
 --- !u!1 &387173970
 GameObject:
   m_ObjectHideFlags: 0
@@ -645,6 +831,7 @@ GameObject:
   - component: {fileID: 387173974}
   - component: {fileID: 387173973}
   - component: {fileID: 387173972}
+  - component: {fileID: 387173975}
   m_Layer: 5
   m_Name: Option D Button
   m_TagString: Untagged
@@ -715,7 +902,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 387173973}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 387173975}
+        m_TargetAssemblyTypeName: Question, Assembly-CSharp
+        m_MethodName: AnswerQuestion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &387173973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -754,6 +953,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387173970}
   m_CullTransparentMesh: 1
+--- !u!114 &387173975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387173970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcfa93491337ac246975872c54fc90e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  option: 1
 --- !u!1 &488252766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1039,7 +1251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &667861107
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1052,6 +1264,7 @@ RectTransform:
   m_LocalScale: {x: 0.56204325, y: 0.56204325, z: 0.56204325}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 106113618}
   - {fileID: 1482969498}
   - {fileID: 383012257}
   - {fileID: 1910471615}
@@ -1118,6 +1331,7 @@ GameObject:
   - component: {fileID: 709527952}
   - component: {fileID: 709527951}
   - component: {fileID: 709527950}
+  - component: {fileID: 709527953}
   m_Layer: 5
   m_Name: Option A Button
   m_TagString: Untagged
@@ -1188,7 +1402,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 709527951}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 709527953}
+        m_TargetAssemblyTypeName: Question, Assembly-CSharp
+        m_MethodName: AnswerQuestion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &709527951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1227,6 +1453,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709527948}
   m_CullTransparentMesh: 1
+--- !u!114 &709527953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709527948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcfa93491337ac246975872c54fc90e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  option: 0
 --- !u!1 &905886118
 GameObject:
   m_ObjectHideFlags: 0
@@ -2117,17 +2356,37 @@ PrefabInstance:
     m_TransformParent: {fileID: 2744551308547605598}
     m_Modifications:
     - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: explain
+      value: jok explain
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: nametext
       value: 
       objectReference: {fileID: 488252768}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: question
+      value: I've been a question boy, and you've been questioned.
+      objectReference: {fileID: 0}
     - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: dialoguebox
       value: 
       objectReference: {fileID: 323359539}
     - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: explaintext
+      value: 
+      objectReference: {fileID: 106113619}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: questionbox
+      value: 
+      objectReference: {fileID: 667861106}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: dialoguetext
       value: 
       objectReference: {fileID: 1132753881}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: questiontext
+      value: 
+      objectReference: {fileID: 1482969499}
     - target: {fileID: 2706827409266945451, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.0034955936
@@ -2188,7 +2447,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8159928931440276584, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
