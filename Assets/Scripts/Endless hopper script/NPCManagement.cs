@@ -25,7 +25,8 @@ public class NPCManagement : MonoBehaviour
                 myNPC.dialoguetext.text = ""; // reset text
                 StartCoroutine(myNPC.Dialogue());
             } else {
-                myNPC.EndDialogue();
+                if (!myNPC.questionbox.activeSelf) myNPC.questionbox.SetActive(true);
+                //myNPC.EndDialogue();
             }
         }
     }

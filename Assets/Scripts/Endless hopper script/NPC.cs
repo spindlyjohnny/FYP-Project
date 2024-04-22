@@ -10,20 +10,22 @@ public class NPC : MonoBehaviour
     CameraController cam;
     Player player;
     public string[] dialogue;
-    public string NPCname;
-    public TMP_Text dialoguetext,questiontext;
+    public string NPCname,question,explain;
+    public TMP_Text dialoguetext,questiontext,explaintext;
     public TMP_Text nametext;
     public float wordspeed;
     public int currentline;
     bool spoken;
     NPCManagement npcmanager;
-    public enum Options { CorrectOption,WrongOption1,WrongOption2,WrongOption3 };
+    
     // Start is called before the first frame update
     void Start()
     {
         cam = FindObjectOfType<CameraController>();
         player = FindObjectOfType<Player>();
         nametext.text = NPCname;
+        questiontext.text = question;
+        explaintext.text = explain;
         npcmanager = FindObjectOfType<NPCManagement>();
     }
 
