@@ -9,6 +9,7 @@ public class GridManager : MonoBehaviour
     string currentGridSquare= "null";
     public Camera cam;
     float rayLength = 100;
+    public float gridDistance = 1;
     RaycastHit hit;
     public LayerMask mask;
     // Start is called before the first frame update
@@ -25,7 +26,8 @@ public class GridManager : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray, out hit, rayLength, mask))
             {
-                print(hit.collider.tag);
+                if (currentGridSquare == hit.collider.name) return;
+                
                 CheckAdjacent();
             }
         }
@@ -33,50 +35,65 @@ public class GridManager : MonoBehaviour
 
     void CheckAdjacent()
     {
-
+        currentGridSquare = hit.collider.name;
         if (pathSquare.Count == 0 && hit.collider.gameObject.layer ==7)
         {
-            currentGridSquare = hit.collider.name;
             pathSquare.Add(hit.collider.gameObject);
         }
-        else if (pathSquare.Count>0 && CheckWhetherItIsAdjacent(hit.collider.gameObject))
+        else if (pathSquare.Count>=1 && CheckWhetherItIsAdjacent(hit.collider.gameObject))
         {
-            if(pathSquare.Find(i => i = hit.collider.gameObject) && currentGridSquare==hit.collider.name)//if the raycast goes back to the same 
+            if (!pathSquare.Contains(hit.collider.gameObject))pathSquare.Add(hit.collider.gameObject);            
+            if (pathSquare.Count >= 2)
             {
-                pathSquare.RemoveAt(pathSquare.Count-1);
-            }
+                if (pathSquare.ToArray()[pathSquare.Count - 2] == hit.collider.gameObject && currentGridSquare==hit.collider.name)//if the raycast goes back to the same square
+                {
+                    pathSquare.RemoveAt(pathSquare.Count-1);
+                }
+            } 
         }
     }
 
-    bool CheckWhetherItIsAdjacent(GameObject currentGrid)
+    bool CheckWhetherItIsAdjacent(GameObject currentGrid)//this return true if the adjacent squares are marked
     {
-        float numberOfSquareThatIsNotAdjacent= 0;
+        float numberOfNotMarkedSquareThatIsAdjacent= 0;
+        float totalnumberOfAdjacentSquare = 0;
         RaycastHit hit;
-        if (Physics.Raycast(currentGrid.transform.position+ new Vector3(1,0.2f,0),
+        if (Physics.Raycast(currentGrid.transform.position+ new Vector3(gridDistance, 0.2f,0),
             transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, mask))//checking east grid
         {
-            if(pathSquare.Find(i => i = hit.collider.gameObject) ==false)//if the grid  
-            { numberOfSquareThatIsNotAdjacent += 1; }
+            totalnumberOfAdjacentSquare += 1;
+            if (pathSquare.ToArray()[pathSquare.Count - 1] == hit.collider.gameObject)//if the east grid is not marked, then add to the number of unmarked square  
+            { numberOfNotMarkedSquareThatIsAdjacent += 1;    }
         }
-        if (Physics.Raycast(currentGrid.transform.position + new Vector3(-1, 0.2f, 0),
+        if (Physics.Raycast(currentGrid.transform.position + new Vector3(-gridDistance, 0.2f, 0),
             transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, mask))//checking west grid
         {
-            if (pathSquare.Find(i => i = hit.collider.gameObject) == false)
-            { numberOfSquareThatIsNotAdjacent += 1; }
+            totalnumberOfAdjacentSquare += 1;
+            if (pathSquare.ToArray()[pathSquare.Count - 1] == hit.collider.gameObject)//if the west grid is not marked, then add to the number of unmarked square  
+            {
+                numberOfNotMarkedSquareThatIsAdjacent += 1;
+            }
         }
-        if (Physics.Raycast(currentGrid.transform.position + new Vector3(0, 0.2f, -1),
+        if (Physics.Raycast(currentGrid.transform.position + new Vector3(0, 0.2f, -gridDistance),
            transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, mask))//checking south grid
         {
-            if (pathSquare.Find(i => i = hit.collider.gameObject) == false)
-            { numberOfSquareThatIsNotAdjacent += 1; }
+            totalnumberOfAdjacentSquare += 1;
+            if (pathSquare.ToArray()[pathSquare.Count - 1] == hit.collider.gameObject)//if the south grid is not marked, then add to the number of unmarked square  
+            {
+                numberOfNotMarkedSquareThatIsAdjacent += 1;
+
+            }
         }
-        if (Physics.Raycast(currentGrid.transform.position + new Vector3(0, 0.2f, 1),
+        if (Physics.Raycast(currentGrid.transform.position + new Vector3(0, 0.2f, gridDistance),
            transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, mask))//checking north grid
         {
-            if (pathSquare.Find(i => i = hit.collider.gameObject) == false)
-            { numberOfSquareThatIsNotAdjacent += 1; }
+            totalnumberOfAdjacentSquare += 1;
+            if (pathSquare.ToArray()[pathSquare.Count-1]==hit.collider.gameObject)//if the norht grid is not marked, then add to the number of unmarked square  
+            { numberOfNotMarkedSquareThatIsAdjacent += 1; }
         }
-        if (numberOfSquareThatIsNotAdjacent == 4) return false;
+        print(numberOfNotMarkedSquareThatIsAdjacent);
+        print(totalnumberOfAdjacentSquare);
+        if (numberOfNotMarkedSquareThatIsAdjacent ==0 ) return false;//there is unmarked square than the total number of square, there is one marked squre adjacent
         else return true;
         
     }
