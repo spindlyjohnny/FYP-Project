@@ -45,7 +45,13 @@ public class GridManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //the player move from the start to the end
+            Move();
         }
+    }
+
+    private void Move()
+    {
+        
     }
 
     void markingSquare()

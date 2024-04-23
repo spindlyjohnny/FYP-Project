@@ -1424,6 +1424,7 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 192
+  Arrow: {fileID: 0}
 --- !u!4 &2061086474
 Transform:
   m_ObjectHideFlags: 0
@@ -1500,7 +1501,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d11d4038ab935ee43999909e41ca44d1, type: 2}
+  - {fileID: 2100000, guid: e47761f760d43504da65acc9427a814d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
