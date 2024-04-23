@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour {
-    public Transform target;
+    public Transform target,originalposition;
     public float smoothing = 1f;
-    public Vector3 targetposition,originalposition;
-    public bool NPC,train;
+    public Vector3 targetposition;
+    public bool NPC/*,train*/;
     // Start is called before the first frame update
     void Start() {
         NPC = false;
-        train = false;
-        originalposition = transform.position;
+        //train = false;
+        originalposition = FindObjectOfType<Player>().transform.GetChild(0).transform;
     }
 
     // Update is called once per frame

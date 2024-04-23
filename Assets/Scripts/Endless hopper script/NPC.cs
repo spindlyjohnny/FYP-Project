@@ -10,14 +10,14 @@ public class NPC : MonoBehaviour
     CameraController cam;
     Player player;
     public string[] dialogue;
-    public string NPCname,question,explain;
-    public TMP_Text dialoguetext,questiontext,explaintext;
+    public string NPCname,question,explain,optionA,optionB,optionC,optionD;
+    public TMP_Text dialoguetext,questiontext,explaintext,optionAtext,optionBtext,optionCtext,optionDtext;
     public TMP_Text nametext;
     public float wordspeed;
     public int currentline;
     bool spoken;
     NPCManagement npcmanager;
-    
+    //public Dictionary<TMP_Text,string> options = new Dictionary<TMP_Text,string>();
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +26,10 @@ public class NPC : MonoBehaviour
         nametext.text = NPCname;
         questiontext.text = question;
         explaintext.text = explain;
+        optionAtext.text = "a)" + optionA;
+        optionBtext.text = "b)" + optionB;
+        optionCtext.text = "c)" + optionC;
+        optionDtext.text = "d)" + optionD;
         npcmanager = FindObjectOfType<NPCManagement>();
     }
 
@@ -54,7 +58,7 @@ public class NPC : MonoBehaviour
         player.canMove = true;
         cam.target = player.transform;
         cam.NPC = false;
-        cam.transform.position = cam.originalposition;
+        cam.transform.position = cam.originalposition.position;
         cam.smoothing = 1;
         spoken = true;
         //dialoguetext.text = "";

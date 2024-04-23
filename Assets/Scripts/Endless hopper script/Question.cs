@@ -9,7 +9,7 @@ public class Question : MonoBehaviour
     NPCManagement npcmanager;
     // Start is called before the first frame update
     void Start() {
-        option = Options.nulloption;
+        npcmanager = FindObjectOfType<NPCManagement>();
     }
 
     // Update is called once per frame
@@ -18,18 +18,28 @@ public class Question : MonoBehaviour
     }
     public void AnswerQuestion() {
         if (option == Options.WrongOption) {
-           StartCoroutine(Explain());
-        } else if (option == Options.CorrectOption) {
+            Explain();
+        } 
+        else if (option == Options.CorrectOption) {
             npcmanager.myNPC.questionbox.SetActive(false);
             npcmanager.myNPC.EndDialogue();
+            // play some sound.
         }
     }
-    public IEnumerator Explain() {
-        foreach(GameObject i in npcmanager.myNPC.questionbox.transform.GetComponentInChildren<Transform>()) {
-            if (i.name == "Explanation" || i.name == "Question Panel") i.SetActive(true);
-            else i.SetActive(false);
+    public void Explain() {
+        for(int i = 0; i < npcmanager.myNPC.questionbox.transform.childCount; i++) {
+            GameObject go = npcmanager.myNPC.questionbox.transform.GetChild(i).gameObject;
+            if (go.name == "Explanation" || go.name == "Question Panel" || go.name == "Close Button") go.SetActive(true);
+            else go.SetActive(false);
         }
-        yield return new WaitForSeconds(10);
+    }
+    public void CloseQuestion() {
+        npcmanager.myNPC.questionbox.SetActive(false);
         npcmanager.myNPC.EndDialogue();
+        for (int i = 0; i < npcmanager.myNPC.questionbox.transform.childCount; i++) {
+            GameObject go = npcmanager.myNPC.questionbox.transform.GetChild(i).gameObject;
+            if (go.name == "Explanation" || go.name == "Close Button") go.SetActive(false);
+            else go.SetActive(true);
+        }
     }
 }
