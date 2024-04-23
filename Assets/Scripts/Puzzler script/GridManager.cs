@@ -5,17 +5,26 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
     public List<GameObject> pathSquare;
-    GameObject[] oBject;
     string currentGridSquare= "null";
     public Camera cam;
     float rayLength = 100;
     public float gridDistance = 1;
     RaycastHit hit;
     public LayerMask mask;
+    public GameObject Arrow;
     // Start is called before the first frame update
     void Start()
     {
         pathSquare.Clear();
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.grey;
+        foreach (GameObject G in pathSquare)
+        {            
+            Gizmos.DrawWireSphere(G.transform.position + new Vector3(0, 0.5f, 0), 0.5f);
+        }
     }
 
     // Update is called once per frame
@@ -29,8 +38,24 @@ public class GridManager : MonoBehaviour
                 if (currentGridSquare == hit.collider.name) return;
                 
                 CheckAdjacent();
+                //markingSquare();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //the player move from the start to the end
+        }
+    }
+
+    void markingSquare()
+    {
+        //this function is used to color the marked squares
+        for(int i =0;i < pathSquare.Count; i++)
+        {
+            GameObject arrow = Instantiate(Arrow, pathSquare.ToArray()[i].transform.position + new Vector3(0, 0.1f, 0), Quaternion.identity);
+        }
+ 
     }
 
     void CheckAdjacent()
