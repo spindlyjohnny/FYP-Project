@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2625,23 +2625,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: explain
-      value: jok explain
+      value: thats not where the station is
       objectReference: {fileID: 0}
     - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: optionA
-      value: amongus
+      value: go straight
       objectReference: {fileID: 0}
     - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: optionB
-      value: amogus
+      value: turn left
       objectReference: {fileID: 0}
     - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: optionC
-      value: amon gus
+      value: turn right
       objectReference: {fileID: 0}
     - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: optionD
-      value: amongoose
+      value: go back
       objectReference: {fileID: 0}
     - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: nametext
@@ -2649,7 +2649,7 @@ PrefabInstance:
       objectReference: {fileID: 488252768}
     - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: question
-      value: I've been a question boy, and you've been questioned.
+      value: can you tell me how to get to the station?
       objectReference: {fileID: 0}
     - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: dialoguebox
@@ -2687,6 +2687,14 @@ PrefabInstance:
       propertyPath: questiontext
       value: 
       objectReference: {fileID: 1482969499}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: can you tell me
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: dialogue.Array.data[2]
+      value: how to get to the station?
+      objectReference: {fileID: 0}
     - target: {fileID: 2706827409266945451, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.0034955936

@@ -18,7 +18,7 @@ public class NPC : MonoBehaviour
     public int currentline;
     bool spoken;
     NPCManagement npcmanager;
-    string[] names;
+    string[] names,questions;
     //public Dictionary<TMP_Text,string> options = new Dictionary<TMP_Text,string>();
     // Start is called before the first frame update
     void Start()
@@ -26,6 +26,7 @@ public class NPC : MonoBehaviour
         cam = FindObjectOfType<CameraController>();
         player = FindObjectOfType<Player>();
         names = File.ReadAllLines("Assets\\Misc\\first-names.txt");
+        questions = File.ReadAllLines("Assets\\Misc\\questions.txt");
         NPCname = names[Random.Range(0, names.Length)];
         nametext.text = NPCname;
         questiontext.text = question;
