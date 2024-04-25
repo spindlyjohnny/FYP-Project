@@ -28,7 +28,14 @@ public class MovingObstacle : MonoBehaviour
             {
                 selectedObject = hit.collider.gameObject;
                 collider = hit.collider.GetComponent<CapsuleCollider>();
+                if (Physics.Raycast(selectedObject.transform.position, -Vector3.up, out hit, 100, Mask))
+                {
+                    print(hit.collider.gameObject.name);
+                    hit.collider.gameObject.layer = 6;
+                }
             }
+
+
         }
        
         if (Input.GetMouseButton(1))
@@ -44,10 +51,8 @@ public class MovingObstacle : MonoBehaviour
         if (Input.GetMouseButtonUp(1))//upon release the obstacle is deselected
         {
             if (selectedObject == null) return;
-            print("yes");
             if (Physics.Raycast(selectedObject.transform.position, -Vector3.up, out hit, 100,Mask))
             {
-                print(hit.collider.name);
                 hit.collider.gameObject.layer = 9;
             }
             grid.RemoveDownList();
