@@ -21,6 +21,8 @@ public class NPC : MonoBehaviour
     NPCManagement npcmanager;
     string[] names,questions,explains;
     public float movespeed;
+    LevelManager levelManager;
+    public Transform startpos;
     //Rigidbody rb;
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,8 @@ public class NPC : MonoBehaviour
         optionCtext.text = "c)" + optionC;
         optionDtext.text = "d)" + optionD;
         npcmanager = FindObjectOfType<NPCManagement>();
+        levelManager = FindObjectOfType<LevelManager>();
+        //startpos = transform.position;
         //rb = GetComponent<Rigidbody>();
     }
 
@@ -61,8 +65,11 @@ public class NPC : MonoBehaviour
             StartDialogue();
         }
     }
-    private void OnTriggerStay(Collider other) {
-      
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.GetComponent<Vehicle>()) { 
+            gameObject.SetActive(false);
+            levelManager.gameover = true;
+        }
     }
     void StartDialogue() {
         dialoguebox.SetActive(true);

@@ -197,4 +197,4 @@ MonoBehaviour:
   currentline: 0
   followplayer: 0
   movespeed: 0
-  destination: {fileID: 0}
+  startpos: {fileID: 0}

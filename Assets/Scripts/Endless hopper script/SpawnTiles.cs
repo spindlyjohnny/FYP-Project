@@ -33,11 +33,14 @@ public class SpawnTiles : MonoBehaviour
             if (once)
             {
                 go = Instantiate(tile, spawnpt.position, spawnpt.rotation);
-                if (Random.Range(0, 2) == 0) {
+                int rng = Random.Range(0, 2);
+                print(rng);
+                if (rng == 0) {
                     go.GetComponent<SpawnTiles>().NPC.SetActive(false);
                 }
                 else {
                     go.GetComponent<SpawnTiles>().NPC.SetActive(true);
+                    go.GetComponent<SpawnTiles>().NPC.transform.position = go.GetComponent<SpawnTiles>().NPC.GetComponent<NPC>().startpos.position;
                 }
                 once = false;
                 //if(!FindObjectOfType<CameraController>().NPC)Destroy(go, 100);
@@ -46,6 +49,7 @@ public class SpawnTiles : MonoBehaviour
         }
     }
     private void OnTriggerExit(Collider other) {
-        Destroy(go);
+        //NPC.transform.position = NPC.GetComponent<NPC>().startpos;
+        Destroy(gameObject);
     }
 }

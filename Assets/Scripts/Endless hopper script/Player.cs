@@ -7,10 +7,12 @@ public class Player : MonoBehaviour
     Vector3 movement;
     public float movespeed;
     public bool canMove;
+    LevelManager levelManager;
     // Start is called before the first frame update
     void Start()
     {
         canMove = true;
+        levelManager = FindObjectOfType<LevelManager>();
     }
 
     // Update is called once per frame
@@ -20,5 +22,11 @@ public class Player : MonoBehaviour
         if (canMove)transform.Translate(movespeed * Time.deltaTime * movement);
         //Quaternion toRotation = Quaternion.LookRotation(movement.normalized, Vector3.up);
         //transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 12 * Time.deltaTime);
+    }
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.GetComponent<Vehicle>()) {
+            gameObject.SetActive(false);
+            levelManager.gameover = true;
+        }
     }
 }
