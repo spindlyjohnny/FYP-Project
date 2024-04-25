@@ -17,20 +17,22 @@ public class NPC : MonoBehaviour
     public float wordspeed;
     public int currentline;
     bool spoken;
+    public bool followplayer;
     NPCManagement npcmanager;
     string[] names,questions,explains;
-    //public Dictionary<TMP_Text,string> options = new Dictionary<TMP_Text,string>();
+    public float movespeed;
+    //Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
         cam = FindObjectOfType<CameraController>();
         player = FindObjectOfType<Player>();
         names = File.ReadAllLines("Assets\\Misc\\first-names.txt");
-        questions = File.ReadAllLines("Assets\\Misc\\questions.txt");
-        explains = File.ReadAllLines("Assets\\Misc\\explanations.txt");
-        int qnindex = Random.Range(0,questions.Length);
-        question = questions[qnindex];
-        explain = explains[qnindex];
+        //questions = File.ReadAllLines("Assets\\Misc\\questions.txt");
+        //explains = File.ReadAllLines("Assets\\Misc\\explanations.txt");
+        //int qnindex = Random.Range(0,questions.Length);
+        //question = questions[qnindex];
+        //explain = explains[qnindex];
         NPCname = names[Random.Range(0, names.Length)];
         nametext.text = NPCname;
         questiontext.text = question;
@@ -40,12 +42,17 @@ public class NPC : MonoBehaviour
         optionCtext.text = "c)" + optionC;
         optionDtext.text = "d)" + optionD;
         npcmanager = FindObjectOfType<NPCManagement>();
+        //rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        FollowPlayer();
+        if (Input.GetKeyDown(KeyCode.F)) {
+            followplayer = false;
+            // play some sound.
+        }
     }
     private void OnTriggerEnter(Collider other) {
         if (other.GetComponent<Player>() && !spoken) {
@@ -53,6 +60,9 @@ public class NPC : MonoBehaviour
             CameraPan();
             StartDialogue();
         }
+    }
+    private void OnTriggerStay(Collider other) {
+      
     }
     void StartDialogue() {
         dialoguebox.SetActive(true);
@@ -88,5 +98,12 @@ public class NPC : MonoBehaviour
         cam.NPC = true;
         cam.smoothing = 2f;
         cam.transform.position = Vector3.Lerp(transform.position, cam.targetposition, Time.deltaTime * cam.smoothing);
+    }
+    public void FollowPlayer() {
+        if (!followplayer) return;
+        Vector3 dir = (player.transform.position - transform.position);
+        //rb.velocity = dir * movespeed;
+        transform.Translate(movespeed * Time.deltaTime * dir);
+        //transform.position = Vector3.Lerp(transform.position, player.transform.position, Time.deltaTime * movespeed);
     }
 }

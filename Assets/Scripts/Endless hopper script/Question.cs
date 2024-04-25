@@ -18,11 +18,14 @@ public class Question : MonoBehaviour
     }
     public void AnswerQuestion() {
         if (option == Options.WrongOption) {
-            Explain();
+            //Explain();
+            npcmanager.myNPC.questionbox.SetActive(false);
+            npcmanager.myNPC.EndDialogue();
         } 
         else if (option == Options.CorrectOption) {
             npcmanager.myNPC.questionbox.SetActive(false);
             npcmanager.myNPC.EndDialogue();
+            npcmanager.myNPC.followplayer = true;
             // play some sound.
         }
     }

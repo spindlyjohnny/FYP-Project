@@ -18,5 +18,7 @@ public class Player : MonoBehaviour
     {
         movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         if (canMove)transform.Translate(movespeed * Time.deltaTime * movement);
+        //Quaternion toRotation = Quaternion.LookRotation(movement.normalized, Vector3.up);
+        //transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 12 * Time.deltaTime);
     }
 }

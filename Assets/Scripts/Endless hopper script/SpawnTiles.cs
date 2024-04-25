@@ -8,6 +8,7 @@ public class SpawnTiles : MonoBehaviour
     public GameObject tile;
     bool once=true;
     [SerializeField]GameObject NPC;
+    GameObject go;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +32,7 @@ public class SpawnTiles : MonoBehaviour
         {
             if (once)
             {
-                GameObject go = Instantiate(tile, spawnpt.position, spawnpt.rotation);
+                go = Instantiate(tile, spawnpt.position, spawnpt.rotation);
                 if (Random.Range(0, 2) == 0) {
                     go.GetComponent<SpawnTiles>().NPC.SetActive(false);
                 }
@@ -39,9 +40,12 @@ public class SpawnTiles : MonoBehaviour
                     go.GetComponent<SpawnTiles>().NPC.SetActive(true);
                 }
                 once = false;
-                if(!FindObjectOfType<CameraController>().NPC)Destroy(go, 100);
+                //if(!FindObjectOfType<CameraController>().NPC)Destroy(go, 100);
             }
 
         }
+    }
+    private void OnTriggerExit(Collider other) {
+        Destroy(go);
     }
 }

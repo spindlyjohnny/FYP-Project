@@ -181,9 +181,20 @@ MonoBehaviour:
   NPCname: Jeremy
   question: 
   explain: 
+  optionA: 
+  optionB: 
+  optionC: 
+  optionD: 
   dialoguetext: {fileID: 0}
   questiontext: {fileID: 0}
   explaintext: {fileID: 0}
+  optionAtext: {fileID: 0}
+  optionBtext: {fileID: 0}
+  optionCtext: {fileID: 0}
+  optionDtext: {fileID: 0}
   nametext: {fileID: 0}
-  wordspeed: 0.1
+  wordspeed: 0.05
   currentline: 0
+  followplayer: 0
+  movespeed: 0
+  destination: {fileID: 0}
