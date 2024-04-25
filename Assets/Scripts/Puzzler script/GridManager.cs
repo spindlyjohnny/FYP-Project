@@ -24,15 +24,6 @@ public class GridManager : MonoBehaviour
         movement = FindObjectOfType<PlayerMoving>();
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.grey;
-        foreach (GameObject G in pathSquare)
-        {            
-            Gizmos.DrawWireSphere(G.transform.position + new Vector3(0, 0.5f, 0), 0.5f);
-        }
-    }
-
     // Update is called once per frame
     void Update()
     {      
@@ -68,14 +59,11 @@ public class GridManager : MonoBehaviour
         }
         for(int i =0; i < pathSquare.Count; i++)
         {
-            print("yes");
             if(i != 0  && i !=pathSquare.Count-1)
             {
-                print(i);
                 pathSquare[i].GetComponent<Renderer>().material = pastGridMaterial;
             }else if(i == pathSquare.Count - 1)
-            {
-                print(pathSquare[pathSquare.Count - 1].name);
+            { 
                 pathSquare[i].GetComponent<Renderer>().material = starterGridMaterial;
             }
             else
@@ -150,5 +138,27 @@ public class GridManager : MonoBehaviour
         
     }
 
+    public void RemoveDownList()
+    {
+        int selectedNumber = -100;
+        for(int i=0; i < pathSquare.Count; i++)
+        {
+            print(pathSquare[i].gameObject.layer);
+            if (pathSquare[i].gameObject.layer == 9)
+            {
+                selectedNumber = i;
+            }
+            
+        }
+        if (selectedNumber > -10)
+        {
+            for(int i= pathSquare.Count - 1; i >= selectedNumber; i--)
+            {
+                pathSquare[i].GetComponent<Renderer>().enabled = false;
+                pathSquare.RemoveAt(i);
+            }
+        }
+        markingSquare();
+    }
     
 }
