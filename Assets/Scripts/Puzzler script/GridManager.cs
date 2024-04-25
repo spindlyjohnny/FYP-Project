@@ -9,13 +9,19 @@ public class GridManager : MonoBehaviour
     public Camera cam;
     float rayLength = 100;
     public float gridDistance = 1;
+    public bool moving=false;
     RaycastHit hit;
     public LayerMask mask;
     public GameObject Arrow;
+    public Material currentGridMaterial;
+    public Material pastGridMaterial;
+    public Material starterGridMaterial;
+    PlayerMoving movement;
     // Start is called before the first frame update
     void Start()
     {
         pathSquare.Clear();
+        movement = FindObjectOfType<PlayerMoving>();
     }
 
     private void OnDrawGizmos()
@@ -32,36 +38,52 @@ public class GridManager : MonoBehaviour
     {      
         if (Input.GetMouseButton(0))
         {
+            if (moving) return;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray, out hit, rayLength, mask))
             {
                 if (currentGridSquare == hit.collider.name) return;
                 
                 CheckAdjacent();
-                //markingSquare();
+                markingSquare();
             }
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (pathSquare.Count < 2) return; 
+            if (moving) return;
+            moving = true;
             //the player move from the start to the end
-            Move();
+            movement.MovingNow(pathSquare);
         }
-    }
-
-    private void Move()
-    {
-        
     }
 
     void markingSquare()
     {
         //this function is used to color the marked squares
-        for(int i =0;i < pathSquare.Count; i++)
+        foreach(GameObject i in pathSquare)
         {
-            GameObject arrow = Instantiate(Arrow, pathSquare.ToArray()[i].transform.position + new Vector3(0, 0.1f, 0), Quaternion.identity);
+            i.GetComponent<MeshRenderer>().enabled = true;
         }
- 
+        for(int i =0; i < pathSquare.Count; i++)
+        {
+            print("yes");
+            if(i != 0  && i !=pathSquare.Count-1)
+            {
+                print(i);
+                pathSquare[i].GetComponent<Renderer>().material = pastGridMaterial;
+            }else if(i == pathSquare.Count - 1)
+            {
+                print(pathSquare[pathSquare.Count - 1].name);
+                pathSquare[i].GetComponent<Renderer>().material = starterGridMaterial;
+            }
+            else
+            {
+                pathSquare[i].GetComponent<Renderer>().material = currentGridMaterial;
+            }
+        }
+        
     }
 
     void CheckAdjacent()
@@ -78,6 +100,7 @@ public class GridManager : MonoBehaviour
             {
                 if (pathSquare.ToArray()[pathSquare.Count - 2] == hit.collider.gameObject && currentGridSquare==hit.collider.name)//if the raycast goes back to the same square
                 {
+                    pathSquare[pathSquare.Count - 1].GetComponent<MeshRenderer>().enabled = false;
                     pathSquare.RemoveAt(pathSquare.Count-1);
                 }
             } 
@@ -122,8 +145,6 @@ public class GridManager : MonoBehaviour
             if (pathSquare.ToArray()[pathSquare.Count-1]==hit.collider.gameObject)//if the norht grid is not marked, then add to the number of unmarked square  
             { numberOfNotMarkedSquareThatIsAdjacent += 1; }
         }
-        print(numberOfNotMarkedSquareThatIsAdjacent);
-        print(totalnumberOfAdjacentSquare);
         if (numberOfNotMarkedSquareThatIsAdjacent ==0 ) return false;//there is unmarked square than the total number of square, there is one marked squre adjacent
         else return true;
         
