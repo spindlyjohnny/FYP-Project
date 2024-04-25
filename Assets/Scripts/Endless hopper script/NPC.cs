@@ -22,7 +22,7 @@ public class NPC : MonoBehaviour
     string[] names,questions,explains;
     public float movespeed;
     LevelManager levelManager;
-    public Transform startpos;
+    public Vector3 startpos;
     //Rigidbody rb;
     // Start is called before the first frame update
     void Start()
@@ -45,7 +45,7 @@ public class NPC : MonoBehaviour
         optionDtext.text = "d)" + optionD;
         npcmanager = FindObjectOfType<NPCManagement>();
         levelManager = FindObjectOfType<LevelManager>();
-        //startpos = transform.position;
+        startpos = transform.localPosition;
         //rb = GetComponent<Rigidbody>();
     }
 

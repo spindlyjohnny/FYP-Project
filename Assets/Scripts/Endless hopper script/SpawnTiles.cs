@@ -40,7 +40,7 @@ public class SpawnTiles : MonoBehaviour
                 }
                 else {
                     go.GetComponent<SpawnTiles>().NPC.SetActive(true);
-                    go.GetComponent<SpawnTiles>().NPC.transform.position = go.GetComponent<SpawnTiles>().NPC.GetComponent<NPC>().startpos.position;
+                    go.GetComponent<SpawnTiles>().NPC.transform.localPosition = go.GetComponent<SpawnTiles>().NPC.GetComponent<NPC>().startpos;
                 }
                 once = false;
                 //if(!FindObjectOfType<CameraController>().NPC)Destroy(go, 100);
