@@ -8,11 +8,14 @@ public class Player : MonoBehaviour
     public float movespeed;
     public bool canMove;
     LevelManager levelManager;
+    //NPCManagement npcmanager;
     // Start is called before the first frame update
     void Start()
     {
         canMove = true;
         levelManager = FindObjectOfType<LevelManager>();
+        //npcmanager = FindObjectOfType<NPCManagement>();
+        
     }
 
     // Update is called once per frame

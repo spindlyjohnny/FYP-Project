@@ -55,6 +55,7 @@ public class NPC : MonoBehaviour
         FollowPlayer();
         if (Input.GetKeyDown(KeyCode.F)) {
             followplayer = false;
+            print("yay");
             // play some sound.
         }
     }
