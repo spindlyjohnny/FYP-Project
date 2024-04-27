@@ -86,7 +86,7 @@ public class NPC : MonoBehaviour
         cam.target = player.transform;
         cam.NPC = false;
         cam.transform.position = cam.originalposition.position;
-        cam.smoothing = 1;
+        cam.smoothing = 3;
         spoken = true;
         //dialoguetext.text = "";
         //if (!spoken) { // ensures spokencount is only increased once
@@ -104,7 +104,7 @@ public class NPC : MonoBehaviour
     void CameraPan() {
         cam.target = transform.GetChild(0);
         cam.NPC = true;
-        cam.smoothing = 2f;
+        cam.smoothing = 4f;
         cam.transform.position = Vector3.Lerp(transform.position, cam.targetposition, Time.deltaTime * cam.smoothing);
     }
     public void FollowPlayer() {

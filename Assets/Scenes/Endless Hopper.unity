@@ -4126,7 +4126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 7254578148044342717}
   originalposition: {fileID: 0}
-  smoothing: 1
+  smoothing: 3
+  lookOffset: -5
   targetposition: {x: 0, y: 0, z: 0}
   NPC: 0
 --- !u!1 &1910471614
