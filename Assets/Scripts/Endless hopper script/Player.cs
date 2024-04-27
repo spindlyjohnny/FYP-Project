@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
         //transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 12 * Time.deltaTime);
     }
     private void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.GetComponent<Vehicle>()) {
+        if (collision.gameObject.layer == 8) {
             gameObject.SetActive(false);
             levelManager.gameover = true;
         }

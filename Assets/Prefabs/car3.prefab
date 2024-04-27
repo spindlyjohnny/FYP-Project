@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6769379596753727224}
   - component: {fileID: 5044310882412497078}
   - component: {fileID: 6531228428026843044}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8425544123399885725}
   - component: {fileID: 280556484349559750}
   - component: {fileID: 5601997152003544363}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 8321738981101631462}
   - component: {fileID: 7245164255136736450}
   - component: {fileID: 8335548562752807573}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 3042702468878195268}
   - component: {fileID: 8428023571716906658}
   - component: {fileID: 782814160310961201}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 1284600325805882133}
   - component: {fileID: 1049791691764827146}
   - component: {fileID: 4943129481706751879}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 6347926260555369434}
   - component: {fileID: 5286953188659606043}
   - component: {fileID: 2826380576392684332}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: car3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -544,6 +544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a8f43a23800be4cbc58af47a3eadfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myspawner: {fileID: 0}
 --- !u!54 &2826380576392684332
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -582,7 +583,7 @@ GameObject:
   - component: {fileID: 4291831701444574721}
   - component: {fileID: 3941458280050091622}
   - component: {fileID: 112869904043238801}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -665,7 +666,7 @@ GameObject:
   - component: {fileID: 1275517266952920135}
   - component: {fileID: 6100309680089975889}
   - component: {fileID: 4682630680559767223}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -748,7 +749,7 @@ GameObject:
   - component: {fileID: 5101123041158720320}
   - component: {fileID: 2624120526427252512}
   - component: {fileID: 2411770703493571241}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -831,7 +832,7 @@ GameObject:
   - component: {fileID: 7288623699766676159}
   - component: {fileID: 2761212104771578922}
   - component: {fileID: 5205668829196445810}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -914,7 +915,7 @@ GameObject:
   - component: {fileID: 2213019778355106206}
   - component: {fileID: 6216760518566872502}
   - component: {fileID: 6128628399960613329}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube13
   m_TagString: Untagged
   m_Icon: {fileID: 0}

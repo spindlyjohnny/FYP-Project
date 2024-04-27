@@ -55,6 +55,7 @@ public class NPC : MonoBehaviour
         FollowPlayer();
         if (Input.GetKeyDown(KeyCode.F)) {
             followplayer = false;
+            GetComponent<BoxCollider>().enabled = true;
             print("yay");
             // play some sound.
         }
@@ -110,6 +111,7 @@ public class NPC : MonoBehaviour
     public void FollowPlayer() {
         if (!followplayer) return;
         Vector3 dir = (player.transform.position - transform.position);
+        GetComponent<BoxCollider>().enabled = false;
         //rb.velocity = dir * movespeed;
         transform.Translate(movespeed * Time.deltaTime * dir);
         //transform.position = Vector3.Lerp(transform.position, player.transform.position, Time.deltaTime * movespeed);
