@@ -12330,9 +12330,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8262150295156256751, guid: e7b33ef45e1bec44db892307c588d1d8, type: 3}
+      propertyPath: m_Name
+      value: bus bench
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7b33ef45e1bec44db892307c588d1d8, type: 3}
       propertyPath: m_Name
       value: city
+      objectReference: {fileID: 0}
+    - target: {fileID: 2111657031123270069, guid: e7b33ef45e1bec44db892307c588d1d8, type: 3}
+      propertyPath: m_Name
+      value: busbench2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
