@@ -36,7 +36,7 @@ public class GridManager : MonoBehaviour
                 if (currentGridSquare == hit.collider.name) return;
                 
                 CheckAdjacent();
-                markingSquare();
+                MarkingSquare();
             }
         }
 
@@ -50,7 +50,7 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    void markingSquare()
+    void MarkingSquare()
     {
         //this function is used to color the marked squares
         foreach(GameObject i in pathSquare)
@@ -100,14 +100,14 @@ public class GridManager : MonoBehaviour
         float numberOfNotMarkedSquareThatIsAdjacent= 0;
         float totalnumberOfAdjacentSquare = 0;
         RaycastHit hit;
-        if (Physics.Raycast(currentGrid.transform.position+ new Vector3(gridDistance, 0.2f,0),
+        if (Physics.Raycast(currentGrid.transform.position+ new Vector3(gridDistance, 100f, 0),
             transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, mask))//checking east grid
         {
             totalnumberOfAdjacentSquare += 1;
             if (pathSquare.ToArray()[pathSquare.Count - 1] == hit.collider.gameObject)//if the east grid is not marked, then add to the number of unmarked square  
             { numberOfNotMarkedSquareThatIsAdjacent += 1;    }
         }
-        if (Physics.Raycast(currentGrid.transform.position + new Vector3(-gridDistance, 0.2f, 0),
+        if (Physics.Raycast(currentGrid.transform.position + new Vector3(-gridDistance, 100f, 0),
             transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, mask))//checking west grid
         {
             totalnumberOfAdjacentSquare += 1;
@@ -116,7 +116,7 @@ public class GridManager : MonoBehaviour
                 numberOfNotMarkedSquareThatIsAdjacent += 1;
             }
         }
-        if (Physics.Raycast(currentGrid.transform.position + new Vector3(0, 0.2f, -gridDistance),
+        if (Physics.Raycast(currentGrid.transform.position + new Vector3(0, 100f, -gridDistance),
            transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, mask))//checking south grid
         {
             totalnumberOfAdjacentSquare += 1;
@@ -126,7 +126,7 @@ public class GridManager : MonoBehaviour
 
             }
         }
-        if (Physics.Raycast(currentGrid.transform.position + new Vector3(0, 0.2f, gridDistance),
+        if (Physics.Raycast(currentGrid.transform.position + new Vector3(0, 100f, gridDistance),
            transform.TransformDirection(Vector3.down), out hit, Mathf.Infinity, mask))//checking north grid
         {
             totalnumberOfAdjacentSquare += 1;
@@ -158,7 +158,7 @@ public class GridManager : MonoBehaviour
                 pathSquare.RemoveAt(i);
             }
         }
-        markingSquare();
+        MarkingSquare();
     }
     
 }
