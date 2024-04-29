@@ -67,12 +67,12 @@ public class NPC : MonoBehaviour
             StartDialogue();
         }
     }
-    private void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.GetComponent<Vehicle>()) { 
-            gameObject.SetActive(false);
-            levelManager.gameover = true;
-        }
-    }
+    //private void OnCollisionEnter(Collision collision) {
+    //    if (collision.gameObject.GetComponent<Obstacle>()) { 
+    //        gameObject.SetActive(false);
+    //        levelManager.gameover = true;
+    //    }
+    //}
     void StartDialogue() {
         dialoguebox.SetActive(true);
         dialoguetext.text = "";

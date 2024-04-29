@@ -8,6 +8,7 @@ public class SpawnTiles : MonoBehaviour
     public GameObject tile;
     bool once=true;
     [SerializeField]GameObject NPC;
+    [SerializeField]GameObject[]bus_stop,buildings;
     GameObject go;
     // Start is called before the first frame update
     void Start()
@@ -33,14 +34,19 @@ public class SpawnTiles : MonoBehaviour
             if (once)
             {
                 go = Instantiate(tile, spawnpt.position, spawnpt.rotation);
+                SpawnTiles mytile = go.GetComponent<SpawnTiles>();
                 int rng = Random.Range(0, 2);
                 print(rng);
                 if (rng == 0) {
-                    go.GetComponent<SpawnTiles>().NPC.SetActive(false);
+                    mytile.NPC.SetActive(false);
+                    foreach (GameObject i in mytile.bus_stop) i.SetActive(false);
+                    foreach (GameObject i in mytile.buildings) i.SetActive(false);
                 }
                 else {
-                    go.GetComponent<SpawnTiles>().NPC.SetActive(true);
-                    go.GetComponent<SpawnTiles>().NPC.transform.localPosition = go.GetComponent<SpawnTiles>().NPC.GetComponent<NPC>().startpos;
+                    mytile.NPC.SetActive(true);
+                    foreach (GameObject i in mytile.bus_stop) i.SetActive(true);
+                    foreach (GameObject i in mytile.buildings) i.SetActive(true);
+                    mytile.NPC.transform.localPosition = mytile.NPC.GetComponent<NPC>().startpos;
                 }
                 once = false;
                 //if(!FindObjectOfType<CameraController>().NPC)Destroy(go, 100);

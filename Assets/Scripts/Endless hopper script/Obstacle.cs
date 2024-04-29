@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Vehicle : MonoBehaviour
+public class Obstacle : MonoBehaviour
 {
-    public VehicleSpawn myspawner;
+    public ObstacleSpawn myspawner;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,7 @@ public class Vehicle : MonoBehaviour
         transform.Translate(9 * Time.deltaTime * Vector3.left);
         if (myspawner == null) Destroy(gameObject);
     }
-    private void OnTriggerEnter(Collider other) {
-        if (other.name == "Vehicle Endpoint") Destroy(gameObject);
-    }
+    //private void OnTriggerEnter(Collider other) {
+    //    if (other.name == "Vehicle Endpoint") Destroy(gameObject);
+    //}
 }
