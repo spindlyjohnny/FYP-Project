@@ -10,7 +10,7 @@ public class ramp : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.gray;
-        Gizmos.DrawSphere(transform.TransformPoint(transform.position+ new Vector3(6.5f,-0.5f,0)), 0.1f);
+        Gizmos.DrawSphere(transform.TransformPoint(new Vector3(5f,0,0)), 0.1f);
     }
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,7 @@ public class ramp : MonoBehaviour
 
     public void CheckEdge()
     {
-        Collider[] collide = Physics.OverlapSphere(transform.TransformPoint(transform.position + new Vector3(6.5f, -0.5f, 0)), 0.4f,mask);
+        Collider[] collide = Physics.OverlapSphere(transform.TransformPoint(new Vector3(6.5f, -0.5f, 0)), 0.4f,mask);
         if (collide == null)
         {
             Passable = false;
