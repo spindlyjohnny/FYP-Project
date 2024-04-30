@@ -13,7 +13,7 @@ public class Collectible : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Destroy(gameObject, 15f);
     }
     private void OnTriggerEnter(Collider other) {
         if (other.GetComponent<Player>()) Destroy(gameObject);
