@@ -45,7 +45,7 @@ public class NPC : MonoBehaviour
         optionDtext.text = "d)" + optionD;
         npcmanager = FindObjectOfType<NPCManagement>();
         levelManager = FindObjectOfType<LevelManager>();
-        startpos = transform.localPosition;
+        startpos = transform.position;
         //rb = GetComponent<Rigidbody>();
     }
 
@@ -89,6 +89,7 @@ public class NPC : MonoBehaviour
         cam.transform.position = cam.originalposition.position;
         cam.smoothing = 3;
         spoken = true;
+        player.NPC = false;
         //dialoguetext.text = "";
         //if (!spoken) { // ensures spokencount is only increased once
         //    spoken = true;
@@ -105,6 +106,7 @@ public class NPC : MonoBehaviour
     void CameraPan() {
         cam.target = transform.GetChild(0);
         cam.NPC = true;
+        player.NPC = true;
         cam.smoothing = 4f;
         cam.transform.position = Vector3.Lerp(transform.position, cam.targetposition, Time.deltaTime * cam.smoothing);
     }

@@ -13,7 +13,8 @@ public class Collectible : Obstacle
     // Update is called once per frame
     protected override void Update() {
         if (myspawner == null) Destroy(gameObject);
-        transform.Rotate(0, 30 * Time.deltaTime, 0);
+        else Destroy(gameObject, 7f);
+        transform.Rotate(0, 60 * Time.deltaTime, 0);
     }
     private void OnTriggerEnter(Collider other) {
         if (other.GetComponent<Player>()) Destroy(gameObject);

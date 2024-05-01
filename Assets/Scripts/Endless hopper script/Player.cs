@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     Vector3 movement;
     public float movespeed;
-    public bool canMove;
+    public bool canMove,NPC;
     LevelManager levelManager;
     public int energy,maxenergy;
     //NPCManagement npcmanager;
@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
         }
     }
     private void OnCollisionEnter(Collision collision) {
+        if (NPC) return;
         if (collision.gameObject.layer == 8) {
             energy -= 1;
         }
