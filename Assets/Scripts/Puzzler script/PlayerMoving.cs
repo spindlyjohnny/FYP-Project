@@ -8,6 +8,7 @@ public class PlayerMoving : MonoBehaviour
     [Range(0,10)]
     public float speed=1000;
 
+    Transform targettedPosition=null;
     float minimumDistance = 0.01f;
     bool moving = false;
     GridManager grid;
@@ -20,29 +21,34 @@ public class PlayerMoving : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (moving)
-        {
-            if (pathSquaresForMovement.Count <1)
-            {
-                moving = false;
-                grid.moving = false;
-                return;
-            }
-            else
-            {
-                Vector3 offset = transform.position - new Vector3(pathSquaresForMovement[0].transform.position.x,
-                    transform.position.y, pathSquaresForMovement[0].transform.position.z);
-                transform.position = Vector3.MoveTowards(transform.position, new Vector3(pathSquaresForMovement[0].transform.position.x,
-                    transform.position.y, pathSquaresForMovement[0].transform.position.z), Time.deltaTime * speed);
-                if(Vector3.SqrMagnitude(offset) < minimumDistance * minimumDistance)
-                {
-                    print("inside");
-                    pathSquaresForMovement.RemoveAt(0);
-                }
-
-            }
-        }
+        Moving();
     }
+
+    void Moving()
+    {
+        if (moving==false) return;        
+        if (pathSquaresForMovement.Count < 1)
+        {
+            moving = false;
+            grid.moving = false;
+            return;
+        }
+        else
+        {
+            Vector3 offset = transform.position - new Vector3(pathSquaresForMovement[0].transform.position.x,
+                transform.position.y, pathSquaresForMovement[0].transform.position.z);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(pathSquaresForMovement[0].transform.position.x,
+                transform.position.y, pathSquaresForMovement[0].transform.position.z), Time.deltaTime * speed);
+            if (Vector3.SqrMagnitude(offset) < minimumDistance * minimumDistance)
+            {
+                print("inside");
+                pathSquaresForMovement.RemoveAt(0);
+            }
+
+        }
+        
+    }
+
 
     public void MovingNow(List<GameObject> pathing)
     {

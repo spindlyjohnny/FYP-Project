@@ -6,9 +6,9 @@ public class RampGrid : MonoBehaviour
 {
     RaycastHit hit;
     public bool Passable;
-    public GameObject UpperGrid;
-    public GameObject LowerGrid;
-    LayerMask mask;
+    public GameObject UpperBox;
+    public GameObject LowerObject;
+    LayerMask maskGrid;
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.gray;
@@ -17,7 +17,7 @@ public class RampGrid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(Physics.Raycast(transform.position,Vector3.down,Mathf.Infinity,))
     }
 
     // Update is called once per frame
@@ -28,7 +28,7 @@ public class RampGrid : MonoBehaviour
 
     public void CheckEdge()
     {
-        Collider[] collide = Physics.OverlapSphere(transform.TransformPoint(new Vector3(6.5f, -0.5f, 0)), 0.4f,mask);
+        Collider[] collide = Physics.OverlapSphere(transform.TransformPoint(new Vector3(6.5f, -0.5f, 0)), 0.4f,this.mask);
         if (collide != null)
         {
             
