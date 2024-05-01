@@ -82,6 +82,6 @@ public class SpawnTiles : MonoBehaviour
 
     private void OnTriggerExit(Collider other) {
         //NPC.transform.position = NPC.GetComponent<NPC>().startpos;
-        Destroy(gameObject);
+        if(other.GetComponent<Player>())Destroy(gameObject);
     }
 }

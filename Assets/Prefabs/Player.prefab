@@ -159,6 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movespeed: 5
   canMove: 0
+  NPC: 0
   energy: 0
   maxenergy: 0
 --- !u!54 &6259272758358388174
