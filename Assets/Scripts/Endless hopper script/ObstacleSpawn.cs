@@ -18,7 +18,8 @@ public class ObstacleSpawn : MonoBehaviour
         if (myobstacle == null) SpawnObstacle();
     }
     void SpawnObstacle() {
-        myobstacle = Instantiate(obstacles[Random.Range(0, obstacles.Length)], transform.position, transform.rotation);
-        if(myobstacle.GetComponent<Obstacle>() != null)myobstacle.GetComponent<Obstacle>().myspawner = this;
+        myobstacle = Instantiate(obstacles[Random.Range(0, obstacles.Length)], transform.position,transform.rotation);
+        myobstacle.GetComponent<Obstacle>().myspawner = this;
+        if (myobstacle.GetComponent<Collectible>() == null) myobstacle.transform.rotation = Quaternion.Euler(0, -90, 0);
     }
 }

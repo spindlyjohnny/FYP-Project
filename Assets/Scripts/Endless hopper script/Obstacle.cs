@@ -12,9 +12,9 @@ public class Obstacle : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
-        transform.Translate(3 * Time.deltaTime * Vector3.left);
+        transform.Translate(3 * Time.deltaTime * Vector3.forward);
         if (myspawner == null) Destroy(gameObject);
     }
     //private void OnTriggerEnter(Collider other) {

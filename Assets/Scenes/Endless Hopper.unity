@@ -1902,7 +1902,7 @@ Transform:
   m_GameObject: {fileID: 648512771}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0625, y: 0.0046, z: -0.0133}
+  m_LocalPosition: {x: 0.0625, y: 0.00184, z: -0.0133}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1922,7 +1922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacles:
   - {fileID: 3658114392855194944, guid: 6a44e815b257d964e902ffc13d41b0b2, type: 3}
-  - {fileID: 5440149686119665651, guid: a0b41d455e465a741905a6d786dc5f0a, type: 3}
+  - {fileID: 7065292097607841402, guid: a0b41d455e465a741905a6d786dc5f0a, type: 3}
 --- !u!1 &667861106
 GameObject:
   m_ObjectHideFlags: 0
@@ -2040,7 +2040,7 @@ Transform:
   m_GameObject: {fileID: 706304580}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0625, y: 0.0046, z: 0.1254}
+  m_LocalPosition: {x: 0.0625, y: 0.0018400002, z: 0.1254}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2060,7 +2060,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacles:
   - {fileID: 3658114392855194944, guid: 6a44e815b257d964e902ffc13d41b0b2, type: 3}
-  - {fileID: 5440149686119665651, guid: a0b41d455e465a741905a6d786dc5f0a, type: 3}
+  - {fileID: 7065292097607841402, guid: a0b41d455e465a741905a6d786dc5f0a, type: 3}
 --- !u!1 &709527948
 GameObject:
   m_ObjectHideFlags: 0
@@ -3937,7 +3937,7 @@ Transform:
   m_GameObject: {fileID: 1498648261}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0625, y: 0.0046, z: 0.0523}
+  m_LocalPosition: {x: 0.0625, y: 0.0018400002, z: 0.0523}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3957,7 +3957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacles:
   - {fileID: 3658114392855194944, guid: 6a44e815b257d964e902ffc13d41b0b2, type: 3}
-  - {fileID: 5440149686119665651, guid: a0b41d455e465a741905a6d786dc5f0a, type: 3}
+  - {fileID: 7065292097607841402, guid: a0b41d455e465a741905a6d786dc5f0a, type: 3}
 --- !u!1 &1540838893 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3147827572658198890, guid: e0892bc45dabb9347b301a8e8a552956, type: 3}

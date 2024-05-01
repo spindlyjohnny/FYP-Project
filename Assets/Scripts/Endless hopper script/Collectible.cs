@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collectible : MonoBehaviour
+public class Collectible : Obstacle
 {
     // Start is called before the first frame update
     void Start()
@@ -11,9 +11,9 @@ public class Collectible : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        Destroy(gameObject, 15f);
+    protected override void Update() {
+        if (myspawner == null) Destroy(gameObject);
+        transform.Rotate(0, 30 * Time.deltaTime, 0);
     }
     private void OnTriggerEnter(Collider other) {
         if (other.GetComponent<Player>()) Destroy(gameObject);
