@@ -7,7 +7,7 @@ public class PlayerMoving : MonoBehaviour
     public List<GameObject> pathSquaresForMovement;    
     [Range(0,10)]
     public float speed=1000;
-
+    public GameObject gameoverMenu;
     Transform targettedPosition=null;
     float minimumDistance = 0.01f;
     bool moving = false;
@@ -31,17 +31,21 @@ public class PlayerMoving : MonoBehaviour
         {
             moving = false;
             grid.moving = false;
+            StartCoroutine(Losing());
             return;
         }
         else
         {
-            Vector3 offset = transform.position - new Vector3(pathSquaresForMovement[0].transform.position.x,
-                transform.position.y, pathSquaresForMovement[0].transform.position.z);
+            
+            Vector3 offset = new Vector3(pathSquaresForMovement[0].transform.position.x,
+                transform.position.y, pathSquaresForMovement[0].transform.position.z) - transform.position;
+            Vector3 direction = Vector3.RotateTowards(transform.forward, offset, 45 * Time.deltaTime,0.0f);
+            transform.rotation = Quaternion.LookRotation(direction);
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(pathSquaresForMovement[0].transform.position.x,
                 transform.position.y, pathSquaresForMovement[0].transform.position.z), Time.deltaTime * speed);
+
             if (Vector3.SqrMagnitude(offset) < minimumDistance * minimumDistance)
             {
-                print("inside");
                 pathSquaresForMovement.RemoveAt(0);
             }
 
@@ -49,6 +53,12 @@ public class PlayerMoving : MonoBehaviour
         
     }
 
+    IEnumerator Losing()
+    {
+        yield return new WaitForSeconds(2);
+        Time.timeScale = 0;
+        gameoverMenu.SetActive(true);
+    }
 
     public void MovingNow(List<GameObject> pathing)
     {

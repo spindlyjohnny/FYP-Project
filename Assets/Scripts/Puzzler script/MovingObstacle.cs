@@ -9,6 +9,7 @@ public class MovingObstacle : MonoBehaviour
     public Camera cam;
     public LayerMask obstacleMask;
     public LayerMask Mask;
+    public LayerMask rampMask;
     GridManager grid;
     CapsuleCollider collider;
     Ray ray;
@@ -34,7 +35,15 @@ public class MovingObstacle : MonoBehaviour
                     hit.collider.gameObject.layer = 6;
                 }
             }
-
+            if(Physics.Raycast(ray, out hit, 10000, rampMask))
+            {
+                print("yes");
+                hit.transform.Rotate(new Vector3(0, 90, 0));
+                if (hit.collider.GetComponentInChildren<RampGrid>())
+                {
+                    hit.collider.GetComponentInChildren<RampGrid>().CheckEdge();
+                }
+            }
 
         }
        
@@ -44,7 +53,8 @@ public class MovingObstacle : MonoBehaviour
             ray = cam.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, 10000, Mask))
             {
-                selectedObject.transform.position = hit.collider.gameObject.transform.position + new Vector3(0, collider.radius, 0);
+                
+                selectedObject.transform.position = hit.point + new Vector3(0, collider.radius*20, 0);
             }
         }
         
@@ -53,6 +63,7 @@ public class MovingObstacle : MonoBehaviour
             if (selectedObject == null) return;
             if (Physics.Raycast(selectedObject.transform.position, -Vector3.up, out hit, 100,Mask))
             {
+                selectedObject.transform.position =hit.collider.gameObject.transform.position + new Vector3(0, collider.radius*20, 0);
                 hit.collider.gameObject.layer = 9;
             }
             grid.RemoveDownList();

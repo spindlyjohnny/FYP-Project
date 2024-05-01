@@ -15,7 +15,7 @@ public class obstacle : MonoBehaviour
         {
             print(hit.collider.gameObject.name);
             hit.collider.gameObject.layer = 9;
-            transform.position = hit.collider.gameObject.transform.position + new Vector3(0, collider.radius, 0);
+            transform.position = hit.collider.gameObject.transform.position + new Vector3(0, collider.radius*20, 0);
             
         }
     }

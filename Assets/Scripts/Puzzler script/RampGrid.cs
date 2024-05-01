@@ -8,16 +8,22 @@ public class RampGrid : MonoBehaviour
     public bool Passable;
     public GameObject UpperBox;
     public GameObject LowerObject;
-    LayerMask maskGrid;
+    public LayerMask maskGrid;
+    public LayerMask rampGrid;
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.gray;
-        Gizmos.DrawSphere(transform.TransformPoint(new Vector3(5f,0,0)), 0.1f);
+        Gizmos.DrawSphere(transform.TransformPoint(new Vector3(5f, 0, 0)), 0.3f);
+        Gizmos.DrawWireCube(transform.TransformPoint(new Vector3(5f, 0, 0)), new Vector3(0.5f, 0.5f, 0.5f));
     }
     // Start is called before the first frame update
     void Start()
     {
-        if(Physics.Raycast(transform.position,Vector3.down,Mathf.Infinity,))
+        if (Physics.Raycast(transform.position, Vector3.down,out hit, Mathf.Infinity, rampGrid))
+        {
+            this.transform.SetParent(hit.collider.gameObject.transform, true);
+            CheckEdge();
+        }
     }
 
     // Update is called once per frame
@@ -28,11 +34,13 @@ public class RampGrid : MonoBehaviour
 
     public void CheckEdge()
     {
-        Collider[] collide = Physics.OverlapSphere(transform.TransformPoint(new Vector3(6.5f, -0.5f, 0)), 0.4f,this.mask);
-        if (collide != null)
+        if(Physics.BoxCast(transform.TransformPoint(new Vector3(5f, 0, 0)),new Vector3(0.6f,0.5f,0.6f),new Vector3(1,0,0),out hit,Quaternion.identity,Mathf.Infinity,maskGrid))
         {
-            
+            UpperBox = hit.collider.gameObject;
         }
-
+        else
+        {
+            UpperBox = null;
+        }
     }
 }

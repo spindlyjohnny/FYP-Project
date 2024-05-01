@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GridManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GridManager : MonoBehaviour
     public Camera cam;
     float rayLength = 100;
     public float gridDistance = 1;
+    public int allowedGridUsed = 10;
     public bool moving=false;
     RaycastHit hit;
     public LayerMask mask;
@@ -17,12 +19,14 @@ public class GridManager : MonoBehaviour
     public Material currentGridMaterial;
     public Material pastGridMaterial;
     public Material starterGridMaterial;
+    public TextMeshProUGUI text;
     PlayerMoving movement;
     // Start is called before the first frame update
     void Start()
     {
         pathSquare.Clear();
         movement = FindObjectOfType<PlayerMoving>();
+        text.text = "Grids left: " +(allowedGridUsed-pathSquare.Count).ToString();
     }
 
     // Update is called once per frame
@@ -53,8 +57,9 @@ public class GridManager : MonoBehaviour
 
     void MarkingSquare()
     {
+        text.text = "Grids left: " + (allowedGridUsed - pathSquare.Count).ToString();
         //this function is used to color the marked squares
-        foreach(GameObject i in pathSquare)
+        foreach (GameObject i in pathSquare)
         {
             i.GetComponent<MeshRenderer>().enabled = true;
         }
@@ -78,24 +83,24 @@ public class GridManager : MonoBehaviour
     void CheckAdjacent()
     {
         currentGridSquare = hit.collider.name;//so that this event trigger once per block
-        if (pathSquare.Count == 0 && hit.collider.gameObject.layer ==7)//add the starting grid
+        if (pathSquare.Count == 0 && hit.collider.gameObject.layer ==7 && (allowedGridUsed - pathSquare.Count) > 0)//add the starting grid
         {
             pathSquare.Add(hit.collider.gameObject);
         }
         else if (pathSquare.Count>=1 && CheckWhetherItIsAdjacent(hit.collider.gameObject))
         {
-            if (!pathSquare.Contains(hit.collider.gameObject) && IsItFromARamp(hit.collider.gameObject))pathSquare.Add(hit.collider.gameObject);//if the list does not contain a copy of the same object, add the gameobject to the list
-            if (pathSquare.Count >= 2)//to ensure no index range exception
-            {
-                if (pathSquare.ToArray()[pathSquare.Count - 2] == hit.collider.gameObject && currentGridSquare==hit.collider.name)//if the raycast goes back to the same square
-                {
-                    pathSquare[pathSquare.Count - 1].GetComponent<MeshRenderer>().enabled = false;
-                    pathSquare.RemoveAt(pathSquare.Count-1);
-                }
+            if (!pathSquare.Contains(hit.collider.gameObject) && (allowedGridUsed - pathSquare.Count)>0 )pathSquare.Add(hit.collider.gameObject);//if the list does not contain a copy of the same object, add the gameobject to the list
+            if (pathSquare.Count >= 2 && pathSquare.ToArray()[pathSquare.Count - 2] == hit.collider.gameObject && currentGridSquare == hit.collider.name)//to ensure no index range exception
+            {//if the raycast goes back to the same square
+                
+            pathSquare[pathSquare.Count - 1].GetComponent<MeshRenderer>().enabled = false;
+            pathSquare.RemoveAt(pathSquare.Count-1);
+                
             } 
         }
     }
 
+    //work in progress
     bool IsItFromARamp(GameObject currentGrid)
     {
         bool isThereARamp=false;
