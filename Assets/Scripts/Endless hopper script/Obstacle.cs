@@ -17,7 +17,7 @@ public class Obstacle : MonoBehaviour
     {
         transform.Translate(3 * Time.deltaTime * Vector3.forward);
         if (myspawner == null) Destroy(gameObject);
-        else Destroy(gameObject, 7f);
+        else Destroy(gameObject, 15f);
     }
     //private void OnTriggerEnter(Collider other) {
     //    if (other.name == "Vehicle Endpoint") Destroy(gameObject);

@@ -8,9 +8,12 @@ public class LevelManager : SceneLoader {
     public bool gameover;
     public GameObject gameoverscreen;
     public Slider energyslider;
+    SpawnTiles tiles;
     // Start is called before the first frame update
     void Start()
     {
+        tiles = FindObjectOfType<SpawnTiles>();
+        tiles.Spawn(8);
         gameover = false;
         gameoverscreen.SetActive(false);
     }
