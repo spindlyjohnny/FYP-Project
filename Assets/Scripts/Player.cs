@@ -26,7 +26,10 @@ public class Player : MonoBehaviour
     {
         movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         levelManager.energyslider.value = energy;
-        if (canMove)transform.Translate(movespeed * Time.deltaTime * movement,Space.Self);
+        if (canMove) {
+            transform.Translate(movespeed * Time.deltaTime * movement, Space.Self);
+            if(movement != Vector3.zero)levelManager.score++;
+        }
         if(energy <= 0) {
             gameObject.SetActive(false);
             levelManager.gameover = true;
