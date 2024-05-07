@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public float movespeed;
     public bool canMove,NPC;
     LevelManager levelManager;
-    public int energy,maxenergy;
+    public float energy,maxenergy;
     //NPCManagement npcmanager;
     // Start is called before the first frame update
     void Start()
@@ -28,7 +28,10 @@ public class Player : MonoBehaviour
         levelManager.energyslider.value = energy;
         if (canMove) {
             transform.Translate(movespeed * Time.deltaTime * movement, Space.Self);
-            if(movement != Vector3.zero)levelManager.score++;
+            if (movement != Vector3.zero) {
+                levelManager.score++;
+                energy -= .01f;
+            }
         }
         if(energy <= 0) {
             gameObject.SetActive(false);
@@ -39,12 +42,12 @@ public class Player : MonoBehaviour
     private void OnCollisionEnter(Collision collision) {
         if (NPC) return;
         if (collision.gameObject.layer == 8) {
-            energy -= 1;
+            energy -= 10;
         }
     }
     private void OnTriggerEnter(Collider other) {
         if (other.GetComponent<Collectible>()) {
-            energy += 1;
+            energy += 10;
             if (energy > maxenergy) energy = maxenergy;
         }
     }
