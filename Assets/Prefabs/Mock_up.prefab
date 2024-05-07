@@ -10186,6 +10186,8 @@ MonoBehaviour:
   spawnpt: {fileID: 4793693741608042157}
   tile: {fileID: 7583387250219762645}
   NPC: {fileID: 0}
+  bus_stop: []
+  buildings: []
 --- !u!65 &3183555773239423294
 BoxCollider:
   m_ObjectHideFlags: 0
