@@ -19,7 +19,7 @@ public class HeadphoneObstacle : MonoBehaviour
     protected virtual void Update()
     {
         float distanceBetween = Vector3.SqrMagnitude(InitalPosition - transform.position);
-        print(distanceBetween);
+        //print(distanceBetween);
         if(distanceBetween >= distanceBeforeTurningBack * distanceBeforeTurningBack && walkingRight==true)
         {
             walkingRight = false;

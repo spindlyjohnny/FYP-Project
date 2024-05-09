@@ -19,10 +19,18 @@ public class NPC : MonoBehaviour
     bool spoken;
     public bool followplayer;
     NPCManagement npcmanager;
-    string[] names,questions,explains;
+    string[] names, questions, explains;
+    string options;
     public float movespeed;
     LevelManager levelManager;
     public Vector3 startpos;
+    //ThisIsSoStupid<List<string>> myoptions;
+
+    //[System.Serializable]
+    //class ThisIsSoStupid {
+    //    public List<object> myoptions;
+
+    //}
     //Rigidbody rb;
     // Start is called before the first frame update
     void Start()
@@ -30,11 +38,16 @@ public class NPC : MonoBehaviour
         cam = FindObjectOfType<CameraController>();
         player = FindObjectOfType<Player>();
         names = File.ReadAllLines("Assets\\Misc\\first-names.txt");
-        //questions = File.ReadAllLines("Assets\\Misc\\questions.txt");
-        //explains = File.ReadAllLines("Assets\\Misc\\explanations.txt");
-        //int qnindex = Random.Range(0,questions.Length);
-        //question = questions[qnindex];
-        //explain = explains[qnindex];
+        questions = File.ReadAllLines("Assets\\Misc\\questions.txt");
+        explains = File.ReadAllLines("Assets\\Misc\\explanations.txt");
+        options = File.ReadAllText("Assets\\Misc\\options.json");
+        //print(options[0]);
+        //ThisIsSoStupid loadedWrapper = JsonUtility.FromJson<ThisIsSoStupid>(options);
+        //List<object> loadedList = loadedWrapper.myoptions;
+        //print(loadedList[0]);
+        int qnindex = Random.Range(0,questions.Length);
+        question = questions[qnindex];
+        explain = explains[qnindex];
         NPCname = names[Random.Range(0, names.Length)];
         nametext.text = NPCname;
         questiontext.text = question;
