@@ -25,8 +25,11 @@ public class NPC : MonoBehaviour
     LevelManager levelManager;
     public Vector3 startpos;
     //ThisIsSoStupid<List<string>> myoptions;
-    //class ThisIsSoStupid<List> {
-    //    List<string> myoptions;
+
+    //[System.Serializable]
+    //class ThisIsSoStupid {
+    //    public List<object> myoptions;
+
     //}
     //Rigidbody rb;
     // Start is called before the first frame update
@@ -38,7 +41,10 @@ public class NPC : MonoBehaviour
         questions = File.ReadAllLines("Assets\\Misc\\questions.txt");
         explains = File.ReadAllLines("Assets\\Misc\\explanations.txt");
         options = File.ReadAllText("Assets\\Misc\\options.json");
-        
+        //print(options[0]);
+        //ThisIsSoStupid loadedWrapper = JsonUtility.FromJson<ThisIsSoStupid>(options);
+        //List<object> loadedList = loadedWrapper.myoptions;
+        //print(loadedList[0]);
         int qnindex = Random.Range(0,questions.Length);
         question = questions[qnindex];
         explain = explains[qnindex];
