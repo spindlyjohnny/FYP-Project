@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: 3400988405361731566}
   - component: {fileID: 5194266150530353860}
   - component: {fileID: 1863821231898360523}
-  - component: {fileID: 3064970361489475217}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -199,15 +198,3 @@ MonoBehaviour:
   followplayer: 0
   movespeed: 0
   startpos: {x: 0, y: 0, z: 0}
---- !u!114 &3064970361489475217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6165041437090717006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0eadba5f567bf674ca20c086f275672e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
