@@ -19,10 +19,15 @@ public class NPC : MonoBehaviour
     bool spoken;
     public bool followplayer;
     NPCManagement npcmanager;
-    string[] names,questions,explains;
+    string[] names, questions, explains;
+    string options;
     public float movespeed;
     LevelManager levelManager;
     public Vector3 startpos;
+    //ThisIsSoStupid<List<string>> myoptions;
+    //class ThisIsSoStupid<List> {
+    //    List<string> myoptions;
+    //}
     //Rigidbody rb;
     // Start is called before the first frame update
     void Start()
@@ -30,11 +35,13 @@ public class NPC : MonoBehaviour
         cam = FindObjectOfType<CameraController>();
         player = FindObjectOfType<Player>();
         names = File.ReadAllLines("Assets\\Misc\\first-names.txt");
-        //questions = File.ReadAllLines("Assets\\Misc\\questions.txt");
-        //explains = File.ReadAllLines("Assets\\Misc\\explanations.txt");
-        //int qnindex = Random.Range(0,questions.Length);
-        //question = questions[qnindex];
-        //explain = explains[qnindex];
+        questions = File.ReadAllLines("Assets\\Misc\\questions.txt");
+        explains = File.ReadAllLines("Assets\\Misc\\explanations.txt");
+        options = File.ReadAllText("Assets\\Misc\\options.json");
+        
+        int qnindex = Random.Range(0,questions.Length);
+        question = questions[qnindex];
+        explain = explains[qnindex];
         NPCname = names[Random.Range(0, names.Length)];
         nametext.text = NPCname;
         questiontext.text = question;
