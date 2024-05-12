@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeadphoneObstacle : MonoBehaviour
+public class HeadphoneObstacle : Obstacle
 {
-    public ObstacleSpawn myspawner;
-    public Vector3 spawnoffset;
     public float distanceBeforeTurningBack=10f;
     Vector3 InitalPosition;    
     float distanceBetween;
@@ -15,12 +13,11 @@ public class HeadphoneObstacle : MonoBehaviour
     {
         InitalPosition = transform.position;
     }
-
-    protected virtual void Update()
+    protected override void Update()
     {
         float distanceBetween = Vector3.SqrMagnitude(InitalPosition - transform.position);
         //print(distanceBetween);
-        if(distanceBetween >= distanceBeforeTurningBack * distanceBeforeTurningBack && walkingRight==true)
+        if(distanceBetween >= Mathf.Pow(distanceBeforeTurningBack,2) && walkingRight)
         {
             walkingRight = false;
         }
@@ -44,8 +41,7 @@ public class HeadphoneObstacle : MonoBehaviour
             transform.Translate(3 * Time.deltaTime * -Vector3.forward,Space.World);
             
         }
-        /*
         if (myspawner == null) Destroy(gameObject);
-        else Destroy(gameObject, 15);*/
+        else Destroy(gameObject, 15);
     }
 }

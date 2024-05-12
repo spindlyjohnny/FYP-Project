@@ -7,9 +7,11 @@ public class Question : MonoBehaviour
     public enum Options { CorrectOption, WrongOption, nulloption };
     public Options option;
     NPCManagement npcmanager;
+    LevelManager levelManager;
     // Start is called before the first frame update
     void Start() {
         npcmanager = FindObjectOfType<NPCManagement>();
+        levelManager = FindObjectOfType<LevelManager>();
     }
 
     // Update is called once per frame
@@ -21,11 +23,19 @@ public class Question : MonoBehaviour
             //Explain();
             npcmanager.myNPC.questionbox.SetActive(false);
             npcmanager.myNPC.EndDialogue();
+            levelManager.taskcompletescreen.SetActive(true);
+            npcmanager.myNPC.tasksuccess = NPC.Task.Fail;
         } 
         else if (option == Options.CorrectOption) {
             npcmanager.myNPC.questionbox.SetActive(false);
             npcmanager.myNPC.EndDialogue();
-            npcmanager.myNPC.followplayer = true;
+            if (npcmanager.myNPC.destination != null) {
+                npcmanager.myNPC.followplayer = true;
+            } 
+            else {
+                levelManager.taskcompletescreen.SetActive(true);
+                npcmanager.myNPC.tasksuccess = NPC.Task.Success; 
+            }
             // play some sound.
         }
     }

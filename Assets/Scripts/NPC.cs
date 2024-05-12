@@ -24,6 +24,9 @@ public class NPC : MonoBehaviour
     public float movespeed;
     LevelManager levelManager;
     public Vector3 startpos;
+    public enum Task { Success,Fail,Default}
+    public Task tasksuccess;
+    public Collider destination; // set in inspector if NPC has a destination.
     //ThisIsSoStupid<List<string>> myoptions;
 
     //[System.Serializable]
@@ -40,7 +43,8 @@ public class NPC : MonoBehaviour
         names = File.ReadAllLines("Assets\\Misc\\first-names.txt");
         questions = File.ReadAllLines("Assets\\Misc\\questions.txt");
         explains = File.ReadAllLines("Assets\\Misc\\explanations.txt");
-        options = File.ReadAllText("Assets\\Misc\\options.json");
+        tasksuccess = Task.Default;
+        //options = File.ReadAllText("Assets\\Misc\\options.json");
         //print(options[0]);
         //ThisIsSoStupid loadedWrapper = JsonUtility.FromJson<ThisIsSoStupid>(options);
         //List<object> loadedList = loadedWrapper.myoptions;
@@ -66,11 +70,20 @@ public class NPC : MonoBehaviour
     void Update()
     {
         FollowPlayer();
-        if (Input.GetKeyDown(KeyCode.F)) {
-            followplayer = false;
-            GetComponent<BoxCollider>().enabled = true;
-            print("yay");
-            // play some sound.
+        if (destination != null) {
+            var detector = Physics.OverlapSphere(transform.position, .1f);
+            bool target = false;
+            for(int i = 0; i < detector.Length; i++) {
+                if (detector[i].CompareTag("Finish")) target = true;
+            }
+            if (target && Input.GetKeyDown(KeyCode.F)) {
+                followplayer = false;
+                //GetComponent<Collider>().enabled = true;
+                tasksuccess = Task.Success;
+                levelManager.taskcompletescreen.SetActive(true);
+                print("yay");
+                // play some sound.
+            }
         }
     }
     private void OnTriggerEnter(Collider other) {
@@ -126,9 +139,7 @@ public class NPC : MonoBehaviour
     public void FollowPlayer() {
         if (!followplayer) return;
         Vector3 dir = (player.transform.position - transform.position);
-        GetComponent<BoxCollider>().enabled = false;
-        //rb.velocity = dir * movespeed;
+        //GetComponent<Collider>().enabled = false;
         transform.Translate(movespeed * Time.deltaTime * dir);
-        //transform.position = Vector3.Lerp(transform.position, player.transform.position, Time.deltaTime * movespeed);
     }
 }

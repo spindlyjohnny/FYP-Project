@@ -7,15 +7,17 @@ using TMPro;
 
 public class LevelManager : SceneLoader {
     public bool gameover;
-    public GameObject gameoverscreen;
+    public GameObject gameoverscreen,taskcompletescreen;
     public Slider energyslider;
     SpawnTiles tiles;
     public int score;
-    public TMP_Text scoretext;
+    public TMP_Text scoretext,tasksuccesstext;
+    NPCManagement npcmanager;
     // Start is called before the first frame update
     void Start()
     {
         tiles = FindObjectOfType<SpawnTiles>();
+        npcmanager = FindObjectOfType<NPCManagement>();
         tiles.Spawn(8);
         gameover = false;
         gameoverscreen.SetActive(false);
@@ -26,8 +28,21 @@ public class LevelManager : SceneLoader {
     {
         if(gameover)gameoverscreen.SetActive(true);
         scoretext.text = "Score:" + score.ToString();
+        if(npcmanager.myNPC != null) {
+            if (npcmanager.myNPC.tasksuccess == NPC.Task.Fail) {
+                tasksuccesstext.text = "Task failed!";
+            } 
+            else if (npcmanager.myNPC.tasksuccess == NPC.Task.Success) {
+                tasksuccesstext.text = "Task success!";
+            }
+        }
+        if (taskcompletescreen.activeSelf) StartCoroutine(DisableTaskScreen());
     }
     public void RestartLevel() {
         LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    IEnumerator DisableTaskScreen() {
+        yield return new WaitForSeconds(2f);
+        taskcompletescreen.SetActive(false);
     }
 }

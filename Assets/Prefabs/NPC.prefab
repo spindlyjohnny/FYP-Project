@@ -158,8 +158,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.7975354, y: 0.99999994, z: 2.3244593}
-  m_Center: {x: -0.85734797, y: 0, z: 0.011969121}
+  m_Size: {x: 2.6175346, y: 0.99999994, z: 2.1015368}
+  m_Center: {x: -0.7673449, y: 0, z: -0.017391967}
 --- !u!114 &1863821231898360523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,3 +198,5 @@ MonoBehaviour:
   followplayer: 0
   movespeed: 0
   startpos: {x: 0, y: 0, z: 0}
+  tasksuccess: 0
+  destination: {fileID: 0}
