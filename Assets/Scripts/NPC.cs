@@ -27,6 +27,7 @@ public class NPC : MonoBehaviour
     public enum Task { Success,Fail,Default}
     public Task tasksuccess;
     public Collider destination; // set in inspector if NPC has a destination.
+    public Coroutine dialogueco;
     //ThisIsSoStupid<List<string>> myoptions;
 
     //[System.Serializable]
@@ -49,9 +50,9 @@ public class NPC : MonoBehaviour
         //ThisIsSoStupid loadedWrapper = JsonUtility.FromJson<ThisIsSoStupid>(options);
         //List<object> loadedList = loadedWrapper.myoptions;
         //print(loadedList[0]);
-        int qnindex = Random.Range(0,questions.Length);
-        question = questions[qnindex];
-        explain = explains[qnindex];
+        //int qnindex = Random.Range(0,questions.Length);
+        //question = questions[qnindex];
+        //explain = explains[qnindex];
         NPCname = names[Random.Range(0, names.Length)];
         nametext.text = NPCname;
         questiontext.text = question;
@@ -104,7 +105,7 @@ public class NPC : MonoBehaviour
         dialoguetext.text = "";
         currentline = 0;
         npcmanager.myNPC = this;
-        StartCoroutine(Dialogue());
+        dialogueco = StartCoroutine(Dialogue());
     }
    
     public void EndDialogue() {

@@ -193,7 +193,7 @@ MonoBehaviour:
   optionCtext: {fileID: 0}
   optionDtext: {fileID: 0}
   nametext: {fileID: 0}
-  wordspeed: 0.05
+  wordspeed: 0.025
   currentline: 0
   followplayer: 0
   movespeed: 0
