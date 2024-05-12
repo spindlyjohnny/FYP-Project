@@ -29,6 +29,7 @@ public class NPC : MonoBehaviour
     public Collider destination; // set in inspector if NPC has a destination.
     public Coroutine dialogueco;
     public int mycredits; // set in inspector
+    [SerializeField]AudioClip dialoguesound;
     //ThisIsSoStupid<List<string>> myoptions;
 
     //[System.Serializable]
@@ -125,9 +126,9 @@ public class NPC : MonoBehaviour
         //}
     }
     public IEnumerator Dialogue() {
-        //AudioManager.instance.RandomiseSFX(sfx);
         foreach (char chr in dialogue[currentline]) { // types out dialogue character by character
             dialoguetext.text += chr;
+            AudioManager.instance.PlaySFX(dialoguesound);
             yield return new WaitForSeconds(wordspeed);
         }
     }
