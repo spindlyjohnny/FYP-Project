@@ -34,7 +34,8 @@ public class Question : MonoBehaviour
             } 
             else {
                 levelManager.taskcompletescreen.SetActive(true);
-                npcmanager.myNPC.tasksuccess = NPC.Task.Success; 
+                npcmanager.myNPC.tasksuccess = NPC.Task.Success;
+                levelManager.credits += npcmanager.myNPC.mycredits;
             }
             // play some sound.
         }

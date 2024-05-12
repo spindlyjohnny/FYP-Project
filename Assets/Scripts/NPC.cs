@@ -28,6 +28,7 @@ public class NPC : MonoBehaviour
     public Task tasksuccess;
     public Collider destination; // set in inspector if NPC has a destination.
     public Coroutine dialogueco;
+    public int mycredits; // set in inspector
     //ThisIsSoStupid<List<string>> myoptions;
 
     //[System.Serializable]
@@ -82,7 +83,7 @@ public class NPC : MonoBehaviour
                 //GetComponent<Collider>().enabled = true;
                 tasksuccess = Task.Success;
                 levelManager.taskcompletescreen.SetActive(true);
-                print("yay");
+                levelManager.credits += mycredits;
                 // play some sound.
             }
         }

@@ -10,13 +10,15 @@ public class LevelManager : SceneLoader {
     public GameObject gameoverscreen,taskcompletescreen;
     public Slider energyslider;
     SpawnTiles tiles;
-    public int score;
-    public TMP_Text scoretext,tasksuccesstext;
+    public int score,credits;
+    public TMP_Text scoretext,tasksuccesstext,creditstext;
     NPCManagement npcmanager;
     // Start is called before the first frame update
     void Start()
     {
         tiles = FindObjectOfType<SpawnTiles>();
+        score = 0;
+        credits = 0;
         npcmanager = FindObjectOfType<NPCManagement>();
         tiles.Spawn(8);
         gameover = false;
@@ -27,7 +29,8 @@ public class LevelManager : SceneLoader {
     void Update()
     {
         if(gameover)gameoverscreen.SetActive(true);
-        scoretext.text = "Score:" + score.ToString();
+        scoretext.text = "Score:" + score;
+        creditstext.text = "Credits:" + credits;
         if(npcmanager.myNPC != null) {
             if (npcmanager.myNPC.tasksuccess == NPC.Task.Fail) {
                 tasksuccesstext.text = "Task failed!";
