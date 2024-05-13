@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class SpawnTiles : MonoBehaviour
 {
-    public Transform spawnpt,stspawnpt;
+    public Transform spawnpt;
     public GameObject tile;
-    public GameObject street;
     //bool once=true;
     [SerializeField]GameObject NPC;
-    [SerializeField]GameObject[]buildings;
+    [SerializeField]GameObject[]bus_stop,buildings;
     GameObject go;
     int shiftfactor;
     // Start is called before the first frame update
@@ -63,18 +62,20 @@ public class SpawnTiles : MonoBehaviour
             if (rng == 0)
             {
                 mytile.NPC.SetActive(false);
+                foreach (GameObject i in mytile.bus_stop) i.SetActive(false);
                 foreach (GameObject i in mytile.buildings) i.SetActive(false);
             }
             else if (rng <= 0.25f && rng > 0)
             {
                 mytile.NPC.SetActive(true);
-                Instantiate(street, spawnpt.position, spawnpt.rotation);
+                foreach (GameObject i in mytile.bus_stop) i.SetActive(true);
                 mytile.NPC.transform.localPosition = mytile.NPC.GetComponent<NPC>().startpos;
             }
             else if (0.25f < rng && rng <= 0.75f)
             {
                 foreach (GameObject i in mytile.buildings) i.SetActive(true);
                 mytile.NPC.SetActive(false);
+                foreach (GameObject i in mytile.bus_stop) i.SetActive(false);
             }
         }
     }
