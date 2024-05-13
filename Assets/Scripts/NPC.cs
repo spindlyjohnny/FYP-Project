@@ -18,7 +18,7 @@ public class NPC : MonoBehaviour
     public int currentline;
     bool spoken;
     public bool followplayer;
-    NPCManagement npcmanager;
+    public NPCManagement npcmanager;
     string[] names, questions, explains;
     public string[] options;
     public List<string> filteredOptions= new List<string>(0);
@@ -63,7 +63,7 @@ public class NPC : MonoBehaviour
         bool continuing = false;
         int optionList = 0;
         char quotationMark = filteredOptions[0].ToCharArray()[0];        
-        for(int i = 0; i < filteredOptions.Count; i++)
+        /*for(int i = 0; i < filteredOptions.Count; i++)
         {
             int numberOfCharacter = filteredOptions[i].ToCharArray().Length;
             
@@ -81,7 +81,7 @@ public class NPC : MonoBehaviour
                 continuing = false;
                 optionList += 1;
             }
-        }
+        }*/
         
 
         //print(options[0]);
@@ -147,6 +147,7 @@ public class NPC : MonoBehaviour
         dialoguetext.text = "";
         currentline = 0;
         npcmanager.myNPC = this;
+        print("yes");
         dialogueco = StartCoroutine(Dialogue());
     }
    
