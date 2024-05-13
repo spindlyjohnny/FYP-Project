@@ -20,7 +20,10 @@ public class NPC : MonoBehaviour
     public bool followplayer;
     NPCManagement npcmanager;
     string[] names, questions, explains;
-    string options;
+    public string[] options;
+    public List<string> filteredOptions= new List<string>(0);
+    public List<OptionsOfQuestions> optionList;
+    public TextAsset optionsFile;
     public float movespeed;
     LevelManager levelManager;
     public Vector3 startpos;
@@ -47,14 +50,51 @@ public class NPC : MonoBehaviour
         questions = File.ReadAllLines("Assets\\Misc\\questions.txt");
         explains = File.ReadAllLines("Assets\\Misc\\explanations.txt");
         tasksuccess = Task.Default;
-        //options = File.ReadAllText("Assets\\Misc\\options.json");
+        options = optionsFile.text.Split("\n");
+
+
+        for (int i = 0; i < options.Length; i++)
+        {
+            if(options[i] != options[1])
+            {
+                filteredOptions.Add(options[i]);
+            }
+        }
+        bool continuing = false;
+        int optionList = 0;
+        char quotationMark = filteredOptions[0].ToCharArray()[0];        
+        for(int i = 0; i < filteredOptions.Count; i++)
+        {
+            int numberOfCharacter = filteredOptions[i].ToCharArray().Length;
+            
+            if (continuing==false && filteredOptions[i].ToCharArray()[0]== quotationMark)
+            {
+                continuing = true;
+                this.optionList[optionList].option.Add(filteredOptions[i]);
+            }else if(continuing ==true && filteredOptions[i].ToCharArray()[numberOfCharacter-2] != quotationMark)
+            {
+                this.optionList[optionList].option.Add(filteredOptions[i]);
+            }
+            else if(continuing == true && filteredOptions[i].ToCharArray()[numberOfCharacter - 2] == quotationMark)
+            {
+                this.optionList[optionList].option.Add(filteredOptions[i]);
+                continuing = false;
+                optionList += 1;
+            }
+        }
+        
+
         //print(options[0]);
         //ThisIsSoStupid loadedWrapper = JsonUtility.FromJson<ThisIsSoStupid>(options);
         //List<object> loadedList = loadedWrapper.myoptions;
         //print(loadedList[0]);
-        //int qnindex = Random.Range(0,questions.Length);
-        //question = questions[qnindex];
-        //explain = explains[qnindex];
+        int qnindex = Random.Range(0,questions.Length);
+        question = questions[qnindex];
+        explain = explains[qnindex];
+        optionA = this.optionList[qnindex].option[0];
+        optionB = this.optionList[qnindex].option[1];
+        if (this.optionList[qnindex].option[2] != null)optionC = this.optionList[qnindex].option[2];
+        if(this.optionList[qnindex].option[3] != null)optionD = this.optionList[qnindex].option[3];
         NPCname = names[Random.Range(0, names.Length)];
         nametext.text = NPCname;
         questiontext.text = question;
@@ -145,4 +185,9 @@ public class NPC : MonoBehaviour
         //GetComponent<Collider>().enabled = false;
         transform.Translate(movespeed * Time.deltaTime * dir);
     }
+}
+[System.Serializable]
+public class OptionsOfQuestions
+{
+    public List<string> option= new List<string>();
 }
