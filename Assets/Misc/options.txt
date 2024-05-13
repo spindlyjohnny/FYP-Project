@@ -149,8 +149,7 @@ No"
 Wheelchair user"
 "True
 
-False
-"
+False"
 "Let them board the bus first using the side that they want to board on
 
 Ask them to move away 
@@ -165,8 +164,7 @@ Drag them away to where you think they should be
 
 Laugh at them
 
-Ignore them
-"
+Ignore them"
 "Yes 
 
 No, just be patient and use simpler words"
