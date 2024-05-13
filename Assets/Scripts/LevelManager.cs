@@ -9,18 +9,22 @@ public class LevelManager : SceneLoader {
     public bool gameover;
     public GameObject gameoverscreen,taskcompletescreen;
     public Slider energyslider;
-    SpawnTiles tiles;
+    public GameObject[] tiles;
     public int score,credits;
     public TMP_Text scoretext,tasksuccesstext,creditstext;
     NPCManagement npcmanager;
+    //GameObject currenttile;
+    int tileshiftfactor;
     // Start is called before the first frame update
     void Start()
     {
-        tiles = FindObjectOfType<SpawnTiles>();
+        //tiles = FindObjectOfType<Tile>();
         score = 0;
         credits = 0;
+        tileshiftfactor = 0;
         npcmanager = FindObjectOfType<NPCManagement>();
-        tiles.Spawn(8);
+        Spawn(8);
+        //tiles.Spawn(8);
         gameover = false;
         gameoverscreen.SetActive(false);
     }
@@ -40,6 +44,8 @@ public class LevelManager : SceneLoader {
             }
         }
         if (taskcompletescreen.activeSelf) StartCoroutine(DisableTaskScreen());
+        Tile[] currenttiles = FindObjectsOfType<Tile>();
+        tileshiftfactor = currenttiles.Length == 1 ? 0 : 21; // tileshiftfactor spawns tiles 21 units ahead because when player enters trigger, there are 3 tiles in front. each tile is 7 units long on the x-axis
     }
     public void RestartLevel() {
         LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -47,5 +53,14 @@ public class LevelManager : SceneLoader {
     IEnumerator DisableTaskScreen() {
         yield return new WaitForSeconds(2f);
         taskcompletescreen.SetActive(false);
+    }
+    public void Spawn(int amount) {
+        for (int x = 0; x < amount; x++) { // spawn amount tiles at a time
+            if (amount == 1) x = 5;
+            // spawn tile at spawn point + size of tile * order that tile was spawned
+            int index = Random.Range(0, tiles.Length);
+            Tile mytile = tiles[index].GetComponent<Tile>();
+            Instantiate(tiles[index], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
+        }
     }
 }
