@@ -387,12 +387,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD
 <<<<<<< Updated upstream
   m_LocalEulerAnglesHint: {x: 30.42, y: 116.832, z: 107.02}
-=======
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
->>>>>>> effe8209740081b77e8386c28b8e082662eca28a
 --- !u!1 &1192717108 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3337448159989402681, guid: e0892bc45dabb9347b301a8e8a552956, type: 3}
