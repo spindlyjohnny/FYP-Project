@@ -8,6 +8,7 @@ public class NPCQuestion : MonoBehaviour
     public Options option;
     NPCManagement npcmanager;
     LevelManager levelManager;
+    bool upgraded;
     // Start is called before the first frame update
     void Start() {
         npcmanager = FindObjectOfType<NPCManagement>();
@@ -35,8 +36,11 @@ public class NPCQuestion : MonoBehaviour
             else {
                 levelManager.taskcompletescreen.SetActive(true);
                 npcmanager.myNPC.tasksuccess = NPC.Task.Success;
+                if (!upgraded) {
+                    FindObjectOfType<Player>().maxenergy *= 1.5f;
+                    upgraded = true;
+                }
             }
-            FindObjectOfType<Player>().maxenergy *= 1.5f;
             // play some sound.
         }
     }

@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public bool canMove,NPC;
     LevelManager levelManager;
     public float energy,maxenergy;
+    public float energygain;
     //NPCManagement npcmanager;
     // Start is called before the first frame update
     void Start()
@@ -47,8 +48,13 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) {
         if (other.GetComponent<Collectible>()) {
-            energy += 10;
-            if (energy > maxenergy) energy = maxenergy;
+            if (other.CompareTag("Energy")) {
+                energy += energygain;
+                if (energy > maxenergy) energy = maxenergy;
+            } 
+            else {
+
+            }
         }
     }
 }

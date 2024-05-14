@@ -162,6 +162,7 @@ MonoBehaviour:
   NPC: 0
   energy: 0
   maxenergy: 100
+  energygain: 10
 --- !u!54 &7026762996262241355
 Rigidbody:
   m_ObjectHideFlags: 0

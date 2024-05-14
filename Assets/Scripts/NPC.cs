@@ -32,6 +32,7 @@ public class NPC : MonoBehaviour
     public bool hasdestination; // set in inspector if NPC has a destination.
     public Coroutine dialogueco;
     [SerializeField]AudioClip dialoguesound;
+    bool upgraded;
     //ThisIsSoStupid<List<string>> myoptions;
 
     //[System.Serializable]
@@ -135,6 +136,10 @@ public class NPC : MonoBehaviour
                 //GetComponent<Collider>().enabled = true;
                 tasksuccess = Task.Success;
                 levelManager.taskcompletescreen.SetActive(true);
+                if (!upgraded) {
+                    player.energygain = 20;
+                    upgraded = true;
+                }
                 // play some sound.
             }
         }
