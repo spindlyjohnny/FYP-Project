@@ -52,7 +52,18 @@ MonoBehaviour:
   - {fileID: 7559766590914659311, guid: e0892bc45dabb9347b301a8e8a552956, type: 3}
   - {fileID: 4588167410034383013, guid: 0f7617d5e084433438f28059016bca83, type: 3}
   score: 0
-  credits: 0
+  tileindex: 0
   scoretext: {fileID: 0}
   tasksuccesstext: {fileID: 0}
   creditstext: {fileID: 0}
+  dialoguetext: {fileID: 0}
+  questiontext: {fileID: 0}
+  explaintext: {fileID: 0}
+  optionAtext: {fileID: 0}
+  optionBtext: {fileID: 0}
+  optionCtext: {fileID: 0}
+  optionDtext: {fileID: 0}
+  nametext: {fileID: 0}
+  dialoguebox: {fileID: 0}
+  questionbox: {fileID: 0}
+  level: 0

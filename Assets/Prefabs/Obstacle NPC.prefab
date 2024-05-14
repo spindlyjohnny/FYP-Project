@@ -158,6 +158,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myspawner: {fileID: 0}
   spawnoffset: {x: 0, y: 0, z: 0}
+  moving: 1
+  dir: {x: 0, y: 0, z: 1}
+  destination: {fileID: 0}
 --- !u!54 &1700725067293291086
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -6,22 +6,23 @@ public class CameraController : MonoBehaviour {
     public Transform target,originalposition;
     public float smoothing = 1f,lookOffset;
     public Vector3 targetposition;
-    public bool NPC,transition;
+    public bool NPC,bus,train;
     // Start is called before the first frame update
     void Start() {
         NPC = false;
-        transition = false;
+        bus = false;
+        train = false;
         originalposition = FindObjectOfType<Player>().transform.GetChild(0).transform;
     }
 
     // Update is called once per frame
     void Update() {
-        if (NPC) {
+        if (NPC || bus) {
             targetposition = target.position;
         }
-        else if (transition) {
+        /*else if (train) {
 
-        } 
+        }*/
         else {
             targetposition = new Vector3(target.position.x - lookOffset, transform.position.y, target.position.z);
         }

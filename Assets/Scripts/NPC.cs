@@ -135,6 +135,7 @@ public class NPC : MonoBehaviour
                 followplayer = false;
                 //GetComponent<Collider>().enabled = true;
                 tasksuccess = Task.Success;
+                Transition(levelManager.level);
                 levelManager.taskcompletescreen.SetActive(true);
                 if (!upgraded) {
                     player.energygain = 20;
@@ -202,11 +203,14 @@ public class NPC : MonoBehaviour
         //GetComponent<Collider>().enabled = false;
         transform.Translate(movespeed * Time.deltaTime * dir);
     }
-    void Transition(/*Level level*/) {
-        cam.transition = true;
-        //if(level == level.Bus){
-        //  player.canMove = false;
-        //}
+    void Transition(LevelManager.Level level) {
+        if (level == LevelManager.Level.Bus) {
+            foreach(var i in levelManager.tiles) {
+                if (i.GetComponent<RoadTile>()) cam.target = i.GetComponent<RoadTile>().campos;
+            }
+            player.canMove = false;
+            cam.bus = true;
+        }
     }
 }
 [System.Serializable]

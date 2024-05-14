@@ -111,5 +111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myspawner: {fileID: 0}
   spawnoffset: {x: 0, y: 0, z: 0}
+  moving: 1
+  dir: {x: 0, y: 0, z: 0}
+  destination: {fileID: 0}
   distanceBeforeTurningBack: 10
   walkingRight: 1

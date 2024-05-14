@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class RoadTile : Tile
 {
-    GameObject bus;
+    public Obstacle bus;
+    public Transform campos;
     NPCManagement npcmanager;
     // Start is called before the first frame update
     protected override void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
         npcmanager = FindObjectOfType<NPCManagement>();
-        bus = GetComponentInChildren<Obstacle>(true).gameObject;
+        campos = bus.transform.Find("Cam Position");
+        print(campos);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if(npcmanager.myNPC.tasksuccess == npcmanager.myNPC.Task.Success)
-        //  bus.SetActive(true);
+        if (npcmanager.myNPC != null && npcmanager.myNPC.tasksuccess == NPC.Task.Success) {
+            bus.gameObject.SetActive(true);
+        }
     }
 }

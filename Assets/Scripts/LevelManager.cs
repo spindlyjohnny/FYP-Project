@@ -7,20 +7,21 @@ using TMPro;
 
 public class LevelManager : SceneLoader {
     public bool gameover;
-    public GameObject gameoverscreen,taskcompletescreen;
+    public GameObject gameoverscreen, taskcompletescreen;
     public Slider energyslider;
     public GameObject[] tiles;
-    public int score;
-    public TMP_Text scoretext,tasksuccesstext,creditstext;
+    public int score, tileindex;
+    public TMP_Text scoretext, tasksuccesstext, creditstext;
     NPCManagement npcmanager;
     //GameObject currenttile;
     int tileshiftfactor;
     public TMP_Text dialoguetext, questiontext, explaintext, optionAtext, optionBtext, optionCtext, optionDtext;
     public TMP_Text nametext;
     public GameObject dialoguebox, questionbox;
+    public enum Level { Bus, MRT };
+    public Level level;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         //tiles = FindObjectOfType<Tile>();
         score = 0;
         tileshiftfactor = 0;
@@ -32,15 +33,13 @@ public class LevelManager : SceneLoader {
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if(gameover)gameoverscreen.SetActive(true);
+    void Update() {
+        if (gameover) gameoverscreen.SetActive(true);
         scoretext.text = "Score:" + score;
-        if(npcmanager.myNPC != null) {
+        if (npcmanager.myNPC != null) {
             if (npcmanager.myNPC.tasksuccess == NPC.Task.Fail) {
                 tasksuccesstext.text = "Task failed!";
-            } 
-            else if (npcmanager.myNPC.tasksuccess == NPC.Task.Success) {
+            } else if (npcmanager.myNPC.tasksuccess == NPC.Task.Success) {
                 tasksuccesstext.text = "Task success!";
             }
         }
@@ -55,18 +54,18 @@ public class LevelManager : SceneLoader {
         yield return new WaitForSeconds(2f);
         taskcompletescreen.SetActive(false);
     }
-    public void Spawn(int amount, Tile tilePosition=null) {
+    public void Spawn(int amount, Tile tilePosition = null) {
         for (int x = 0; x < amount; x++) { // spawn amount tiles at a time
             if (amount == 1) x = 5;
             // spawn tile at spawn point + size of tile * order that tile was spawned
-            int index = Random.Range(0, tiles.Length);            
-            Tile mytile = tiles[index].GetComponent<Tile>();
-            if (tilePosition == null)
-            {
-                tilePosition = tiles[index].GetComponent<Tile>();
+            if (!npcmanager.myNPC) tileindex = Random.Range(0, tiles.Length); print("Index:" + tileindex);
+            if(tilePosition == null) {
+                tilePosition = tiles[tileindex].GetComponent<Tile>();
             }
-            print(mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
-            Instantiate(tiles[index], tilePosition.spawnpt.position + new Vector3(7 * x, 0, 0) +new Vector3(tileshiftfactor,0,0) , Quaternion.identity);
+            Tile mytile = tiles[tileindex].GetComponent<Tile>();
+            print(mytile.spawnpt.position);
+            Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
+            print("Yes");
         }
     }
 }
