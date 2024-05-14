@@ -48,7 +48,7 @@ public class Tile : MonoBehaviour {
         //spawn tiles at designated area by either calling the manager or spawning the tiles itself
         if (other.GetComponent<Player>())//only the player collision will spawn the tile
         {
-            levelManager.Spawn(1);
+            levelManager.Spawn(1,this);
             print(spawnpt);
             //print(spawnoffset);
             //if (once)

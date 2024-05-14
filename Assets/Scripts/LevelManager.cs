@@ -55,15 +55,18 @@ public class LevelManager : SceneLoader {
         yield return new WaitForSeconds(2f);
         taskcompletescreen.SetActive(false);
     }
-    public void Spawn(int amount) {
+    public void Spawn(int amount, Tile tilePosition=null) {
         for (int x = 0; x < amount; x++) { // spawn amount tiles at a time
             if (amount == 1) x = 5;
             // spawn tile at spawn point + size of tile * order that tile was spawned
-            int index = Random.Range(0, tiles.Length);
+            int index = Random.Range(0, tiles.Length);            
             Tile mytile = tiles[index].GetComponent<Tile>();
-            print(mytile.spawnpt.position);
-            Instantiate(tiles[index], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
-            print("Yes");
+            if (tilePosition == null)
+            {
+                tilePosition = tiles[index].GetComponent<Tile>();
+            }
+            print(mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
+            Instantiate(tiles[index], tilePosition.spawnpt.position + new Vector3(7 * x, 0, 0) +new Vector3(tileshiftfactor,0,0) , Quaternion.identity);
         }
     }
 }
