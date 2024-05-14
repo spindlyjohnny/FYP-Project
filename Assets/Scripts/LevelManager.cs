@@ -15,6 +15,9 @@ public class LevelManager : SceneLoader {
     NPCManagement npcmanager;
     //GameObject currenttile;
     int tileshiftfactor;
+    public TMP_Text dialoguetext, questiontext, explaintext, optionAtext, optionBtext, optionCtext, optionDtext;
+    public TMP_Text nametext;
+    public GameObject dialoguebox, questionbox;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,7 +63,9 @@ public class LevelManager : SceneLoader {
             // spawn tile at spawn point + size of tile * order that tile was spawned
             int index = Random.Range(0, tiles.Length);
             Tile mytile = tiles[index].GetComponent<Tile>();
+            print(mytile.spawnpt.position);
             Instantiate(tiles[index], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
+            print("Yes");
         }
     }
 }

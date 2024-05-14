@@ -389,6 +389,10 @@ PrefabInstance:
       value: '[ignore]'
       objectReference: {fileID: 0}
     - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: nametext
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: question
       value: Can you help me find my way to the nearest bus stop?
       objectReference: {fileID: 0}
@@ -413,8 +417,44 @@ PrefabInstance:
       value: 0.0898
       objectReference: {fileID: 0}
     - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: dialoguebox
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: explaintext
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: optionAtext
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: optionBtext
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: optionCtext
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: optionDtext
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: questionbox
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: tasksuccess
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: dialoguetext
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: questiontext
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: dialogue.Array.data[0]

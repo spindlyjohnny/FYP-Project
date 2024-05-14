@@ -44,6 +44,8 @@ public class NPC : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        npcmanager = FindObjectOfType<NPCManagement>();
+        levelManager = FindObjectOfType<LevelManager>();
         cam = FindObjectOfType<CameraController>();
         player = FindObjectOfType<Player>();
         names = File.ReadAllLines("Assets\\Misc\\first-names.txt");
@@ -52,7 +54,17 @@ public class NPC : MonoBehaviour
         tasksuccess = Task.Default;
         options = optionsFile.text.Split("\n");
 
-
+        this.nametext = levelManager.nametext;
+        this.dialoguetext = levelManager.dialoguetext;
+        this.questiontext = levelManager.questiontext;
+        this.explaintext = levelManager.explaintext;
+        this.optionAtext = levelManager.optionAtext;
+        this.optionBtext = levelManager.optionBtext;
+        this.optionCtext = levelManager.optionCtext;
+        this.optionDtext = levelManager.optionDtext;
+        this.dialoguebox = levelManager.dialoguebox;
+        this.questionbox = levelManager.questionbox;
+        
         for (int i = 0; i < options.Length; i++)
         {
             if(options[i] != options[1])
@@ -63,10 +75,10 @@ public class NPC : MonoBehaviour
         bool continuing = false;
         int optionList = 0;
         char quotationMark = filteredOptions[0].ToCharArray()[0];        
-        /*for(int i = 0; i < filteredOptions.Count; i++)
+        for(int i = 0; i < filteredOptions.Count; i++)
         {
             int numberOfCharacter = filteredOptions[i].ToCharArray().Length;
-            
+
             if (continuing==false && filteredOptions[i].ToCharArray()[0]== quotationMark)
             {
                 continuing = true;
@@ -81,20 +93,21 @@ public class NPC : MonoBehaviour
                 continuing = false;
                 optionList += 1;
             }
-        }*/
-        
+        }
+
 
         //print(options[0]);
         //ThisIsSoStupid loadedWrapper = JsonUtility.FromJson<ThisIsSoStupid>(options);
         //List<object> loadedList = loadedWrapper.myoptions;
         //print(loadedList[0]);
         int qnindex = Random.Range(0,questions.Length);
+        print(qnindex);
         question = questions[qnindex];
         explain = explains[qnindex];
         optionA = this.optionList[qnindex].option[0];
         optionB = this.optionList[qnindex].option[1];
         if (this.optionList[qnindex].option[2] != null)optionC = this.optionList[qnindex].option[2];
-        if(this.optionList[qnindex].option[3] != null)optionD = this.optionList[qnindex].option[3];
+        if (this.optionList[qnindex].option[3] != null) optionD = this.optionList[qnindex].option[3];
         NPCname = names[Random.Range(0, names.Length)];
         nametext.text = NPCname;
         questiontext.text = question;
@@ -103,8 +116,7 @@ public class NPC : MonoBehaviour
         optionBtext.text = "b)" + optionB;
         optionCtext.text = "c)" + optionC;
         optionDtext.text = "d)" + optionD;
-        npcmanager = FindObjectOfType<NPCManagement>();
-        levelManager = FindObjectOfType<LevelManager>();
+
         startpos = transform.position;
         //rb = GetComponent<Rigidbody>();
     }
