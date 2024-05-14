@@ -202,6 +202,12 @@ public class NPC : MonoBehaviour
         //GetComponent<Collider>().enabled = false;
         transform.Translate(movespeed * Time.deltaTime * dir);
     }
+    void Transition(/*Level level*/) {
+        cam.transition = true;
+        //if(level == level.Bus){
+        //  player.canMove = false;
+        //}
+    }
 }
 [System.Serializable]
 public class OptionsOfQuestions

@@ -26,7 +26,7 @@ public class ObstacleSpawn : MonoBehaviour
     }
     void SpawnObstacle() {
         myobstacle = Instantiate(obstacles[Random.Range(0, obstacles.Length)], transform.position,transform.rotation);        
-        if (this.tag=="Headphone") 
+        if (gameObject.tag=="Headphone") 
         {
             myobstacle.GetComponent<HeadphoneObstacle>().myspawner = this;
         }
