@@ -553,17 +553,57 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: nametext
+      value: 
+      objectReference: {fileID: 488252768}
+    - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: scoretext
       value: 
       objectReference: {fileID: 716980690}
     - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: creditstext
       value: 
-      objectReference: {fileID: 7196524405884246909}
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: dialoguebox
+      value: 
+      objectReference: {fileID: 323359539}
+    - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: explaintext
+      value: 
+      objectReference: {fileID: 106113619}
+    - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: optionAtext
+      value: 
+      objectReference: {fileID: 383012258}
+    - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: optionBtext
+      value: 
+      objectReference: {fileID: 1910471616}
+    - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: optionCtext
+      value: 
+      objectReference: {fileID: 529794729}
+    - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: optionDtext
+      value: 
+      objectReference: {fileID: 1335707592}
+    - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: questionbox
+      value: 
+      objectReference: {fileID: 667861106}
+    - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: dialoguetext
+      value: 
+      objectReference: {fileID: 1132753881}
     - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: energyslider
       value: 
       objectReference: {fileID: 58837466}
+    - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: questiontext
+      value: 
+      objectReference: {fileID: 1482969499}
     - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: gameoverscreen
       value: 
@@ -816,17 +856,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
---- !u!114 &7196524405884246909 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1391746863214621458, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
-  m_PrefabInstance: {fileID: 7196524405884246908}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7287694258095403753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -841,7 +870,7 @@ PrefabInstance:
       objectReference: {fileID: 488252768}
     - target: {fileID: 1034924439135508247, guid: e0892bc45dabb9347b301a8e8a552956, type: 3}
       propertyPath: destination
-      value: 
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1034924439135508247, guid: e0892bc45dabb9347b301a8e8a552956, type: 3}
       propertyPath: dialoguebox
@@ -879,6 +908,14 @@ PrefabInstance:
       propertyPath: questiontext
       value: 
       objectReference: {fileID: 1482969499}
+    - target: {fileID: 3089194818844689973, guid: e0892bc45dabb9347b301a8e8a552956, type: 3}
+      propertyPath: obstacles.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3089194818844689973, guid: e0892bc45dabb9347b301a8e8a552956, type: 3}
+      propertyPath: obstacles.Array.data[2]
+      value: 
+      objectReference: {fileID: 8064431277538921078, guid: 83e4d15618ed8e244b067ee1d3ed1b03, type: 3}
     - target: {fileID: 4733717115723579655, guid: e0892bc45dabb9347b301a8e8a552956, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -923,6 +960,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mock_up
       objectReference: {fileID: 0}
+    - target: {fileID: 8529866371682905060, guid: e0892bc45dabb9347b301a8e8a552956, type: 3}
+      propertyPath: obstacles.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8529866371682905060, guid: e0892bc45dabb9347b301a8e8a552956, type: 3}
+      propertyPath: obstacles.Array.data[2]
+      value: 
+      objectReference: {fileID: 8064431277538921078, guid: 83e4d15618ed8e244b067ee1d3ed1b03, type: 3}
+    - target: {fileID: 9014008101706296786, guid: e0892bc45dabb9347b301a8e8a552956, type: 3}
+      propertyPath: obstacles.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014008101706296786, guid: e0892bc45dabb9347b301a8e8a552956, type: 3}
+      propertyPath: obstacles.Array.data[2]
+      value: 
+      objectReference: {fileID: 8064431277538921078, guid: 83e4d15618ed8e244b067ee1d3ed1b03, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -258,6 +258,5 @@ MonoBehaviour:
   movespeed: 5
   startpos: {x: 0, y: 0, z: 0}
   tasksuccess: 0
-  destination: {fileID: 0}
-  mycredits: 0
+  hasdestination: 1
   dialoguesound: {fileID: 8300000, guid: e1fff525f80061c4cbfb2b7343f60fdb, type: 3}

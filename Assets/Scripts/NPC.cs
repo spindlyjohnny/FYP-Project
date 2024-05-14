@@ -29,9 +29,8 @@ public class NPC : MonoBehaviour
     public Vector3 startpos;
     public enum Task { Success,Fail,Default}
     public Task tasksuccess;
-    public Collider destination; // set in inspector if NPC has a destination.
+    public bool hasdestination; // set in inspector if NPC has a destination.
     public Coroutine dialogueco;
-    public int mycredits; // set in inspector
     [SerializeField]AudioClip dialoguesound;
     //ThisIsSoStupid<List<string>> myoptions;
 
@@ -54,16 +53,16 @@ public class NPC : MonoBehaviour
         tasksuccess = Task.Default;
         options = optionsFile.text.Split("\n");
 
-        this.nametext = levelManager.nametext;
-        this.dialoguetext = levelManager.dialoguetext;
-        this.questiontext = levelManager.questiontext;
-        this.explaintext = levelManager.explaintext;
-        this.optionAtext = levelManager.optionAtext;
-        this.optionBtext = levelManager.optionBtext;
-        this.optionCtext = levelManager.optionCtext;
-        this.optionDtext = levelManager.optionDtext;
-        this.dialoguebox = levelManager.dialoguebox;
-        this.questionbox = levelManager.questionbox;
+        nametext = levelManager.nametext;
+        dialoguetext = levelManager.dialoguetext;
+        questiontext = levelManager.questiontext;
+        explaintext = levelManager.explaintext;
+        optionAtext = levelManager.optionAtext;
+        optionBtext = levelManager.optionBtext;
+        optionCtext = levelManager.optionCtext;
+        optionDtext = levelManager.optionDtext;
+        dialoguebox = levelManager.dialoguebox;
+        questionbox = levelManager.questionbox;
         
         for (int i = 0; i < options.Length; i++)
         {
@@ -101,13 +100,13 @@ public class NPC : MonoBehaviour
         //List<object> loadedList = loadedWrapper.myoptions;
         //print(loadedList[0]);
         int qnindex = Random.Range(0,questions.Length);
-        print(qnindex);
-        question = questions[qnindex];
-        explain = explains[qnindex];
-        optionA = this.optionList[qnindex].option[0];
-        optionB = this.optionList[qnindex].option[1];
-        if (this.optionList[qnindex].option[2] != null)optionC = this.optionList[qnindex].option[2];
-        if (this.optionList[qnindex].option[3] != null) optionD = this.optionList[qnindex].option[3];
+        //print(qnindex);
+        //question = questions[qnindex];
+        //explain = explains[qnindex];
+        //optionA = optionList[qnindex].option[0];
+        //optionB = optionList[qnindex].option[1];
+        //if (optionList[qnindex].option[2] != null)optionC = this.optionList[qnindex].option[2];
+        //if (optionList[qnindex].option[3] != null) optionD = this.optionList[qnindex].option[3];
         NPCname = names[Random.Range(0, names.Length)];
         nametext.text = NPCname;
         questiontext.text = question;
@@ -117,7 +116,7 @@ public class NPC : MonoBehaviour
         optionCtext.text = "c)" + optionC;
         optionDtext.text = "d)" + optionD;
 
-        startpos = transform.position;
+        startpos = transform.localPosition;
         //rb = GetComponent<Rigidbody>();
     }
 
@@ -125,7 +124,7 @@ public class NPC : MonoBehaviour
     void Update()
     {
         FollowPlayer();
-        if (destination != null) {
+        if (hasdestination) {
             var detector = Physics.OverlapSphere(transform.position, .1f);
             bool target = false;
             for(int i = 0; i < detector.Length; i++) {
@@ -136,7 +135,6 @@ public class NPC : MonoBehaviour
                 //GetComponent<Collider>().enabled = true;
                 tasksuccess = Task.Success;
                 levelManager.taskcompletescreen.SetActive(true);
-                levelManager.credits += mycredits;
                 // play some sound.
             }
         }
@@ -194,6 +192,7 @@ public class NPC : MonoBehaviour
     }
     public void FollowPlayer() {
         if (!followplayer) return;
+        print("Follow");
         Vector3 dir = (player.transform.position - transform.position);
         //GetComponent<Collider>().enabled = false;
         transform.Translate(movespeed * Time.deltaTime * dir);

@@ -31,7 +31,7 @@ public class Tile : MonoBehaviour {
         else if (rng <= 0.25f && rng > 0) { // 25% chance of NPC
             NPC.SetActive(true);
             //Instantiate(street, spawnpt.position, spawnpt.rotation);
-            NPC.transform.localPosition = NPC.GetComponent<NPC>().startpos;
+            if(!NPC.GetComponent<NPC>().followplayer)NPC.transform.localPosition = NPC.GetComponent<NPC>().startpos;
         } 
         else if (0.25f < rng && rng <= 0.75f) { // 50% chance of buildings
             foreach (GameObject i in buildings) i.SetActive(true);

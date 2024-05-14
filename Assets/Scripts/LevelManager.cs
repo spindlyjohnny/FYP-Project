@@ -10,7 +10,7 @@ public class LevelManager : SceneLoader {
     public GameObject gameoverscreen,taskcompletescreen;
     public Slider energyslider;
     public GameObject[] tiles;
-    public int score,credits;
+    public int score;
     public TMP_Text scoretext,tasksuccesstext,creditstext;
     NPCManagement npcmanager;
     //GameObject currenttile;
@@ -23,7 +23,6 @@ public class LevelManager : SceneLoader {
     {
         //tiles = FindObjectOfType<Tile>();
         score = 0;
-        credits = 0;
         tileshiftfactor = 0;
         npcmanager = FindObjectOfType<NPCManagement>();
         Spawn(8);
@@ -37,7 +36,6 @@ public class LevelManager : SceneLoader {
     {
         if(gameover)gameoverscreen.SetActive(true);
         scoretext.text = "Score:" + score;
-        creditstext.text = "Credits:" + credits;
         if(npcmanager.myNPC != null) {
             if (npcmanager.myNPC.tasksuccess == NPC.Task.Fail) {
                 tasksuccesstext.text = "Task failed!";

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Question : MonoBehaviour
+public class NPCQuestion : MonoBehaviour
 {
     public enum Options { CorrectOption, WrongOption, nulloption };
     public Options option;
@@ -29,14 +29,14 @@ public class Question : MonoBehaviour
         else if (option == Options.CorrectOption) {
             npcmanager.myNPC.questionbox.SetActive(false);
             npcmanager.myNPC.EndDialogue();
-            if (npcmanager.myNPC.destination != null) {
+            if (npcmanager.myNPC.hasdestination) {
                 npcmanager.myNPC.followplayer = true;
             } 
             else {
                 levelManager.taskcompletescreen.SetActive(true);
                 npcmanager.myNPC.tasksuccess = NPC.Task.Success;
-                levelManager.credits += npcmanager.myNPC.mycredits;
             }
+            FindObjectOfType<Player>().maxenergy *= 1.5f;
             // play some sound.
         }
     }
