@@ -192,7 +192,7 @@ public class NPC : MonoBehaviour
     }
     public void FollowPlayer() {
         if (!followplayer) return;
-        print("Follow");
+        transform.SetParent(null);
         Vector3 dir = (player.transform.position - transform.position);
         //GetComponent<Collider>().enabled = false;
         transform.Translate(movespeed * Time.deltaTime * dir);
