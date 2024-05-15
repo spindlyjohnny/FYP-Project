@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 196827993668925012}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0078, z: -0.0208}
+  m_LocalPosition: {x: 0.00048, y: 0.0078, z: -0.0208}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -529,6 +529,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4507619581634945412
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 791069689750875028}
+  m_Layer: 8
+  m_Name: Passenger Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &791069689750875028
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4507619581634945412}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0101}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2727128197244248963}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5332448023260902661
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,7 +572,7 @@ GameObject:
   - component: {fileID: 3654605595781415971}
   - component: {fileID: 5379866743763533665}
   - component: {fileID: 4344049811976906841}
-  - component: {fileID: -286067214260770088}
+  - component: {fileID: 9054862090012187945}
   - component: {fileID: 5627096919908302989}
   m_Layer: 8
   m_Name: bus1
@@ -576,6 +607,7 @@ Transform:
   - {fileID: 3089617795899607278}
   - {fileID: 3839295798745707186}
   - {fileID: 2958604211089689015}
+  - {fileID: 791069689750875028}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3654605595781415971
@@ -649,7 +681,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.010172789, y: 0.009999999, z: 0.009999999}
   m_Center: {x: -0.00008639506, y: 0, z: 0}
---- !u!114 &-286067214260770088
+--- !u!114 &9054862090012187945
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -658,13 +690,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5332448023260902661}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1a8f43a23800be4cbc58af47a3eadfc, type: 3}
+  m_Script: {fileID: 11500000, guid: e49823a360934f3419e87275b7275462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myspawner: {fileID: 0}
   spawnoffset: {x: 0, y: 0, z: 0}
   dir: {x: -1, y: 0, z: 0}
+  moving: 1
+  transitioned: 0
+  passengerpos: {fileID: 791069689750875028}
   destination: {fileID: 0}
+  transitiondestination: {fileID: 0}
 --- !u!54 &5627096919908302989
 Rigidbody:
   m_ObjectHideFlags: 0

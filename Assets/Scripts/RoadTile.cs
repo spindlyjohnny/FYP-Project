@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RoadTile : Tile
 {
-    public Obstacle bus;
+    public Bus bus;
     public Transform campos;
     NPCManagement npcmanager;
     // Start is called before the first frame update
@@ -12,15 +12,15 @@ public class RoadTile : Tile
     {
         levelManager = FindObjectOfType<LevelManager>();
         npcmanager = FindObjectOfType<NPCManagement>();
+        bus = GetComponentInChildren<Bus>(true);
         campos = bus.transform.Find("Cam Position");
-        print(campos);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (npcmanager.myNPC != null && npcmanager.myNPC.tasksuccess == NPC.Task.Success) {
+        /*if (npcmanager.myNPC != null && npcmanager.myNPC.tasksuccess == NPC.Task.Success) {
             bus.gameObject.SetActive(true);
-        }
+        }*/
     }
 }

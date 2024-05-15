@@ -33,6 +33,7 @@ public class NPC : MonoBehaviour
     public Coroutine dialogueco;
     [SerializeField]AudioClip dialoguesound;
     bool upgraded;
+    [SerializeField]RoadTile street;
     //ThisIsSoStupid<List<string>> myoptions;
 
     //[System.Serializable]
@@ -116,7 +117,7 @@ public class NPC : MonoBehaviour
         optionBtext.text = "b)" + optionB;
         optionCtext.text = "c)" + optionC;
         optionDtext.text = "d)" + optionD;
-
+        upgraded = false;
         startpos = transform.localPosition;
         //rb = GetComponent<Rigidbody>();
     }
@@ -126,10 +127,15 @@ public class NPC : MonoBehaviour
     {
         FollowPlayer();
         if (hasdestination) {
-            var detector = Physics.OverlapSphere(transform.position, .1f);
+            var detector = Physics.OverlapSphere(transform.position, .5f);
             bool target = false;
+            //MRTTile mrt;
             for(int i = 0; i < detector.Length; i++) {
                 if (detector[i].CompareTag("Finish")) target = true;
+                if (detector[i].GetComponent<RoadTile>()) {
+                    street = detector[i].GetComponent<RoadTile>();
+                }
+                //else if(detector[i]) // mrt tile.
             }
             if (target && Input.GetKeyDown(KeyCode.F)) {
                 followplayer = false;
@@ -205,12 +211,30 @@ public class NPC : MonoBehaviour
     }
     void Transition(LevelManager.Level level) {
         if (level == LevelManager.Level.Bus) {
-            foreach(var i in levelManager.tiles) {
-                if (i.GetComponent<RoadTile>()) cam.target = i.GetComponent<RoadTile>().campos;
-            }
+            street.bus.gameObject.SetActive(true);
+            cam.target = street.campos;
             player.canMove = false;
             cam.bus = true;
+            transform.SetParent(street.bus.transform);
+            transform.position = street.bus.passengerpos.position;
+            player.transform.SetParent(street.bus.transform);
+            player.transform.position = street.bus.passengerpos.position;
+            //StartCoroutine(street.bus.BusTransitioninator());
+            if (street.bus.transitioned) {
+                transform.SetParent(null);
+                player.transform.SetParent(null);
+                player.canMove = true;
+                cam.bus = false;
+                cam.target = player.transform;
+                levelManager.level = LevelManager.Level.MRT;
+            }
         }
+        else if(level == LevelManager.Level.MRT) {
+
+        }
+    }
+    private void OnDrawGizmos() {
+        Gizmos.DrawWireSphere(transform.position, .5f);
     }
 }
 [System.Serializable]
