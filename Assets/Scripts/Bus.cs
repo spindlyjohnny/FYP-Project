@@ -29,12 +29,15 @@ public class Bus : Obstacle
         }
     }
     public IEnumerator BusTransitioninator() {
+        //FindObjectOfType<FadeIn>().blackscreen.gameObject.SetActive(true);
         yield return new WaitForSeconds(2f);
         moving = true;
-        FindObjectOfType<FadeIn>().Appear();
-        print("yuhhhh");
+        //FindObjectOfType<FadeIn>().blackscreen.gameObject.SetActive(true);
+        //FindObjectOfType<FadeIn>().Appear();
+        //FindObjectOfType<LevelManager>().loadingscreen.SetActive(true);
         yield return new WaitForSeconds(5f);
-        FindObjectOfType<FadeIn>().Disappear();
-        print("gyaaattttt");
+        //FindObjectOfType<LevelManager>().loadingscreen.SetActive(false);
+        //FindObjectOfType<FadeIn>().Disappear();
+        //FindObjectOfType<FadeIn>().blackscreen.gameObject.SetActive(false);
     }
 }

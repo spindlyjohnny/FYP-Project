@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class FadeIn : MonoBehaviour
 {
     public float fadetime;
-    Image blackscreen;
+    public Image blackscreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,9 +19,13 @@ public class FadeIn : MonoBehaviour
         
     }
     public void Appear() {
-        blackscreen.CrossFadeAlpha(1, fadetime, false);
+        blackscreen.gameObject.SetActive(true);
+        //blackscreen.CrossFadeAlpha(1, fadetime, false);
+        //if (blackscreen.color.a == 1) blackscreen.gameObject.SetActive(false);
     }
     public void Disappear() {
-        blackscreen.CrossFadeAlpha(0, fadetime, false);
+        blackscreen.gameObject.SetActive(false);
+        //blackscreen.CrossFadeAlpha(0, fadetime, false);
+        //if (blackscreen.color.a == 0) blackscreen.gameObject.SetActive(false);
     }
 }
