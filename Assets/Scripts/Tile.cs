@@ -30,7 +30,7 @@ public class Tile : MonoBehaviour {
             foreach (var i in levelManager.tiles) {
                 if (i.GetComponent<RoadTile>()) levelManager.tileindex = Array.IndexOf(levelManager.tiles, i);
             }
-            print("Index:" + levelManager.tileindex);
+            //print("Index:" + levelManager.tileindex);
             if (!NPC.GetComponent<NPC>().followplayer) NPC.transform.localPosition = NPC.GetComponent<NPC>().startpos;
         }
         else if (0.25f < rng && rng <= 0.75f) { // 50% chance of buildings
@@ -43,7 +43,7 @@ public class Tile : MonoBehaviour {
         //spawn tiles at designated area by either calling the manager or spawning the tiles itself
         if (other.GetComponent<Player>())//only the player collision will spawn the tile
         {
-            levelManager.Spawn(1,this);
+            levelManager.Spawn(1);
         }
     }
 

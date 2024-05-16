@@ -18,6 +18,7 @@ public class LevelManager : SceneLoader {
     public TMP_Text dialoguetext, questiontext, explaintext, optionAtext, optionBtext, optionCtext, optionDtext;
     public TMP_Text nametext;
     public GameObject dialoguebox, questionbox;
+    int numberOfTiles=5;
     public enum Level { Bus, MRT };
     public Level level;
     // Start is called before the first frame update
@@ -54,18 +55,17 @@ public class LevelManager : SceneLoader {
         yield return new WaitForSeconds(2f);
         taskcompletescreen.SetActive(false);
     }
-    public void Spawn(int amount, Tile tilePosition = null) {
+    public void Spawn(int amount) {
         for (int x = 0; x < amount; x++) { // spawn amount tiles at a time
-            if (amount == 1) x = 5;
+            if (amount == 1) x = numberOfTiles;
+
             // spawn tile at spawn point + size of tile * order that tile was spawned
             if (!npcmanager.myNPC) tileindex = Random.Range(0, tiles.Length); print("Index:" + tileindex);
-            if(tilePosition == null) {
-                tilePosition = tiles[tileindex].GetComponent<Tile>();
-            }
             Tile mytile = tiles[tileindex].GetComponent<Tile>();
             print(mytile.spawnpt.position);
             Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
             print("Yes");
+            if (amount == 1) numberOfTiles += 1;
         }
     }
 }
