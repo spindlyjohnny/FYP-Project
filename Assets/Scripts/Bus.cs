@@ -34,9 +34,9 @@ public class Bus : Obstacle
         moving = true;
         //FindObjectOfType<FadeIn>().blackscreen.gameObject.SetActive(true);
         //FindObjectOfType<FadeIn>().Appear();
-        //FindObjectOfType<LevelManager>().loadingscreen.SetActive(true);
+        FindObjectOfType<LevelManager>().loadingscreen.SetActive(true);
         yield return new WaitForSeconds(5f);
-        //FindObjectOfType<LevelManager>().loadingscreen.SetActive(false);
+        FindObjectOfType<LevelManager>().loadingscreen.SetActive(false);
         //FindObjectOfType<FadeIn>().Disappear();
         //FindObjectOfType<FadeIn>().blackscreen.gameObject.SetActive(false);
     }

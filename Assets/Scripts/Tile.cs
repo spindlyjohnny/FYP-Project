@@ -27,9 +27,9 @@ public class Tile : MonoBehaviour {
         } 
         else if (rng <= 0.25f && rng > 0) { // 25% chance of NPC
             NPC.SetActive(true);
-            foreach (var i in levelManager.tiles) {
+            /*foreach (var i in levelManager.tiles) {
                 if (i.GetComponent<RoadTile>()) levelManager.tileindex = Array.IndexOf(levelManager.tiles, i);
-            }
+            }*/
             //print("Index:" + levelManager.tileindex);
             if (!NPC.GetComponent<NPC>().followplayer) NPC.transform.localPosition = NPC.GetComponent<NPC>().startpos;
         }

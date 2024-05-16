@@ -7,11 +7,11 @@ using TMPro;
 
 public class LevelManager : SceneLoader {
     public bool gameover;
-    public GameObject gameoverscreen, taskcompletescreen;
+    public GameObject gameoverscreen, taskcompletescreen,loadingscreen;
     public Slider energyslider;
     public GameObject[] tiles;
     public int score, tileindex;
-    public TMP_Text scoretext, tasksuccesstext, creditstext;
+    public TMP_Text scoretext, tasksuccesstext;
     NPCManagement npcmanager;
     //GameObject currenttile;
     int tileshiftfactor;
@@ -19,6 +19,7 @@ public class LevelManager : SceneLoader {
     public TMP_Text nametext;
     public GameObject dialoguebox, questionbox;
     int numberOfTiles=5;
+    public float tilerng;
     public enum Level { Bus, MRT };
     public Level level;
     // Start is called before the first frame update
@@ -40,7 +41,8 @@ public class LevelManager : SceneLoader {
         if (npcmanager.myNPC != null) {
             if (npcmanager.myNPC.tasksuccess == NPC.Task.Fail) {
                 tasksuccesstext.text = "Task failed!";
-            } else if (npcmanager.myNPC.tasksuccess == NPC.Task.Success) {
+            } 
+            else if (npcmanager.myNPC.tasksuccess == NPC.Task.Success) {
                 tasksuccesstext.text = "Task success!";
             }
         }
@@ -58,7 +60,6 @@ public class LevelManager : SceneLoader {
     public void Spawn(int amount) {
         for (int x = 0; x < amount; x++) { // spawn amount tiles at a time
             if (amount == 1) x = numberOfTiles;
-
             // spawn tile at spawn point + size of tile * order that tile was spawned
             if (!npcmanager.myNPC) tileindex = Random.Range(0, tiles.Length); print("Index:" + tileindex);
             Tile mytile = tiles[tileindex].GetComponent<Tile>();
