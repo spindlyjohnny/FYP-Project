@@ -149,6 +149,18 @@ public class NPC : MonoBehaviour
                 }
                 // play some sound.
             }
+            if (street.bus.transitioned) {
+                transform.SetParent(null);
+                player.transform.SetParent(null);
+                player.GetComponent<Collider>().enabled = true;
+                foreach (var i in GetComponents<Collider>()) i.enabled = true;
+                player.canMove = true;
+                cam.bus = false;
+                cam.target = player.transform;
+                cam.transform.position = cam.originalposition.position;
+                levelManager.level = LevelManager.Level.MRT;
+                street.bus.transitioned = false;
+            }
         }
     }
     private void OnTriggerEnter(Collider other) {
@@ -218,16 +230,20 @@ public class NPC : MonoBehaviour
             transform.SetParent(street.bus.transform);
             transform.position = street.bus.passengerpos.position;
             player.transform.SetParent(street.bus.transform);
+            player.GetComponent<Collider>().enabled = false;
+            foreach (var i in GetComponents<Collider>()) i.enabled = false;
             player.transform.position = street.bus.passengerpos.position;
             //StartCoroutine(street.bus.BusTransitioninator());
-            if (street.bus.transitioned) {
-                transform.SetParent(null);
-                player.transform.SetParent(null);
-                player.canMove = true;
-                cam.bus = false;
-                cam.target = player.transform;
-                levelManager.level = LevelManager.Level.MRT;
-            }
+            //if (street.bus.transitioned) {
+            //    transform.SetParent(null);
+            //    player.transform.SetParent(null);
+            //    player.GetComponent<Collider>().enabled = true;
+            //    foreach(var i in GetComponents<Collider>())i.enabled = true;
+            //    player.canMove = true;
+            //    cam.bus = false;
+            //    cam.target = player.transform;
+            //    levelManager.level = LevelManager.Level.MRT;
+            //}
         }
         else if(level == LevelManager.Level.MRT) {
 
