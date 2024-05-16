@@ -149,7 +149,7 @@ public class NPC : MonoBehaviour
                 }
                 // play some sound.
             }
-            if (street.bus.transitioned) {
+            if (street != null && street.bus.transitioned) {
                 transform.SetParent(null);
                 player.transform.SetParent(null);
                 player.GetComponent<Collider>().enabled = true;

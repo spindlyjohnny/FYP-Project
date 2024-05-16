@@ -31,8 +31,10 @@ public class Bus : Obstacle
     public IEnumerator BusTransitioninator() {
         yield return new WaitForSeconds(2f);
         moving = true;
-        //FindObjectOfType<FadeIn>().Appear();
-        //yield return new WaitForSeconds(5f);
-        //FindObjectOfType<FadeIn>().Disappear();
+        FindObjectOfType<FadeIn>().Appear();
+        print("yuhhhh");
+        yield return new WaitForSeconds(5f);
+        FindObjectOfType<FadeIn>().Disappear();
+        print("gyaaattttt");
     }
 }
