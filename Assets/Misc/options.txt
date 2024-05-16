@@ -1,6 +1,7 @@
 "We can be more environmentally friendly
 
 We can eat and drink
+We can eat and drink
 
 We can chat loudly with our friends
 
@@ -74,11 +75,6 @@ Stare at them "
 
 No, there are those with only some vision loss"
 "User is completely blind 
-
-User has low vision
-
-User is blind and deaf"
-"User is completely blind
 
 User has low vision
 

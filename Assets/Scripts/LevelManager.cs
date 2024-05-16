@@ -18,6 +18,7 @@ public class LevelManager : SceneLoader {
     int tileshiftfactor;
     public TMP_Text dialoguetext, questiontext, explaintext, optionAtext, optionBtext, optionCtext, optionDtext;
     public TMP_Text nametext;
+    public GameObject optionAButton, optionBButton, optionCButton, optionDButton;
     public GameObject dialoguebox, questionbox;
     int numberOfTiles=5;
     public float tilerng;

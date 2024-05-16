@@ -20,8 +20,8 @@ public class NPC : MonoBehaviour
     public bool followplayer;
     public NPCManagement npcmanager;
     string[] names, questions, explains;
-    public string[] options;
-    public List<string> filteredOptions= new List<string>(0);
+    string[] options;
+    List<string> filteredOptions= new List<string>(0);
     public List<OptionsOfQuestions> optionList;
     public TextAsset optionsFile;
     public float movespeed;
@@ -34,14 +34,7 @@ public class NPC : MonoBehaviour
     [SerializeField]AudioClip dialoguesound;
     bool upgraded;
     [SerializeField]RoadTile street;
-    //ThisIsSoStupid<List<string>> myoptions;
-
-    //[System.Serializable]
-    //class ThisIsSoStupid {
-    //    public List<object> myoptions;
-
-    //}
-    //Rigidbody rb;
+    public Answer[] answer = new Answer[51];
     // Start is called before the first frame update
     void Start()
     {
@@ -54,7 +47,7 @@ public class NPC : MonoBehaviour
         explains = File.ReadAllLines("Assets\\Misc\\explanations.txt");
         tasksuccess = Task.Default;
         options = optionsFile.text.Split("\n");
-
+        //setting the text reference to the right canvas
         nametext = levelManager.nametext;
         dialoguetext = levelManager.dialoguetext;
         questiontext = levelManager.questiontext;
@@ -65,7 +58,10 @@ public class NPC : MonoBehaviour
         optionDtext = levelManager.optionDtext;
         dialoguebox = levelManager.dialoguebox;
         questionbox = levelManager.questionbox;
-        
+        //turning the visibility on
+        levelManager.optionCButton.SetActive(true);
+        levelManager.optionDButton.SetActive(true);
+
         for (int i = 0; i < options.Length; i++)
         {
             if(options[i] != options[1])
@@ -74,7 +70,7 @@ public class NPC : MonoBehaviour
             }
         }
         bool continuing = false;
-        int optionList = 0;
+        int optionIndex = 0;
         char quotationMark = filteredOptions[0].ToCharArray()[0];        
         for(int i = 0; i < filteredOptions.Count; i++)
         {
@@ -83,43 +79,68 @@ public class NPC : MonoBehaviour
             if (continuing==false && filteredOptions[i].ToCharArray()[0]== quotationMark)
             {
                 continuing = true;
-                this.optionList[optionList].option.Add(filteredOptions[i]);
+                this.optionList[optionIndex].option.Add(filteredOptions[i]);
             }else if(continuing ==true && filteredOptions[i].ToCharArray()[numberOfCharacter-2] != quotationMark)
             {
-                this.optionList[optionList].option.Add(filteredOptions[i]);
+                this.optionList[optionIndex].option.Add(filteredOptions[i]);
             }
             else if(continuing == true && filteredOptions[i].ToCharArray()[numberOfCharacter - 2] == quotationMark)
             {
-                this.optionList[optionList].option.Add(filteredOptions[i]);
+                this.optionList[optionIndex].option.Add(filteredOptions[i]);
                 continuing = false;
-                optionList += 1;
+                optionIndex += 1;
             }
         }
 
-
-        //print(options[0]);
-        //ThisIsSoStupid loadedWrapper = JsonUtility.FromJson<ThisIsSoStupid>(options);
-        //List<object> loadedList = loadedWrapper.myoptions;
-        //print(loadedList[0]);
-        int qnindex = Random.Range(0,questions.Length);
-        //print(qnindex);
-        //question = questions[qnindex];
-        //explain = explains[qnindex];
-        //optionA = optionList[qnindex].option[0];
-        //optionB = optionList[qnindex].option[1];
-        //if (optionList[qnindex].option[2] != null)optionC = this.optionList[qnindex].option[2];
-        //if (optionList[qnindex].option[3] != null) optionD = this.optionList[qnindex].option[3];
+        int qnindex = Random.Range(0,questions.Length);//random index for a question
+        levelManager.optionAButton.GetComponent<Question>().option = Question.Options.WrongOption;
+        levelManager.optionBButton.GetComponent<Question>().option = Question.Options.WrongOption;
+        levelManager.optionCButton.GetComponent<Question>().option = Question.Options.WrongOption;
+        levelManager.optionDButton.GetComponent<Question>().option = Question.Options.WrongOption;
+        foreach (int i in answer[qnindex].element)
+        {
+            if (i == 1)
+            {
+                levelManager.optionAButton.GetComponent<Question>().option = Question.Options.CorrectOption;
+            }else if(i == 2)
+            {
+                levelManager.optionBButton.GetComponent<Question>().option = Question.Options.CorrectOption;
+            }
+            else if (i == 3)
+            {
+                levelManager.optionCButton.GetComponent<Question>().option = Question.Options.CorrectOption;
+            }
+            else if(i == 4)
+            {
+                levelManager.optionDButton.GetComponent<Question>().option = Question.Options.CorrectOption;
+            }
+        }
+        question = questions[qnindex];
+        explain = explains[qnindex];
+        optionA = optionList[qnindex].option[0];
+        optionB = optionList[qnindex].option[1];
+        if (optionList[qnindex].option.Count>=3)optionC = this.optionList[qnindex].option[2];
+        if (optionList[qnindex].option.Count>=4) optionD = this.optionList[qnindex].option[3];
         NPCname = names[Random.Range(0, names.Length)];
         nametext.text = NPCname;
         questiontext.text = question;
         explaintext.text = explain;
         optionAtext.text = "a)" + optionA;
         optionBtext.text = "b)" + optionB;
-        optionCtext.text = "c)" + optionC;
-        optionDtext.text = "d)" + optionD;
+        if (optionList[qnindex].option.Count >= 3) optionCtext.text = "c)" + optionC;
+        else
+        {
+            optionCtext.text = "";
+            levelManager.optionCButton.SetActive(false);
+        }
+        if (optionList[qnindex].option.Count >= 4) optionDtext.text = "d)" + optionD;
+        else
+        {
+            optionDtext.text = "";
+            levelManager.optionDButton.SetActive(false);
+        }
         upgraded = false;
         startpos = transform.localPosition;
-        //rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -258,4 +279,9 @@ public class NPC : MonoBehaviour
 public class OptionsOfQuestions
 {
     public List<string> option= new List<string>();
+}
+[System.Serializable]
+public class Answer
+{
+    public int[] element= new int[2];
 }

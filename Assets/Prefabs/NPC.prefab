@@ -197,8 +197,6 @@ MonoBehaviour:
   currentline: 0
   followplayer: 0
   npcmanager: {fileID: 0}
-  options: []
-  filteredOptions: []
   optionList:
   - option: []
   - option: []
@@ -260,3 +258,55 @@ MonoBehaviour:
   tasksuccess: 0
   hasdestination: 1
   dialoguesound: {fileID: 8300000, guid: e1fff525f80061c4cbfb2b7343f60fdb, type: 3}
+  street: {fileID: 0}
+  answer:
+  - element: 01000000
+  - element: 0100000002000000
+  - element: 01000000
+  - element: 01000000
+  - element: 0100000004000000
+  - element: 03000000
+  - element: 01000000020000000300000004000000
+  - element: 01000000
+  - element: 01000000
+  - element: 01000000020000000300000004000000
+  - element: 010000000200000003000000
+  - element: 02000000
+  - element: 02000000
+  - element: 01000000
+  - element: 02000000
+  - element: 03000000
+  - element: 03000000
+  - element: 03000000
+  - element: 02000000
+  - element: 03000000
+  - element: 03000000
+  - element: 02000000
+  - element: 02000000
+  - element: 02000000
+  - element: 0300000004000000
+  - element: 02000000
+  - element: 0100000002000000
+  - element: 02000000
+  - element: 02000000
+  - element: 02000000
+  - element: 01000000
+  - element: 01000000
+  - element: 02000000
+  - element: 0100000003000000
+  - element: 0100000002000000
+  - element: 0300000004000000
+  - element: 01000000
+  - element: 01000000
+  - element: 0100000004000000
+  - element: 01000000
+  - element: 0100000003000000
+  - element: 0100000002000000
+  - element: 01000000020000000300000004000000
+  - element: 01000000
+  - element: 03000000
+  - element: 01000000
+  - element: 02000000
+  - element: 0100000002000000
+  - element: 010000000200000003000000
+  - element: 010000000200000003000000
