@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class LevelManager : SceneLoader {
     public bool gameover;
@@ -61,7 +62,14 @@ public class LevelManager : SceneLoader {
         for (int x = 0; x < amount; x++) { // spawn amount tiles at a time
             if (amount == 1) x = numberOfTiles;
             // spawn tile at spawn point + size of tile * order that tile was spawned
-            if (!npcmanager.myNPC) tileindex = Random.Range(0, tiles.Length); print("Index:" + tileindex);
+            //if (!npcmanager.myNPC) {
+            //    tileindex = UnityEngine.Random.Range(0, tiles.Length);
+            //    print("Tile index:" + tileindex);
+            //} else {
+            //    foreach (var i in tiles) {
+            //        if (i.GetComponent<RoadTile>()) tileindex = Array.IndexOf(tiles, i); print("Tile index:" + tileindex);
+            //    }
+            //}
             Tile mytile = tiles[tileindex].GetComponent<Tile>();
             print(mytile.spawnpt.position);
             Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
