@@ -143,6 +143,7 @@ public class NPC : MonoBehaviour
                 tasksuccess = Task.Success;
                 Transition(levelManager.level);
                 levelManager.taskcompletescreen.SetActive(true);
+                levelManager.taskcompletescreen.transform.Find("Upgrade Text").gameObject.SetActive(true);
                 if (!upgraded) {
                     player.energygain = 20;
                     upgraded = true;
