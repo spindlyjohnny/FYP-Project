@@ -8,7 +8,7 @@ public class Tile : MonoBehaviour {
     //public GameObject street;
     //bool once=true;
     GameObject NPC;
-    [SerializeField] GameObject[] buildings;
+    //[SerializeField] GameObject[] buildings;
     protected LevelManager levelManager;
     //public Vector3 spawnoffset;
     protected float rng;
@@ -23,7 +23,7 @@ public class Tile : MonoBehaviour {
     void Update() {
         if (rng == 0) { // no NPC or buildings
             NPC.SetActive(false);
-            foreach (GameObject i in buildings) i.SetActive(false);
+            //foreach (GameObject i in buildings) i.SetActive(false);
         } 
         else if (rng <= 0.25f && rng > 0) { // 25% chance of NPC
             NPC.SetActive(true);
@@ -34,7 +34,7 @@ public class Tile : MonoBehaviour {
             if (!NPC.GetComponent<NPC>().followplayer) NPC.transform.localPosition = NPC.GetComponent<NPC>().startpos;
         }
         else if (0.25f < rng && rng <= 0.75f) { // 50% chance of buildings
-            foreach (GameObject i in buildings) i.SetActive(true);
+            //foreach (GameObject i in buildings) i.SetActive(true);
             NPC.SetActive(false);
         }
     }
