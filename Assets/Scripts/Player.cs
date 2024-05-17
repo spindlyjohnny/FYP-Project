@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
             transform.Translate(movespeed * Time.deltaTime * movement, Space.Self);
             if (movement != Vector3.zero) {
                 levelManager.score++;
-                energy -= .01f;
+                energy -= .001f;
             }
         }
         if(energy <= 0) {

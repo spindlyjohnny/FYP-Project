@@ -51,8 +51,8 @@ MonoBehaviour:
   energyslider: {fileID: 0}
   tiles:
   - {fileID: 5179747357244827615, guid: f6ddb29c6ac1e444c8c264d2d714cfe1, type: 3}
-  - {fileID: 4588167410034383013, guid: 0f7617d5e084433438f28059016bca83, type: 3}
-  - {fileID: 7121108944111449282, guid: 0084880dee8cde844ba78026ad045e6f, type: 3}
+  - {fileID: 8644082906898212650, guid: 0f7617d5e084433438f28059016bca83, type: 3}
+  - {fileID: 7621181523352037822, guid: 0084880dee8cde844ba78026ad045e6f, type: 3}
   score: 0
   tileindex: 0
   scoretext: {fileID: 0}

@@ -93,26 +93,26 @@ public class NPC : MonoBehaviour
         }
 
         int qnindex = Random.Range(0,questions.Length);//random index for a question
-        levelManager.optionAButton.GetComponent<Question>().option = Question.Options.WrongOption;
-        levelManager.optionBButton.GetComponent<Question>().option = Question.Options.WrongOption;
-        levelManager.optionCButton.GetComponent<Question>().option = Question.Options.WrongOption;
-        levelManager.optionDButton.GetComponent<Question>().option = Question.Options.WrongOption;
+        levelManager.optionAButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
+        levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
+        levelManager.optionCButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
+        levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
         foreach (int i in answer[qnindex].element)
         {
             if (i == 1)
             {
-                levelManager.optionAButton.GetComponent<Question>().option = Question.Options.CorrectOption;
+                levelManager.optionAButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
             }else if(i == 2)
             {
-                levelManager.optionBButton.GetComponent<Question>().option = Question.Options.CorrectOption;
+                levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
             }
             else if (i == 3)
             {
-                levelManager.optionCButton.GetComponent<Question>().option = Question.Options.CorrectOption;
+                levelManager.optionCButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
             }
             else if(i == 4)
             {
-                levelManager.optionDButton.GetComponent<Question>().option = Question.Options.CorrectOption;
+                levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
             }
         }
         question = questions[qnindex];
@@ -186,7 +186,7 @@ public class NPC : MonoBehaviour
         }
     }
     private void OnTriggerEnter(Collider other) {
-        if (other.GetComponent<Player>() && !spoken) {
+        if (other.GetComponent<Player>() && !spoken && !npcmanager.myNPC) {
             player.canMove = false;
             CameraPan();
             StartDialogue();

@@ -26,12 +26,10 @@ public class LevelManager : SceneLoader {
     public Level level;
     // Start is called before the first frame update
     void Start() {
-        //tiles = FindObjectOfType<Tile>();
         score = 0;
         tileshiftfactor = 0;
         npcmanager = FindObjectOfType<NPCManagement>();
         Spawn(8);
-        //tiles.Spawn(8);
         gameover = false;
         gameoverscreen.SetActive(false);
     }
