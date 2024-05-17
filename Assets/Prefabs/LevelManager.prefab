@@ -47,15 +47,16 @@ MonoBehaviour:
   gameover: 0
   gameoverscreen: {fileID: 0}
   taskcompletescreen: {fileID: 0}
+  loadingscreen: {fileID: 0}
   energyslider: {fileID: 0}
   tiles:
-  - {fileID: 7559766590914659311, guid: e0892bc45dabb9347b301a8e8a552956, type: 3}
+  - {fileID: 5179747357244827615, guid: f6ddb29c6ac1e444c8c264d2d714cfe1, type: 3}
   - {fileID: 4588167410034383013, guid: 0f7617d5e084433438f28059016bca83, type: 3}
+  - {fileID: 7121108944111449282, guid: 0084880dee8cde844ba78026ad045e6f, type: 3}
   score: 0
   tileindex: 0
   scoretext: {fileID: 0}
   tasksuccesstext: {fileID: 0}
-  creditstext: {fileID: 0}
   dialoguetext: {fileID: 0}
   questiontext: {fileID: 0}
   explaintext: {fileID: 0}
@@ -64,6 +65,11 @@ MonoBehaviour:
   optionCtext: {fileID: 0}
   optionDtext: {fileID: 0}
   nametext: {fileID: 0}
+  optionAButton: {fileID: 0}
+  optionBButton: {fileID: 0}
+  optionCButton: {fileID: 0}
+  optionDButton: {fileID: 0}
   dialoguebox: {fileID: 0}
   questionbox: {fileID: 0}
+  tilerng: 0
   level: 0
