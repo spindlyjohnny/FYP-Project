@@ -19,8 +19,13 @@ public class Interactable : MonoBehaviour
         
     }
     private void OnTriggerEnter(Collider other) {
-        if (npcmanager.myNPC == null) return;
-        if (other.GetComponent<Player>() && npcmanager.myNPC.followplayer) inputtext.SetActive(true);
+        if (gameObject.CompareTag("Finish")) {
+            if (npcmanager.myNPC == null) return;
+            if (other.GetComponent<Player>() && npcmanager.myNPC.followplayer) inputtext.SetActive(true);
+        } 
+        else {
+            if (other.GetComponent<Player>()) inputtext.SetActive(true);
+        }
     }
     private void OnTriggerExit(Collider other) {
         if (other.GetComponent<Player>()) inputtext.SetActive(false);

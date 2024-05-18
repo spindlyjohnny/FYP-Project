@@ -26,6 +26,7 @@ public class Bus : Obstacle
         else if (other == transitiondestination) {
             moving = false;
             transitioned = true;
+            FindObjectOfType<LevelManager>().loadingscreen.SetActive(false);
         }
     }
     public IEnumerator BusTransitioninator() {
@@ -35,8 +36,8 @@ public class Bus : Obstacle
         //FindObjectOfType<FadeIn>().blackscreen.gameObject.SetActive(true);
         //FindObjectOfType<FadeIn>().Appear();
         FindObjectOfType<LevelManager>().loadingscreen.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        FindObjectOfType<LevelManager>().loadingscreen.SetActive(false);
+        //yield return new WaitForSeconds(5f);
+        
         //FindObjectOfType<FadeIn>().Disappear();
         //FindObjectOfType<FadeIn>().blackscreen.gameObject.SetActive(false);
     }

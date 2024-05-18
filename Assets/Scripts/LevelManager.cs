@@ -29,6 +29,7 @@ public class LevelManager : SceneLoader {
         score = 0;
         tileshiftfactor = 0;
         npcmanager = FindObjectOfType<NPCManagement>();
+        tileindex = UnityEngine.Random.Range(0, tiles.Length);
         Spawn(8);
         gameover = false;
         gameoverscreen.SetActive(false);

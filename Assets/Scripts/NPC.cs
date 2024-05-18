@@ -160,6 +160,7 @@ public class NPC : MonoBehaviour
             }
             if (target && Input.GetKeyDown(KeyCode.F)) {
                 followplayer = false;
+                player.GetComponent<Rigidbody>().isKinematic = false;
                 //GetComponent<Collider>().enabled = true;
                 tasksuccess = Task.Success;
                 Transition(levelManager.level);
@@ -182,6 +183,7 @@ public class NPC : MonoBehaviour
                 cam.transform.position = cam.originalposition.position;
                 levelManager.level = LevelManager.Level.MRT;
                 street.bus.transitioned = false;
+                Destroy(gameObject);
             }
         }
     }
@@ -238,6 +240,7 @@ public class NPC : MonoBehaviour
     }
     public void FollowPlayer() {
         if (!followplayer) return;
+        player.GetComponent<Rigidbody>().isKinematic = true;
         transform.SetParent(null);
         Vector3 dir = (player.transform.position - transform.position);
         //GetComponent<Collider>().enabled = false;
@@ -246,6 +249,7 @@ public class NPC : MonoBehaviour
     void Transition(LevelManager.Level level) {
         if (level == LevelManager.Level.Bus) {
             street.bus.gameObject.SetActive(true);
+            street.station.SetActive(true);
             cam.target = street.campos;
             player.canMove = false;
             cam.bus = true;

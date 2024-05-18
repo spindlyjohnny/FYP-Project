@@ -14,8 +14,8 @@ TagManager:
   - 
   - Water
   - UI
-  - GridSquare
-  - StartingGrid
+  - Player
+  - NPC
   - Obstacle
   - BlockedGrid
   - RampGrid

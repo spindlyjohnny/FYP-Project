@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3950901737290613748}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cam Pos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 3400988405361731566}
   - component: {fileID: 5194266150530353860}
   - component: {fileID: 1863821231898360523}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
