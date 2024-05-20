@@ -24,7 +24,14 @@ public class Interactable : MonoBehaviour
             if (other.GetComponent<Player>() && npcmanager.myNPC.followplayer) inputtext.SetActive(true);
         } 
         else {
-            if (other.GetComponent<Player>()) inputtext.SetActive(true);
+            if (other.GetComponent<Player>()) {
+                inputtext.SetActive(true);
+            }
+        }
+    }
+    private void OnTriggerStay(Collider other) {
+        if (other.GetComponent<Player>() && Input.GetKeyDown(KeyCode.F)) {
+            FindObjectOfType<Player>().transform.position = GameObject.FindGameObjectWithTag("Train").transform.Find("Player Start Point").position;
         }
     }
     private void OnTriggerExit(Collider other) {

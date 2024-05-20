@@ -12,7 +12,7 @@ public class LevelManager : SceneLoader {
     public Slider energyslider;
     public GameObject[] tiles; 
     [SerializeField]GameObject[] bustiles;
-    [SerializeField]GameObject mrt;
+    public GameObject mrt;
     public int score, tileindex;
     public TMP_Text scoretext, tasksuccesstext;
     NPCManagement npcmanager;

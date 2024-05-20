@@ -57,6 +57,15 @@ MonoBehaviour:
   - {fileID: 6660389373174502101, guid: b1ebd68865e670d4a9f7f2e06be1161d, type: 3}
   - {fileID: 8069987741948419533, guid: 7fd2089fd616b2e449104035046c91db, type: 3}
   - {fileID: 8644082906898212650, guid: 0f7617d5e084433438f28059016bca83, type: 3}
+  bustiles:
+  - {fileID: 5179747357244827615, guid: f6ddb29c6ac1e444c8c264d2d714cfe1, type: 3}
+  - {fileID: 7621181523352037822, guid: 0084880dee8cde844ba78026ad045e6f, type: 3}
+  - {fileID: 377410254696918908, guid: ef59d2ce6bb989c4291eead70d12b4bf, type: 3}
+  - {fileID: 5619750261169252043, guid: eb2ed2fd2da14c444943bb0a147f543d, type: 3}
+  - {fileID: 6660389373174502101, guid: b1ebd68865e670d4a9f7f2e06be1161d, type: 3}
+  - {fileID: 8069987741948419533, guid: 7fd2089fd616b2e449104035046c91db, type: 3}
+  - {fileID: 8644082906898212650, guid: 0f7617d5e084433438f28059016bca83, type: 3}
+  mrt: {fileID: 7404829644063580020, guid: 6d404cd9cec35b1469bd2504cd6c7229, type: 3}
   score: 0
   tileindex: 0
   scoretext: {fileID: 0}
@@ -77,3 +86,4 @@ MonoBehaviour:
   questionbox: {fileID: 0}
   tilerng: 0
   level: 0
+  currenttiles: []
