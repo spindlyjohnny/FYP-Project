@@ -10,7 +10,9 @@ public class LevelManager : SceneLoader {
     public bool gameover;
     public GameObject gameoverscreen, taskcompletescreen,loadingscreen;
     public Slider energyslider;
-    public GameObject[] tiles;
+    public GameObject[] tiles; 
+    [SerializeField]GameObject[] bustiles;
+    [SerializeField]GameObject mrt;
     public int score, tileindex;
     public TMP_Text scoretext, tasksuccesstext;
     NPCManagement npcmanager;
@@ -24,6 +26,7 @@ public class LevelManager : SceneLoader {
     public float tilerng;
     public enum Level { Bus, MRT };
     public Level level;
+    public List<Tile> currenttiles;
     // Start is called before the first frame update
     void Start() {
         score = 0;
@@ -33,6 +36,12 @@ public class LevelManager : SceneLoader {
         Spawn(8);
         gameover = false;
         gameoverscreen.SetActive(false);
+        if(level == Level.Bus) {
+            tiles = bustiles;
+        }
+        else if(level == Level.MRT) {
+            tiles[0] = mrt;
+        }
     }
 
     // Update is called once per frame
@@ -57,8 +66,10 @@ public class LevelManager : SceneLoader {
             }
         }
         if (taskcompletescreen.activeSelf) StartCoroutine(DisableTaskScreen());
-        Tile[] currenttiles = FindObjectsOfType<Tile>();
-        tileshiftfactor = currenttiles.Length == 1 ? 0 : 21; // tileshiftfactor spawns tiles 21 units ahead because when player enters trigger, there are 3 tiles in front. each tile is 7 units long on the x-axis
+        foreach(var i in FindObjectsOfType<Tile>()) {
+            currenttiles.Add(i);
+        }
+        tileshiftfactor = currenttiles.Count == 1 ? 0 : 21; // tileshiftfactor spawns tiles 21 units ahead because when player enters trigger, there are 3 tiles in front. each tile is 7 units long on the x-axis
     }
     public void RestartLevel() {
         LoadScene(SceneManager.GetActiveScene().buildIndex);
