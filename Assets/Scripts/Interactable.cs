@@ -30,8 +30,11 @@ public class Interactable : MonoBehaviour
         }
     }
     private void OnTriggerStay(Collider other) {
-        if (other.GetComponent<Player>() && Input.GetKeyDown(KeyCode.F)) {
-            FindObjectOfType<Player>().transform.position = GameObject.FindGameObjectWithTag("Train").transform.Find("Player Start Point").position;
+        if (other.GetComponent<Player>()) {
+            if(Input.GetKeyDown(KeyCode.F) && FindObjectOfType<Bus>().transitioned) {
+                FindObjectOfType<Bus>().transitioned = false;
+                FindObjectOfType<Player>().transform.position = GameObject.FindGameObjectWithTag("Train").transform.Find("Player Start Point").position;
+            }
         }
     }
     private void OnTriggerExit(Collider other) {
