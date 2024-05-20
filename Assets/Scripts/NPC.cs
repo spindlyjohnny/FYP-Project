@@ -136,7 +136,10 @@ public class NPC : MonoBehaviour
                 cam.target = player.transform;
                 cam.transform.position = cam.originalposition.position;
                 levelManager.level = LevelManager.Level.MRT;
-                levelManager.currenttiles.Clear();
+                for (int i = 0; i < levelManager.tiles.Length; i++) {
+                    levelManager.tiles[i] = levelManager.mrt;
+                }
+                foreach (var i in levelManager.currenttiles) Destroy(i);
                 levelManager.mrt.SetActive(true);
                 Destroy(gameObject);
             }

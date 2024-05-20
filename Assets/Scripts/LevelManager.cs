@@ -26,35 +26,35 @@ public class LevelManager : SceneLoader {
     public float tilerng;
     public enum Level { Bus, MRT };
     public Level level;
-    public List<Tile> currenttiles;
+    public Tile[] currenttiles;
     // Start is called before the first frame update
     void Start() {
         score = 0;
         tileshiftfactor = 0;
         npcmanager = FindObjectOfType<NPCManagement>();
+        tiles = bustiles;
         tileindex = UnityEngine.Random.Range(0, tiles.Length);
         Spawn(8);
         gameover = false;
         gameoverscreen.SetActive(false);
-        if(level == Level.Bus) {
-            tiles = bustiles;
-        }
-        else if(level == Level.MRT) {
-            tiles[0] = mrt;
-        }
     }
 
     // Update is called once per frame
     void Update() {
-        tileindex = UnityEngine.Random.Range(0, tiles.Length);
-        //if (npcmanager.myNPC) {
-        //    foreach (var i in tiles) {
-        //        if (i.GetComponent<RoadTile>()) tileindex = Array.IndexOf(tiles, i);
-        //    }
-        //} 
-        //else {
-        //    tileindex = UnityEngine.Random.Range(0, tiles.Length);
-        //}
+        //tilerng = UnityEngine.Random.Range(0f, 1f);
+        if(tilerng <= .5f && tilerng > 0) {
+            foreach (var i in tiles) {
+                if (i.GetComponent<RoadTile>()) tileindex = Array.IndexOf(tiles, i);
+            }
+        } 
+        else {
+            List<int> legalindexes = new List<int>();
+            for(int i = 0; i < tiles.Length; i++) {
+                if (!tiles[i].GetComponent<RoadTile>()) legalindexes.Add(i);
+            }
+            System.Random random = new System.Random();
+            tileindex = legalindexes[random.Next(0,legalindexes.Count)];
+        }
         if (gameover) gameoverscreen.SetActive(true);
         scoretext.text = "Score:" + score;
         if (npcmanager.myNPC != null) {
@@ -66,10 +66,8 @@ public class LevelManager : SceneLoader {
             }
         }
         if (taskcompletescreen.activeSelf) StartCoroutine(DisableTaskScreen());
-        foreach(var i in FindObjectsOfType<Tile>()) {
-            currenttiles.Add(i);
-        }
-        tileshiftfactor = currenttiles.Count == 1 ? 0 : 21; // tileshiftfactor spawns tiles 21 units ahead because when player enters trigger, there are 3 tiles in front. each tile is 7 units long on the x-axis
+        currenttiles = FindObjectsOfType<Tile>();
+        tileshiftfactor = currenttiles.Length == 1 ? 0 : 21; // tileshiftfactor spawns tiles 21 units ahead because when player enters trigger, there are 3 tiles in front. each tile is 7 units long on the x-axis
     }
     public void RestartLevel() {
         LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -79,17 +77,10 @@ public class LevelManager : SceneLoader {
         taskcompletescreen.SetActive(false);
     }
     public void Spawn(int amount) {
+        tilerng = UnityEngine.Random.Range(0f, 1f);
         for (int x = 0; x < amount; x++) { // spawn amount tiles at a time
             if (amount == 1) x = numberOfTiles;
             // spawn tile at spawn point + size of tile * order that tile was spawned
-            //if (!npcmanager.myNPC) {
-            //    tileindex = UnityEngine.Random.Range(0, tiles.Length);
-            //    print("Tile index:" + tileindex);
-            //} else {
-            //    foreach (var i in tiles) {
-            //        if (i.GetComponent<RoadTile>()) tileindex = Array.IndexOf(tiles, i); print("Tile index:" + tileindex);
-            //    }
-            //}
             Tile mytile = tiles[tileindex].GetComponent<Tile>();
             print(mytile.spawnpt.position);
             Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);

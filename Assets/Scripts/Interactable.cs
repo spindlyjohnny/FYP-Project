@@ -6,11 +6,13 @@ public class Interactable : MonoBehaviour
 {
     public GameObject inputtext;
     NPCManagement npcmanager;
+    LevelManager levelManager;
     // Start is called before the first frame update
     void Start()
     {
         inputtext.SetActive(false);
         npcmanager = FindObjectOfType<NPCManagement>();
+        levelManager = FindObjectOfType<LevelManager>();
     }
 
     // Update is called once per frame
@@ -31,7 +33,7 @@ public class Interactable : MonoBehaviour
     }
     private void OnTriggerStay(Collider other) {
         if (other.GetComponent<Player>()) {
-            if(Input.GetKeyDown(KeyCode.F) && FindObjectOfType<Bus>().transitioned) {
+            if(Input.GetKeyDown(KeyCode.F) && FindObjectOfType<Bus>().transitioned && !gameObject.CompareTag("Finish")) {
                 FindObjectOfType<Bus>().transitioned = false;
                 FindObjectOfType<Player>().transform.position = GameObject.FindGameObjectWithTag("Train").transform.Find("Player Start Point").position;
             }
