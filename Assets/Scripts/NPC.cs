@@ -130,7 +130,7 @@ public class NPC : MonoBehaviour
                 transform.SetParent(null);
                 player.transform.SetParent(null);
                 player.GetComponent<Collider>().enabled = true;
-                foreach (var i in GetComponents<Collider>()) i.enabled = true;
+                //foreach (var i in GetComponents<Collider>()) i.enabled = true;
                 player.canMove = true;
                 cam.bus = false;
                 cam.target = player.transform;
@@ -139,8 +139,11 @@ public class NPC : MonoBehaviour
                 for (int i = 0; i < levelManager.tiles.Length; i++) {
                     levelManager.tiles[i] = levelManager.mrt;
                 }
-                foreach (var i in levelManager.currenttiles) Destroy(i);
-                levelManager.mrt.SetActive(true);
+                foreach (var i in FindObjectsOfType<Tile>()) {
+                    if (!i.gameObject.CompareTag("Train")) {
+                        if(!i.GetComponent<RoadTile>())Destroy(i.gameObject);
+                    }
+                }//levelManager.mrt.SetActive(true);
                 Destroy(gameObject);
             }
         }

@@ -77,14 +77,14 @@ public class LevelManager : SceneLoader {
         taskcompletescreen.SetActive(false);
     }
     public void Spawn(int amount) {
-        tilerng = UnityEngine.Random.Range(0f, 1f);
+        if(level == Level.Bus)tilerng = UnityEngine.Random.Range(0f, 1f);
         for (int x = 0; x < amount; x++) { // spawn amount tiles at a time
             if (amount == 1) x = numberOfTiles;
             // spawn tile at spawn point + size of tile * order that tile was spawned
             Tile mytile = tiles[tileindex].GetComponent<Tile>();
-            print(mytile.spawnpt.position);
+            //print(mytile.spawnpt.position);
             Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
-            print("Yes");
+            //print("Yes");
             if (amount == 1) numberOfTiles += 1;
         }
     }

@@ -33,7 +33,8 @@ public class Interactable : MonoBehaviour
     }
     private void OnTriggerStay(Collider other) {
         if (other.GetComponent<Player>()) {
-            if(Input.GetKeyDown(KeyCode.F) && FindObjectOfType<Bus>().transitioned && !gameObject.CompareTag("Finish")) {
+            if(Input.GetKeyDown(KeyCode.F) && FindObjectOfType<Bus>() && FindObjectOfType<Bus>().transitioned && !gameObject.CompareTag("Finish")) {
+                //transform.SetParent(null);
                 FindObjectOfType<Bus>().transitioned = false;
                 FindObjectOfType<Player>().transform.position = GameObject.FindGameObjectWithTag("Train").transform.Find("Player Start Point").position;
             }

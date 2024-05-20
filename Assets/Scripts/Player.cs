@@ -29,9 +29,9 @@ public class Player : MonoBehaviour
         levelManager.energyslider.value = energy;
         if (canMove) {
             transform.Translate(movespeed * Time.deltaTime * movement, Space.Self);
-            if (movement != Vector3.zero) {
+            if (movement.z > 0) {
                 levelManager.score++;
-                energy -= .001f;
+                energy -= .01f;
             }
         }
         if(energy <= 0) {

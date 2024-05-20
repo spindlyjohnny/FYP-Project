@@ -27,6 +27,7 @@ public class Bus : Obstacle
             moving = false;
             transitioned = true;
             FindObjectOfType<LevelManager>().loadingscreen.SetActive(false);
+            transform.SetParent(null);
         }
     }
     public IEnumerator BusTransitioninator() {
