@@ -93,53 +93,6 @@ public class NPC : MonoBehaviour
             }
         }
 
-        int qnindex = Random.Range(0,questions.Length);//random index for a question
-        levelManager.optionAButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
-        levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
-        levelManager.optionCButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
-        levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
-        foreach (int i in answer[qnindex].element)
-        {
-            if (i == 1)
-            {
-                levelManager.optionAButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
-            }else if(i == 2)
-            {
-                levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
-            }
-            else if (i == 3)
-            {
-                levelManager.optionCButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
-            }
-            else if(i == 4)
-            {
-                levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
-            }
-        }
-        question = questions[qnindex];
-        explain = explains[qnindex];
-        optionA = optionList[qnindex].option[0];
-        optionB = optionList[qnindex].option[1];
-        if (optionList[qnindex].option.Count>=3)optionC = this.optionList[qnindex].option[2];
-        if (optionList[qnindex].option.Count>=4) optionD = this.optionList[qnindex].option[3];
-        NPCname = names[Random.Range(0, names.Length)];
-        nametext.text = NPCname;
-        questiontext.text = question;
-        explaintext.text = explain;
-        optionAtext.text = "a)" + optionA;
-        optionBtext.text = "b)" + optionB;
-        if (optionList[qnindex].option.Count >= 3) optionCtext.text = "c)" + optionC;
-        else
-        {
-            optionCtext.text = "";
-            levelManager.optionCButton.SetActive(false);
-        }
-        if (optionList[qnindex].option.Count >= 4) optionDtext.text = "d)" + optionD;
-        else
-        {
-            optionDtext.text = "";
-            levelManager.optionDButton.SetActive(false);
-        }
         upgraded = false;
         startpos = transform.localPosition;
     }
@@ -185,13 +138,67 @@ public class NPC : MonoBehaviour
                 levelManager.level = LevelManager.Level.MRT;
                 levelManager.currenttiles.Clear();
                 levelManager.mrt.SetActive(true);
-                street.bus.transitioned = false;
                 Destroy(gameObject);
             }
         }
     }
+
+    void updateCanvas()
+    {
+
+        int qnindex = Random.Range(0, questions.Length);//random index for a question
+        levelManager.optionAButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
+        levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
+        levelManager.optionCButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
+        levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
+        foreach (int i in answer[qnindex].element)
+        {
+            if (i == 1)
+            {
+                levelManager.optionAButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
+            }
+            else if (i == 2)
+            {
+                levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
+            }
+            else if (i == 3)
+            {
+                levelManager.optionCButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
+            }
+            else if (i == 4)
+            {
+                levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
+            }
+        }
+        question = questions[qnindex];
+        explain = explains[qnindex];
+        optionA = optionList[qnindex].option[0];
+        optionB = optionList[qnindex].option[1];
+        if (optionList[qnindex].option.Count >= 3) optionC = this.optionList[qnindex].option[2];
+        if (optionList[qnindex].option.Count >= 4) optionD = this.optionList[qnindex].option[3];
+        NPCname = names[Random.Range(0, names.Length)];
+        nametext.text = NPCname;
+        questiontext.text = question;
+        explaintext.text = explain;
+        optionAtext.text = "a)" + optionA;
+        optionBtext.text = "b)" + optionB;
+        if (optionList[qnindex].option.Count >= 3) optionCtext.text = "c)" + optionC;
+        else
+        {
+            optionCtext.text = "";
+            levelManager.optionCButton.SetActive(false);
+        }
+        if (optionList[qnindex].option.Count >= 4) optionDtext.text = "d)" + optionD;
+        else
+        {
+            optionDtext.text = "";
+            levelManager.optionDButton.SetActive(false);
+        }
+    }
+
     private void OnTriggerEnter(Collider other) {
         if (other.GetComponent<Player>() && !spoken && !npcmanager.myNPC) {
+            updateCanvas();
             player.canMove = false;
             CameraPan();
             StartDialogue();
