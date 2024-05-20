@@ -37,14 +37,15 @@ public class LevelManager : SceneLoader {
 
     // Update is called once per frame
     void Update() {
-        if (npcmanager.myNPC) {
-            foreach (var i in tiles) {
-                if (i.GetComponent<RoadTile>()) tileindex = Array.IndexOf(tiles, i);
-            }
-        } 
-        else {
-            tileindex = UnityEngine.Random.Range(0, tiles.Length);
-        }
+        tileindex = UnityEngine.Random.Range(0, tiles.Length);
+        //if (npcmanager.myNPC) {
+        //    foreach (var i in tiles) {
+        //        if (i.GetComponent<RoadTile>()) tileindex = Array.IndexOf(tiles, i);
+        //    }
+        //} 
+        //else {
+        //    tileindex = UnityEngine.Random.Range(0, tiles.Length);
+        //}
         if (gameover) gameoverscreen.SetActive(true);
         scoretext.text = "Score:" + score;
         if (npcmanager.myNPC != null) {
