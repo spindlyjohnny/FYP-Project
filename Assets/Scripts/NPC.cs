@@ -35,6 +35,7 @@ public class NPC : MonoBehaviour
     bool upgraded;
     [SerializeField]RoadTile street;
     public Answer[] answer = new Answer[51];
+    public int index;
     // Start is called before the first frame update
     void Start()
     {
@@ -182,6 +183,8 @@ public class NPC : MonoBehaviour
                 cam.target = player.transform;
                 cam.transform.position = cam.originalposition.position;
                 levelManager.level = LevelManager.Level.MRT;
+                levelManager.currenttiles.Clear();
+                levelManager.mrt.SetActive(true);
                 street.bus.transitioned = false;
                 Destroy(gameObject);
             }

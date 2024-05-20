@@ -7,7 +7,7 @@ public class Tile : MonoBehaviour {
     public Transform spawnpt;
     //public GameObject street;
     //bool once=true;
-    GameObject NPC;
+    public GameObject NPC;
     //[SerializeField] GameObject[] buildings;
     protected LevelManager levelManager;
     //public Vector3 spawnoffset;
