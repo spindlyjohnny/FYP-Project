@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour {
-    public Transform target,originalposition;
+    public Transform target,originalposition,trainposition;
     public float smoothing = 1f,lookOffset;
     public Vector3 targetposition;
     public bool NPC,bus,train;
@@ -17,12 +17,9 @@ public class CameraController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (NPC || bus) {
+        if (NPC || bus || train) {
             targetposition = target.position;
         }
-        /*else if (train) {
-
-        }*/
         else {
             targetposition = new Vector3(target.position.x - lookOffset, transform.position.y, target.position.z);
         }
