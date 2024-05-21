@@ -113,6 +113,7 @@ public class NPC : MonoBehaviour
                 //else if(detector[i]) // mrt tile.
             }
             if (target && Input.GetKeyDown(KeyCode.F)) {
+                print("yes");
                 followplayer = false;
                 player.GetComponent<Rigidbody>().isKinematic = false;
                 //GetComponent<Collider>().enabled = true;
@@ -134,7 +135,7 @@ public class NPC : MonoBehaviour
                 player.canMove = true;
                 cam.bus = false;
                 cam.target = player.transform;
-                cam.transform.position = cam.originalposition.position;
+                cam.transform.position = cam.trainposition.position;
                 levelManager.level = LevelManager.Level.MRT;
                 cam.train = true;
                 //levelManager.Spawn(1);
@@ -216,7 +217,6 @@ public class NPC : MonoBehaviour
         dialoguetext.text = "";
         currentline = 0;
         npcmanager.myNPC = this;
-        print("yes");
         dialogueco = StartCoroutine(Dialogue());
     }
    

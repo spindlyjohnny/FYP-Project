@@ -26,8 +26,10 @@ public class Interactable : MonoBehaviour
                 }
             }//levelManager.mrt.SetActive(true);
             //levelManager.Spawn(1);
+            
+            
             FindObjectOfType<Bus>().transitioned = false;
-            StartCoroutine(levelManager.MoveToTrain());
+            StartCoroutine(levelManager.MoveToTrain(this));
         }
     }
     private void OnTriggerEnter(Collider other) {
