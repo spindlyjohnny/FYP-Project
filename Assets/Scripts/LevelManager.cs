@@ -72,13 +72,22 @@ public class LevelManager : SceneLoader {
         taskcompletescreen.SetActive(false);
     }
     public IEnumerator MoveToTrain(Interactable interact) {
+
+        print("yes2");
         loadingscreen.SetActive(true);
         Spawn(8);
         FindObjectOfType<Player>().transform.position = FindFirstObjectByType<Tile>().transform.Find("Player Start Point").position;
         //levelManager.Spawn(8);
-        
         yield return new WaitForSeconds(2f);
+        print("yes3");
         loadingscreen.SetActive(false);
+        foreach (var i in FindObjectsOfType<Tile>())
+        {
+            if (!i.gameObject.CompareTag("Train"))
+            {
+                Destroy(i.gameObject);
+            }
+        }//levelManager.mrt.SetActive(true);
     }
     public void Spawn(int amount) {
         //if(level == Level.Bus)tilerng = UnityEngine.Random.Range(0f, 1f);

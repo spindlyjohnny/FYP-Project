@@ -20,16 +20,13 @@ public class Interactable : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) /*&& FindObjectOfType<Bus>() && FindObjectOfType<Bus>().transitioned*/ && !gameObject.CompareTag("Finish")) {
             //transform.SetParent(null);
-            foreach (var i in FindObjectsOfType<Tile>()) {
-                if (!i.gameObject.CompareTag("Train")) {
-                    Destroy(i.gameObject);
-                }
-            }//levelManager.mrt.SetActive(true);
-            //levelManager.Spawn(1);
             
+            //levelManager.Spawn(1);
+            print("yes");
             
             FindObjectOfType<Bus>().transitioned = false;
             StartCoroutine(levelManager.MoveToTrain(this));
+            
         }
     }
     private void OnTriggerEnter(Collider other) {
