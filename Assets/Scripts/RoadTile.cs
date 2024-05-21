@@ -18,10 +18,5 @@ public class RoadTile : Tile
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        /*if (npcmanager.myNPC != null && npcmanager.myNPC.tasksuccess == NPC.Task.Success) {
-            bus.gameObject.SetActive(true);
-        }*/
-    }
+    
 }
