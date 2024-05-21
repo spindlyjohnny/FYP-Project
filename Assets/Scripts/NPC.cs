@@ -136,14 +136,8 @@ public class NPC : MonoBehaviour
                 cam.target = player.transform;
                 cam.transform.position = cam.originalposition.position;
                 levelManager.level = LevelManager.Level.MRT;
-                for (int i = 0; i < levelManager.tiles.Length; i++) {
-                    levelManager.tiles[i] = levelManager.mrt;
-                }
-                foreach (var i in FindObjectsOfType<Tile>()) {
-                    if (!i.gameObject.CompareTag("Train")) {
-                        if(!i.GetComponent<RoadTile>())Destroy(i.gameObject);
-                    }
-                }//levelManager.mrt.SetActive(true);
+                cam.train = true;
+                //levelManager.Spawn(1);
                 Destroy(gameObject);
             }
         }
@@ -206,6 +200,7 @@ public class NPC : MonoBehaviour
         if (other.GetComponent<Player>() && !spoken && !npcmanager.myNPC) {
             updateCanvas();
             player.canMove = false;
+            player.GetComponent<Rigidbody>().velocity = Vector3.zero;
             CameraPan();
             StartDialogue();
         }

@@ -18,7 +18,17 @@ public class Interactable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.F) /*&& FindObjectOfType<Bus>() && FindObjectOfType<Bus>().transitioned*/ && !gameObject.CompareTag("Finish")) {
+            //transform.SetParent(null);
+            foreach (var i in FindObjectsOfType<Tile>()) {
+                if (!i.gameObject.CompareTag("Train")) {
+                    Destroy(i.gameObject);
+                }
+            }//levelManager.mrt.SetActive(true);
+            //levelManager.Spawn(1);
+            FindObjectOfType<Bus>().transitioned = false;
+            StartCoroutine(levelManager.MoveToTrain());
+        }
     }
     private void OnTriggerEnter(Collider other) {
         if (gameObject.CompareTag("Finish")) {
@@ -31,15 +41,13 @@ public class Interactable : MonoBehaviour
             }
         }
     }
-    private void OnTriggerStay(Collider other) {
-        if (other.GetComponent<Player>()) {
-            if(Input.GetKeyDown(KeyCode.F) && FindObjectOfType<Bus>() && FindObjectOfType<Bus>().transitioned && !gameObject.CompareTag("Finish")) {
-                //transform.SetParent(null);
-                FindObjectOfType<Bus>().transitioned = false;
-                FindObjectOfType<Player>().transform.position = GameObject.FindGameObjectWithTag("Train").transform.Find("Player Start Point").position;
-            }
-        }
-    }
+    //IEnumerator Transition() {
+    //    levelManager.loadingscreen.SetActive(true);
+    //    FindObjectOfType<Player>().transform.position = GameObject.FindGameObjectsWithTag("Train")[0].transform.Find("Player Start Point").position;
+    //    //levelManager.Spawn(8);
+    //    yield return new WaitForSeconds(2f);
+    //    levelManager.loadingscreen.SetActive(false);
+    //}
     private void OnTriggerExit(Collider other) {
         if (other.GetComponent<Player>()) inputtext.SetActive(false);
     }

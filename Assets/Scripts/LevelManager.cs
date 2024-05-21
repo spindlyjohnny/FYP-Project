@@ -33,8 +33,9 @@ public class LevelManager : SceneLoader {
         tileshiftfactor = 0;
         npcmanager = FindObjectOfType<NPCManagement>();
         tiles = bustiles;
-        tileindex = UnityEngine.Random.Range(0, tiles.Length);
+        //tileindex = UnityEngine.Random.Range(0, tiles.Length);
         Spawn(8);
+        RandomTile();
         gameover = false;
         gameoverscreen.SetActive(false);
     }
@@ -42,18 +43,12 @@ public class LevelManager : SceneLoader {
     // Update is called once per frame
     void Update() {
         //tilerng = UnityEngine.Random.Range(0f, 1f);
-        if(tilerng <= .5f && tilerng > 0) {
-            foreach (var i in tiles) {
-                if (i.GetComponent<RoadTile>()) tileindex = Array.IndexOf(tiles, i);
-            }
-        } 
+        if(level == Level.Bus)RandomTile();
         else {
-            List<int> legalindexes = new List<int>();
-            for(int i = 0; i < tiles.Length; i++) {
-                if (!tiles[i].GetComponent<RoadTile>()) legalindexes.Add(i);
+            for (int i = 0; i < tiles.Length; i++) {
+                tiles[i] = mrt;
             }
-            System.Random random = new System.Random();
-            tileindex = legalindexes[random.Next(0,legalindexes.Count)];
+            tileindex = 0;
         }
         if (gameover) gameoverscreen.SetActive(true);
         scoretext.text = "Score:" + score;
@@ -76,8 +71,16 @@ public class LevelManager : SceneLoader {
         yield return new WaitForSeconds(2f);
         taskcompletescreen.SetActive(false);
     }
+    public IEnumerator MoveToTrain() {
+        loadingscreen.SetActive(true);
+        Spawn(8);
+        FindObjectOfType<Player>().transform.position = FindFirstObjectByType<Tile>().transform.Find("Player Start Point").position;
+        //levelManager.Spawn(8);
+        yield return new WaitForSeconds(2f);
+        loadingscreen.SetActive(false);
+    }
     public void Spawn(int amount) {
-        if(level == Level.Bus)tilerng = UnityEngine.Random.Range(0f, 1f);
+        //if(level == Level.Bus)tilerng = UnityEngine.Random.Range(0f, 1f);
         for (int x = 0; x < amount; x++) { // spawn amount tiles at a time
             if (amount == 1) x = numberOfTiles;
             // spawn tile at spawn point + size of tile * order that tile was spawned
@@ -86,6 +89,21 @@ public class LevelManager : SceneLoader {
             Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
             //print("Yes");
             if (amount == 1) numberOfTiles += 1;
+        }
+    }
+    void RandomTile() {
+        tilerng = UnityEngine.Random.Range(0f, 1f);
+        if (tilerng <= .5f && tilerng > 0) {
+            foreach (var i in tiles) {
+                if (i.GetComponent<RoadTile>()) tileindex = Array.IndexOf(tiles, i);
+            }
+        } else {
+            List<int> legalindexes = new List<int>();
+            for (int i = 0; i < tiles.Length; i++) {
+                if (!tiles[i].GetComponent<RoadTile>()) legalindexes.Add(i);
+            }
+            System.Random random = new System.Random();
+            tileindex = legalindexes[random.Next(0, legalindexes.Count)];
         }
     }
 }

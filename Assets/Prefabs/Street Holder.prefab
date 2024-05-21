@@ -1030,6 +1030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnpt: {fileID: 6255451216934824247}
+  NPC: {fileID: 0}
   bus: {fileID: 6392394581985633441}
   campos: {fileID: 869228552405954623}
   station: {fileID: 7856495692004522139}

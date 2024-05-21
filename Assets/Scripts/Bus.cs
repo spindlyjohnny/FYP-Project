@@ -15,7 +15,7 @@ public class Bus : Obstacle
         //StartCoroutine(BusTransitioninator());
     }
     protected override void Update() {
-        if(moving)transform.Translate(3 * Time.deltaTime * dir);
+        if(moving)transform.Translate(5 * Time.deltaTime * dir);
     }
     // Update is called once per frame
     private void OnTriggerEnter(Collider other) {
