@@ -71,11 +71,12 @@ public class LevelManager : SceneLoader {
         yield return new WaitForSeconds(2f);
         taskcompletescreen.SetActive(false);
     }
-    public IEnumerator MoveToTrain() {
+    public IEnumerator MoveToTrain(Interactable interact) {
         loadingscreen.SetActive(true);
         Spawn(8);
         FindObjectOfType<Player>().transform.position = FindFirstObjectByType<Tile>().transform.Find("Player Start Point").position;
         //levelManager.Spawn(8);
+        
         yield return new WaitForSeconds(2f);
         loadingscreen.SetActive(false);
     }
