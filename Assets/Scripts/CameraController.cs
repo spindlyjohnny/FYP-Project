@@ -13,6 +13,7 @@ public class CameraController : MonoBehaviour {
         bus = false;
         train = false;
         originalposition = FindObjectOfType<Player>().transform.GetChild(0).transform;
+        trainposition = FindObjectOfType<Player>().transform.GetChild(1).transform;
     }
 
     // Update is called once per frame
