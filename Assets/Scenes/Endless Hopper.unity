@@ -202,6 +202,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &103643287 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8279190027101461225, guid: 07072cf8142f7de4c98a4468719c0d01, type: 3}
+  m_PrefabInstance: {fileID: 4652515307223599566}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &106113619 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4135950215972991090, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
@@ -1398,6 +1403,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1137440265}
+    - target: {fileID: 1867751650460203515, guid: 883f847bd93626149a71c25e5090a08a, type: 3}
+      propertyPath: trainposition
+      value: 
+      objectReference: {fileID: 103643287}
     - target: {fileID: 1867751650460203515, guid: 883f847bd93626149a71c25e5090a08a, type: 3}
       propertyPath: originalposition
       value: 
