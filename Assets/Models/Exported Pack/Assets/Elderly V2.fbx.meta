@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 92e6a260986ac8741a26359b5599977b
+guid: dd67f81f6ae7b69418ab519c7bf16c95
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: characted_textures1
-    second: {fileID: 2100000, guid: 49d090d85b07a474e96a5b5e451f2b27, type: 2}
+    second: {fileID: 2100000, guid: 4f96071a679f04041a05f80365183df9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
