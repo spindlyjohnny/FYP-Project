@@ -201,6 +201,7 @@ MonoBehaviour:
   energy: 0
   maxenergy: 100
   energygain: 10
+  mesh: {fileID: 0}
 --- !u!54 &7026762996262241355
 Rigidbody:
   m_ObjectHideFlags: 0

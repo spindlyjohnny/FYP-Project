@@ -105,9 +105,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e87b4c740f8af3744bc29481f75665ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 5562811747765062126, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
   originalposition: {fileID: 0}
+  trainposition: {fileID: 0}
   smoothing: 3
   lookOffset: 5
   targetposition: {x: 0, y: 0, z: 0}
   NPC: 0
+  bus: 0
