@@ -43,7 +43,7 @@ public class NPCQuestion : MonoBehaviour
                     upgraded = true;
                 }
             }
-            //AudioManager.instance.PlaySFX(correctsound);
+            AudioManager.instance.PlaySFX(correctsound);
         }
     }
     public void Explain() {

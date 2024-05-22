@@ -31,7 +31,7 @@ public class NPC : MonoBehaviour
     public Task tasksuccess;
     public bool hasdestination; // set in inspector if NPC has a destination.
     public Coroutine dialogueco;
-    [SerializeField]AudioClip dialoguesound;
+    [SerializeField]AudioClip dialoguesound, correctsound;
     bool upgraded;
     [SerializeField]RoadTile street;
     public Answer[] answer = new Answer[51];
@@ -125,7 +125,7 @@ public class NPC : MonoBehaviour
                     player.energygain = 20;
                     upgraded = true;
                 }
-                // play some sound.
+                AudioManager.instance.PlaySFX(correctsound);
             }
             if (street != null && street.bus.transitioned) {
                 transform.SetParent(null);

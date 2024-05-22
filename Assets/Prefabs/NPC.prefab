@@ -207,6 +207,7 @@ MonoBehaviour:
   tasksuccess: 0
   hasdestination: 1
   dialoguesound: {fileID: 8300000, guid: e1fff525f80061c4cbfb2b7343f60fdb, type: 3}
+  correctsound: {fileID: 8300000, guid: 95465fb1e58813e4b91097a1d15aa71c, type: 3}
   street: {fileID: 0}
   answer:
   - element: 01000000
