@@ -18,5 +18,7 @@ public class RoadTile : Tile
     }
 
     // Update is called once per frame
-    
+    protected override void Update() {
+        
+    }
 }

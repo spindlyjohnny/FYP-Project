@@ -135,9 +135,9 @@ public class NPC : MonoBehaviour
                 player.canMove = true;
                 cam.bus = false;
                 cam.target = player.transform;
-                cam.transform.position = cam.trainposition.position;
+                cam.transform.position = cam.originalposition.position;
                 levelManager.level = LevelManager.Level.MRT;
-                cam.train = true;
+                //cam.train = true;
                 //levelManager.Spawn(1);
                 Destroy(gameObject);
             }

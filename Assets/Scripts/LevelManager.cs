@@ -27,6 +27,7 @@ public class LevelManager : SceneLoader {
     public enum Level { Bus, MRT };
     public Level level;
     public Tile[] currenttiles;
+    CameraController cam;
     // Start is called before the first frame update
     void Start() {
         score = 0;
@@ -38,6 +39,7 @@ public class LevelManager : SceneLoader {
         RandomTile();
         gameover = false;
         gameoverscreen.SetActive(false);
+        cam = FindObjectOfType<CameraController>();
     }
 
     // Update is called once per frame
@@ -71,12 +73,12 @@ public class LevelManager : SceneLoader {
         yield return new WaitForSeconds(2f);
         taskcompletescreen.SetActive(false);
     }
-    public IEnumerator MoveToTrain(Interactable interact) {
+    public IEnumerator MoveToTrain() {
 
         print("yes2");
         loadingscreen.SetActive(true);
         Spawn(8);
-        FindObjectOfType<Player>().transform.position = FindFirstObjectByType<Tile>().transform.Find("Player Start Point").position;
+        FindObjectOfType<Player>().transform.position = FindFirstObjectByType<TrainTile>().transform.Find("Player Start Point").position;
         //levelManager.Spawn(8);
         yield return new WaitForSeconds(2f);
         print("yes3");
@@ -87,7 +89,9 @@ public class LevelManager : SceneLoader {
             {
                 Destroy(i.gameObject);
             }
-        }//levelManager.mrt.SetActive(true);
+        }
+        //cam.train = true; 
+        cam.transform.position = cam.trainposition.position;
     }
     public void Spawn(int amount) {
         //if(level == Level.Bus)tilerng = UnityEngine.Random.Range(0f, 1f);
