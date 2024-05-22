@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class Collectible : Obstacle
 {
+    [SerializeField]Vector3 originalsize;
+    public Vector3 trainsize;
     // Start is called before the first frame update
     void Start()
     {
-        
+        originalsize = transform.localScale;
     }
 
     // Update is called once per frame
     protected override void Update() {
         if (myspawner == null) Destroy(gameObject);
         //else Destroy(gameObject, 20f);
+        if (FindObjectOfType<LevelManager>().level == LevelManager.Level.MRT) transform.localScale = trainsize;
+        else transform.localScale = originalsize;
         transform.Rotate(0, 60 * Time.deltaTime, 0);
     }
     private void OnTriggerEnter(Collider other) {
