@@ -6,6 +6,7 @@ public class Collectible : Obstacle
 {
     [SerializeField]Vector3 originalsize;
     public Vector3 trainsize;
+    public AudioClip collectsound;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,9 @@ public class Collectible : Obstacle
         transform.Rotate(0, 60 * Time.deltaTime, 0);
     }
     private void OnTriggerEnter(Collider other) {
-        if (other.GetComponent<Player>()) Destroy(gameObject);
+        if (other.GetComponent<Player>()) {
+            Destroy(gameObject); 
+            AudioManager.instance.PlaySFX(collectsound);
+        }
     }
 }

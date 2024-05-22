@@ -9,6 +9,7 @@ public class NPCQuestion : MonoBehaviour
     NPCManagement npcmanager;
     LevelManager levelManager;
     bool upgraded;
+    public AudioClip correctsound, wrongsound;
     // Start is called before the first frame update
     void Start() {
         npcmanager = FindObjectOfType<NPCManagement>();
@@ -26,6 +27,7 @@ public class NPCQuestion : MonoBehaviour
             npcmanager.myNPC.EndDialogue();
             levelManager.taskcompletescreen.SetActive(true);
             npcmanager.myNPC.tasksuccess = NPC.Task.Fail;
+            //AudioManager.instance.PlaySFX(wrongsound);
         } 
         else if (option == Options.CorrectOption) {
             npcmanager.myNPC.questionbox.SetActive(false);
@@ -41,7 +43,7 @@ public class NPCQuestion : MonoBehaviour
                     upgraded = true;
                 }
             }
-            // play some sound.
+            //AudioManager.instance.PlaySFX(correctsound);
         }
     }
     public void Explain() {

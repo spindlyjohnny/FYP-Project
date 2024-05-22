@@ -8,6 +8,7 @@ public class Question : MonoBehaviour
     public Options option;
     NPCManagement npcmanager;
     LevelManager levelManager;
+    public AudioClip correctsound, wrongsound;
     // Start is called before the first frame update
     void Start() {
         npcmanager = FindObjectOfType<NPCManagement>();

@@ -102,6 +102,7 @@ MonoBehaviour:
   dir: {x: 0, y: 0, z: 0}
   originalsize: {x: 0, y: 0, z: 0}
   trainsize: {x: 2.3878973, y: 0.68039006, z: 0.68039006}
+  collectsound: {fileID: 8300000, guid: 2961c5ebeac5950449d9a23af8b32f78, type: 3}
 --- !u!65 &1481601406826888037
 BoxCollider:
   m_ObjectHideFlags: 0

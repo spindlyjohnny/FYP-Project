@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public float energygain;
     public MeshRenderer[] meshes;
     List<Color> originalColor = new List<Color>(0);
+    public AudioClip hitsfx;
     //NPCManagement npcmanager;
     // Start is called before the first frame update
     void Start()
@@ -58,6 +59,7 @@ public class Player : MonoBehaviour
         foreach (MeshRenderer mesh in meshes) {
             foreach (Material mat in mesh.materials) mat.color = Color.red;
         }
+        AudioManager.instance.PlaySFX(hitsfx);
         yield return new WaitForSeconds(0.5f);
         print("Change color");
         for (int i = 0; i < originalColor.Count; i++) {

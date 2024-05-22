@@ -249,7 +249,8 @@ MonoBehaviour:
   energy: 0
   maxenergy: 100
   energygain: 10
-  mesh: {fileID: 0}
+  meshes: []
+  hitsfx: {fileID: 8300000, guid: 04ce29e238b537b41ba1f00462d3c4e0, type: 3}
 --- !u!54 &7809966220103301839
 Rigidbody:
   m_ObjectHideFlags: 0
