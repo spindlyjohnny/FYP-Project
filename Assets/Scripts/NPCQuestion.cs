@@ -27,7 +27,7 @@ public class NPCQuestion : MonoBehaviour
             npcmanager.myNPC.EndDialogue();
             levelManager.taskcompletescreen.SetActive(true);
             npcmanager.myNPC.tasksuccess = NPC.Task.Fail;
-            //AudioManager.instance.PlaySFX(wrongsound);
+            AudioManager.instance.PlaySFX(wrongsound);
         } 
         else if (option == Options.CorrectOption) {
             npcmanager.myNPC.questionbox.SetActive(false);
