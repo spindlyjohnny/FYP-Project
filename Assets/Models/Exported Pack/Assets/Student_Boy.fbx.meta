@@ -3,7 +3,27 @@ guid: 92e6a260986ac8741a26359b5599977b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: characted_textures1
+    second: {fileID: 2100000, guid: 49d090d85b07a474e96a5b5e451f2b27, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eye_expression
+    second: {fileID: 2100000, guid: a527b82edf2dcc340a7c1fc84f0b8f61, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: 72bdc1cf98f623b4c9bf1f581fa819a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mouth_n_nose
+    second: {fileID: 2100000, guid: ccd33ff3b6719a84a8943fc6bbf093b4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

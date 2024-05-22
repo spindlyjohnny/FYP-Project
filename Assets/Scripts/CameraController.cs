@@ -11,8 +11,8 @@ public class CameraController : MonoBehaviour {
     void Start() {
         NPC = false;
         bus = false;
-        originalposition = FindObjectOfType<Player>().transform.GetChild(0).transform;
-        trainposition = FindObjectOfType<Player>().transform.GetChild(1).transform;
+        originalposition = FindObjectOfType<Player>().transform.Find("Original Cam Pos").transform;
+        trainposition = FindObjectOfType<Player>().transform.Find("Train Cam Pos").transform;
     }
 
     // Update is called once per frame

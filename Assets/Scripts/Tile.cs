@@ -18,10 +18,7 @@ public class Tile : MonoBehaviour {
     // Update is called once per frame
     protected virtual void Update() {
         if (rng == 0) { // no NPC or buildings
-            if (NPC != null)
-            {
-                NPC.SetActive(false);
-            }            
+            NPC.SetActive(false);
         } 
         else if (rng <= 0.5f && rng > 0) { // 50% chance of NPC
             NPC.SetActive(true);

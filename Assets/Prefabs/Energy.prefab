@@ -99,6 +99,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myspawner: {fileID: 0}
   spawnoffset: {x: 0, y: 0.5, z: 0}
+  dir: {x: 0, y: 0, z: 0}
+  originalsize: {x: 0, y: 0, z: 0}
+  trainsize: {x: 2.3878973, y: 0.68039006, z: 0.68039006}
 --- !u!65 &1481601406826888037
 BoxCollider:
   m_ObjectHideFlags: 0

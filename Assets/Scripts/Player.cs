@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     LevelManager levelManager;
     public float energy,maxenergy;
     public float energygain;
-    public MeshRenderer mesh;
+    public MeshRenderer[] meshes;
     List<Color> originalColor = new List<Color>(0);
     //NPCManagement npcmanager;
     // Start is called before the first frame update
@@ -21,8 +21,10 @@ public class Player : MonoBehaviour
         energy = maxenergy;
         levelManager.energyslider.maxValue = maxenergy;
         //npcmanager = FindObjectOfType<NPCManagement>();
-        mesh = GetComponent<MeshRenderer>();
-        foreach(Material mat in mesh.materials)originalColor.Add(mat.color);
+        meshes = GetComponentsInChildren<MeshRenderer>();
+        foreach (MeshRenderer mesh in meshes) {
+            foreach(Material mat in mesh.materials)originalColor.Add(mat.color);
+        }
     }
 
     // Update is called once per frame
@@ -53,11 +55,19 @@ public class Player : MonoBehaviour
 
     IEnumerator HitReaction()
     {
-        foreach (Material mat in mesh.materials) mat.color = Color.red;
+        foreach (MeshRenderer mesh in meshes) {
+            foreach (Material mat in mesh.materials) mat.color = Color.red;
+        }
         yield return new WaitForSeconds(0.5f);
         print("Change color");
-        for (int i = 0; i < originalColor.Count; i++) mesh.materials[i].color = originalColor[i];
-            
+        for (int i = 0; i < originalColor.Count; i++) {
+            for(int x = 0; x < meshes.Length; x++) {
+                meshes[x].materials[i].color = originalColor[i];
+            }
+            //foreach(MeshRenderer mesh in meshes) {
+            //    mesh.materials[i].color = originalColor[i];
+            //}
+        }
     }
 
     private void OnTriggerEnter(Collider other) {
