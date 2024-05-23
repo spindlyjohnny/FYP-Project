@@ -9,10 +9,11 @@ public class TrainObstacle : Interactable
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = FindObjectOfType<Player>();
+        npcmanager = FindObjectOfType<NPCManagement>();
     }
     public void MoveNPC() {
-        moveNPC.transform.position = Vector3.Lerp(transform.position, NPClocation.position, 1 * Time.deltaTime);
+        moveNPC.transform.position = NPClocation.transform.position;
     }
     // Update is called once per frame
     

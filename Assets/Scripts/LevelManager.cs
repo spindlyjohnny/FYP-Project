@@ -64,7 +64,18 @@ public class LevelManager : SceneLoader {
         }
         if (taskcompletescreen.activeSelf) StartCoroutine(DisableTaskScreen());
         currenttiles = FindObjectsOfType<Tile>();
-        tileshiftfactor = currenttiles.Length == 1 ? 0 : 21; // tileshiftfactor spawns tiles 21 units ahead because when player enters trigger, there are 3 tiles in front. each tile is 7 units long on the x-axis
+        if(currenttiles.Length == 1) {
+            tileshiftfactor = 0;
+        } 
+        else {
+            if(level == Level.Bus) {
+                tileshiftfactor = 21;
+            } 
+            else {
+                tileshiftfactor = Mathf.RoundToInt(26.5f * 3);
+            }
+        }
+        //tileshiftfactor = currenttiles.Length == 1 ? 0 : 21; // tileshiftfactor spawns tiles 21 units ahead because when player enters trigger, there are 3 tiles in front. each tile is 7 units long on the x-axis
     }
     public void RestartLevel() {
         LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -100,7 +111,12 @@ public class LevelManager : SceneLoader {
             // spawn tile at spawn point + size of tile * order that tile was spawned
             Tile mytile = tiles[tileindex].GetComponent<Tile>();
             //print(mytile.spawnpt.position);
-            Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
+            if(level == Level.Bus) {
+                Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
+            } 
+            else {
+                Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(26.5f * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
+            }
             //print("Yes");
             if (amount == 1) numberOfTiles += 1;
         }

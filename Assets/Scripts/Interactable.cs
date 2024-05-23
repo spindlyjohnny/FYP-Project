@@ -18,7 +18,7 @@ public class Interactable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) /*&& FindObjectOfType<Bus>() && FindObjectOfType<Bus>().transitioned*/ && !gameObject.CompareTag("Finish")) {
+        if (Input.GetKeyDown(KeyCode.F) && !gameObject.CompareTag("Finish") && !GetComponent<TrainObstacle>()) {
             //transform.SetParent(null);
             
             //levelManager.Spawn(1);

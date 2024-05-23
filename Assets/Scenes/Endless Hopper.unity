@@ -299,6 +299,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!20 &1135452520 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5128633478458813648, guid: 883f847bd93626149a71c25e5090a08a, type: 3}
+  m_PrefabInstance: {fileID: 5605041641245169739}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1179562177
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,15 +949,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3004979976792649330, guid: 6d404cd9cec35b1469bd2504cd6c7229, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 32.88
+      value: 32.96703
       objectReference: {fileID: 0}
     - target: {fileID: 3004979976792649330, guid: 6d404cd9cec35b1469bd2504cd6c7229, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.09
+      value: 1.817994
       objectReference: {fileID: 0}
     - target: {fileID: 3004979976792649330, guid: 6d404cd9cec35b1469bd2504cd6c7229, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 90.8
+      value: 89
       objectReference: {fileID: 0}
     - target: {fileID: 3004979976792649330, guid: 6d404cd9cec35b1469bd2504cd6c7229, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1572,6 +1577,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1191477856466996976, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1135452520}
     - target: {fileID: 5078023411361928020, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
       propertyPath: m_Name
       value: Student_Boy

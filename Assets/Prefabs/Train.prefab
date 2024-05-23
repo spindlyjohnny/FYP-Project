@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78bb099d33a850b408c88766ca696a1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputtext: {fileID: 0}
+  player: {fileID: 0}
   moveNPC: {fileID: 2783862356764392481}
   NPClocation: {fileID: 6752089458666360246}
 --- !u!1 &7404829644063580020
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnpt: {fileID: 482604437530124305}
   NPC: {fileID: 0}
-  obstacleNPCs: {fileID: 0}
+  obstacleNPCs: {fileID: 7281757386624872829}
 --- !u!1001 &94479038473810196
 PrefabInstance:
   m_ObjectHideFlags: 0
