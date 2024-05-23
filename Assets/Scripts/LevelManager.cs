@@ -72,7 +72,8 @@ public class LevelManager : SceneLoader {
                 tileshiftfactor = 21;
             } 
             else {
-                tileshiftfactor = Mathf.RoundToInt(26.5f * 3);
+                tileshiftfactor = 21;
+                //tileshiftfactor = Mathf.RoundToInt(26.5f * 3);
             }
         }
         //tileshiftfactor = currenttiles.Length == 1 ? 0 : 21; // tileshiftfactor spawns tiles 21 units ahead because when player enters trigger, there are 3 tiles in front. each tile is 7 units long on the x-axis
@@ -89,7 +90,7 @@ public class LevelManager : SceneLoader {
         print("yes2");
         loadingscreen.SetActive(true);
         Spawn(8);
-        FindObjectOfType<Player>().transform.position = FindFirstObjectByType<TrainTile>().transform.Find("Player Start Point").position;
+        FindObjectOfType<Player>().transform.position = FindObjectOfType<TrainTile>().transform.Find("Player Start Point").position;
         //levelManager.Spawn(8);
         yield return new WaitForSeconds(2f);
         print("yes3");
