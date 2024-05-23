@@ -270,6 +270,7 @@ public class NPC : MonoBehaviour
             player.GetComponent<Collider>().enabled = false;
             foreach (var i in GetComponents<Collider>()) i.enabled = false;
             player.transform.position = street.bus.passengerpos.position;
+            player.inputtext.SetActive(false);
             //StartCoroutine(street.bus.BusTransitioninator());
             //if (street.bus.transitioned) {
             //    transform.SetParent(null);

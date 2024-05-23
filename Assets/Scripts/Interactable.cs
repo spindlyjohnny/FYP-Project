@@ -1,16 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Interactable : MonoBehaviour
 {
-    public GameObject inputtext;
-    NPCManagement npcmanager;
+    public Player player;
+    protected NPCManagement npcmanager;
     LevelManager levelManager;
     // Start is called before the first frame update
     void Start()
     {
-        inputtext.SetActive(false);
+        player = FindObjectOfType<Player>();
+        //inputtext.SetActive(false);
         npcmanager = FindObjectOfType<NPCManagement>();
         levelManager = FindObjectOfType<LevelManager>();
     }
@@ -23,20 +23,20 @@ public class Interactable : MonoBehaviour
             
             //levelManager.Spawn(1);
             print("yes");
-            
+            player.inputtext.SetActive(false);
             FindObjectOfType<Bus>().transitioned = false;
             StartCoroutine(levelManager.MoveToTrain());
             
         }
     }
-    private void OnTriggerEnter(Collider other) {
+    protected void OnTriggerEnter(Collider other) {
         if (gameObject.CompareTag("Finish")) {
             if (npcmanager.myNPC == null) return;
-            if (other.GetComponent<Player>() && npcmanager.myNPC.followplayer) inputtext.SetActive(true);
+            if (other.GetComponent<Player>() && npcmanager.myNPC.followplayer) player.inputtext.SetActive(true);
         } 
         else {
             if (other.GetComponent<Player>()) {
-                inputtext.SetActive(true);
+                player.inputtext.SetActive(true);
             }
         }
     }
@@ -47,7 +47,7 @@ public class Interactable : MonoBehaviour
     //    yield return new WaitForSeconds(2f);
     //    levelManager.loadingscreen.SetActive(false);
     //}
-    private void OnTriggerExit(Collider other) {
-        if (other.GetComponent<Player>()) inputtext.SetActive(false);
+    protected void OnTriggerExit(Collider other) {
+        if (other.GetComponent<Player>()) player.inputtext.SetActive(false);
     }
 }
