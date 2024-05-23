@@ -87,11 +87,8 @@ public class GeneralQuestion : Collectible
         levelManager.optionDButton.SetActive(true);
     }
 
-    // Update is called once per frame
-    protected override void Update()
-    {
-        
-    }
+
+
     void UpdateCanvas()
     {
 
