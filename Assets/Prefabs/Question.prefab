@@ -70,34 +70,16 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 51c841cf515abf544af626814394f35c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7447832767791157062}
+      addedObject: {fileID: 6756183001486179933}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 51c841cf515abf544af626814394f35c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6756183001486179933}
+      addedObject: {fileID: 7745714539171668654}
   m_SourcePrefab: {fileID: 100100000, guid: 51c841cf515abf544af626814394f35c, type: 3}
 --- !u!1 &8064431277538921078 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 51c841cf515abf544af626814394f35c, type: 3}
   m_PrefabInstance: {fileID: 7146073879281989415}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7447832767791157062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8064431277538921078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfb4567e4bf2c714e824da3515466393, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myspawner: {fileID: 0}
-  spawnoffset: {x: 0, y: 0.5, z: 0}
-  dir: {x: 0, y: 0, z: 0}
-  originalsize: {x: 0, y: 0, z: 0}
-  trainsize: {x: 21.616388, y: 21.616388, z: 21.616388}
-  collectsound: {fileID: 8300000, guid: ac3fb70b026c9c248842955863ad2759, type: 3}
 --- !u!65 &6756183001486179933
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -119,3 +101,142 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.01, y: 0.01, z: 0.01}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7745714539171668654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8064431277538921078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75f8e84550ab50642bef9470764517a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myspawner: {fileID: 0}
+  spawnoffset: {x: 0, y: 0.5, z: 0}
+  dir: {x: 0, y: 0, z: 0}
+  originalsize: {x: 0, y: 0, z: 0}
+  trainsize: {x: 0, y: 0, z: 0}
+  collectsound: {fileID: 0}
+  dialoguebox: {fileID: 0}
+  questionbox: {fileID: 0}
+  dialogue: []
+  NPCname: 
+  optionA: 
+  optionB: 
+  optionC: 
+  optionD: 
+  wordspeed: 0
+  currentline: 0
+  npcmanager: {fileID: 0}
+  optionList:
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  - option: []
+  optionsFile: {fileID: 4900000, guid: da76eabe61838374e89d9aedd77a79bf, type: 3}
+  Question: {fileID: 4900000, guid: cc33ac22406d74a49abca7b1b19dfd1e, type: 3}
+  ExplainationFile: {fileID: 4900000, guid: fd847761bc0ac8f47bb5d39f4fc8c7f2, type: 3}
+  dialoguesound: {fileID: 0}
+  correctsound: {fileID: 0}
+  tasksuccess: 2
+  answer:
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000
+  - element: 0000000000000000

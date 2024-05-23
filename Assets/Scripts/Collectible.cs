@@ -22,9 +22,9 @@ public class Collectible : Obstacle
         transform.Rotate(0, 60 * Time.deltaTime, 0);
     }
     private void OnTriggerEnter(Collider other) {
-        if (other.GetComponent<Player>()) {
-            Destroy(gameObject); 
+        if (other.GetComponent<Player>()) {            
             AudioManager.instance.PlaySFX(collectsound);
+            Destroy(gameObject); 
         }
     }
 }

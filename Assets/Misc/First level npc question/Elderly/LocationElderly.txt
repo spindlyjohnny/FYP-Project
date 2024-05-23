@@ -1,0 +1,5 @@
+"Bus stop"
+"Pavement"
+"Bus stop"
+"Train"
+"Train"
