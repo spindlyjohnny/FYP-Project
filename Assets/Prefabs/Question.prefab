@@ -118,18 +118,17 @@ MonoBehaviour:
   dir: {x: 0, y: 0, z: 0}
   originalsize: {x: 0, y: 0, z: 0}
   trainsize: {x: 0, y: 0, z: 0}
-  collectsound: {fileID: 0}
-  dialoguebox: {fileID: 0}
-  questionbox: {fileID: 0}
-  dialogue: []
-  NPCname: 
-  optionA: 
-  optionB: 
+  collectsound: {fileID: 8300000, guid: 2961c5ebeac5950449d9a23af8b32f78, type: 3}
+  optionA: "\"True \r"
+  optionB: "False\"\r"
   optionC: 
   optionD: 
-  wordspeed: 0
+  wordspeed: 0.5
   currentline: 0
-  npcmanager: {fileID: 0}
+  questions: []
+  explains: []
+  options: []
+  filteredOptions: []
   optionList:
   - option: []
   - option: []
@@ -182,61 +181,60 @@ MonoBehaviour:
   - option: []
   - option: []
   - option: []
-  optionsFile: {fileID: 4900000, guid: da76eabe61838374e89d9aedd77a79bf, type: 3}
+  optionsFile: {fileID: 4900000, guid: ef3db7a4b0ff3f84d95d1706f145b3ae, type: 3}
   Question: {fileID: 4900000, guid: cc33ac22406d74a49abca7b1b19dfd1e, type: 3}
   ExplainationFile: {fileID: 4900000, guid: fd847761bc0ac8f47bb5d39f4fc8c7f2, type: 3}
   dialoguesound: {fileID: 0}
-  correctsound: {fileID: 0}
+  correctsound: {fileID: 8300000, guid: 95465fb1e58813e4b91097a1d15aa71c, type: 3}
   tasksuccess: 2
   answer:
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
-  - element: 0000000000000000
+  - element: 01000000
+  - element: 0100000002000000
+  - element: 01000000
+  - element: 01000000
+  - element: 0100000004000000
+  - element: 03000000
+  - element: 01000000020000000300000004000000
+  - element: 01000000
+  - element: 01000000
+  - element: 01000000020000000300000004000000
+  - element: 010000000200000003000000
+  - element: 02000000
+  - element: 02000000
+  - element: 01000000
+  - element: 02000000
+  - element: 03000000
+  - element: 03000000
+  - element: 03000000
+  - element: 02000000
+  - element: 03000000
+  - element: 03000000
+  - element: 02000000
+  - element: 02000000
+  - element: 02000000
+  - element: 0300000004000000
+  - element: 02000000
+  - element: 0100000002000000
+  - element: 02000000
+  - element: 02000000
+  - element: 02000000
+  - element: 01000000
+  - element: 01000000
+  - element: 02000000
+  - element: 0100000003000000
+  - element: 0100000002000000
+  - element: 0300000004000000
+  - element: 01000000
+  - element: 01000000
+  - element: 0100000004000000
+  - element: 01000000
+  - element: 0100000003000000
+  - element: 0100000002000000
+  - element: 01000000020000000300000004000000
+  - element: 01000000
+  - element: 03000000
+  - element: 01000000
+  - element: 02000000
+  - element: 0100000002000000
+  - element: 010000000200000003000000
+  - element: 010000000200000003000000

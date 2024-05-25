@@ -1498,6 +1498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnpt: {fileID: 5546242304371571796}
+  NPC: {fileID: 0}
 --- !u!65 &3686846640624706891
 BoxCollider:
   m_ObjectHideFlags: 0
