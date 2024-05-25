@@ -122,6 +122,21 @@ public class GeneralQuestion : Collectible
                 levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
             }
         }
+        int ind = 0;
+       for(int i = 0; i < optionList[qnindex].option.Count; i++)
+        {
+            List<string> newstr= new List<string>(0);
+            for(int c = 0; c < optionList[qnindex].option[i].Length; i++)
+            {
+                if(optionList[qnindex].option[i].ToCharArray()[c]== options[0].ToCharArray()[0])
+                {
+                   
+                    newstr.Add(optionList[qnindex].option[i].Substring(0, c) + optionList[qnindex].option[i].Substring(c + 1, optionList[qnindex].option[i].ToCharArray().Length)); 
+                    optionList[qnindex].option[i] = newstr[ind];
+                    ind+=1;
+                }
+            }
+        }
         optionA = optionList[qnindex].option[0];
         optionB = optionList[qnindex].option[1];
         if (optionList[qnindex].option.Count >= 3) optionC = this.optionList[qnindex].option[2];
