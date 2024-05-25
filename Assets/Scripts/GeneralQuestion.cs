@@ -21,6 +21,7 @@ public class GeneralQuestion : Collectible
     public enum Task { Success, Fail, Default }
     public Task tasksuccess;
     public Answer[] answer = new Answer[51];
+    public List<string> newstr = new List<string>(0);
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -125,13 +126,16 @@ public class GeneralQuestion : Collectible
         int ind = 0;
        for(int i = 0; i < optionList[qnindex].option.Count; i++)
         {
-            List<string> newstr= new List<string>(0);
-            for(int c = 0; c < optionList[qnindex].option[i].Length; i++)
+            
+            for(int c = 0; c < optionList[qnindex].option[i].Length; c++)
             {
                 if(optionList[qnindex].option[i].ToCharArray()[c]== options[0].ToCharArray()[0])
                 {
-                   
-                    newstr.Add(optionList[qnindex].option[i].Substring(0, c) + optionList[qnindex].option[i].Substring(c + 1, optionList[qnindex].option[i].ToCharArray().Length)); 
+                    print(optionList[qnindex].option[i].ToCharArray().Length - c);
+                    string temp = optionList[qnindex].option[i].Substring(0, c);
+                    string temproray = optionList[qnindex].option[i].Substring(c+1, optionList[qnindex].option[i].ToCharArray().Length-c-1 );
+                    newstr.Add(temp + temproray);
+                    print(ind);
                     optionList[qnindex].option[i] = newstr[ind];
                     ind+=1;
                 }

@@ -21,6 +21,32 @@ public class NPCQuestion : MonoBehaviour
 
     }
     public void AnswerQuestion() {
+        if (npcmanager.myNPC == null)
+        {
+            if (option == Options.WrongOption)
+            {
+
+                //Explain();
+                levelManager.tasksuccesstext.text = "Task failed!";
+                levelManager.taskcompletescreen.SetActive(true);
+                levelManager.questionbox.SetActive(false);
+                AudioManager.instance.PlaySFX(wrongsound);
+            }
+            else if (option == Options.CorrectOption)
+            {             
+                levelManager.taskcompletescreen.SetActive(true);
+                if (!upgraded)
+                {
+                    FindObjectOfType<Player>().maxenergy *= 1.5f;
+                    upgraded = true;
+                }
+                levelManager.tasksuccesstext.text = "Task success!";
+                levelManager.questionbox.SetActive(false);
+                AudioManager.instance.PlaySFX(correctsound);
+                
+            }
+            return;
+        }
         if (option == Options.WrongOption) {
             //Explain();
             npcmanager.myNPC.questionbox.SetActive(false);
@@ -45,6 +71,7 @@ public class NPCQuestion : MonoBehaviour
             }
             AudioManager.instance.PlaySFX(correctsound);
         }
+
     }
     public void Explain() {
         for(int i = 0; i < npcmanager.myNPC.questionbox.transform.childCount; i++) {
