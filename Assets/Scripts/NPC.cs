@@ -11,7 +11,7 @@ public class NPC : MonoBehaviour
     CameraController cam;
     Player player;
     public string[] dialogue;
-    public string NPCname,question,explain,optionA,optionB,optionC,optionD;
+    public string optionA,optionB,optionC,optionD;
     public TMP_Text dialoguetext,questiontext,explaintext,optionAtext,optionBtext,optionCtext,optionDtext;
     public TMP_Text nametext;
     public float wordspeed;
@@ -35,7 +35,6 @@ public class NPC : MonoBehaviour
     bool upgraded;
     [SerializeField]RoadTile street;
     public Answer[] answer = new Answer[51];
-    public int index;
     // Start is called before the first frame update
     void Start()
     {
@@ -144,7 +143,7 @@ public class NPC : MonoBehaviour
         }
     }
 
-    void updateCanvas()
+    void UpdateCanvas()
     {
 
         int qnindex = Random.Range(0, questions.Length);//random index for a question
@@ -171,16 +170,13 @@ public class NPC : MonoBehaviour
                 levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
             }
         }
-        question = questions[qnindex];
-        explain = explains[qnindex];
         optionA = optionList[qnindex].option[0];
         optionB = optionList[qnindex].option[1];
         if (optionList[qnindex].option.Count >= 3) optionC = this.optionList[qnindex].option[2];
-        if (optionList[qnindex].option.Count >= 4) optionD = this.optionList[qnindex].option[3];
-        NPCname = names[Random.Range(0, names.Length)];
-        nametext.text = NPCname;
-        questiontext.text = question;
-        explaintext.text = explain;
+        if (optionList[qnindex].option.Count >= 4) optionD = this.optionList[qnindex].option[3];        
+        nametext.text =names[Random.Range(0, names.Length)];
+        questiontext.text =  questions[qnindex];
+        explaintext.text = explains[qnindex];
         optionAtext.text = "a)" + optionA;
         optionBtext.text = "b)" + optionB;
         if (optionList[qnindex].option.Count >= 3) optionCtext.text = "c)" + optionC;
@@ -199,7 +195,7 @@ public class NPC : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if (other.GetComponent<Player>() && !spoken && !npcmanager.myNPC) {
-            updateCanvas();
+            UpdateCanvas();
             player.canMove = false;
             player.GetComponent<Rigidbody>().velocity = Vector3.zero;
             CameraPan();

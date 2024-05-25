@@ -87,7 +87,16 @@ public class GeneralQuestion : Collectible
         levelManager.optionDButton.SetActive(true);
     }
 
-
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<Player>())
+        {
+            Time.timeScale = 0;
+            UpdateCanvas();
+            player.canMove = false;
+            dialoguebox.SetActive(true);
+        }
+    }
 
     void UpdateCanvas()
     {
