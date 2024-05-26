@@ -8,12 +8,14 @@ public class NPCQuestion : MonoBehaviour
     public Options option;
     NPCManagement npcmanager;
     LevelManager levelManager;
+    Player player;
     bool upgraded;
     public AudioClip correctsound, wrongsound;
     // Start is called before the first frame update
     void Start() {
         npcmanager = FindObjectOfType<NPCManagement>();
         levelManager = FindObjectOfType<LevelManager>();
+        player = FindObjectOfType<Player>();
     }
 
     // Update is called once per frame
@@ -45,6 +47,7 @@ public class NPCQuestion : MonoBehaviour
                 AudioManager.instance.PlaySFX(correctsound);
                 
             }
+            player.canMove = true;
             return;
         }
         if (option == Options.WrongOption) {

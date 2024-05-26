@@ -23,7 +23,7 @@ public class NPC : MonoBehaviour
     string[] options;
     List<string> filteredOptions= new List<string>(0);
     public List<OptionsOfQuestions> optionList;
-    public TextAsset optionsFile;
+    public TextAsset optionsFile, dialogueFile, nameFile,questionFile;
     public float movespeed;
     LevelManager levelManager;
     public Vector3 startpos;
