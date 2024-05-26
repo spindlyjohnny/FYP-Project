@@ -124,7 +124,7 @@ public class GeneralQuestion : Collectible
             }
         }
         int ind = 0;
-       for(int i = 0; i < optionList[qnindex].option.Count; i++)
+        for(int i = 0; i < optionList[qnindex].option.Count; i++)
         {
             
             for(int c = 0; c < optionList[qnindex].option[i].Length; c++)

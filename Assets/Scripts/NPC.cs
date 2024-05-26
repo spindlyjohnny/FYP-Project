@@ -10,7 +10,8 @@ public class NPC : MonoBehaviour
     public GameObject dialoguebox,questionbox;
     CameraController cam;
     Player player;
-    public string[] dialogue;
+    public string[] dialogue = new string[0];
+    public List<string> dialogueList;
     public string optionA,optionB,optionC,optionD;
     public TMP_Text dialoguetext,questiontext,explaintext,optionAtext,optionBtext,optionCtext,optionDtext;
     public TMP_Text nametext;
@@ -23,7 +24,7 @@ public class NPC : MonoBehaviour
     string[] options;
     List<string> filteredOptions= new List<string>(0);
     public List<OptionsOfQuestions> optionList;
-    public TextAsset optionsFile, dialogueFile, nameFile,questionFile;
+    public TextAsset optionsFile, dialogueFile, questionFile;
     public float movespeed;
     LevelManager levelManager;
     public Vector3 startpos;
@@ -43,8 +44,10 @@ public class NPC : MonoBehaviour
         cam = FindObjectOfType<CameraController>();
         player = FindObjectOfType<Player>();
         names = File.ReadAllLines("Assets\\Misc\\first-names.txt");
-        questions = File.ReadAllLines("Assets\\Misc\\questions.txt");
+        questions = questionFile.text.Split("\n");
         explains = File.ReadAllLines("Assets\\Misc\\explanations.txt");
+        dialogue = new string[0];
+        dialogue = dialogueFile.text.Split("\n");
         tasksuccess = Task.Default;
         options = optionsFile.text.Split("\n");
         //setting the text reference to the right canvas
@@ -64,18 +67,45 @@ public class NPC : MonoBehaviour
 
         for (int i = 0; i < options.Length; i++)
         {
-            if(options[i] != options[1])
-            {
-                filteredOptions.Add(options[i]);
-            }
+             filteredOptions.Add(options[i]);
         }
+        for(int i = 0; i < dialogue.Length; i++)
+        {
+            dialogueList.Add(dialogue[i]);
+        }
+
         bool continuing = false;
         int optionIndex = 0;
         char quotationMark = filteredOptions[0].ToCharArray()[0];        
-        for(int i = 0; i < filteredOptions.Count; i++)
+        for(int i = 0; i < dialogueList.Count; i++)
         {
             int numberOfCharacter = filteredOptions[i].ToCharArray().Length;
-
+            if (continuing == false && filteredOptions[i].ToCharArray()[0] == quotationMark && filteredOptions[i].ToCharArray()[numberOfCharacter - 2] != quotationMark)
+            {
+                this.optionList[optionIndex].Dialogue.Add(dialogueList[i]);
+                optionIndex += 1;
+            }
+            else if (continuing==false && filteredOptions[i].ToCharArray()[0]== quotationMark)
+            {
+                continuing = true;
+                this.optionList[optionIndex].Dialogue.Add(dialogueList[i]);
+            }
+            else if(continuing ==true && filteredOptions[i].ToCharArray()[numberOfCharacter-2] != quotationMark)
+            {
+                this.optionList[optionIndex].Dialogue.Add(dialogueList[i]);
+            }
+            else if(continuing == true && filteredOptions[i].ToCharArray()[numberOfCharacter - 2] == quotationMark)
+            {
+                this.optionList[optionIndex].Dialogue.Add(dialogueList[i]);
+                continuing = false;
+                optionIndex += 1;
+            }
+        }
+        continuing = false;
+        optionIndex = 0;
+        for (int i = 0; i < filteredOptions.Count; i++)
+        {
+            int numberOfCharacter = filteredOptions[i].ToCharArray().Length;
             if (continuing==false && filteredOptions[i].ToCharArray()[0]== quotationMark)
             {
                 continuing = true;
@@ -169,6 +199,12 @@ public class NPC : MonoBehaviour
             {
                 levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
             }
+        }
+        dialogue = new string[0];
+        dialogue = new string[optionList[qnindex].Dialogue.Count];
+        for(int i=0; i < optionList[qnindex].Dialogue.Count; i++)
+        {
+            dialogue[i] = optionList[qnindex].Dialogue[i];
         }
         optionA = optionList[qnindex].option[0];
         optionB = optionList[qnindex].option[1];
@@ -291,6 +327,7 @@ public class NPC : MonoBehaviour
 public class OptionsOfQuestions
 {
     public List<string> option= new List<string>();
+    public List<string> Dialogue= new List<string>();
 }
 [System.Serializable]
 public class Answer

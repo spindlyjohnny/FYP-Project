@@ -123,13 +123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialoguebox: {fileID: 0}
   questionbox: {fileID: 0}
-  dialogue:
-  - hello
-  - my name is
-  - jeremy
-  NPCname: Jeremy
-  question: 
-  explain: 
+  dialogue: []
+  dialogueList: []
   optionA: 
   optionB: 
   optionC: 
@@ -148,60 +143,46 @@ MonoBehaviour:
   npcmanager: {fileID: 0}
   optionList:
   - option: []
+    Dialogue: []
   - option: []
+    Dialogue: []
   - option: []
+    Dialogue: []
   - option: []
+    Dialogue: []
   - option: []
+    Dialogue: []
   - option: []
+    Dialogue: []
   - option: []
+    Dialogue: []
   - option: []
+    Dialogue: []
   - option: []
+    Dialogue: []
   - option: []
+    Dialogue: []
   - option: []
+    Dialogue: []
   - option: []
+    Dialogue: []
   - option: []
+    Dialogue: []
   - option: []
+    Dialogue: []
   - option: []
+    Dialogue: []
   - option: []
+    Dialogue: []
   - option: []
+    Dialogue: []
   - option: []
+    Dialogue: []
   - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  - option: []
-  optionsFile: {fileID: 4900000, guid: ef3db7a4b0ff3f84d95d1706f145b3ae, type: 3}
+    Dialogue: []
+  optionsFile: {fileID: 4900000, guid: b62d4e6d6092d3a44a5fbbfce7ec1568, type: 3}
+  dialogueFile: {fileID: 4900000, guid: 7f6572bc9c81cbe478099944d37c4be0, type: 3}
+  questionFile: {fileID: 4900000, guid: 7e22b63bf2dad2140a9e7e4afe98938d, type: 3}
   movespeed: 5
   startpos: {x: 0, y: 0, z: 0}
   tasksuccess: 0
@@ -260,7 +241,6 @@ MonoBehaviour:
   - element: 0100000002000000
   - element: 010000000200000003000000
   - element: 010000000200000003000000
-  index: 0
 --- !u!1001 &864737413509077412
 PrefabInstance:
   m_ObjectHideFlags: 0
