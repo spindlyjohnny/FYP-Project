@@ -34,9 +34,4 @@ public class Tile : MonoBehaviour {
         }
     }
 
-
-
-    protected void OnTriggerExit(Collider other) {
-        if (other.GetComponent<Player>()) Destroy(gameObject);
-    }
 }

@@ -77,6 +77,10 @@ public class LevelManager : SceneLoader {
                 //tileshiftfactor = Mathf.RoundToInt(26.5f * 3);
             }
         }
+        if (currenttiles.Length > 10)
+        {
+            Destroy(currenttiles[currenttiles.Length - 1].gameObject);
+        }
         //tileshiftfactor = currenttiles.Length == 1 ? 0 : 21; // tileshiftfactor spawns tiles 21 units ahead because when player enters trigger, there are 3 tiles in front. each tile is 7 units long on the x-axis
     }
     public void RestartLevel() {
@@ -138,5 +142,10 @@ public class LevelManager : SceneLoader {
             System.Random random = new System.Random();
             tileindex = legalindexes[random.Next(0, legalindexes.Count)];
         }
+    }
+
+    public void Destruction(GameObject tile)
+    {
+
     }
 }
