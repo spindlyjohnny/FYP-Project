@@ -22,7 +22,7 @@ public class NPC : MonoBehaviour
     public NPCManagement npcmanager;
     string[] names, questions, explains;
     string[] options;
-    List<string> filteredOptions= new List<string>(0);
+    public List<string> filteredOptions= new List<string>(0);
     public List<OptionsOfQuestions> optionList;
     public TextAsset optionsFile, dialogueFile, questionFile;
     public float movespeed;
@@ -46,8 +46,8 @@ public class NPC : MonoBehaviour
         names = File.ReadAllLines("Assets\\Misc\\first-names.txt");
         questions = questionFile.text.Split("\n");
         explains = File.ReadAllLines("Assets\\Misc\\explanations.txt");
-        dialogue = new string[0];
-        dialogue = dialogueFile.text.Split("\n");
+        string[] dialogueEx = new string[0];
+        dialogueEx = dialogueFile.text.Split("\n");
         tasksuccess = Task.Default;
         options = optionsFile.text.Split("\n");
         //setting the text reference to the right canvas
@@ -69,35 +69,38 @@ public class NPC : MonoBehaviour
         {
              filteredOptions.Add(options[i]);
         }
-        for(int i = 0; i < dialogue.Length; i++)
+
+        for(int i = 0; i < dialogueEx.Length; i++)
         {
-            dialogueList.Add(dialogue[i]);
+            dialogueList.Add(dialogueEx[i]);
         }
 
         bool continuing = false;
         int optionIndex = 0;
         char quotationMark = filteredOptions[0].ToCharArray()[0];        
-        for(int i = 0; i < dialogueList.Count; i++)
+        char endQuotationMark = filteredOptions[2].ToCharArray()[25];
+        for (int i = 0; i < dialogueList.Count; i++)
         {
-            int numberOfCharacter = filteredOptions[i].ToCharArray().Length;
-            if (continuing == false && filteredOptions[i].ToCharArray()[0] == quotationMark && filteredOptions[i].ToCharArray()[numberOfCharacter - 2] != quotationMark)
-            {
-                this.optionList[optionIndex].Dialogue.Add(dialogueList[i]);
-                optionIndex += 1;
-            }
-            else if (continuing==false && filteredOptions[i].ToCharArray()[0]== quotationMark)
+            int numberOfCharacter = dialogueList[i].ToCharArray().Length;
+            if (continuing==false && dialogueList[i].ToCharArray()[0]== quotationMark && dialogueList[i].ToCharArray()[numberOfCharacter - 2] != endQuotationMark)
             {
                 continuing = true;
                 this.optionList[optionIndex].Dialogue.Add(dialogueList[i]);
             }
-            else if(continuing ==true && filteredOptions[i].ToCharArray()[numberOfCharacter-2] != quotationMark)
+            else if(continuing ==true && dialogueList[i].ToCharArray()[numberOfCharacter-2] != endQuotationMark)//end with no quotation
             {
                 this.optionList[optionIndex].Dialogue.Add(dialogueList[i]);
             }
-            else if(continuing == true && filteredOptions[i].ToCharArray()[numberOfCharacter - 2] == quotationMark)
+            else if(continuing == true && dialogueList[i].ToCharArray()[numberOfCharacter - 2] == endQuotationMark)
             {
+                
                 this.optionList[optionIndex].Dialogue.Add(dialogueList[i]);
                 continuing = false;
+                optionIndex += 1;
+            }
+            else if(continuing == false && dialogueList[i].ToCharArray()[0] == quotationMark && dialogueList[i].ToCharArray()[numberOfCharacter - 2] == endQuotationMark)
+            {
+                this.optionList[optionIndex].Dialogue.Add(dialogueList[i]);
                 optionIndex += 1;
             }
         }
@@ -200,7 +203,6 @@ public class NPC : MonoBehaviour
                 levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
             }
         }
-        dialogue = new string[0];
         dialogue = new string[optionList[qnindex].Dialogue.Count];
         for(int i=0; i < optionList[qnindex].Dialogue.Count; i++)
         {

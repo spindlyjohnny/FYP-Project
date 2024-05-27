@@ -56,7 +56,6 @@ public class GeneralQuestion : Collectible
 
     void SettingString()
     {
-        print("yes");
         //setting the reference canvas reference
         questiontext = levelManager.questiontext;
         explaintext = levelManager.explaintext;
