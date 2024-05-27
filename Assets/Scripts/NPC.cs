@@ -36,6 +36,7 @@ public class NPC : MonoBehaviour
     bool upgraded;
     [SerializeField]RoadTile street;
     public Answer[] answer = new Answer[51];
+    public string destinationtag;
     // Start is called before the first frame update
     void Start()
     {
@@ -138,7 +139,7 @@ public class NPC : MonoBehaviour
             bool target = false;
             //MRTTile mrt;
             for(int i = 0; i < detector.Length; i++) {
-                if (detector[i].CompareTag("Finish")) target = true;
+                if (detector[i].CompareTag(destinationtag)) target = true;
                 if (detector[i].GetComponent<RoadTile>()) {
                     street = detector[i].GetComponent<RoadTile>();
                 }
@@ -152,8 +153,8 @@ public class NPC : MonoBehaviour
                 tasksuccess = Task.Success;
                 Transition(levelManager.level);
                 levelManager.taskcompletescreen.SetActive(true);
-                levelManager.taskcompletescreen.transform.Find("Upgrade Text").gameObject.SetActive(true);
                 if (!upgraded) {
+                    levelManager.taskcompletescreen.transform.Find("Upgrade Text").gameObject.SetActive(true);
                     player.energygain = 20;
                     upgraded = true;
                 }

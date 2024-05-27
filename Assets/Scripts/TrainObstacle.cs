@@ -13,7 +13,7 @@ public class TrainObstacle : Interactable
         npcmanager = FindObjectOfType<NPCManagement>();
     }
     public void MoveNPC() {
-        moveNPC.transform.position = NPClocation.transform.position;
+        moveNPC.transform.position = NPClocation.position;
     }
     // Update is called once per frame
     
