@@ -28,6 +28,7 @@ public class LevelManager : SceneLoader {
     public Level level;
     public Tile[] currenttiles;
     CameraController cam;
+    public Sprite[] loadingimgs;
     // Start is called before the first frame update
     void Start() {
         score = 0;
@@ -89,6 +90,7 @@ public class LevelManager : SceneLoader {
 
         print("yes2");
         loadingscreen.SetActive(true);
+        loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];
         Spawn(8);
         FindObjectOfType<Player>().transform.position = FindObjectOfType<TrainTile>().transform.Find("Player Start Point").position;
         //levelManager.Spawn(8);

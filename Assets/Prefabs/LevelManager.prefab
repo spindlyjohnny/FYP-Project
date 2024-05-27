@@ -87,3 +87,6 @@ MonoBehaviour:
   tilerng: 0
   level: 0
   currenttiles: []
+  loadingimgs:
+  - {fileID: 21300000, guid: 68e1ad12fc30cc1418620d6014ac33d0, type: 3}
+  - {fileID: 21300000, guid: c734658ffe4bb8049af84600fef97d7c, type: 3}

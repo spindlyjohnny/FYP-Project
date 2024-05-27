@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Bus : Obstacle
 {
     [SerializeField]bool moving = true;
@@ -37,8 +37,9 @@ public class Bus : Obstacle
         //FindObjectOfType<FadeIn>().blackscreen.gameObject.SetActive(true);
         //FindObjectOfType<FadeIn>().Appear();
         FindObjectOfType<LevelManager>().loadingscreen.SetActive(true);
+        FindObjectOfType<LevelManager>().loadingscreen.GetComponent<Image>().sprite = FindObjectOfType<LevelManager>().loadingimgs[UnityEngine.Random.Range(0, FindObjectOfType<LevelManager>().loadingimgs.Length)];
         //yield return new WaitForSeconds(5f);
-        
+
         //FindObjectOfType<FadeIn>().Disappear();
         //FindObjectOfType<FadeIn>().blackscreen.gameObject.SetActive(false);
     }
