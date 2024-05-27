@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Normal Lady
       objectReference: {fileID: 0}
+    - target: {fileID: 8429429704696198742, guid: 439207e73b85b294b94a3b1481160c24, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
