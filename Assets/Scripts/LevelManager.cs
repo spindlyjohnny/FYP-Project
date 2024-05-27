@@ -90,7 +90,11 @@ public class LevelManager : SceneLoader {
         yield return new WaitForSeconds(2f);
         taskcompletescreen.SetActive(false);
     }
-    public IEnumerator MoveToTrain() {
+    IEnumerator DisableLoadingScreen(float time) {
+        yield return new WaitForSeconds(time);
+        loadingscreen.SetActive(false);
+    }
+    public void MoveToTrain() {
 
         print("yes2");
         loadingscreen.SetActive(true);
@@ -98,9 +102,7 @@ public class LevelManager : SceneLoader {
         Spawn(8);
         FindObjectOfType<Player>().transform.position = FindObjectOfType<TrainTile>().transform.Find("Player Start Point").position;
         //levelManager.Spawn(8);
-        yield return new WaitForSeconds(2f);
-        print("yes3");
-        loadingscreen.SetActive(false);
+        StartCoroutine(DisableLoadingScreen(2f));
         foreach (var i in FindObjectsOfType<Tile>())
         {
             if (!i.gameObject.CompareTag("Train"))

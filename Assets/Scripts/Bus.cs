@@ -31,16 +31,11 @@ public class Bus : Obstacle
         }
     }
     public IEnumerator BusTransitioninator() {
-        //FindObjectOfType<FadeIn>().blackscreen.gameObject.SetActive(true);
         yield return new WaitForSeconds(2f);
         moving = true;
-        //FindObjectOfType<FadeIn>().blackscreen.gameObject.SetActive(true);
-        //FindObjectOfType<FadeIn>().Appear();
         FindObjectOfType<LevelManager>().loadingscreen.SetActive(true);
-        FindObjectOfType<LevelManager>().loadingscreen.GetComponent<Image>().sprite = FindObjectOfType<LevelManager>().loadingimgs[UnityEngine.Random.Range(0, FindObjectOfType<LevelManager>().loadingimgs.Length)];
+        FindObjectOfType<LevelManager>().loadingscreen.GetComponent<Image>().sprite = FindObjectOfType<LevelManager>().loadingimgs[Random.Range(0, FindObjectOfType<LevelManager>().loadingimgs.Length)];
         //yield return new WaitForSeconds(5f);
 
-        //FindObjectOfType<FadeIn>().Disappear();
-        //FindObjectOfType<FadeIn>().blackscreen.gameObject.SetActive(false);
     }
 }

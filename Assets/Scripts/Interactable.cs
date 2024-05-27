@@ -25,7 +25,7 @@ public class Interactable : MonoBehaviour
             print("yes");
             player.inputtext.SetActive(false);
             FindObjectOfType<Bus>().transitioned = false;
-            StartCoroutine(levelManager.MoveToTrain());
+            levelManager.MoveToTrain();
             
         }
     }
