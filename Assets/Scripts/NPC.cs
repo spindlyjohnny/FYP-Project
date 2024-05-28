@@ -197,9 +197,13 @@ public class NPC : MonoBehaviour
     void UpdateCanvas()
     {
         List<int> locationIndexs = new List<int>(0);
-        for(int i=0; i < locationIndexs.Count;i++)
+        for(int i=0; i < questionLocation.Length;i++)
         {
-            if (questionLocation[i] != npcLocation) continue;
+            string sub = questionLocation[i].Substring(0, 2);
+            string temp = npcLocation.Substring(0, 2);
+            print(temp);
+            print(sub);
+            if (sub != temp) continue;
             locationIndexs.Add(i);
         }
         int qnindex = -100;
