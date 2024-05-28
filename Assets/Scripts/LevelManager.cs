@@ -31,6 +31,7 @@ public class LevelManager : SceneLoader {
     public Sprite[] loadingimgs;
     // Start is called before the first frame update
     void Start() {
+        StartCoroutine(AudioManager.instance.SwitchMusic());
         score = 0;
         tileshiftfactor = 0;
         npcmanager = FindObjectOfType<NPCManagement>();

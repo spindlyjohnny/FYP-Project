@@ -7,7 +7,7 @@ public class AudioManager : MonoBehaviour {
     public static AudioManager instance;
     [SerializeField] AudioSource audio, sfxaudio;
     //public AudioClip staticnoise;
-    public AudioClip levelmusic;
+    public AudioClip levelmusic,titlemusic;
     //public AudioClip intromessage;
     // Start is called before the first frame update
     private void Awake() {
@@ -48,8 +48,16 @@ public class AudioManager : MonoBehaviour {
     void Start() {
 
     }
+    public IEnumerator SwitchMusic() {
+        StopMusic();
+        yield return new WaitForSeconds(.3f);
+        PlayMusic(levelmusic);
+    }
     // Update is called once per frame
     void Update() {
+        if(SceneManager.GetActiveScene().buildIndex < 1) {
+            PlayMusic(titlemusic);
+        } 
         //if (SceneManager.GetActiveScene().buildIndex <= 2) {
         //    PlayMusic(staticnoise);// plays static noise in menu screens
         //}

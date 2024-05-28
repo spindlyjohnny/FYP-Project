@@ -176,7 +176,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio: {fileID: 2813256128797556129}
   sfxaudio: {fileID: 5056042052936110296}
-  levelmusic: {fileID: 0}
+  levelmusic: {fileID: 8300000, guid: f8c41532f41986440972f3254bae37f7, type: 3}
+  titlemusic: {fileID: 8300000, guid: 1675b8be6f8509443a689850849b522d, type: 3}
 --- !u!82 &2813256128797556129
 AudioSource:
   m_ObjectHideFlags: 0
