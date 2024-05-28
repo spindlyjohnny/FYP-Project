@@ -12,7 +12,7 @@ public class NPC : MonoBehaviour
     Player player;
     public string[] dialogue = new string[0];
     public List<string> dialogueList;
-    public string optionA,optionB,optionC,optionD;
+    public string optionA,optionB,optionC,optionD,npcLocation;
     public TMP_Text dialoguetext,questiontext,explaintext,optionAtext,optionBtext,optionCtext,optionDtext;
     public TMP_Text nametext;
     public float wordspeed;
@@ -21,10 +21,10 @@ public class NPC : MonoBehaviour
     public bool followplayer;
     public NPCManagement npcmanager;
     string[] names, questions, explains;
-    string[] options;
+    string[] options,questionLocation;
     public List<string> filteredOptions= new List<string>(0);
     public List<OptionsOfQuestions> optionList;
-    public TextAsset optionsFile, dialogueFile, questionFile;
+    public TextAsset optionsFile, dialogueFile, questionFile,locationFile;
     public float movespeed;
     LevelManager levelManager;
     public Vector3 startpos;
@@ -40,17 +40,21 @@ public class NPC : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //setting the references
         npcmanager = FindObjectOfType<NPCManagement>();
         levelManager = FindObjectOfType<LevelManager>();
         cam = FindObjectOfType<CameraController>();
         player = FindObjectOfType<Player>();
+
         names = File.ReadAllLines("Assets\\Misc\\first-names.txt");
         questions = questionFile.text.Split("\n");
         explains = File.ReadAllLines("Assets\\Misc\\explanations.txt");
+        questionLocation= locationFile.text.Split("\n");
         string[] dialogueEx = new string[0];
         dialogueEx = dialogueFile.text.Split("\n");
         tasksuccess = Task.Default;
         options = optionsFile.text.Split("\n");
+
         //setting the text reference to the right canvas
         nametext = levelManager.nametext;
         dialoguetext = levelManager.dialoguetext;
@@ -179,8 +183,22 @@ public class NPC : MonoBehaviour
 
     void UpdateCanvas()
     {
-
-        int qnindex = Random.Range(0, questions.Length);//random index for a question
+        List<int> locationIndexs = new List<int>(0);
+        for(int i=0; i < locationIndexs.Count;i++)
+        {
+            if (questionLocation[i] != npcLocation) continue;
+            locationIndexs.Add(i);
+        }
+        int qnindex = -100;
+        if (locationIndexs.Count == 0)
+        {
+            Debug.LogError("No valid question with the assigned Location");
+        }
+        int index = Random.Range(0, locationIndexs.Count);
+        qnindex = locationIndexs[index];
+           
+        
+        
         levelManager.optionAButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
         levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
         levelManager.optionCButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;

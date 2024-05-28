@@ -1,5 +1,4 @@
-"Pavement"
-"Pavement"
-"Train
-Wheelchair Zone"
-"Train"
+Pavement
+Pavement
+Wheelchair Zone
+Train

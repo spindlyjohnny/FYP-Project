@@ -129,6 +129,7 @@ MonoBehaviour:
   optionB: 
   optionC: 
   optionD: 
+  npcLocation: 
   dialoguetext: {fileID: 0}
   questiontext: {fileID: 0}
   explaintext: {fileID: 0}
@@ -184,6 +185,7 @@ MonoBehaviour:
   optionsFile: {fileID: 4900000, guid: b62d4e6d6092d3a44a5fbbfce7ec1568, type: 3}
   dialogueFile: {fileID: 4900000, guid: 7f6572bc9c81cbe478099944d37c4be0, type: 3}
   questionFile: {fileID: 4900000, guid: 7e22b63bf2dad2140a9e7e4afe98938d, type: 3}
+  locationFile: {fileID: 4900000, guid: 9d3fcd6dd6641be479daf0d9d47ee1c9, type: 3}
   movespeed: 5
   startpos: {x: 0, y: 0, z: 0}
   tasksuccess: 0
