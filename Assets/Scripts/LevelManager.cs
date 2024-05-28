@@ -73,7 +73,7 @@ public class LevelManager : SceneLoader {
                 tileshiftfactor = 21;
             } 
             else {
-                tileshiftfactor = 21;
+                tileshiftfactor = 0;
                 //tileshiftfactor = Mathf.RoundToInt(26.5f * 3);
             }
         }

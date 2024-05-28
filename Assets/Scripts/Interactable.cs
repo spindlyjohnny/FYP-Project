@@ -5,11 +5,11 @@ public class Interactable : MonoBehaviour
 {
     public Player player;
     protected NPCManagement npcmanager;
-    LevelManager levelManager;
+    protected LevelManager levelManager;
     public string location;
     public bool target = false;
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         player = FindObjectOfType<Player>();
         //inputtext.SetActive(false);
@@ -18,14 +18,19 @@ public class Interactable : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
-        
-        var detector = Physics.OverlapSphere(transform.position, 1f); // detects NPC
-        if (npcmanager.myNPC != null)
-        {
-            for (int i = 0; i < detector.Length; i++)
-            {
+        Collider[] detector;
+        float radius;
+        if (levelManager.level == LevelManager.Level.Bus) {
+            radius = 1f;
+        } 
+        else {
+            radius = 0.5f;
+        }
+        if (npcmanager.myNPC != null) {
+            detector = Physics.OverlapSphere(transform.position, radius); // detects NPC
+            for (int i = 0; i < detector.Length; i++) {
                 if (detector[i] == null) return;
                 if (npcmanager.myNPC.gameObject == null) target = false;
                 else if (detector[i].gameObject == npcmanager.myNPC.gameObject) target = true;
@@ -40,7 +45,7 @@ public class Interactable : MonoBehaviour
             }
             location = npcmanager.myNPC.temp;
         }
-       
+
         // if npc is touching self
         if (target /*!gameObject.CompareTag("Finish") && !GetComponent<TrainObstacle>()*/) {
             player.inputtext.SetActive(true);

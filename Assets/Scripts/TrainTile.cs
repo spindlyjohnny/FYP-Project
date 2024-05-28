@@ -14,6 +14,7 @@ public class TrainTile : Tile
     protected override void Update() {
         if (Input.GetKeyDown(KeyCode.F)) {
             obstacleNPCs.MoveNPC();
+            obstacleNPCs.player.inputtext.SetActive(false);
         }
         base.Update();
     }
