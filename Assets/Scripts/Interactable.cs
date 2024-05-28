@@ -23,18 +23,23 @@ public class Interactable : MonoBehaviour
         var detector = Physics.OverlapSphere(transform.position, 1f); // detects NPC
         for (int i = 0; i < detector.Length; i++) {
             if (detector[i] == null) return;
-            if (detector[i].gameObject == npcmanager.myNPC.gameObject) target = true;
+            if (npcmanager.myNPC.gameObject == null) target = false;
+            else if (detector[i].gameObject == npcmanager.myNPC.gameObject) target = true;
             print("target:" + target);
-            if (GetComponentInParent<RoadTile>()) { // sets NPC street to gameobject if it's a roadtile
-                npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
-            }
+            //if (GetComponentInParent<RoadTile>()) { // sets NPC street to gameobject if it's a roadtile
+            //    npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
+            //}
             //else if(detector[i]) // mrt tile.
         }
+        if (GetComponentInParent<RoadTile>()) { // sets NPC street to gameobject if it's a roadtile
+            npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
+        }
+        location = npcmanager.myNPC.temp;
         // if npc is touching self
         if (target /*!gameObject.CompareTag("Finish") && !GetComponent<TrainObstacle>()*/) {
             player.inputtext.SetActive(true);
             //transform.SetParent(null);
-            if(Input.GetKeyDown(KeyCode.F) && npcmanager.myNPC && npcmanager.myNPC.npcLocation == location)npcmanager.myNPC.Transitioninator();
+            if (Input.GetKeyDown(KeyCode.F) && npcmanager.myNPC && npcmanager.myNPC.npcLocation == location)npcmanager.myNPC.Transitioninator();
             //levelManager.Spawn(1);
             if (gameObject.CompareTag("Train")) {
                 print("yes");

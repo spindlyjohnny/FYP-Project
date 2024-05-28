@@ -36,6 +36,8 @@ public class NPC : MonoBehaviour
     bool upgraded;
     public RoadTile street;
     public Answer[] answer = new Answer[51];
+    public string sub;
+    public string temp;
     // Start is called before the first frame update
     void Start()
     {
@@ -200,8 +202,9 @@ public class NPC : MonoBehaviour
         List<int> locationIndexs = new List<int>(0);
         for(int i=0; i < questionLocation.Length;i++)
         {
-            string sub = questionLocation[i].Substring(0, 2);
-            string temp = npcLocation.Substring(0, 2);
+            sub = questionLocation[i].Substring(0, 2);
+            npcLocation = sub;
+            temp = npcLocation.Substring(0, 2);
             print(temp);
             print(sub);
             if (sub != temp) continue;
