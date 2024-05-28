@@ -14,7 +14,13 @@ public class TrainObstacle : Interactable
     }
     public void MoveNPC() {
         moveNPC.transform.position = NPClocation.position;
+        player.inputtext.SetActive(false);
+    }
+    protected override void OnTriggerEnter(Collider other) {
+        if (other.GetComponent<Player>()) {
+            player.inputtext.SetActive(true);
+        }
     }
     // Update is called once per frame
-    
+
 }

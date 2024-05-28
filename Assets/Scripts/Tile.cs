@@ -17,6 +17,7 @@ public class Tile : MonoBehaviour {
 
     // Update is called once per frame
     protected virtual void Update() {
+        if (NPC == null) return;
         if (rng == 0) { // no NPC or buildings
             NPC.SetActive(false);
         } 

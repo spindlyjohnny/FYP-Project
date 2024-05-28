@@ -35,12 +35,12 @@ public class Interactable : MonoBehaviour
                 //}
                 //else if(detector[i]) // mrt tile.
             }
+            if (GetComponentInParent<RoadTile>()) { // sets NPC street to gameobject if it's a roadtile
+                npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
+            }
+            location = npcmanager.myNPC.temp;
         }
        
-        if (GetComponentInParent<RoadTile>()) { // sets NPC street to gameobject if it's a roadtile
-            npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
-        }
-        location = npcmanager.myNPC.temp;
         // if npc is touching self
         if (target /*!gameObject.CompareTag("Finish") && !GetComponent<TrainObstacle>()*/) {
             player.inputtext.SetActive(true);
@@ -60,7 +60,7 @@ public class Interactable : MonoBehaviour
     private void OnDrawGizmos() {
         Gizmos.DrawWireSphere(transform.position, 1f);
     }
-    protected void OnTriggerEnter(Collider other) {
+    protected virtual void OnTriggerEnter(Collider other) {
         //if (other.GetComponent<Player>()) {
         //    player.inputtext.SetActive(false);
         //}
