@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  location: Bus stop
 --- !u!1 &5912511637103287681
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,7 +447,7 @@ GameObject:
   - component: {fileID: 3017167887089159162}
   m_Layer: 0
   m_Name: Train Start
-  m_TagString: Untagged
+  m_TagString: Train
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -501,6 +502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  location: 
 --- !u!65 &3017167887089159162
 BoxCollider:
   m_ObjectHideFlags: 0

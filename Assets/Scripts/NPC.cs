@@ -34,9 +34,8 @@ public class NPC : MonoBehaviour
     public Coroutine dialogueco;
     [SerializeField]AudioClip dialoguesound, correctsound;
     bool upgraded;
-    [SerializeField]RoadTile street;
+    public RoadTile street;
     public Answer[] answer = new Answer[51];
-    public string destinationtag;
     // Start is called before the first frame update
     void Start()
     {
@@ -139,31 +138,31 @@ public class NPC : MonoBehaviour
     {
         FollowPlayer();
         if (hasdestination) {
-            var detector = Physics.OverlapSphere(transform.position, .5f);
-            bool target = false;
+            //var detector = Physics.OverlapSphere(transform.position, .5f);
+            //bool target = false;
             //MRTTile mrt;
-            for(int i = 0; i < detector.Length; i++) {
-                if (detector[i].CompareTag(destinationtag)) target = true;
-                if (detector[i].GetComponent<RoadTile>()) {
-                    street = detector[i].GetComponent<RoadTile>();
-                }
-                //else if(detector[i]) // mrt tile.
-            }
-            if (target && Input.GetKeyDown(KeyCode.F)) {
-                print("yes");
-                followplayer = false;
-                player.GetComponent<Rigidbody>().isKinematic = false;
-                //GetComponent<Collider>().enabled = true;
-                tasksuccess = Task.Success;
-                Transition(levelManager.level);
-                levelManager.taskcompletescreen.SetActive(true);
-                if (!upgraded) {
-                    levelManager.taskcompletescreen.transform.Find("Upgrade Text").gameObject.SetActive(true);
-                    player.energygain = 20;
-                    upgraded = true;
-                }
-                AudioManager.instance.PlaySFX(correctsound);
-            }
+            //for(int i = 0; i < detector.Length; i++) {
+            //    if (detector[i].CompareTag(destinationtag)) target = true;
+            //    if (detector[i].GetComponent<RoadTile>()) {
+            //        street = detector[i].GetComponent<RoadTile>();
+            //    }
+            //    //else if(detector[i]) // mrt tile.
+            //}
+            //if (target && Input.GetKeyDown(KeyCode.F)) {
+            //    print("yes");
+            //    followplayer = false;
+            //    player.GetComponent<Rigidbody>().isKinematic = false;
+            //    //GetComponent<Collider>().enabled = true;
+            //    tasksuccess = Task.Success;
+            //    Transition(levelManager.level);
+            //    levelManager.taskcompletescreen.SetActive(true);
+            //    if (!upgraded) {
+            //        levelManager.taskcompletescreen.transform.Find("Upgrade Text").gameObject.SetActive(true);
+            //        player.energygain = 20;
+            //        upgraded = true;
+            //    }
+            //    AudioManager.instance.PlaySFX(correctsound);
+            //}
             if (street != null && street.bus.transitioned) {
                 transform.SetParent(null);
                 player.transform.SetParent(null);
@@ -180,7 +179,21 @@ public class NPC : MonoBehaviour
             }
         }
     }
-
+    public void Transitioninator() {
+        print("yes");
+        followplayer = false;
+        player.GetComponent<Rigidbody>().isKinematic = false;
+        //GetComponent<Collider>().enabled = true;
+        tasksuccess = Task.Success;
+        Transition(levelManager.level);
+        levelManager.taskcompletescreen.SetActive(true);
+        if (!upgraded) {
+            levelManager.taskcompletescreen.transform.Find("Upgrade Text").gameObject.SetActive(true);
+            player.energygain = 20;
+            upgraded = true;
+        }
+        AudioManager.instance.PlaySFX(correctsound);
+    }
     void UpdateCanvas()
     {
         List<int> locationIndexs = new List<int>(0);
@@ -339,9 +352,6 @@ public class NPC : MonoBehaviour
         else if(level == LevelManager.Level.MRT) {
 
         }
-    }
-    private void OnDrawGizmos() {
-        Gizmos.DrawWireSphere(transform.position, .5f);
     }
 }
 [System.Serializable]
