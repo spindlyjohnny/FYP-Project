@@ -8,6 +8,7 @@ TagManager:
   - Energy
   - Bus
   - Train
+  - Transition
   layers:
   - Default
   - TransparentFX
