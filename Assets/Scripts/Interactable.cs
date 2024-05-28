@@ -7,7 +7,7 @@ public class Interactable : MonoBehaviour
     protected NPCManagement npcmanager;
     LevelManager levelManager;
     public string location;
-    bool target = false;
+    public bool target = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,17 +20,23 @@ public class Interactable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         var detector = Physics.OverlapSphere(transform.position, 1f); // detects NPC
-        for (int i = 0; i < detector.Length; i++) {
-            if (detector[i] == null) return;
-            if (npcmanager.myNPC.gameObject == null) target = false;
-            else if (detector[i].gameObject == npcmanager.myNPC.gameObject) target = true;
-            print("target:" + target);
-            //if (GetComponentInParent<RoadTile>()) { // sets NPC street to gameobject if it's a roadtile
-            //    npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
-            //}
-            //else if(detector[i]) // mrt tile.
+        if (npcmanager.myNPC != null)
+        {
+            for (int i = 0; i < detector.Length; i++)
+            {
+                if (detector[i] == null) return;
+                if (npcmanager.myNPC.gameObject == null) target = false;
+                else if (detector[i].gameObject == npcmanager.myNPC.gameObject) target = true;
+                print("target:" + target);
+                //if (GetComponentInParent<RoadTile>()) { // sets NPC street to gameobject if it's a roadtile
+                //    npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
+                //}
+                //else if(detector[i]) // mrt tile.
+            }
         }
+       
         if (GetComponentInParent<RoadTile>()) { // sets NPC street to gameobject if it's a roadtile
             npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
         }
@@ -41,13 +47,14 @@ public class Interactable : MonoBehaviour
             //transform.SetParent(null);
             if (Input.GetKeyDown(KeyCode.F) && npcmanager.myNPC && npcmanager.myNPC.npcLocation == location)npcmanager.myNPC.Transitioninator();
             //levelManager.Spawn(1);
-            if (gameObject.CompareTag("Train")) {
-                print("yes");
-                player.inputtext.SetActive(false);
-                FindObjectOfType<Bus>().transitioned = false;
-                levelManager.MoveToTrain();
-            }
+           
 
+        }
+        if( Input.GetKeyDown(KeyCode.F) && (gameObject.CompareTag("Train"))) {
+            print("yes");
+            player.inputtext.SetActive(false);
+            FindObjectOfType<Bus>().transitioned = false;
+            levelManager.MoveToTrain();
         }
     }
     private void OnDrawGizmos() {
