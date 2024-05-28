@@ -20,19 +20,21 @@ public class Interactable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var detector = Physics.OverlapSphere(transform.position, .5f); // detects NPC
+        var detector = Physics.OverlapSphere(transform.position, 1f); // detects NPC
         for (int i = 0; i < detector.Length; i++) {
-            if (!detector[i]) return;
+            if (detector[i] == null) return;
             if (detector[i].gameObject == npcmanager.myNPC.gameObject) target = true;
+            print("target:" + target);
             if (GetComponentInParent<RoadTile>()) { // sets NPC street to gameobject if it's a roadtile
                 npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
             }
             //else if(detector[i]) // mrt tile.
         }
         // if npc is touching self
-        if (target && Input.GetKeyDown(KeyCode.F) && npcmanager.myNPC && npcmanager.myNPC.npcLocation == location/*!gameObject.CompareTag("Finish") && !GetComponent<TrainObstacle>()*/) {
+        if (target /*!gameObject.CompareTag("Finish") && !GetComponent<TrainObstacle>()*/) {
+            player.inputtext.SetActive(true);
             //transform.SetParent(null);
-            npcmanager.myNPC.Transitioninator();
+            if(Input.GetKeyDown(KeyCode.F) && npcmanager.myNPC && npcmanager.myNPC.npcLocation == location)npcmanager.myNPC.Transitioninator();
             //levelManager.Spawn(1);
             if (gameObject.CompareTag("Train")) {
                 print("yes");
@@ -44,18 +46,19 @@ public class Interactable : MonoBehaviour
         }
     }
     private void OnDrawGizmos() {
-        Gizmos.DrawWireSphere(transform.position, .5f);
+        Gizmos.DrawWireSphere(transform.position, 1f);
     }
     protected void OnTriggerEnter(Collider other) {
-        if (target) {
-            //if (npcmanager.myNPC == null) return;
-            if (other.GetComponent<Player>() && npcmanager.myNPC.followplayer) player.inputtext.SetActive(true);
-        } 
-        else {
-            if (other.GetComponent<Player>()) {
-                player.inputtext.SetActive(false);
-            }
-        }
+        //if (other.GetComponent<Player>()) {
+        //    player.inputtext.SetActive(false);
+        //}
+        //if (target) {
+        //    //if (npcmanager.myNPC == null) return;
+        //    if (other.GetComponent<Player>() && npcmanager.myNPC.followplayer) player.inputtext.SetActive(true);
+        //} 
+        //else {
+           
+        //}
     }
     //IEnumerator Transition() {
     //    levelManager.loadingscreen.SetActive(true);
