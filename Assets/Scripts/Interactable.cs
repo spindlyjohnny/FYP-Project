@@ -6,7 +6,7 @@ public class Interactable : MonoBehaviour
     public Player player;
     protected NPCManagement npcmanager;
     protected LevelManager levelManager;
-    public string location;
+    //public string location;
     public bool target = false;
     float radius;
     // Start is called before the first frame update
@@ -43,9 +43,9 @@ public class Interactable : MonoBehaviour
             if (GetComponentInParent<RoadTile>()) { // sets NPC street to gameobject if it's a roadtile
                 npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
             }
-            location = npcmanager.myNPC.temp;
+            //location = npcmanager.myNPC.temp;
             //print("target && npclocation == location"+ (target && npcmanager.myNPC.npcLocation == location));
-            if (target && npcmanager.myNPC.npcLocation == location/*!gameObject.CompareTag("Finish") && !GetComponent<TrainObstacle>()*/) {
+            if (target && npcmanager.myNPC.sub == npcmanager.myNPC.temp/*!gameObject.CompareTag("Finish") && !GetComponent<TrainObstacle>()*/) {
                 player.inputtext.SetActive(true);
                 //transform.SetParent(null);
                 if (Input.GetKeyDown(KeyCode.F) && gameObject.CompareTag("Transition")) npcmanager.myNPC.Transitioninator();

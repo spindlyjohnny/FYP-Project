@@ -131,6 +131,7 @@ public class LevelManager : SceneLoader {
         Spawn(8);
         StartCoroutine(DisableLoadingScreen(2f));
         foreach (var i in FindObjectsOfType<Tile>()) {
+            print(i.name);
             if (i.gameObject.CompareTag("Train") && !i.GetComponent<RoadTile>() && i.gameObject != busstart) {
                 Destroy(i.gameObject);
             } else if (i.gameObject == busstart) {
