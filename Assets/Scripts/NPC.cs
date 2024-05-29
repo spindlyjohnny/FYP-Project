@@ -208,14 +208,13 @@ public class NPC : MonoBehaviour
         for(int i=0; i < questionLocation.Length;i++)
         {
             sub = questionLocation[i].Substring(0, 2);
-            npcLocation = sub;
             temp = npcLocation.Substring(0, 2);
             print(temp);
             print(sub);
-            if (sub != temp) continue;
-            locationIndexs.Add(i);
+            if (sub == temp) locationIndexs.Add(i);
+            
         }
-        int qnindex = -100;
+        int qnindex;
         if (locationIndexs.Count == 0)
         {
             Debug.LogError("No valid question with the assigned Location");
