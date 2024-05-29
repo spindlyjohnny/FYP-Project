@@ -100,6 +100,7 @@ public class LevelManager : SceneLoader {
         print("yes2");
         loadingscreen.SetActive(true);
         loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];
+        numberOfTiles = 5;
         Spawn(8);
         StartCoroutine(DisableLoadingScreen(2f));
         foreach (var i in FindObjectsOfType<Tile>())
@@ -113,6 +114,7 @@ public class LevelManager : SceneLoader {
             }
         }
         cam.transform.position = cam.trainposition.position;
+        cam.lookOffset = cam.trainoffset;
     }
     public void Spawn(int amount) {
         //if(level == Level.Bus)tilerng = UnityEngine.Random.Range(0f, 1f);

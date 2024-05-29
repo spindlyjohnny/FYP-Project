@@ -299,7 +299,8 @@ public class NPC : MonoBehaviour
         player.canMove = true;
         cam.target = player.transform;
         cam.NPC = false;
-        cam.transform.position = cam.originalposition.position;
+        if (levelManager.level == LevelManager.Level.Bus) cam.transform.position = cam.originalposition.position;
+        else cam.transform.position = cam.trainposition.position;
         cam.smoothing = 3;
         spoken = true;
         player.NPC = false;
@@ -325,7 +326,8 @@ public class NPC : MonoBehaviour
     }
     public void FollowPlayer() {
         if (!followplayer) return;
-        player.GetComponent<Rigidbody>().isKinematic = true;
+        if (levelManager.level == LevelManager.Level.Bus) player.GetComponent<Rigidbody>().isKinematic = true;
+        else Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
         transform.SetParent(null);
         Vector3 dir = (player.transform.position - transform.position);
         //GetComponent<Collider>().enabled = false;
