@@ -194,56 +194,11 @@ MonoBehaviour:
   correctsound: {fileID: 8300000, guid: 95465fb1e58813e4b91097a1d15aa71c, type: 3}
   street: {fileID: 0}
   answer:
-  - element: 01000000
-  - element: 0100000002000000
-  - element: 01000000
-  - element: 01000000
-  - element: 0100000004000000
-  - element: 03000000
-  - element: 01000000020000000300000004000000
-  - element: 01000000
-  - element: 01000000
-  - element: 01000000020000000300000004000000
-  - element: 010000000200000003000000
-  - element: 02000000
-  - element: 02000000
-  - element: 01000000
-  - element: 02000000
-  - element: 03000000
-  - element: 03000000
-  - element: 03000000
-  - element: 02000000
-  - element: 03000000
-  - element: 03000000
-  - element: 02000000
-  - element: 02000000
-  - element: 02000000
-  - element: 0300000004000000
-  - element: 02000000
-  - element: 0100000002000000
-  - element: 02000000
-  - element: 02000000
-  - element: 02000000
-  - element: 01000000
-  - element: 01000000
-  - element: 02000000
-  - element: 0100000003000000
-  - element: 0100000002000000
-  - element: 0300000004000000
-  - element: 01000000
-  - element: 01000000
-  - element: 0100000004000000
-  - element: 01000000
-  - element: 0100000003000000
-  - element: 0100000002000000
-  - element: 01000000020000000300000004000000
-  - element: 01000000
   - element: 03000000
   - element: 01000000
-  - element: 02000000
-  - element: 0100000002000000
-  - element: 010000000200000003000000
-  - element: 010000000200000003000000
+  - element: 01000000
+  - element: 01000000
+  - element: 01000000
   sub: 
   temp: 
 --- !u!1001 &5323955305270357987

@@ -170,7 +170,4 @@ public class LevelManager : SceneLoader {
         }
     }
 
-    public void Destruction(GameObject tile) {
-
-    }
 }
