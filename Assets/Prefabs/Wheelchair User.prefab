@@ -196,57 +196,12 @@ MonoBehaviour:
   street: {fileID: 0}
   answer:
   - element: 01000000
-  - element: 0100000002000000
-  - element: 01000000
-  - element: 01000000
-  - element: 0100000004000000
-  - element: 03000000
-  - element: 01000000020000000300000004000000
-  - element: 01000000
-  - element: 01000000
-  - element: 01000000020000000300000004000000
-  - element: 010000000200000003000000
-  - element: 02000000
-  - element: 02000000
-  - element: 01000000
-  - element: 02000000
-  - element: 03000000
-  - element: 03000000
-  - element: 03000000
-  - element: 02000000
-  - element: 03000000
-  - element: 03000000
-  - element: 02000000
-  - element: 02000000
-  - element: 02000000
-  - element: 0300000004000000
-  - element: 02000000
-  - element: 0100000002000000
-  - element: 02000000
-  - element: 02000000
   - element: 02000000
   - element: 01000000
   - element: 01000000
-  - element: 02000000
-  - element: 0100000003000000
-  - element: 0100000002000000
-  - element: 0300000004000000
-  - element: 01000000
-  - element: 01000000
-  - element: 0100000004000000
-  - element: 01000000
-  - element: 0100000003000000
-  - element: 0100000002000000
-  - element: 01000000020000000300000004000000
-  - element: 01000000
-  - element: 03000000
-  - element: 01000000
-  - element: 02000000
-  - element: 0100000002000000
-  - element: 010000000200000003000000
-  - element: 010000000200000003000000
   sub: 
   temp: 
+  character: 2
 --- !u!1001 &1963066803236420356
 PrefabInstance:
   m_ObjectHideFlags: 0

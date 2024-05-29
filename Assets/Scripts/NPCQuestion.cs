@@ -60,6 +60,7 @@ public class NPCQuestion : MonoBehaviour
 
         if (option == Options.WrongOption) {
             //Explain();
+            levelManager.upgradeText.SetActive(false);
             npcmanager.myNPC.questionbox.SetActive(false);
             npcmanager.myNPC.EndDialogue();
             levelManager.taskcompletescreen.SetActive(true);
@@ -85,7 +86,8 @@ public class NPCQuestion : MonoBehaviour
 
     }
     public void Explain() {
-        if(npcmanager.myNPC!=null)
+        levelManager.upgradeText.SetActive(false);
+        if (npcmanager.myNPC!=null)
         {
             for(int i = 0; i < npcmanager.myNPC.questionbox.transform.childCount; i++) {
                 GameObject go = npcmanager.myNPC.questionbox.transform.GetChild(i).gameObject;

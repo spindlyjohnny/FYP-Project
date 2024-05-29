@@ -38,6 +38,7 @@ public class NPC : MonoBehaviour
     public Answer[] answer = new Answer[51];
     public string sub;
     public string temp;
+    public int character = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -83,28 +84,27 @@ public class NPC : MonoBehaviour
 
         bool continuing = false;
         int optionIndex = 0;
-        char quotationMark = filteredOptions[0].ToCharArray()[0];        
-        char endQuotationMark = filteredOptions[2].ToCharArray()[25];
+        char quotationMark = filteredOptions[0].ToCharArray()[0];
         for (int i = 0; i < dialogueList.Count; i++)
         {
             int numberOfCharacter = dialogueList[i].ToCharArray().Length;
-            if (continuing==false && dialogueList[i].ToCharArray()[0]== quotationMark && dialogueList[i].ToCharArray()[numberOfCharacter - 2] != endQuotationMark)
+            if (continuing==false && dialogueList[i].ToCharArray()[0]== quotationMark && dialogueList[i].ToCharArray()[numberOfCharacter - character] != quotationMark)
             {
                 continuing = true;
                 this.optionList[optionIndex].Dialogue.Add(dialogueList[i]);
             }
-            else if(continuing ==true && dialogueList[i].ToCharArray()[numberOfCharacter-2] != endQuotationMark)//end with no quotation
+            else if(continuing ==true && dialogueList[i].ToCharArray()[numberOfCharacter- character] != quotationMark)//end with no quotation
             {
                 this.optionList[optionIndex].Dialogue.Add(dialogueList[i]);
             }
-            else if(continuing == true && dialogueList[i].ToCharArray()[numberOfCharacter - 2] == endQuotationMark)
+            else if(continuing == true && dialogueList[i].ToCharArray()[numberOfCharacter - character] == quotationMark)
             {
                 
                 this.optionList[optionIndex].Dialogue.Add(dialogueList[i]);
                 continuing = false;
                 optionIndex += 1;
             }
-            else if(continuing == false && dialogueList[i].ToCharArray()[0] == quotationMark && dialogueList[i].ToCharArray()[numberOfCharacter - 2] == endQuotationMark)
+            else if(continuing == false && dialogueList[i].ToCharArray()[0] == quotationMark && dialogueList[i].ToCharArray()[numberOfCharacter - character] == quotationMark)
             {
                 this.optionList[optionIndex].Dialogue.Add(dialogueList[i]);
                 optionIndex += 1;
@@ -115,7 +115,7 @@ public class NPC : MonoBehaviour
         for (int i = 0; i < filteredOptions.Count; i++)
         {
             int numberOfCharacter = filteredOptions[i].ToCharArray().Length;
-            if (continuing==false && filteredOptions[i].ToCharArray()[0]== quotationMark)
+            if (continuing==false && filteredOptions[i].ToCharArray()[0]== quotationMark && filteredOptions[i].ToCharArray()[numberOfCharacter - 2] != quotationMark)
             {
                 continuing = true;
                 this.optionList[optionIndex].option.Add(filteredOptions[i]);
@@ -123,10 +123,15 @@ public class NPC : MonoBehaviour
             {
                 this.optionList[optionIndex].option.Add(filteredOptions[i]);
             }
-            else if(continuing == true && filteredOptions[i].ToCharArray()[numberOfCharacter - 2] == quotationMark)
+            else if(continuing == true && filteredOptions[i].ToCharArray()[numberOfCharacter - 2] == quotationMark )
             {
                 this.optionList[optionIndex].option.Add(filteredOptions[i]);
                 continuing = false;
+                optionIndex += 1;
+            }
+            else if (continuing == false && filteredOptions[i].ToCharArray()[0] == quotationMark && filteredOptions[i].ToCharArray()[numberOfCharacter - 2] == quotationMark)
+            {
+                this.optionList[optionIndex].option.Add(filteredOptions[i]);
                 optionIndex += 1;
             }
         }
