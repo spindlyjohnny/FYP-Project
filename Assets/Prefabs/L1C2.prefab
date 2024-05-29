@@ -307,7 +307,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnpt: {fileID: 1992654472321062658}
-  NPC: {fileID: 0}
+  NPC:
+  - {fileID: 0}
 --- !u!65 &4935924930495361121
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -340,6 +341,18 @@ PrefabInstance:
     - target: {fileID: 1863821231898360523, guid: 491c736909fe82e499ab10b6f37ff05a, type: 3}
       propertyPath: nametext
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 491c736909fe82e499ab10b6f37ff05a, type: 3}
+      propertyPath: startpos.x
+      value: -0.0116
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 491c736909fe82e499ab10b6f37ff05a, type: 3}
+      propertyPath: startpos.y
+      value: 0.00402
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 491c736909fe82e499ab10b6f37ff05a, type: 3}
+      propertyPath: startpos.z
+      value: -0.0535
       objectReference: {fileID: 0}
     - target: {fileID: 1863821231898360523, guid: 491c736909fe82e499ab10b6f37ff05a, type: 3}
       propertyPath: dialoguebox
@@ -411,7 +424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2706827409266945451, guid: 491c736909fe82e499ab10b6f37ff05a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0051999995
+      value: 0.00402
       objectReference: {fileID: 0}
     - target: {fileID: 2706827409266945451, guid: 491c736909fe82e499ab10b6f37ff05a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -505,15 +518,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: startpos.x
-      value: 0.0171
+      value: 0.0226
       objectReference: {fileID: 0}
     - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: startpos.y
-      value: 0.0039
+      value: 0.00371
       objectReference: {fileID: 0}
     - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: startpos.z
-      value: 0.0898
+      value: 0.085
       objectReference: {fileID: 0}
     - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: destination
@@ -561,7 +574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2706827409266945451, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0928
+      value: 0.085
       objectReference: {fileID: 0}
     - target: {fileID: 2706827409266945451, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: m_LocalRotation.w
