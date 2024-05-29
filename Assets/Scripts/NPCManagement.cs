@@ -21,7 +21,7 @@ public class NPCManagement : MonoBehaviour
         if (myNPC.dialogue.Length == 0) return;
         if (!myNPC.gameObject.activeSelf) return;
         if(myNPC.dialoguetext.text.Length < myNPC.dialogue[myNPC.currentline].Length) {
-            StopCoroutine(myNPC.dialogueco);
+            myNPC.Stop();
             if (myNPC.currentline < myNPC.dialogue.Length - 1) { //check if there's more dialogue to type out
                 myNPC.currentline += 1; // go to next line
                 myNPC.dialoguetext.text = ""; // reset text

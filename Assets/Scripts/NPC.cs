@@ -310,6 +310,11 @@ public class NPC : MonoBehaviour
         //    npcmanager.spokencount += 1;
         //}
     }
+
+    public void Stop()
+    {
+        StopCoroutine(dialogueco);
+    }
     public IEnumerator Dialogue() {
         foreach (char chr in dialogue[currentline]) { // types out dialogue character by character
             dialoguetext.text += chr;
