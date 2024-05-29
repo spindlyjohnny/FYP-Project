@@ -33,6 +33,7 @@ public class PauseScreen : MonoBehaviour {
         AudioManager.instance.ResumeMusic();
     }
     public void BackToMainMenu() {
+        SceneLoader.Return = true;
         Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
         AudioManager.instance.SwitchMusic(AudioManager.instance.titlemusic);
