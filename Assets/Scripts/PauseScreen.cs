@@ -21,7 +21,7 @@ public class PauseScreen : MonoBehaviour {
         }
     }
     public void PauseGame() {
-        //AudioManager.instance.PauseMusic();
+        AudioManager.instance.PauseMusic();
         Time.timeScale = 0; // freeze game
         pausescreen.SetActive(true);
         player.canMove = false;
@@ -30,11 +30,12 @@ public class PauseScreen : MonoBehaviour {
         Time.timeScale = 1;
         pausescreen.SetActive(false);
         player.canMove = true;
-        //AudioManager.instance.ResumeMusic();
+        AudioManager.instance.ResumeMusic();
     }
     public void BackToMainMenu() {
         Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
+        AudioManager.instance.SwitchMusic(AudioManager.instance.titlemusic);
     }
     public void RestartLevel() {
         Time.timeScale = 1;

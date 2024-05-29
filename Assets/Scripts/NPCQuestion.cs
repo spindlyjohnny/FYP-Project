@@ -36,9 +36,9 @@ public class NPCQuestion : MonoBehaviour
             }
             else if (option == Options.CorrectOption)
             {             
-                levelManager.taskcompletescreen.SetActive(true);
                 if (!upgraded)
                 {
+                    levelManager.taskcompletescreen.SetActive(true);
                     FindObjectOfType<Player>().maxenergy *= 1.5f;
                     upgraded = true;
                 }
@@ -50,6 +50,8 @@ public class NPCQuestion : MonoBehaviour
             player.canMove = true;
             return;
         }
+
+
         if (option == Options.WrongOption) {
             //Explain();
             npcmanager.myNPC.questionbox.SetActive(false);

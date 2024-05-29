@@ -48,10 +48,10 @@ public class AudioManager : MonoBehaviour {
     void Start() {
 
     }
-    public IEnumerator SwitchMusic() {
+    public IEnumerator SwitchMusic(AudioClip music) {
         StopMusic();
         yield return new WaitForSeconds(.3f);
-        PlayMusic(levelmusic);
+        PlayMusic(music);
     }
     // Update is called once per frame
     void Update() {
