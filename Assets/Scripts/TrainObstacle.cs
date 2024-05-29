@@ -16,6 +16,12 @@ public class TrainObstacle : Interactable
             player.inputtext.SetActive(true);
         }
     }
+    private void OnTriggerStay(Collider other) {
+        if (other.GetComponent<Player>() && Input.GetKeyDown(KeyCode.F)) {
+            MoveNPC();
+            player.inputtext.SetActive(false);
+        }
+    }
     protected override void Update() {
         
     }

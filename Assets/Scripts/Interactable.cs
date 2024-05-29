@@ -8,6 +8,7 @@ public class Interactable : MonoBehaviour
     protected LevelManager levelManager;
     public string location;
     public bool target = false;
+    float radius;
     // Start is called before the first frame update
     protected void Start()
     {
@@ -21,12 +22,11 @@ public class Interactable : MonoBehaviour
     protected virtual void Update()
     {
         Collider[] detector;
-        float radius;
         if (levelManager.level == LevelManager.Level.Bus) {
             radius = 1f;
         } 
         else {
-            radius = 0.5f;
+            radius = 0.25f;
         }
         if (npcmanager.myNPC != null) {
             detector = Physics.OverlapSphere(transform.position, radius); // detects NPC
@@ -44,17 +44,18 @@ public class Interactable : MonoBehaviour
                 npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
             }
             location = npcmanager.myNPC.temp;
+            if (target && npcmanager.myNPC.npcLocation == location/*!gameObject.CompareTag("Finish") && !GetComponent<TrainObstacle>()*/) {
+                player.inputtext.SetActive(true);
+                //transform.SetParent(null);
+                if (Input.GetKeyDown(KeyCode.F)) npcmanager.myNPC.Transitioninator();
+                //levelManager.Spawn(1);
+
+
+            }
         }
 
         // if npc is touching self
-        if (target /*!gameObject.CompareTag("Finish") && !GetComponent<TrainObstacle>()*/) {
-            player.inputtext.SetActive(true);
-            //transform.SetParent(null);
-            if (Input.GetKeyDown(KeyCode.F) && npcmanager.myNPC && npcmanager.myNPC.npcLocation == location)npcmanager.myNPC.Transitioninator();
-            //levelManager.Spawn(1);
-           
-
-        }
+        
         if( Input.GetKeyDown(KeyCode.F) && (gameObject.CompareTag("Train"))) {
             print("yes");
             player.inputtext.SetActive(false);
@@ -63,7 +64,7 @@ public class Interactable : MonoBehaviour
         }
     }
     private void OnDrawGizmos() {
-        Gizmos.DrawWireSphere(transform.position, 1f);
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
     protected virtual void OnTriggerEnter(Collider other) {
         //if (other.GetComponent<Player>()) {

@@ -29,6 +29,7 @@ public class LevelManager : SceneLoader {
     public Tile[] currenttiles;
     CameraController cam;
     public Sprite[] loadingimgs;
+    Player player;
     // Start is called before the first frame update
     void Start() {
         StartCoroutine(AudioManager.instance.SwitchMusic(AudioManager.instance.levelmusic));
@@ -42,6 +43,7 @@ public class LevelManager : SceneLoader {
         gameover = false;
         gameoverscreen.SetActive(false);
         cam = FindObjectOfType<CameraController>();
+        player = FindObjectOfType<Player>();
     }
 
     // Update is called once per frame
@@ -81,6 +83,7 @@ public class LevelManager : SceneLoader {
         if (currenttiles.Length > 10)
         {
             Destroy(currenttiles[currenttiles.Length - 1].gameObject);
+            player.inputtext.SetActive(false);
         }
         //tileshiftfactor = currenttiles.Length == 1 ? 0 : 21; // tileshiftfactor spawns tiles 21 units ahead because when player enters trigger, there are 3 tiles in front. each tile is 7 units long on the x-axis
     }
@@ -110,7 +113,7 @@ public class LevelManager : SceneLoader {
                 Destroy(i.gameObject);
             }
             else if(i.gameObject.CompareTag("Train") && i.GetComponent<TrainTile>()){
-                FindObjectOfType<Player>().transform.position = i.transform.Find("Player Start Point").position;
+                player.transform.position = i.transform.Find("Player Start Point").position;
             }
         }
         cam.transform.position = cam.trainposition.position;
