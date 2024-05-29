@@ -122,8 +122,6 @@ public class GeneralQuestion : Collectible
 
     void UpdateCanvas()//this function is to be called when the player collide with the questionaire
     {
-        npc = FindObjectOfType<NPC>();
-        answer = npc.answer;
         int qnindex = Random.Range(0, questions.Length);//random index for a question
         levelManager.optionAButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
         levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
