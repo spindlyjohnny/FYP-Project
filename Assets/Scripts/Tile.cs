@@ -8,6 +8,7 @@ public class Tile : MonoBehaviour {
     protected LevelManager levelManager;
     //public Vector3 spawnoffset;
     protected float rng;
+    bool once = false;
     // Start is called before the first frame update
     protected virtual void Start() {
         NPC = GetComponentInChildren<NPC>(true).gameObject;
@@ -28,9 +29,11 @@ public class Tile : MonoBehaviour {
     }
 
     protected void OnTriggerEnter(Collider other) {
+        if (once == true) return;
         //spawn tiles at designated area by either calling the manager or spawning the tiles itself
         if (other.GetComponent<Player>())//only the player collision will spawn the tile
         {
+            once = true;
             levelManager.Spawn(1);
         }
     }

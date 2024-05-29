@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public Color originalColor;
     public AudioClip hitsfx;
     public GameObject inputtext;
+    public bool invincibility = false;
     //NPCManagement npcmanager;
     // Start is called before the first frame update
     void Start()
@@ -55,10 +56,35 @@ public class Player : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision) {
         if (NPC) return;
+        if (invincibility) return;
         if (collision.gameObject.layer == 8) {
             StartCoroutine(HitReaction());
             energy -= 10;
         }
+    }
+
+    public void Invicible()
+    {
+        StartCoroutine(Invincibility());
+    }
+
+    public IEnumerator Invincibility()
+    {
+        invincibility = true;
+        for(int i =0; i< 5; i++)
+        {
+            foreach (MeshRenderer mesh in meshes)
+            {
+                foreach (Material mat in mesh.materials) mat.color = Color.gray;
+            }
+            yield return new WaitForSeconds(0.5f);
+            foreach (MeshRenderer mesh in meshes)
+            {
+                foreach (Material mat in mesh.materials) mat.color = originalColor;
+            }
+            yield return new WaitForSeconds(0.5f);
+        }
+        
     }
 
     IEnumerator HitReaction()

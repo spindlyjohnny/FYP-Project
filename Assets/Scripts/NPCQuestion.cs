@@ -27,24 +27,30 @@ public class NPCQuestion : MonoBehaviour
         {
             if (option == Options.WrongOption)
             {
-
-                //Explain();
+                levelManager.upgradeText.SetActive(false);
+                Explain();
                 levelManager.tasksuccesstext.text = "Task failed!";
                 levelManager.taskcompletescreen.SetActive(true);
-                levelManager.questionbox.SetActive(false);
                 AudioManager.instance.PlaySFX(wrongsound);
             }
             else if (option == Options.CorrectOption)
-            {             
+            {
+                levelManager.taskcompletescreen.SetActive(true);             
                 if (!upgraded)
                 {
-                    levelManager.taskcompletescreen.SetActive(true);
+                    levelManager.upgradeText.SetActive(true);
                     FindObjectOfType<Player>().maxenergy *= 1.5f;
                     upgraded = true;
                 }
+                else
+                {
+                    levelManager.upgradeText.SetActive(false);
+                }
+
                 levelManager.tasksuccesstext.text = "Task success!";
                 levelManager.questionbox.SetActive(false);
                 AudioManager.instance.PlaySFX(correctsound);
+                player.Invicible();
                 
             }
             player.canMove = true;
@@ -79,19 +85,49 @@ public class NPCQuestion : MonoBehaviour
 
     }
     public void Explain() {
-        for(int i = 0; i < npcmanager.myNPC.questionbox.transform.childCount; i++) {
-            GameObject go = npcmanager.myNPC.questionbox.transform.GetChild(i).gameObject;
-            if (go.name == "Explanation" || go.name == "Question Panel" || go.name == "Close Button") go.SetActive(true);
-            else go.SetActive(false);
+        if(npcmanager.myNPC!=null)
+        {
+            for(int i = 0; i < npcmanager.myNPC.questionbox.transform.childCount; i++) {
+                GameObject go = npcmanager.myNPC.questionbox.transform.GetChild(i).gameObject;
+                if (go.name == "Explanation" || go.name == "Question Panel" || go.name == "Close Button") go.SetActive(true);
+                else go.SetActive(false);
+            }
         }
+        else
+        {
+            for (int i = 0; i < npcmanager.myGeneral.questionbox.transform.childCount; i++)
+            {
+                GameObject go = npcmanager.myGeneral.questionbox.transform.GetChild(i).gameObject;
+                if (go.name == "Explanation" || go.name == "Question Panel" || go.name == "Close Button") go.SetActive(true);
+                else go.SetActive(false);
+            }
+
+
+        }
+
     }
     public void CloseQuestion() {
-        npcmanager.myNPC.questionbox.SetActive(false);
-        npcmanager.myNPC.EndDialogue();
-        for (int i = 0; i < npcmanager.myNPC.questionbox.transform.childCount; i++) {
-            GameObject go = npcmanager.myNPC.questionbox.transform.GetChild(i).gameObject;
-            if (go.name == "Explanation" || go.name == "Close Button") go.SetActive(false);
-            else go.SetActive(true);
+        if (npcmanager.myNPC == true)
+        {
+            npcmanager.myNPC.questionbox.SetActive(false);
+            npcmanager.myNPC.EndDialogue();
+            for (int i = 0; i < npcmanager.myNPC.questionbox.transform.childCount; i++)
+            {
+                GameObject go = npcmanager.myNPC.questionbox.transform.GetChild(i).gameObject;
+                if (go.name == "Explanation" || go.name == "Close Button") go.SetActive(false);
+                else go.SetActive(true);
+            }
+        }
+        else
+        {
+            npcmanager.myGeneral.questionbox.SetActive(false);
+            for (int i = 0; i < npcmanager.myGeneral.questionbox.transform.childCount; i++)
+            {
+                GameObject go = npcmanager.myGeneral.questionbox.transform.GetChild(i).gameObject;
+                if (go.name == "Explanation" || go.name == "Close Button") go.SetActive(false);
+                else go.SetActive(true);
+            }
+
         }
     }
 }

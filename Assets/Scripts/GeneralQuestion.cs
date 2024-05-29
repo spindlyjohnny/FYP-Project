@@ -6,7 +6,8 @@ using TMPro;
 public class GeneralQuestion : Collectible
 {
     [Header("Dialogue")]
-    GameObject questionbox;
+    [HideInInspector]
+    public GameObject questionbox;
     public string  optionA, optionB, optionC, optionD;
     TMP_Text  questiontext, explaintext, optionAtext, optionBtext, optionCtext, optionDtext;
     public string[] questions, explains,options;
@@ -14,6 +15,7 @@ public class GeneralQuestion : Collectible
     public List<OptionsOfQuestions> optionList;
     public TextAsset optionsFile,Question,ExplainationFile;
     LevelManager levelManager;
+    NPCManagement npcManager;
     NPC npc;
     Player player;
     public Coroutine dialogueco;
@@ -22,10 +24,12 @@ public class GeneralQuestion : Collectible
     public Task tasksuccess;
     public Answer[] answer = new Answer[51];
     public List<string> newstr = new List<string>(0);
+    bool once=true;
     // Start is called before the first frame update
     protected virtual void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
+        npcManager = FindObjectOfType<NPCManagement>();
         player = FindObjectOfType<Player>();
         SettingString();
         tasksuccess = Task.Default;
@@ -82,16 +86,38 @@ public class GeneralQuestion : Collectible
 
     private void OnTriggerEnter(Collider other)
     {
+        if (once == false) return;
         if (other.GetComponent<Player>())
         {
+            once = false;
             UpdateCanvas();
+            Destroying();
             player.canMove = false;
             questionbox.SetActive(true);
+            npcManager.myGeneral = this;
         }
     }
     override protected void Update()
     {
         
+    }
+
+    void Destroying()
+    {
+        for (int i = 0; i < this.transform.childCount + 1; i++)
+        {
+            if (i == this.transform.childCount)
+            {
+                this.GetComponent<MeshRenderer>().enabled = false;
+            }
+            else
+            {
+                MeshRenderer go = this.transform.GetChild(i).GetComponent<MeshRenderer>();
+                go.enabled = false;
+            }
+
+
+        }
     }
 
     void UpdateCanvas()//this function is to be called when the player collide with the questionaire
@@ -124,8 +150,7 @@ public class GeneralQuestion : Collectible
         }
         int ind = 0;
         for(int i = 0; i < optionList[qnindex].option.Count; i++)
-        {
-            
+        {            
             for(int c = 0; c < optionList[qnindex].option[i].Length; c++)
             {
                 if(optionList[qnindex].option[i].ToCharArray()[c]== options[0].ToCharArray()[0])
@@ -140,6 +165,7 @@ public class GeneralQuestion : Collectible
                 }
             }
         }
+        explaintext.text = explains[qnindex];
         optionA = optionList[qnindex].option[0];
         optionB = optionList[qnindex].option[1];
         if (optionList[qnindex].option.Count >= 3) optionC = this.optionList[qnindex].option[2];

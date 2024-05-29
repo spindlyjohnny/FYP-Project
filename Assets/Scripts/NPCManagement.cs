@@ -5,6 +5,7 @@ using UnityEngine;
 public class NPCManagement : MonoBehaviour
 {
     public NPC myNPC;
+    public GeneralQuestion myGeneral;
     // Start is called before the first frame update
     void Start()
     {

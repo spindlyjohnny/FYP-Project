@@ -24,6 +24,7 @@ public class LevelManager : SceneLoader {
     public GameObject dialoguebox, questionbox;
     int numberOfTiles=5;
     public float tilerng;
+    public GameObject upgradeText;
     public enum Level { Bus, MRT };
     public Level level;
     public Tile[] currenttiles;
