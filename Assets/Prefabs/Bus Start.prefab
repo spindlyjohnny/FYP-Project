@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 8283595161833773360}
   m_Layer: 0
   m_Name: Bus Start
-  m_TagString: Bus
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

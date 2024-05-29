@@ -568,6 +568,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: busstart
+      value: 
+      objectReference: {fileID: 3816794214083282639}
+    - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: nametext
       value: 
       objectReference: {fileID: 488252768}
@@ -1141,6 +1145,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0084880dee8cde844ba78026ad045e6f, type: 3}
+--- !u!1 &3816794214083282639 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7736778962361843811, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+  m_PrefabInstance: {fileID: 6322592600394045537}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4432598471620266971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1519,6 +1528,10 @@ PrefabInstance:
     - target: {fileID: 7736778962361843811, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
       propertyPath: m_Name
       value: Bus Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 7736778962361843811, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
