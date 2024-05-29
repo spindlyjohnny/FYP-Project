@@ -360,7 +360,7 @@ public class NPC : MonoBehaviour
             //}
         }
         else if(level == LevelManager.Level.MRT) {
-
+            levelManager.MoveToBus();
         }
     }
 }

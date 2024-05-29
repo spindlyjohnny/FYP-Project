@@ -36,7 +36,9 @@ public class LevelManager : SceneLoader {
         score = 0;
         tileshiftfactor = 0;
         npcmanager = FindObjectOfType<NPCManagement>();
-        tiles = bustiles;
+        for(int i = 0; i < tiles.Length; i++) {
+            tiles[i] = bustiles[i];
+        }
         //tileindex = UnityEngine.Random.Range(0, tiles.Length);
         Spawn(8);
         RandomTile();
@@ -108,7 +110,7 @@ public class LevelManager : SceneLoader {
         StartCoroutine(DisableLoadingScreen(2f));
         foreach (var i in FindObjectsOfType<Tile>())
         {
-            if (!i.gameObject.CompareTag("Train"))
+            if (!i.gameObject.CompareTag("Train") && !i.gameObject.CompareTag("Bus"))
             {
                 Destroy(i.gameObject);
             }
@@ -118,6 +120,29 @@ public class LevelManager : SceneLoader {
         }
         cam.transform.position = cam.trainposition.position;
         cam.lookOffset = cam.trainoffset;
+    }
+    public void MoveToBus() {
+
+        print("yuh");
+        loadingscreen.SetActive(true);
+        loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];
+        for (int i = 0; i < tiles.Length; i++) {
+            tiles[i] = bustiles[i];
+        }
+        numberOfTiles = 5;
+        Spawn(8);
+        StartCoroutine(DisableLoadingScreen(2f));
+        foreach (var i in FindObjectsOfType<Tile>()) {
+            if (i.gameObject.CompareTag("Train") && !i.GetComponent<RoadTile>() && !i.CompareTag("Bus")) {
+                Destroy(i.gameObject);
+            } 
+            else if (i.name == "Bus Start") {
+                player.transform.position = i.transform.Find("Player Start Point").position;
+            }
+        }
+        cam.transform.position = cam.originalposition.position;
+        cam.lookOffset = cam.defaultoffset;
+        level = Level.Bus;
     }
     public void Spawn(int amount) {
         //if(level == Level.Bus)tilerng = UnityEngine.Random.Range(0f, 1f);

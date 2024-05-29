@@ -26,14 +26,14 @@ public class Interactable : MonoBehaviour
             radius = 1f;
         } 
         else {
-            radius = 0.25f;
+            radius = 0.4f;
         }
         if (npcmanager.myNPC != null) {
             detector = Physics.OverlapSphere(transform.position, radius); // detects NPC
             for (int i = 0; i < detector.Length; i++) {
                 if (detector[i] == null) return;
                 if (npcmanager.myNPC.gameObject == null) target = false;
-                else if (detector[i].gameObject == npcmanager.myNPC.gameObject) target = true;
+                if (detector[i].gameObject == npcmanager.myNPC.gameObject) target = true;
                 print("target:" + target);
                 //if (GetComponentInParent<RoadTile>()) { // sets NPC street to gameobject if it's a roadtile
                 //    npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
@@ -44,6 +44,7 @@ public class Interactable : MonoBehaviour
                 npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
             }
             location = npcmanager.myNPC.temp;
+            //print("target && npclocation == location"+ (target && npcmanager.myNPC.npcLocation == location));
             if (target && npcmanager.myNPC.npcLocation == location/*!gameObject.CompareTag("Finish") && !GetComponent<TrainObstacle>()*/) {
                 player.inputtext.SetActive(true);
                 //transform.SetParent(null);

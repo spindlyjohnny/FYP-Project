@@ -1428,6 +1428,103 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 883f847bd93626149a71c25e5090a08a, type: 3}
+--- !u!1001 &6322592600394045537
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2951924985823003769, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+      propertyPath: nametext
+      value: 
+      objectReference: {fileID: 488252768}
+    - target: {fileID: 2951924985823003769, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+      propertyPath: dialoguebox
+      value: 
+      objectReference: {fileID: 323359539}
+    - target: {fileID: 2951924985823003769, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+      propertyPath: explaintext
+      value: 
+      objectReference: {fileID: 106113619}
+    - target: {fileID: 2951924985823003769, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+      propertyPath: optionAtext
+      value: 
+      objectReference: {fileID: 383012258}
+    - target: {fileID: 2951924985823003769, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+      propertyPath: optionBtext
+      value: 
+      objectReference: {fileID: 1910471616}
+    - target: {fileID: 2951924985823003769, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+      propertyPath: optionCtext
+      value: 
+      objectReference: {fileID: 529794729}
+    - target: {fileID: 2951924985823003769, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+      propertyPath: optionDtext
+      value: 
+      objectReference: {fileID: 1335707592}
+    - target: {fileID: 2951924985823003769, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+      propertyPath: questionbox
+      value: 
+      objectReference: {fileID: 667861106}
+    - target: {fileID: 2951924985823003769, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+      propertyPath: dialoguetext
+      value: 
+      objectReference: {fileID: 1132753881}
+    - target: {fileID: 2951924985823003769, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+      propertyPath: questiontext
+      value: 
+      objectReference: {fileID: 1482969499}
+    - target: {fileID: 4049811585186010713, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -298.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049811585186010713, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049811585186010713, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2440
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049811585186010713, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049811585186010713, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049811585186010713, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049811585186010713, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049811585186010713, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049811585186010713, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049811585186010713, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7736778962361843811, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+      propertyPath: m_Name
+      value: Bus Start
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
 --- !u!1001 &7196524405884246908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2655,6 +2752,7 @@ SceneRoots:
   - {fileID: 5605041641245169739}
   - {fileID: 1179562179}
   - {fileID: 4439390657179009530}
+  - {fileID: 6322592600394045537}
   - {fileID: 1549338614862107188}
   - {fileID: 3177156720428408182}
   - {fileID: 9130623670128538731}
