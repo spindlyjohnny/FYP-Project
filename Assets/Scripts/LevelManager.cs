@@ -101,8 +101,6 @@ public class LevelManager : SceneLoader {
         loadingscreen.SetActive(true);
         loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];
         Spawn(8);
-        FindObjectOfType<Player>().transform.position = FindObjectOfType<TrainTile>().transform.Find("Player Start Point").position;
-        //levelManager.Spawn(8);
         StartCoroutine(DisableLoadingScreen(2f));
         foreach (var i in FindObjectsOfType<Tile>())
         {
@@ -110,8 +108,10 @@ public class LevelManager : SceneLoader {
             {
                 Destroy(i.gameObject);
             }
+            else if(i.gameObject.CompareTag("Train") && i.GetComponent<TrainTile>()){
+                FindObjectOfType<Player>().transform.position = i.transform.Find("Player Start Point").position;
+            }
         }
-        //cam.train = true; 
         cam.transform.position = cam.trainposition.position;
     }
     public void Spawn(int amount) {
