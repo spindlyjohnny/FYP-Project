@@ -75,9 +75,9 @@ public class Player : MonoBehaviour
         {
             foreach (MeshRenderer mesh in meshes)
             {
-                foreach (Material mat in mesh.materials) mat.color = Color.gray;
+                foreach (Material mat in mesh.materials) mat.color = new Color(mat.color.r,mat.color.g,mat.color.b,.5f);
             }
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(10f);
             foreach (MeshRenderer mesh in meshes)
             {
                 foreach (Material mat in mesh.materials) mat.color = originalColor;

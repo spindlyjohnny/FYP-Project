@@ -31,8 +31,10 @@ public class LevelManager : SceneLoader {
     public Sprite[] loadingimgs;
     Player player;
     public GameObject upgradeText;
+    bool transitioned;
     // Start is called before the first frame update
     void Start() {
+        transitioned = false;
         StartCoroutine(AudioManager.instance.SwitchMusic(AudioManager.instance.levelmusic));
         score = 0;
         tileshiftfactor = 0;
@@ -81,6 +83,7 @@ public class LevelManager : SceneLoader {
             }
         }
         if (currenttiles.Length > 10) {
+            if (transitioned) transitioned = false;
             Destroy(currenttiles[currenttiles.Length - 1].gameObject);
             player.inputtext.SetActive(false);
         }
@@ -137,6 +140,7 @@ public class LevelManager : SceneLoader {
         cam.transform.position = cam.originalposition.position;
         cam.lookOffset = cam.defaultoffset;
         level = Level.Bus;
+        transitioned = true;
     }
     public void Spawn(int amount) {
         //if(level == Level.Bus)tilerng = UnityEngine.Random.Range(0f, 1f);
@@ -155,18 +159,23 @@ public class LevelManager : SceneLoader {
         }
     }
     void RandomTile() {
-        tilerng = UnityEngine.Random.Range(0f, 1f);
-        if (tilerng <= .5f && tilerng > 0) {
-            foreach (var i in tiles) {
-                if (i.GetComponent<RoadTile>()) tileindex = Array.IndexOf(tiles, i);
+        if (transitioned) {
+            tileindex = -1;
+        } 
+        else {
+            tilerng = UnityEngine.Random.Range(0f, 1f);
+            if (tilerng <= .5f && tilerng > 0) {
+                foreach (var i in tiles) {
+                    if (i.GetComponent<RoadTile>()) tileindex = Array.IndexOf(tiles, i);
+                }
+            } else {
+                List<int> legalindexes = new List<int>();
+                for (int i = 0; i < tiles.Length; i++) {
+                    if (!tiles[i].GetComponent<RoadTile>()) legalindexes.Add(i);
+                }
+                System.Random random = new System.Random();
+                tileindex = legalindexes[random.Next(0, legalindexes.Count)];
             }
-        } else {
-            List<int> legalindexes = new List<int>();
-            for (int i = 0; i < tiles.Length; i++) {
-                if (!tiles[i].GetComponent<RoadTile>()) legalindexes.Add(i);
-            }
-            System.Random random = new System.Random();
-            tileindex = legalindexes[random.Next(0, legalindexes.Count)];
         }
     }
 

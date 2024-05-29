@@ -6,7 +6,7 @@ using TMPro;
 public class GeneralQuestion : Collectible
 {
     [Header("Dialogue")]
-    [HideInInspector]
+    //[HideInInspector]
     public GameObject questionbox;
     public string  optionA, optionB, optionC, optionD;
     TMP_Text  questiontext, explaintext, optionAtext, optionBtext, optionCtext, optionDtext;

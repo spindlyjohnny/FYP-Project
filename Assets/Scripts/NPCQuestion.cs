@@ -28,13 +28,14 @@ public class NPCQuestion : MonoBehaviour
             if (option == Options.WrongOption)
             {
                 levelManager.upgradeText.SetActive(false);
-                Explain();
+                //Explain();
                 levelManager.tasksuccesstext.text = "Task failed!";
                 levelManager.taskcompletescreen.SetActive(true);
                 AudioManager.instance.PlaySFX(wrongsound);
             }
             else if (option == Options.CorrectOption)
             {
+                //Explain();
                 levelManager.taskcompletescreen.SetActive(true);             
                 if (!upgraded)
                 {
@@ -59,7 +60,7 @@ public class NPCQuestion : MonoBehaviour
 
 
         if (option == Options.WrongOption) {
-            //Explain();
+            Explain();
             levelManager.upgradeText.SetActive(false);
             npcmanager.myNPC.questionbox.SetActive(false);
             npcmanager.myNPC.EndDialogue();
@@ -68,6 +69,7 @@ public class NPCQuestion : MonoBehaviour
             AudioManager.instance.PlaySFX(wrongsound);
         } 
         else if (option == Options.CorrectOption) {
+            Explain();
             npcmanager.myNPC.questionbox.SetActive(false);
             npcmanager.myNPC.EndDialogue();
             if (npcmanager.myNPC.hasdestination) {
