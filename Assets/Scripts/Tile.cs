@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour {
     public Transform spawnpt;
-    public GameObject NPC;
+    public NPC[] NPC;
     protected LevelManager levelManager;
     //public Vector3 spawnoffset;
     protected float rng;
     bool once = false;
     // Start is called before the first frame update
     protected virtual void Start() {
-        NPC = GetComponentInChildren<NPC>(true).gameObject;
+        NPC = GetComponentsInChildren<NPC>(true);
         levelManager = FindObjectOfType<LevelManager>();
         rng = Random.Range(0f, 1f);
     }
@@ -19,12 +19,15 @@ public class Tile : MonoBehaviour {
     // Update is called once per frame
     protected virtual void Update() {
         if (NPC == null) return;
-        if (rng == 0) { // no NPC or buildings
-            NPC.SetActive(false);
+        if (rng == 0) { // no NPC
+            foreach(var i in NPC)i.gameObject.SetActive(false);
         } 
         else if (rng <= 0.5f && rng > 0) { // 50% chance of NPC
-            NPC.SetActive(true);
-            if (!NPC.GetComponent<NPC>().followplayer) NPC.transform.localPosition = NPC.GetComponent<NPC>().startpos;
+            foreach (var i in NPC) {
+                i.gameObject.SetActive(true);
+                if (!i.followplayer) i.transform.localPosition = i.startpos;
+            }
+            
         }
     }
 

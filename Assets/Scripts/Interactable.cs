@@ -48,7 +48,7 @@ public class Interactable : MonoBehaviour
             if (target && npcmanager.myNPC.npcLocation == location/*!gameObject.CompareTag("Finish") && !GetComponent<TrainObstacle>()*/) {
                 player.inputtext.SetActive(true);
                 //transform.SetParent(null);
-                if (Input.GetKeyDown(KeyCode.F)) npcmanager.myNPC.Transitioninator();
+                if (Input.GetKeyDown(KeyCode.F) && gameObject.CompareTag("Transition")) npcmanager.myNPC.Transitioninator();
                 //levelManager.Spawn(1);
 
 
