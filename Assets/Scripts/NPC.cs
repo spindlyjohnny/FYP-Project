@@ -196,7 +196,9 @@ public class NPC : MonoBehaviour
         levelManager.taskcompletescreen.SetActive(true);
         player.inputtext.SetActive(false);
         if (!upgraded) {
-            levelManager.taskcompletescreen.transform.Find("Upgrade Text").gameObject.SetActive(true);
+            levelManager.upgradeText.SetActive(true);
+            levelManager.boost.GetComponentInChildren<TMP_Text>().text = "gain x 2";
+            levelManager.boost.GetComponentInChildren<Image>().enabled = true;
             player.energygain = 20;
             upgraded = true;
         }

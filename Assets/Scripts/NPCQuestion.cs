@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
+using UnityEngine.UI;
 public class NPCQuestion : MonoBehaviour
 {
     public enum Options { CorrectOption, WrongOption, nulloption };
@@ -40,7 +41,9 @@ public class NPCQuestion : MonoBehaviour
                 if (!upgraded)
                 {
                     levelManager.upgradeText.SetActive(true);
-                    FindObjectOfType<Player>().maxenergy *= 1.5f;
+                    levelManager.boost.GetComponentInChildren<TMP_Text>().text = "Invincibility (10s)";
+                    levelManager.boost.GetComponentInChildren<Image>().enabled = false;
+                    player.Invincible();
                     upgraded = true;
                 }
                 else
@@ -51,7 +54,7 @@ public class NPCQuestion : MonoBehaviour
                 levelManager.tasksuccesstext.text = "Task success!";
                 levelManager.questionbox.SetActive(false);
                 AudioManager.instance.PlaySFX(correctsound);
-                player.Invicible();
+               
                 
             }
             player.canMove = true;
@@ -78,10 +81,10 @@ public class NPCQuestion : MonoBehaviour
             else {
                 levelManager.taskcompletescreen.SetActive(true);
                 npcmanager.myNPC.tasksuccess = NPC.Task.Success;
-                if (!upgraded) {
-                    FindObjectOfType<Player>().maxenergy *= 1.5f;
-                    upgraded = true;
-                }
+                //if (!upgraded) {
+                //    FindObjectOfType<Player>().maxenergy *= 1.5f;
+                //    upgraded = true;
+                //}
             }
             AudioManager.instance.PlaySFX(correctsound);
         }

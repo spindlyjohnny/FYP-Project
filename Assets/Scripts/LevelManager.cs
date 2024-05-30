@@ -30,7 +30,7 @@ public class LevelManager : SceneLoader {
     CameraController cam;
     public Sprite[] loadingimgs;
     Player player;
-    public GameObject upgradeText;
+    public GameObject upgradeText,boost;
     bool transitioned;
     // Start is called before the first frame update
     void Start() {

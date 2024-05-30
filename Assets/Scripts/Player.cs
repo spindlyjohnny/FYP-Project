@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Invicible()
+    public void Invincible()
     {
         StartCoroutine(Invincibility());
     }
@@ -71,11 +71,12 @@ public class Player : MonoBehaviour
     public IEnumerator Invincibility()
     {
         invincibility = true;
-        for(int i =0; i< 5; i++)
+        GetComponent<Rigidbody>().isKinematic = true;
+        for (int i =0; i< 5; i++)
         {
             foreach (MeshRenderer mesh in meshes)
             {
-                foreach (Material mat in mesh.materials) mat.color = new Color(mat.color.r,mat.color.g,mat.color.b,.5f);
+                foreach (Material mat in mesh.materials) mat.color = Color.blue;
             }
             yield return new WaitForSeconds(10f);
             foreach (MeshRenderer mesh in meshes)
@@ -83,6 +84,7 @@ public class Player : MonoBehaviour
                 foreach (Material mat in mesh.materials) mat.color = originalColor;
             }
             yield return new WaitForSeconds(0.5f);
+            GetComponent<Rigidbody>().isKinematic = false;
         }
         
     }
