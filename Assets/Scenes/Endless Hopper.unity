@@ -589,6 +589,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 716980690}
     - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: starttile
+      value: 
+      objectReference: {fileID: 3816794214083282641}
+    - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: creditstext
       value: 
       objectReference: {fileID: 0}
@@ -1243,6 +1247,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7736778962361843811, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
   m_PrefabInstance: {fileID: 6322592600394045537}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3816794214083282641 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1296040188672292843, guid: fca84c5566753d94888bfc9cff45775b, type: 3}
+  m_PrefabInstance: {fileID: 6322592600394045537}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3816794214083282639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d60584f40661c04591e11f9f0cd89ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4432598471620266971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2216,7 +2231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2737777695695530235, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
       propertyPath: movespeed
-      value: 20
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: 2941963278701057150, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

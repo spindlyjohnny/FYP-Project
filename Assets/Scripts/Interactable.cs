@@ -45,7 +45,7 @@ public class Interactable : MonoBehaviour
             }
             //location = npcmanager.myNPC.temp;
             //print("target && npclocation == location"+ (target && npcmanager.myNPC.npcLocation == location));
-            if (target && npcmanager.myNPC.sub == npcmanager.myNPC.temp/*!gameObject.CompareTag("Finish") && !GetComponent<TrainObstacle>()*/) {
+            if (target /*&& npcmanager.myNPC.sub == npcmanager.myNPC.temp/*!gameObject.CompareTag("Finish") && !GetComponent<TrainObstacle>()*/) {
                 player.inputtext.SetActive(true);
                 //transform.SetParent(null);
                 if (Input.GetKeyDown(KeyCode.F) && gameObject.CompareTag("Transition")) npcmanager.myNPC.Transitioninator();

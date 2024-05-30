@@ -31,10 +31,9 @@ public class LevelManager : SceneLoader {
     public Sprite[] loadingimgs;
     Player player;
     public GameObject upgradeText,boost;
-    bool transitioned;
+    [SerializeField]Tile starttile;
     // Start is called before the first frame update
     void Start() {
-        transitioned = false;
         StartCoroutine(AudioManager.instance.SwitchMusic(AudioManager.instance.levelmusic));
         score = 0;
         tileshiftfactor = 0;
@@ -77,14 +76,19 @@ public class LevelManager : SceneLoader {
         } else {
             if (level == Level.Bus) {
                 tileshiftfactor = 21;
-            } else {
+            } 
+            else {
                 tileshiftfactor = 0;
                 //tileshiftfactor = Mathf.RoundToInt(26.5f * 3);
             }
         }
         if (currenttiles.Length > 10) {
-            if (transitioned) transitioned = false;
-            Destroy(currenttiles[currenttiles.Length - 1].gameObject);
+            if (currenttiles[currenttiles.Length - 1].gameObject != busstart) {
+                Destroy(currenttiles[currenttiles.Length - 1].gameObject);
+            } 
+            else {
+                currenttiles[currenttiles.Length - 1].gameObject.SetActive(false);
+            }
             player.inputtext.SetActive(false);
         }
         //tileshiftfactor = currenttiles.Length == 1 ? 0 : 21; // tileshiftfactor spawns tiles 21 units ahead because when player enters trigger, there are 3 tiles in front. each tile is 7 units long on the x-axis
@@ -128,10 +132,11 @@ public class LevelManager : SceneLoader {
             tiles[i] = bustiles[i];
         }
         numberOfTiles = 5;
-        Spawn(8);
+        tileshiftfactor = 0;
+        Spawn(8,true);
         StartCoroutine(DisableLoadingScreen(2f));
         foreach (var i in FindObjectsOfType<Tile>()) {
-            print(i.name);
+            
             if (i.gameObject.CompareTag("Train") && !i.GetComponent<RoadTile>() && i.gameObject != busstart) {
                 Destroy(i.gameObject);
             } else if (i.gameObject == busstart) {
@@ -141,14 +146,13 @@ public class LevelManager : SceneLoader {
         cam.transform.position = cam.originalposition.position;
         cam.lookOffset = cam.defaultoffset;
         level = Level.Bus;
-        transitioned = true;
     }
-    public void Spawn(int amount) {
+    public void Spawn(int amount,bool transitioned = false) {
         //if(level == Level.Bus)tilerng = UnityEngine.Random.Range(0f, 1f);
         for (int x = 0; x < amount; x++) { // spawn amount tiles at a time
             if (amount == 1) x = numberOfTiles;
             // spawn tile at spawn point + size of tile * order that tile was spawned
-            Tile mytile = tiles[tileindex].GetComponent<Tile>();
+            Tile mytile = transitioned ? starttile : tiles[tileindex].GetComponent<Tile>();
             //print(mytile.spawnpt.position);
             if (level == Level.Bus) {
                 Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
@@ -160,23 +164,18 @@ public class LevelManager : SceneLoader {
         }
     }
     void RandomTile() {
-        if (transitioned) {
-            tileindex = -1;
-        } 
-        else {
-            tilerng = UnityEngine.Random.Range(0f, 1f);
-            if (tilerng <= .5f && tilerng > 0) {
-                foreach (var i in tiles) {
-                    if (i.GetComponent<RoadTile>()) tileindex = Array.IndexOf(tiles, i);
-                }
-            } else {
-                List<int> legalindexes = new List<int>();
-                for (int i = 0; i < tiles.Length; i++) {
-                    if (!tiles[i].GetComponent<RoadTile>()) legalindexes.Add(i);
-                }
-                System.Random random = new System.Random();
-                tileindex = legalindexes[random.Next(0, legalindexes.Count)];
+        tilerng = UnityEngine.Random.Range(0f, 1f);
+        if (tilerng <= .5f && tilerng > 0) {
+            foreach (var i in tiles) {
+                if (i.GetComponent<RoadTile>()) tileindex = Array.IndexOf(tiles, i);
             }
+        } else {
+            List<int> legalindexes = new List<int>();
+            for (int i = 0; i < tiles.Length; i++) {
+                if (!tiles[i].GetComponent<RoadTile>()) legalindexes.Add(i);
+            }
+            System.Random random = new System.Random();
+            tileindex = legalindexes[random.Next(0, legalindexes.Count)];
         }
     }
 
