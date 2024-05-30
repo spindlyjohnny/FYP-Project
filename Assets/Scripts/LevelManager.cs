@@ -31,7 +31,7 @@ public class LevelManager : SceneLoader {
     public Sprite[] loadingimgs;
     Player player;
     public GameObject upgradeText,boost;
-    [SerializeField]Tile starttile;
+    //[SerializeField]Tile starttile;
     // Start is called before the first frame update
     void Start() {
         StartCoroutine(AudioManager.instance.SwitchMusic(AudioManager.instance.levelmusic));
@@ -126,6 +126,7 @@ public class LevelManager : SceneLoader {
 
         print("yuh");
         busstart.SetActive(true);
+        //starttile = busstart.GetComponent<Tile>();
         loadingscreen.SetActive(true);
         loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];
         for (int i = 0; i < tiles.Length; i++) {
@@ -133,7 +134,7 @@ public class LevelManager : SceneLoader {
         }
         numberOfTiles = 5;
         tileshiftfactor = 0;
-        Spawn(8,true);
+        Spawn(8);
         StartCoroutine(DisableLoadingScreen(2f));
         foreach (var i in FindObjectsOfType<Tile>()) {
             
@@ -147,12 +148,20 @@ public class LevelManager : SceneLoader {
         cam.lookOffset = cam.defaultoffset;
         level = Level.Bus;
     }
-    public void Spawn(int amount,bool transitioned = false) {
+    public void Spawn(int amount) {
         //if(level == Level.Bus)tilerng = UnityEngine.Random.Range(0f, 1f);
         for (int x = 0; x < amount; x++) { // spawn amount tiles at a time
-            if (amount == 1) x = numberOfTiles;
+            Tile mytile;
+            if (amount == 1) {
+                x = numberOfTiles;
+            }
+            if (busstart.activeSelf) {
+                mytile = busstart.GetComponent<Tile>();
+            } 
+            else {
+                mytile = tiles[tileindex].GetComponent<Tile>();
+            }
             // spawn tile at spawn point + size of tile * order that tile was spawned
-            Tile mytile = transitioned ? starttile : tiles[tileindex].GetComponent<Tile>();
             //print(mytile.spawnpt.position);
             if (level == Level.Bus) {
                 Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
