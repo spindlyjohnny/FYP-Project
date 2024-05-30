@@ -130,7 +130,7 @@ MonoBehaviour:
   optionB: 
   optionC: 
   optionD: 
-  npcLocation: Bus stop
+  npcLocation: Pavement
   dialoguetext: {fileID: 0}
   questiontext: {fileID: 0}
   explaintext: {fileID: 0}
