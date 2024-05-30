@@ -78,15 +78,16 @@ public class Player : MonoBehaviour
             {
                 foreach (Material mat in mesh.materials) mat.color = Color.blue;
             }
-            yield return new WaitForSeconds(10f);
-            foreach (MeshRenderer mesh in meshes)
-            {
+        }
+        yield return new WaitForSeconds(10f);
+        for (int i = 0; i < 5; i++) {
+            foreach (MeshRenderer mesh in meshes) {
                 foreach (Material mat in mesh.materials) mat.color = originalColor;
             }
-            yield return new WaitForSeconds(0.5f);
-            GetComponent<Rigidbody>().isKinematic = false;
         }
-        
+        yield return new WaitForSeconds(0.5f);
+        GetComponent<Rigidbody>().isKinematic = false;
+        invincibility = false;
     }
 
     IEnumerator HitReaction()
