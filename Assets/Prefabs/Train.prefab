@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 4410202338792577680}
   m_Layer: 0
   m_Name: NPC Destination (3)
-  m_TagString: Finish
+  m_TagString: Transition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,7 +146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  location: Wheelchair Zone
   target: 0
 --- !u!1 &1438432342573962762
 GameObject:
@@ -208,7 +207,7 @@ GameObject:
   - component: {fileID: 4744298295029184735}
   m_Layer: 0
   m_Name: NPC Destination (1)
-  m_TagString: Finish
+  m_TagString: Transition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -262,7 +261,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  location: Wheelchair Zone
   target: 0
 --- !u!1 &4132712998331090848
 GameObject:
@@ -277,7 +275,7 @@ GameObject:
   - component: {fileID: 8926988781208518316}
   m_Layer: 0
   m_Name: NPC Destination (1)
-  m_TagString: Untagged
+  m_TagString: Transition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -332,7 +330,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  location: Train
   target: 0
 --- !u!1 &4596255932900024031
 GameObject:
@@ -347,7 +344,7 @@ GameObject:
   - component: {fileID: 5321645924263121654}
   m_Layer: 0
   m_Name: NPC Destination (4)
-  m_TagString: Finish
+  m_TagString: Transition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -401,7 +398,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  location: Wheelchair Zone
   target: 0
 --- !u!1 &4730506864292505445
 GameObject:
@@ -502,7 +498,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  location: Train
   target: 0
 --- !u!1 &6337663996066418240
 GameObject:
@@ -548,7 +543,7 @@ GameObject:
   - component: {fileID: 5157817293401131867}
   m_Layer: 0
   m_Name: NPC Destination (2)
-  m_TagString: Finish
+  m_TagString: Transition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -602,7 +597,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  location: Wheelchair Zone
   target: 0
 --- !u!1 &7387704892844680403
 GameObject:
@@ -675,7 +669,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  location: 
   target: 0
   moveNPC: {fileID: 2783862356764392481}
   NPClocation: {fileID: 6752089458666360246}
@@ -1193,6 +1186,26 @@ PrefabInstance:
       propertyPath: startpos.z
       value: 0.00568
       objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 491c736909fe82e499ab10b6f37ff05a, type: 3}
+      propertyPath: npcLocation
+      value: Train
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 491c736909fe82e499ab10b6f37ff05a, type: 3}
+      propertyPath: optionsFile
+      value: 
+      objectReference: {fileID: 4900000, guid: f14a45166c493c94db96129ed02d328d, type: 3}
+    - target: {fileID: 1863821231898360523, guid: 491c736909fe82e499ab10b6f37ff05a, type: 3}
+      propertyPath: dialogueFile
+      value: 
+      objectReference: {fileID: 4900000, guid: 39ea7c6bbd7809944a08ec6d8dcbdd0c, type: 3}
+    - target: {fileID: 1863821231898360523, guid: 491c736909fe82e499ab10b6f37ff05a, type: 3}
+      propertyPath: locationFile
+      value: 
+      objectReference: {fileID: 4900000, guid: 2232913297c99604fb570baba75c2f81, type: 3}
+    - target: {fileID: 1863821231898360523, guid: 491c736909fe82e499ab10b6f37ff05a, type: 3}
+      propertyPath: questionFile
+      value: 
+      objectReference: {fileID: 4900000, guid: 9c3ffdbd86d8ab64bb2d41b38124e2aa, type: 3}
     - target: {fileID: 2706827409266945451, guid: 491c736909fe82e499ab10b6f37ff05a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.002836206
