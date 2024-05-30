@@ -52,7 +52,7 @@ public class NPCQuestion : MonoBehaviour
                 }
 
                 levelManager.tasksuccesstext.text = "Task success!";
-                levelManager.questionbox.SetActive(false);
+                //levelManager.questionbox.SetActive(false);
                 AudioManager.instance.PlaySFX(correctsound);
                
                 
