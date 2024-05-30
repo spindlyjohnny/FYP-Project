@@ -155,12 +155,13 @@ public class LevelManager : SceneLoader {
             if (amount == 1) {
                 x = numberOfTiles;
             }
-            if (busstart.activeSelf) {
-                mytile = busstart.GetComponent<Tile>();
-            } 
-            else {
-                mytile = tiles[tileindex].GetComponent<Tile>();
-            }
+            mytile = tiles[tileindex].GetComponent<Tile>();
+            //if (busstart.activeSelf) {
+            //    mytile = busstart.GetComponent<Tile>();
+            //} 
+            //else {
+            //    mytile = tiles[tileindex].GetComponent<Tile>();
+            //}
             // spawn tile at spawn point + size of tile * order that tile was spawned
             //print(mytile.spawnpt.position);
             if (level == Level.Bus) {
