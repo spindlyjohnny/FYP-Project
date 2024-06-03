@@ -24,6 +24,7 @@ public class LevelManager : SceneLoader {
     public GameObject optionAButton, optionBButton, optionCButton, optionDButton;
     public GameObject dialoguebox, questionbox, busstart;
     int numberOfTiles = 5;
+    bool onceComplete=false, onceLoading = false;
     public float tilerng;
     public enum Level { Bus, MRT };
     public static Level level;
@@ -99,8 +100,16 @@ public class LevelManager : SceneLoader {
                 tasksuccesstext.text = "Task success!";
             }
         }
-        if (taskcompletescreen.activeSelf) StartCoroutine(DisableTaskScreen());
-        if (loadingscreen.activeSelf) StartCoroutine(DisableLoadingScreen(2f));
+        if (taskcompletescreen.activeSelf && onceComplete == false)
+        {
+            onceComplete = true;
+            StartCoroutine(DisableTaskScreen());
+        }
+        if (loadingscreen.activeSelf && onceLoading == false)
+        {
+            onceLoading = true;
+            StartCoroutine(DisableLoadingScreen(2f));
+        }
         currenttiles = FindObjectsOfType<Tile>();
         if (currenttiles.Length == 1 || level == Level.MRT) {
             tileshiftfactor = 0;
@@ -129,10 +138,12 @@ public class LevelManager : SceneLoader {
     IEnumerator DisableTaskScreen() {
         yield return new WaitForSeconds(2f);
         taskcompletescreen.SetActive(false);
+        onceComplete = false;
     }
     IEnumerator DisableLoadingScreen(float time) {
         yield return new WaitForSeconds(time);
         loadingscreen.SetActive(false);
+        onceLoading = false;
     }
     public void MoveToTrain() {
 
