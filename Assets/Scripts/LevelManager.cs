@@ -13,7 +13,8 @@ public class LevelManager : SceneLoader {
     public GameObject[] tiles;
     [SerializeField] GameObject[] bustiles;
     public GameObject mrt;
-    public int score, tileindex;
+    public int score; 
+    public int tileindex;
     public TMP_Text scoretext, tasksuccesstext;
     NPCManagement npcmanager;
     //GameObject currenttile;
@@ -34,7 +35,9 @@ public class LevelManager : SceneLoader {
     //[SerializeField]Tile starttile;
     // Start is called before the first frame update
     void Start() {
-        StartCoroutine(AudioManager.instance.SwitchMusic(AudioManager.instance.levelmusic));
+        if (AudioManager.instance.CheckClip() != AudioManager.instance.levelmusic || !AudioManager.instance.IsPlaying()) {
+            StartCoroutine(AudioManager.instance.SwitchMusic(AudioManager.instance.levelmusic));
+        }
         //score = 0;
         //tileshiftfactor = 0;
         npcmanager = FindObjectOfType<NPCManagement>();
@@ -51,15 +54,27 @@ public class LevelManager : SceneLoader {
             }
             Spawn(8);
             RandomTile();
-        } else {
-            cam.transform.position = cam.trainposition.position;
-            cam.lookOffset = cam.trainoffset;
+        } 
+        else {
             for (int i = 0; i < tiles.Length; i++) {
                 tiles[i] = mrt;
             }
             tileindex = 0;
             Spawn(8);
-            player.transform.position = FindObjectOfType<Tile>().transform.Find("Player Start Point").position;
+            foreach(var i in FindObjectsOfType<Tile>()) {
+                float furthest = 0;
+                float closest = 999;
+                if(Vector3.Distance(transform.position,i.transform.position) > furthest) {
+                    furthest = Vector3.Distance(transform.position, i.transform.position);
+                }
+                if(Vector3.Distance(transform.position, i.transform.position) < closest) {
+                    closest = Vector3.Distance(transform.position, i.transform.position);
+                }
+                if(Vector3.Distance(transform.position, i.transform.position) == closest) {
+                    player.transform.position = i.transform.Find("Player Start Point").position;
+                }
+            }
+            //player.transform.position = tiles[^1].transform.Find("Player Start Point").position;
         }
     }
 
@@ -122,6 +137,8 @@ public class LevelManager : SceneLoader {
     public void MoveToTrain() {
 
         print("yes2");
+        cam.transform.position = cam.trainposition.position;
+        cam.lookOffset = cam.trainoffset;
         LoadScene(2);
         loadingscreen.SetActive(true);
         loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];

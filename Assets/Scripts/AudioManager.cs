@@ -45,6 +45,12 @@ public class AudioManager : MonoBehaviour {
     public void ResumeSFX() {
         sfxaudio.UnPause();
     }
+    public AudioClip CheckClip() {
+        return audio.clip;
+    }
+    public bool IsPlaying() {
+        return audio.isPlaying;
+    }
     void Start() {
 
     }
