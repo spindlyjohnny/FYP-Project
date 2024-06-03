@@ -171,6 +171,8 @@ public class NPC : MonoBehaviour
             //    AudioManager.instance.PlaySFX(correctsound);
             //}
             if (street != null && street.bus.transitioned) {
+                // after bus arrives at train station, npc and player are released from bus and cam goes back to original position
+                // this happens after Transitioninator() is called.
                 transform.SetParent(null);
                 player.transform.SetParent(null);
                 player.GetComponent<Collider>().enabled = true;
@@ -179,7 +181,7 @@ public class NPC : MonoBehaviour
                 cam.bus = false;
                 cam.target = player.transform;
                 cam.transform.position = cam.originalposition.position;
-                levelManager.level = LevelManager.Level.MRT;
+                LevelManager.level = LevelManager.Level.MRT;
                 //cam.train = true;
                 //levelManager.Spawn(1);
                 Destroy(gameObject);
@@ -188,11 +190,12 @@ public class NPC : MonoBehaviour
     }
     public void Transitioninator() {
         print("yes");
+        // starts transition between levels
         followplayer = false;
         player.GetComponent<Rigidbody>().isKinematic = false;
         //GetComponent<Collider>().enabled = true;
         tasksuccess = Task.Success;
-        Transition(levelManager.level);
+        Transition(LevelManager.level); // does the actual transition, bus moves to train station/ player leaves train
         levelManager.taskcompletescreen.SetActive(true);
         player.inputtext.SetActive(false);
         if (!upgraded) {
@@ -305,7 +308,7 @@ public class NPC : MonoBehaviour
         player.canMove = true;
         cam.target = player.transform;
         cam.NPC = false;
-        if (levelManager.level == LevelManager.Level.Bus) cam.transform.position = cam.originalposition.position;
+        if (LevelManager.level == LevelManager.Level.Bus) cam.transform.position = cam.originalposition.position;
         else cam.transform.position = cam.trainposition.position;
         cam.smoothing = 3;
         spoken = true;
@@ -337,7 +340,7 @@ public class NPC : MonoBehaviour
     }
     public void FollowPlayer() {
         if (!followplayer) return;
-        if (levelManager.level == LevelManager.Level.Bus) player.GetComponent<Rigidbody>().isKinematic = true;
+        if (LevelManager.level == LevelManager.Level.Bus) player.GetComponent<Rigidbody>().isKinematic = true;
         else Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
         transform.SetParent(null);
         Vector3 dir = (player.transform.position - transform.position);
@@ -372,6 +375,7 @@ public class NPC : MonoBehaviour
         }
         else if(level == LevelManager.Level.MRT) {
             levelManager.MoveToBus();
+            LevelManager.level = LevelManager.Level.Bus;
         }
     }
 }

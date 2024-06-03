@@ -22,7 +22,7 @@ public class Interactable : MonoBehaviour
     protected virtual void Update()
     {
         Collider[] detector;
-        if (levelManager.level == LevelManager.Level.Bus) {
+        if (LevelManager.level == LevelManager.Level.Bus) {
             radius = 1f;
         } 
         else {

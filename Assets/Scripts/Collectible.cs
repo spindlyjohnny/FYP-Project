@@ -17,7 +17,7 @@ public class Collectible : Obstacle
     protected override void Update() {
         if (myspawner == null) Destroy(gameObject);
         //else Destroy(gameObject, 20f);
-        if (FindObjectOfType<LevelManager>().level == LevelManager.Level.MRT) transform.localScale = trainsize;
+        if (LevelManager.level == LevelManager.Level.MRT) transform.localScale = trainsize;
         else transform.localScale = originalsize;
         transform.Rotate(0, 60 * Time.deltaTime, 0);
     }
