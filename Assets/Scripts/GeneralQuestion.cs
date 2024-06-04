@@ -14,7 +14,6 @@ public class GeneralQuestion : Collectible
     public List<string> filteredOptions = new List<string>(0);
     public List<OptionsOfQuestions> optionList;
     public TextAsset optionsFile,Question,ExplainationFile;
-    LevelManager levelManager;
     NPCManagement npcManager;
     NPC npc;
     Player player;
