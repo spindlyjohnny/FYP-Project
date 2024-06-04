@@ -24,7 +24,7 @@ public class NPCQuestion : MonoBehaviour
 
     }
     public void AnswerQuestion() {
-        if (npcmanager.myNPC == null)
+        if (player.NPC == false)
         {
             if (option == Options.WrongOption)
             {
