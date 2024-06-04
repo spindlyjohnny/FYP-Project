@@ -20,7 +20,13 @@ public class Player : MonoBehaviour
     {
         canMove = true;
         levelManager = FindObjectOfType<LevelManager>();
-        energy = maxenergy;
+        if (!Application.isEditor) {
+            energy = SaveSystem.Load().energy;
+        } 
+        else {
+            energy = maxenergy;
+        }
+        //energy = maxenergy;
         levelManager.energyslider.maxValue = maxenergy;
         //npcmanager = FindObjectOfType<NPCManagement>();
         meshes = GetComponentsInChildren<MeshRenderer>();

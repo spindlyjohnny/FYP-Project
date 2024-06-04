@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class LevelManager : SceneLoader {
     public bool gameover;
@@ -27,15 +29,22 @@ public class LevelManager : SceneLoader {
     bool onceComplete=false, onceLoading = false;
     public float tilerng;
     public enum Level { Bus, MRT };
-    public static Level level;
+    public Level level;
     public Tile[] currenttiles;
     CameraController cam;
     public Sprite[] loadingimgs;
-    Player player;
+    [HideInInspector]public Player player;
     public GameObject upgradeText,boost;
     //[SerializeField]Tile starttile;
     // Start is called before the first frame update
     void Start() {
+        if (!Application.isEditor) {
+            score = SaveSystem.Load().score;
+            level = SaveSystem.Load().level;
+        } 
+        else {
+            score = 0;
+        }
         if (AudioManager.instance.CheckClip() != AudioManager.instance.levelmusic || !AudioManager.instance.IsPlaying()) {
             StartCoroutine(AudioManager.instance.SwitchMusic(AudioManager.instance.levelmusic));
         }
@@ -57,6 +66,8 @@ public class LevelManager : SceneLoader {
             RandomTile();
         } 
         else {
+            //cam.transform.position = cam.trainposition.position;
+            cam.lookOffset = cam.trainoffset;
             for (int i = 0; i < tiles.Length; i++) {
                 tiles[i] = mrt;
             }
@@ -148,8 +159,7 @@ public class LevelManager : SceneLoader {
     public void MoveToTrain() {
 
         print("yes2");
-        cam.transform.position = cam.trainposition.position;
-        cam.lookOffset = cam.trainoffset;
+        SaveSystem.Save(this);
         LoadScene(2);
         loadingscreen.SetActive(true);
         loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];
@@ -169,6 +179,7 @@ public class LevelManager : SceneLoader {
     public void MoveToBus() {
 
         print("yuh");
+        SaveSystem.Save(this);
         //busstart.SetActive(true);
         //starttile = busstart.GetComponent<Tile>();
         loadingscreen.SetActive(true);
@@ -234,4 +245,38 @@ public class LevelManager : SceneLoader {
         }
     }
 
+}
+public static class SaveSystem {
+    static string path = Application.persistentDataPath + "/SaveData.save";
+    public static void Save(LevelManager levelManager) {
+        BinaryFormatter formatter = new BinaryFormatter();
+        FileStream stream = new FileStream(path, FileMode.Create);
+        SaveData data = new SaveData(levelManager);
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
+    public static SaveData Load() {
+        if (File.Exists(path)) {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+            SaveData data = formatter.Deserialize(stream) as SaveData;
+            stream.Close();
+            return data;
+        } 
+        else {
+            Debug.Log("Save file not found in " + path);
+            return null;
+        }
+    }
+}
+[System.Serializable]
+public class SaveData {
+    public int score;
+    public float energy;
+    public LevelManager.Level level;
+    public SaveData(LevelManager levelManager) {
+        score = levelManager.score;
+        energy = levelManager.player.energy;
+        level = levelManager.level;
+    }
 }

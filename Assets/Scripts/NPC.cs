@@ -181,7 +181,7 @@ public class NPC : MonoBehaviour
                 cam.bus = false;
                 cam.target = player.transform;
                 cam.transform.position = cam.originalposition.position;
-                LevelManager.level = LevelManager.Level.MRT;
+                levelManager.level = LevelManager.Level.MRT;
                 //cam.train = true;
                 //levelManager.Spawn(1);
                 Destroy(gameObject);
@@ -195,7 +195,7 @@ public class NPC : MonoBehaviour
         player.GetComponent<Rigidbody>().isKinematic = false;
         //GetComponent<Collider>().enabled = true;
         tasksuccess = Task.Success;
-        Transition(LevelManager.level); // does the actual transition, bus moves to train station/ player leaves train
+        Transition(levelManager.level); // does the actual transition, bus moves to train station/ player leaves train
         levelManager.taskcompletescreen.SetActive(true);
         player.inputtext.SetActive(false);
         if (!upgraded) {
@@ -308,7 +308,7 @@ public class NPC : MonoBehaviour
         player.canMove = true;
         cam.target = player.transform;
         cam.NPC = false;
-        if (LevelManager.level == LevelManager.Level.Bus) cam.transform.position = cam.originalposition.position;
+        if (levelManager.level == LevelManager.Level.Bus) cam.transform.position = cam.originalposition.position;
         else cam.transform.position = cam.trainposition.position;
         cam.smoothing = 3;
         spoken = true;
@@ -340,7 +340,7 @@ public class NPC : MonoBehaviour
     }
     public void FollowPlayer() {
         if (!followplayer) return;
-        if (LevelManager.level == LevelManager.Level.Bus) player.GetComponent<Rigidbody>().isKinematic = true;
+        if (levelManager.level == LevelManager.Level.Bus) player.GetComponent<Rigidbody>().isKinematic = true;
         else Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
         transform.SetParent(null);
         Vector3 dir = (player.transform.position - transform.position);
@@ -375,7 +375,7 @@ public class NPC : MonoBehaviour
         }
         else if(level == LevelManager.Level.MRT) {
             levelManager.MoveToBus();
-            LevelManager.level = LevelManager.Level.Bus;
+            levelManager.level = LevelManager.Level.Bus;
         }
     }
 }

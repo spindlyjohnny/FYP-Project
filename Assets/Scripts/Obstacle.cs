@@ -7,10 +7,11 @@ public class Obstacle : MonoBehaviour
     public ObstacleSpawn myspawner;
     public Vector3 spawnoffset;
     public Vector3 dir;
+    protected LevelManager levelManager;
     // Start is called before the first frame update
     void Start()
     {
-        
+        levelManager = FindObjectOfType<LevelManager>();
     }
 
     // Update is called once per frame
