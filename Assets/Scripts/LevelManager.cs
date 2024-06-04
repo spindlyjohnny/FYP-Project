@@ -37,14 +37,17 @@ public class LevelManager : SceneLoader {
     public GameObject upgradeText,boost;
     //[SerializeField]Tile starttile;
     // Start is called before the first frame update
-    void Start() {
-        if (!Application.isEditor) {
+    private void Awake() {
+        if (Application.isEditor) {
             score = SaveSystem.Load().score;
             level = SaveSystem.Load().level;
-        } 
-        else {
+        } else {
             score = 0;
         }
+    }
+    void Start() {
+        
+        
         if (AudioManager.instance.CheckClip() != AudioManager.instance.levelmusic || !AudioManager.instance.IsPlaying()) {
             StartCoroutine(AudioManager.instance.SwitchMusic(AudioManager.instance.levelmusic));
         }
@@ -179,6 +182,7 @@ public class LevelManager : SceneLoader {
     public void MoveToBus() {
 
         print("yuh");
+        level = Level.Bus;
         SaveSystem.Save(this);
         //busstart.SetActive(true);
         //starttile = busstart.GetComponent<Tile>();
@@ -248,6 +252,13 @@ public class LevelManager : SceneLoader {
 }
 public static class SaveSystem {
     static string path = Application.persistentDataPath + "/SaveData.save";
+    public static void Initialise() {
+        BinaryFormatter formatter = new BinaryFormatter();
+        FileStream stream = new FileStream(path,FileMode.Create);
+        SaveData data = new SaveData();
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
     public static void Save(LevelManager levelManager) {
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream stream = new FileStream(path, FileMode.Create);
@@ -265,6 +276,7 @@ public static class SaveSystem {
         } 
         else {
             Debug.Log("Save file not found in " + path);
+            Initialise();
             return null;
         }
     }
@@ -274,7 +286,12 @@ public class SaveData {
     public int score;
     public float energy;
     public LevelManager.Level level;
-    public SaveData(LevelManager levelManager) {
+    public SaveData() { // initial values. will have to figure out a way of doing this that doesn't require hard-coding values
+        score = 0;
+        energy = 100;
+        level = LevelManager.Level.Bus;
+    }
+    public SaveData(LevelManager levelManager) { // saves current values
         score = levelManager.score;
         energy = levelManager.player.energy;
         level = levelManager.level;

@@ -16,16 +16,18 @@ public class Player : MonoBehaviour
     public bool invincibility = false;
     //NPCManagement npcmanager;
     // Start is called before the first frame update
+    private void Awake() {
+        if (Application.isEditor) {
+            energy = SaveSystem.Load().energy;
+        } else {
+            energy = maxenergy;
+        }
+    }
     void Start()
     {
         canMove = true;
         levelManager = FindObjectOfType<LevelManager>();
-        if (!Application.isEditor) {
-            energy = SaveSystem.Load().energy;
-        } 
-        else {
-            energy = maxenergy;
-        }
+        
         //energy = maxenergy;
         levelManager.energyslider.maxValue = maxenergy;
         //npcmanager = FindObjectOfType<NPCManagement>();

@@ -375,7 +375,6 @@ public class NPC : MonoBehaviour
         }
         else if(level == LevelManager.Level.MRT) {
             levelManager.MoveToBus();
-            levelManager.level = LevelManager.Level.Bus;
         }
     }
 }
