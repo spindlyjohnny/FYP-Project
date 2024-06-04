@@ -11,6 +11,7 @@ public class Collectible : Obstacle
     void Start()
     {
         originalsize = transform.localScale;
+        levelManager = FindObjectOfType<LevelManager>();
     }
 
     // Update is called once per frame

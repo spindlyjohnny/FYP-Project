@@ -116,11 +116,11 @@ public class LevelManager : SceneLoader {
             onceComplete = true;
             StartCoroutine(DisableTaskScreen());
         }
-        if (loadingscreen.activeSelf && onceLoading == false)
-        {
-            onceLoading = true;
-            StartCoroutine(DisableLoadingScreen(2f));
-        }
+        //if (loadingscreen.activeSelf && onceLoading == false)
+        //{
+        //    onceLoading = true;
+        //    StartCoroutine(DisableLoadingScreen(2f));
+        //}
         currenttiles = FindObjectsOfType<Tile>();
         if (currenttiles.Length == 1 || level == Level.MRT) {
             tileshiftfactor = 0;

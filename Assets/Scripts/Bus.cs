@@ -35,7 +35,7 @@ public class Bus : Obstacle
         moving = true;
         FindObjectOfType<LevelManager>().loadingscreen.SetActive(true);
         FindObjectOfType<LevelManager>().loadingscreen.GetComponent<Image>().sprite = FindObjectOfType<LevelManager>().loadingimgs[Random.Range(0, FindObjectOfType<LevelManager>().loadingimgs.Length)];
-        //yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(5f);
 
     }
 }

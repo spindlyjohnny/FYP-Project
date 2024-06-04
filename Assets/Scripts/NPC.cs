@@ -348,7 +348,7 @@ public class NPC : MonoBehaviour
         transform.Translate(movespeed * Time.deltaTime * dir);
     }
     void Transition(LevelManager.Level level) {
-        if (level == LevelManager.Level.Bus) {
+        if (level == LevelManager.Level.Bus && street != null) {
             street.bus.gameObject.SetActive(true);
             street.station.SetActive(true);
             cam.target = street.campos;

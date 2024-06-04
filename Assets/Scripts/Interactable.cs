@@ -52,7 +52,10 @@ public class Interactable : MonoBehaviour
                 //levelManager.Spawn(1);
 
 
-            }
+            } 
+            //else if(!target){
+            //    player.inputtext.SetActive(false);
+            //}
         }
 
         // if npc is touching self
