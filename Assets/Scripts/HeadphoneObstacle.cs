@@ -42,6 +42,6 @@ public class HeadphoneObstacle : Obstacle
             
         }
         if (myspawner == null) Destroy(gameObject);
-        else Destroy(gameObject, 15);
+        //else Destroy(gameObject, 15);
     }
 }
