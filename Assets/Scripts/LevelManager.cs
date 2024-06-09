@@ -66,7 +66,7 @@ public class LevelManager : SceneLoader {
                 tiles[i] = bustiles[i];
             }
             Spawn(8);
-            RandomTile();
+            //RandomTile();
         } 
         else {
             //cam.transform.position = cam.trainposition.position;
@@ -77,11 +77,7 @@ public class LevelManager : SceneLoader {
             tileindex = 0;
             Spawn(8);
             foreach(var i in FindObjectsOfType<Tile>()) {
-                float furthest = 0;
                 float closest = 999;
-                if(Vector3.Distance(transform.position,i.transform.position) > furthest) {
-                    furthest = Vector3.Distance(transform.position, i.transform.position);
-                }
                 if(Vector3.Distance(transform.position, i.transform.position) < closest) {
                     closest = Vector3.Distance(transform.position, i.transform.position);
                 }
