@@ -7,7 +7,7 @@ using TMPro;
 using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-
+using System.Linq;
 public class LevelManager : SceneLoader {
     public bool gameover;
     public GameObject gameoverscreen, taskcompletescreen, loadingscreen;
@@ -24,7 +24,7 @@ public class LevelManager : SceneLoader {
     public TMP_Text dialoguetext, questiontext, explaintext, optionAtext, optionBtext, optionCtext, optionDtext;
     public TMP_Text nametext;
     public GameObject optionAButton, optionBButton, optionCButton, optionDButton;
-    public GameObject dialoguebox, questionbox, busstart;
+    public GameObject dialoguebox, questionbox;
     int numberOfTiles = 5;
     bool onceComplete=false, onceLoading = false;
     public float tilerng;
@@ -35,6 +35,7 @@ public class LevelManager : SceneLoader {
     public Sprite[] loadingimgs;
     [HideInInspector]public Player player;
     public GameObject upgradeText,boost;
+    ObjectPool objectPool;
     //[SerializeField]Tile starttile;
     // Start is called before the first frame update
     private void Awake() {
@@ -44,9 +45,9 @@ public class LevelManager : SceneLoader {
         } else {
             score = 0;
         }
+        objectPool = GetComponent<ObjectPool>();
     }
     void Start() {
-        
         
         if (AudioManager.instance.CheckClip() != AudioManager.instance.levelmusic || !AudioManager.instance.IsPlaying()) {
             StartCoroutine(AudioManager.instance.SwitchMusic(AudioManager.instance.levelmusic));
@@ -126,18 +127,14 @@ public class LevelManager : SceneLoader {
         } 
         else if (level == Level.Bus) {
             tileshiftfactor = 21;
-        } 
-            //else {
-            //    tileshiftfactor = 0;
-            //    //tileshiftfactor = Mathf.RoundToInt(26.5f * 3);
-            //}
+        }
+        //else {
+        //    tileshiftfactor = 0;
+        //    //tileshiftfactor = Mathf.RoundToInt(26.5f * 3);
+        //}
         if (currenttiles.Length > 10) {
-            if (currenttiles[currenttiles.Length - 1].gameObject != busstart) {
-                Destroy(currenttiles[currenttiles.Length - 1].gameObject);
-            } 
-            else {
-                currenttiles[currenttiles.Length - 1].gameObject.SetActive(false);
-            }
+
+            //ObjectPool.ReturnToPool(currenttiles[currenttiles.Length - 1].gameObject);
             player.inputtext.SetActive(false);
         }
         //tileshiftfactor = currenttiles.Length == 1 ? 0 : 21; // tileshiftfactor spawns tiles 21 units ahead because when player enters trigger, there are 3 tiles in front. each tile is 7 units long on the x-axis
@@ -221,9 +218,14 @@ public class LevelManager : SceneLoader {
             // spawn tile at spawn point + size of tile * order that tile was spawned
             //print(mytile.spawnpt.position);
             if (level == Level.Bus) {
-                Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
-            } else {
-                Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(26.5f * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
+                objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
+                //ObjectPool.Spawn(tiles[tileindex], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
+                //Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
+            } 
+            else {
+                objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(26.5f * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
+                //ObjectPool.Spawn(tiles[tileindex], mytile.spawnpt.position + new Vector3(26.5f * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
+                //Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(26.5f * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
             }
             //print("Yes");
             if (amount == 1) numberOfTiles += 1;
@@ -246,6 +248,46 @@ public class LevelManager : SceneLoader {
     }
 
 }
+//public class ObjectPool : MonoBehaviour{
+//    public static List<PooledObject> objectPools = new List<PooledObject>();
+//    public static GameObject Spawn(GameObject objectToSpawn, Vector3 position, Quaternion rotation) {
+//        PooledObject pool = objectPools.Find(p => p.name == objectToSpawn.name); // find pool where name matches name given in param
+//        // if pool doesnt exist, create it
+//        if(pool == null) {
+//            pool = new PooledObject() { name = objectToSpawn.name };
+//            objectPools.Add(pool);
+//        }
+//        // check if there are inactive objects in pool
+//        GameObject spawnedObject = pool.inactiveObjects.FirstOrDefault();
+//        if(spawnedObject == null) {
+//            // if there are no inactive objects
+//            spawnedObject = Instantiate(objectToSpawn, position, rotation);
+//        } 
+//        else {
+//            //if there is an inactive object, reactivate it
+//            spawnedObject.transform.position = position;
+//            spawnedObject.transform.rotation = rotation;
+//            pool.inactiveObjects.Remove(spawnedObject);
+//            spawnedObject.SetActive(true);
+//        }
+//        return spawnedObject;
+//    }
+//    public static void ReturnToPool(GameObject obj) {
+//        string name = obj.name.Substring(0, obj.name.Length - 7); // take off '(Clone)' from end of gameObject name
+//        PooledObject pool = objectPools.Find(p => p.name == name);
+//        if(pool == null) {
+//            Debug.LogWarning("Trying to release object that is not pooled:" + obj.name);
+//        } 
+//        else {
+//            obj.SetActive(false);
+//            pool.inactiveObjects.Add(obj);
+//        }
+//    }
+//}
+//public class PooledObject {
+//    public string name;
+//    public List<GameObject> inactiveObjects = new List<GameObject>();
+//}
 public static class SaveSystem {
     static string path = Application.persistentDataPath + "/SaveData.save";
     public static void Initialise() {
