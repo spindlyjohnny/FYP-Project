@@ -93,7 +93,7 @@ public class LevelManager : SceneLoader {
     void Update() {
         print("Level:" + level);
         //tilerng = UnityEngine.Random.Range(0f, 1f);
-        if (level == Level.Bus) RandomTile();
+        //if (level == Level.Bus) RandomTile();
         //else {
         //    for (int i = 0; i < tiles.Length; i++) {
         //        tiles[i] = mrt;
@@ -205,12 +205,12 @@ public class LevelManager : SceneLoader {
         //level = Level.Bus;
     }
     public void Spawn(int amount) {
-        //if(level == Level.Bus)tilerng = UnityEngine.Random.Range(0f, 1f);
         for (int x = 0; x < amount; x++) { // spawn amount tiles at a time
             Tile mytile;
             if (amount == 1) {
                 x = numberOfTiles;
             }
+            if (level == Level.Bus) RandomTile();
             mytile = tiles[tileindex].GetComponent<Tile>();
             //if (busstart.activeSelf) {
             //    mytile = busstart.GetComponent<Tile>();
