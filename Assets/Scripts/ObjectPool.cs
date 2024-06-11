@@ -4,9 +4,9 @@ using UnityEngine;
 public class ObjectPool : MonoBehaviour {
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDict;
-    private void Start() {
+    private void Awake() {
         poolDict = new Dictionary<string, Queue<GameObject>>();
-        foreach(Pool pool in pools) {
+        foreach (Pool pool in pools) {
             Queue<GameObject> objectPool = new Queue<GameObject>();
             for(int i = 0; i < pool.size; i++) {
                 GameObject go = Instantiate(pool.prefab);

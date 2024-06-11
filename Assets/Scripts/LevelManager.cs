@@ -45,10 +45,9 @@ public class LevelManager : SceneLoader {
         } else {
             score = 0;
         }
-        objectPool = GetComponent<ObjectPool>();
     }
     void Start() {
-        
+        objectPool = GetComponent<ObjectPool>();
         if (AudioManager.instance.CheckClip() != AudioManager.instance.levelmusic || !AudioManager.instance.IsPlaying()) {
             StartCoroutine(AudioManager.instance.SwitchMusic(AudioManager.instance.levelmusic));
         }
@@ -102,7 +101,10 @@ public class LevelManager : SceneLoader {
         //    tileindex = 0;
         //}
         print("Shift:" + tileshiftfactor);
-        if (gameover) gameoverscreen.SetActive(true);
+        if (gameover) {
+            gameoverscreen.SetActive(true);
+            AudioManager.instance.StopMusic();
+        }
         scoretext.text = "Score:" + score;
         if (npcmanager.myNPC != null) {
             if (npcmanager.myNPC.tasksuccess == NPC.Task.Fail) {
