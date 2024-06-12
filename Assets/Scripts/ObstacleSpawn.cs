@@ -26,16 +26,8 @@ public class ObstacleSpawn : MonoBehaviour
     }
     void SpawnObstacle() {
         myobstacle = Instantiate(obstacles[Random.Range(0, obstacles.Length)], transform.position,transform.rotation);        
-        if (gameObject.tag=="Headphone") 
-        {
-            myobstacle.GetComponent<HeadphoneObstacle>().myspawner = this;
-        }
-        else
-        {
-            myobstacle.GetComponent<Obstacle>().myspawner = this;
-            myobstacle.transform.position += myobstacle.GetComponent<Obstacle>().spawnoffset;
-        }
-        
+        myobstacle.GetComponent<Obstacle>().myspawner = this;
+        myobstacle.transform.position += myobstacle.GetComponent<Obstacle>().spawnoffset;
         if (myobstacle.GetComponent<Collectible>() == null) myobstacle.transform.rotation = Quaternion.Euler(0, -90, 0);
     }
 }
