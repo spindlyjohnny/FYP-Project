@@ -144,49 +144,9 @@ public class NPC : MonoBehaviour
     void Update()
     {
         FollowPlayer();
-        if (hasdestination) {
-            //var detector = Physics.OverlapSphere(transform.position, .5f);
-            //bool target = false;
-            //MRTTile mrt;
-            //for(int i = 0; i < detector.Length; i++) {
-            //    if (detector[i].CompareTag(destinationtag)) target = true;
-            //    if (detector[i].GetComponent<RoadTile>()) {
-            //        street = detector[i].GetComponent<RoadTile>();
-            //    }
-            //    //else if(detector[i]) // mrt tile.
-            //}
-            //if (target && Input.GetKeyDown(KeyCode.F)) {
-            //    print("yes");
-            //    followplayer = false;
-            //    player.GetComponent<Rigidbody>().isKinematic = false;
-            //    //GetComponent<Collider>().enabled = true;
-            //    tasksuccess = Task.Success;
-            //    Transition(levelManager.level);
-            //    levelManager.taskcompletescreen.SetActive(true);
-            //    if (!upgraded) {
-            //        levelManager.taskcompletescreen.transform.Find("Upgrade Text").gameObject.SetActive(true);
-            //        player.energygain = 20;
-            //        upgraded = true;
-            //    }
-            //    AudioManager.instance.PlaySFX(correctsound);
-            //}
-            if (street != null && street.bus.transitioned) {
-                // after bus arrives at train station, npc and player are released from bus and cam goes back to original position
-                // this happens after Transitioninator() is called.
-                transform.SetParent(null);
-                player.transform.SetParent(null);
-                player.GetComponent<Collider>().enabled = true;
-                //foreach (var i in GetComponents<Collider>()) i.enabled = true;
-                player.canMove = true;
-                cam.bus = false;
-                cam.target = player.transform;
-                cam.transform.position = cam.originalposition.position;
-                levelManager.level = LevelManager.Level.MRT;
-                //cam.train = true;
-                //levelManager.Spawn(1);
-                Destroy(gameObject);
-            }
-        }
+        //if (hasdestination) {
+           
+        //}
     }
     public void Transitioninator() {
         print("yes");
@@ -207,79 +167,17 @@ public class NPC : MonoBehaviour
         }
         AudioManager.instance.PlaySFX(correctsound);
     }
-    void UpdateCanvas()
-    {
-        List<int> locationIndexs = new List<int>(0);
-        for(int i=0; i < questionLocation.Length;i++)
-        {
-            sub = questionLocation[i].Substring(0, 2);
-            temp = npcLocation.Substring(0, 2);
-            print(temp);
-            print(sub);
-            if (sub == temp) locationIndexs.Add(i);
-            
-        }
-        int qnindex;
-        if (locationIndexs.Count == 0)
-        {
-            Debug.LogError("No valid question with the assigned Location");
-        }
-        int index = Random.Range(0, locationIndexs.Count);
-        qnindex = locationIndexs[index];
-           
-        
-        
-        levelManager.optionAButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
-        levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
-        levelManager.optionCButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
-        levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
-        foreach (int i in answer[qnindex].element)
-        {
-            if (i == 1)
-            {
-                levelManager.optionAButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
-            }
-            else if (i == 2)
-            {
-                levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
-            }
-            else if (i == 3)
-            {
-                levelManager.optionCButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
-            }
-            else if (i == 4)
-            {
-                levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
-            }
-        }
-        dialogue = new string[optionList[qnindex].Dialogue.Count];
-        for(int i=0; i < optionList[qnindex].Dialogue.Count; i++)
-        {
-            dialogue[i] = optionList[qnindex].Dialogue[i];
-        }
-        optionA = optionList[qnindex].option[0];
-        optionB = optionList[qnindex].option[1];
-        if (optionList[qnindex].option.Count >= 3) optionC = this.optionList[qnindex].option[2];
-        if (optionList[qnindex].option.Count >= 4) optionD = this.optionList[qnindex].option[3];        
-        nametext.text =names[Random.Range(0, names.Length)];
-        questiontext.text =  questions[qnindex];
-        explaintext.text = explains[qnindex];
-        optionAtext.text = "a)" + optionA;
-        optionBtext.text = "b)" + optionB;
-        if (optionList[qnindex].option.Count >= 3) optionCtext.text = "c)" + optionC;
-        else
-        {
-            optionCtext.text = "";
-            levelManager.optionCButton.SetActive(false);
-        }
-        if (optionList[qnindex].option.Count >= 4) optionDtext.text = "d)" + optionD;
-        else
-        {
-            optionDtext.text = "";
-            levelManager.optionDButton.SetActive(false);
+    void Transition(LevelManager.Level level) {
+        if (level == LevelManager.Level.Bus && street != null) {
+            street.bus.gameObject.SetActive(true);
+            cam.target = street.campos;
+            cam.bus = true;
+            gameObject.SetActive(false);
+            player.gameObject.SetActive(false);
+        } else if (level == LevelManager.Level.MRT) {
+            levelManager.MoveToBus();
         }
     }
-
     private void OnTriggerEnter(Collider other) {
         if (other.GetComponent<Player>() && !spoken && !npcmanager.myNPC) {
             UpdateCanvas();
@@ -347,34 +245,62 @@ public class NPC : MonoBehaviour
         //GetComponent<Collider>().enabled = false;
         transform.Translate(movespeed * Time.deltaTime * dir);
     }
-    void Transition(LevelManager.Level level) {
-        if (level == LevelManager.Level.Bus && street != null) {
-            street.bus.gameObject.SetActive(true);
-            street.station.SetActive(true);
-            cam.target = street.campos;
-            player.canMove = false;
-            cam.bus = true;
-            transform.SetParent(street.bus.transform);
-            transform.position = street.bus.passengerpos.position;
-            player.transform.SetParent(street.bus.transform);
-            player.GetComponent<Collider>().enabled = false;
-            foreach (var i in GetComponents<Collider>()) i.enabled = false;
-            player.transform.position = street.bus.passengerpos.position;
-            player.inputtext.SetActive(false);
-            //StartCoroutine(street.bus.BusTransitioninator());
-            //if (street.bus.transitioned) {
-            //    transform.SetParent(null);
-            //    player.transform.SetParent(null);
-            //    player.GetComponent<Collider>().enabled = true;
-            //    foreach(var i in GetComponents<Collider>())i.enabled = true;
-            //    player.canMove = true;
-            //    cam.bus = false;
-            //    cam.target = player.transform;
-            //    levelManager.level = LevelManager.Level.MRT;
-            //}
+    void UpdateCanvas() {
+        List<int> locationIndexs = new List<int>(0);
+        for (int i = 0; i < questionLocation.Length; i++) {
+            sub = questionLocation[i].Substring(0, 2);
+            temp = npcLocation.Substring(0, 2);
+            print(temp);
+            print(sub);
+            if (sub == temp) locationIndexs.Add(i);
+
         }
-        else if(level == LevelManager.Level.MRT) {
-            levelManager.MoveToBus();
+        int qnindex;
+        if (locationIndexs.Count == 0) {
+            Debug.LogError("No valid question with the assigned Location");
+        }
+        int index = Random.Range(0, locationIndexs.Count);
+        qnindex = locationIndexs[index];
+
+
+
+        levelManager.optionAButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
+        levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
+        levelManager.optionCButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
+        levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
+        foreach (int i in answer[qnindex].element) {
+            if (i == 1) {
+                levelManager.optionAButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
+            } else if (i == 2) {
+                levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
+            } else if (i == 3) {
+                levelManager.optionCButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
+            } else if (i == 4) {
+                levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
+            }
+        }
+        dialogue = new string[optionList[qnindex].Dialogue.Count];
+        for (int i = 0; i < optionList[qnindex].Dialogue.Count; i++) {
+            dialogue[i] = optionList[qnindex].Dialogue[i];
+        }
+        optionA = optionList[qnindex].option[0];
+        optionB = optionList[qnindex].option[1];
+        if (optionList[qnindex].option.Count >= 3) optionC = this.optionList[qnindex].option[2];
+        if (optionList[qnindex].option.Count >= 4) optionD = this.optionList[qnindex].option[3];
+        nametext.text = names[Random.Range(0, names.Length)];
+        questiontext.text = questions[qnindex];
+        explaintext.text = explains[qnindex];
+        optionAtext.text = "a)" + optionA;
+        optionBtext.text = "b)" + optionB;
+        if (optionList[qnindex].option.Count >= 3) optionCtext.text = "c)" + optionC;
+        else {
+            optionCtext.text = "";
+            levelManager.optionCButton.SetActive(false);
+        }
+        if (optionList[qnindex].option.Count >= 4) optionDtext.text = "d)" + optionD;
+        else {
+            optionDtext.text = "";
+            levelManager.optionDButton.SetActive(false);
         }
     }
 }

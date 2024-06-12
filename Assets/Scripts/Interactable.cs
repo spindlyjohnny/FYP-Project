@@ -35,60 +35,24 @@ public class Interactable : MonoBehaviour
                 if (npcmanager.myNPC.gameObject == null) target = false;
                 if (detector[i].gameObject == npcmanager.myNPC.gameObject) target = true;
                 print("target:" + target);
-                //if (GetComponentInParent<RoadTile>()) { // sets NPC street to gameobject if it's a roadtile
-                //    npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
-                //}
-                //else if(detector[i]) // mrt tile.
             }
             if (GetComponentInParent<RoadTile>()) { // sets NPC street to gameobject if it's a roadtile
                 npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
             }
-            //location = npcmanager.myNPC.temp;
-            //print("target && npclocation == location"+ (target && npcmanager.myNPC.npcLocation == location));
             if (target /*&& npcmanager.myNPC.sub == npcmanager.myNPC.temp/*!gameObject.CompareTag("Finish") && !GetComponent<TrainObstacle>()*/) {
                 player.inputtext.SetActive(true);
                 //transform.SetParent(null);
                 if (Input.GetKeyDown(KeyCode.F) && gameObject.CompareTag("Transition")) npcmanager.myNPC.Transitioninator();
                 //levelManager.Spawn(1);
-
-
             } 
-            //else if(!target){
-            //    player.inputtext.SetActive(false);
-            //}
-        }
-
-        // if npc is touching self
-        
-        if( Input.GetKeyDown(KeyCode.F) && (gameObject.CompareTag("Train"))) {
-            print("yes");
-            player.inputtext.SetActive(false);
-            FindObjectOfType<Bus>().transitioned = false;
-            levelManager.MoveToTrain();
         }
     }
     private void OnDrawGizmos() {
         Gizmos.DrawWireSphere(transform.position, radius);
     }
     protected virtual void OnTriggerEnter(Collider other) {
-        //if (other.GetComponent<Player>()) {
-        //    player.inputtext.SetActive(false);
-        //}
-        //if (target) {
-        //    //if (npcmanager.myNPC == null) return;
-        //    if (other.GetComponent<Player>() && npcmanager.myNPC.followplayer) player.inputtext.SetActive(true);
-        //} 
-        //else {
-           
-        //}
+        
     }
-    //IEnumerator Transition() {
-    //    levelManager.loadingscreen.SetActive(true);
-    //    FindObjectOfType<Player>().transform.position = GameObject.FindGameObjectsWithTag("Train")[0].transform.Find("Player Start Point").position;
-    //    //levelManager.Spawn(8);
-    //    yield return new WaitForSeconds(2f);
-    //    levelManager.loadingscreen.SetActive(false);
-    //}
     protected void OnTriggerExit(Collider other) {
         if (other.GetComponent<Player>()) player.inputtext.SetActive(false);
     }

@@ -5,11 +5,11 @@ public class ObjectPool : MonoBehaviour {
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDict;
     private void Awake() {
-        poolDict = new Dictionary<string, Queue<GameObject>>();
+        poolDict = new Dictionary<string, Queue<GameObject>>(); // dictionary containing pools of tiles to be spawned
         foreach (Pool pool in pools) {
             Queue<GameObject> objectPool = new Queue<GameObject>();
             for(int i = 0; i < pool.size; i++) {
-                GameObject go = Instantiate(pool.prefab);
+                GameObject go = Instantiate(pool.prefab); // generate objects
                 go.SetActive(false);
                 objectPool.Enqueue(go);
             }
@@ -27,8 +27,8 @@ public class ObjectPool : MonoBehaviour {
     }
     [System.Serializable]
     public class Pool {
-        public string tag;
+        public string tag; // name of object
         public GameObject prefab;
-        public int size;
+        public int size; // number of this kind of object that should be in the scene
     }
 }

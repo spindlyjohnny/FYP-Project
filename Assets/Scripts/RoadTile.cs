@@ -7,7 +7,6 @@ public class RoadTile : Tile
     public Bus bus;
     public Transform campos;
     public GameObject station;
-    NPCManagement npcmanager;
     // Start is called before the first frame update
     protected override void Start()
     {

@@ -6,6 +6,7 @@ public class Tile : MonoBehaviour {
     public Transform spawnpt;
     public NPC[] NPC;
     protected LevelManager levelManager;
+    protected NPCManagement npcmanager;
     //public Vector3 spawnoffset;
     protected float rng;
     bool once = false;
@@ -13,6 +14,7 @@ public class Tile : MonoBehaviour {
     protected virtual void Start() {
         NPC = GetComponentsInChildren<NPC>(true);
         levelManager = FindObjectOfType<LevelManager>();
+        npcmanager = FindObjectOfType<NPCManagement>();
         rng = Random.Range(0f, 1f);
     }
 
@@ -24,7 +26,7 @@ public class Tile : MonoBehaviour {
         } 
         else if (rng <= 0.5f && rng > 0) { // 50% chance of NPC
             foreach (var i in NPC) {
-                i.gameObject.SetActive(true);
+                if(i != null)i.gameObject.SetActive(true);
                 if (!i.followplayer) i.transform.localPosition = i.startpos;
             }
             

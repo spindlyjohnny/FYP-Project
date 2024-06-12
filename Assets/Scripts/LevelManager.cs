@@ -45,6 +45,7 @@ public class LevelManager : SceneLoader {
         } else {
             score = 0;
         }
+        print("woke");
     }
     void Start() {
         objectPool = GetComponent<ObjectPool>();
@@ -69,6 +70,7 @@ public class LevelManager : SceneLoader {
             //RandomTile();
         } 
         else {
+            print("Train level");
             //cam.transform.position = cam.trainposition.position;
             cam.lookOffset = cam.trainoffset;
             for (int i = 0; i < tiles.Length; i++) {
@@ -157,51 +159,20 @@ public class LevelManager : SceneLoader {
     public void MoveToTrain() {
 
         print("yes2");
+        level = Level.MRT;
         SaveSystem.Save(this);
         LoadScene(2);
         loadingscreen.SetActive(true);
         loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];
-        //numberOfTiles = 5;
-        //Spawn(8);
-        //StartCoroutine(DisableLoadingScreen(2f));
-        //foreach (var i in FindObjectsOfType<Tile>()) {
-        //    if (!i.gameObject.CompareTag("Train") && i.gameObject != busstart) {
-        //        Destroy(i.gameObject);
-        //    } else if (i.gameObject.CompareTag("Train") && i.GetComponent<TrainTile>()) {
-        //        player.transform.position = i.transform.Find("Player Start Point").position;
-        //    }
-        //}
-        //cam.transform.position = cam.trainposition.position;
-        //cam.lookOffset = cam.trainoffset;
     }
     public void MoveToBus() {
 
         print("yuh");
         level = Level.Bus;
         SaveSystem.Save(this);
-        //busstart.SetActive(true);
-        //starttile = busstart.GetComponent<Tile>();
         loadingscreen.SetActive(true);
         loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];
         LoadScene(1);
-        //for (int i = 0; i < tiles.Length; i++) {
-        //    tiles[i] = bustiles[i];
-        //}
-        //numberOfTiles = 5;
-        //tileshiftfactor = 0;
-        //Spawn(8);
-        //StartCoroutine(DisableLoadingScreen(2f));
-        //foreach (var i in FindObjectsOfType<Tile>()) {
-            
-        //    if (i.gameObject.CompareTag("Train") && !i.GetComponent<RoadTile>() && i.gameObject != busstart) {
-        //        Destroy(i.gameObject);
-        //    } else if (i.gameObject == busstart) {
-        //        player.transform.position = i.transform.Find("Player Start Point").position;
-        //    }
-        //}
-        //cam.transform.position = cam.originalposition.position;
-        //cam.lookOffset = cam.defaultoffset;
-        //level = Level.Bus;
     }
     public void Spawn(int amount) {
         for (int x = 0; x < amount; x++) { // spawn amount tiles at a time
@@ -211,20 +182,14 @@ public class LevelManager : SceneLoader {
             }
             if (level == Level.Bus) RandomTile();
             mytile = tiles[tileindex].GetComponent<Tile>();
-            //if (busstart.activeSelf) {
-            //    mytile = busstart.GetComponent<Tile>();
-            //} 
-            //else {
-            //    mytile = tiles[tileindex].GetComponent<Tile>();
-            //}
             // spawn tile at spawn point + size of tile * order that tile was spawned
-            //print(mytile.spawnpt.position);
             if (level == Level.Bus) {
                 objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
                 //ObjectPool.Spawn(tiles[tileindex], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
                 //Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
             } 
             else {
+                print("trains");
                 objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(26.5f * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
                 //ObjectPool.Spawn(tiles[tileindex], mytile.spawnpt.position + new Vector3(26.5f * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
                 //Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(26.5f * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
