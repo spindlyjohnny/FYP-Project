@@ -26,7 +26,7 @@ public class LevelManager : SceneLoader {
     public GameObject optionAButton, optionBButton, optionCButton, optionDButton;
     public GameObject dialoguebox, questionbox;
     int numberOfTiles = 5;
-    bool onceComplete=false, onceLoading = false;
+    bool onceComplete = false;
     public float tilerng;
     public enum Level { Bus, MRT };
     public Level level;
@@ -45,7 +45,6 @@ public class LevelManager : SceneLoader {
         } else {
             score = 0;
         }
-        print("woke");
     }
     void Start() {
         objectPool = GetComponent<ObjectPool>();
@@ -59,7 +58,6 @@ public class LevelManager : SceneLoader {
         gameoverscreen.SetActive(false);
         cam = FindObjectOfType<CameraController>();
         player = FindObjectOfType<Player>();
-        //tileindex = UnityEngine.Random.Range(0, tiles.Length);
         if (level == Level.Bus) {
             cam.transform.position = cam.originalposition.position;
             cam.lookOffset = cam.defaultoffset;
@@ -67,11 +65,8 @@ public class LevelManager : SceneLoader {
                 tiles[i] = bustiles[i];
             }
             Spawn(8);
-            //RandomTile();
         } 
         else {
-            print("Train level");
-            //cam.transform.position = cam.trainposition.position;
             cam.lookOffset = cam.trainoffset;
             for (int i = 0; i < tiles.Length; i++) {
                 tiles[i] = mrt;
@@ -87,21 +82,12 @@ public class LevelManager : SceneLoader {
                     player.transform.position = i.transform.Find("Player Start Point").position;
                 }
             }
-            //player.transform.position = tiles[^1].transform.Find("Player Start Point").position;
         }
     }
 
     // Update is called once per frame
     void Update() {
         print("Level:" + level);
-        //tilerng = UnityEngine.Random.Range(0f, 1f);
-        //if (level == Level.Bus) RandomTile();
-        //else {
-        //    for (int i = 0; i < tiles.Length; i++) {
-        //        tiles[i] = mrt;
-        //    }
-        //    tileindex = 0;
-        //}
         print("Shift:" + tileshiftfactor);
         if (gameover) {
             gameoverscreen.SetActive(true);
@@ -136,25 +122,21 @@ public class LevelManager : SceneLoader {
         //    tileshiftfactor = 0;
         //    //tileshiftfactor = Mathf.RoundToInt(26.5f * 3);
         //}
-        if (currenttiles.Length > 10) {
+        //if (currenttiles.Length > 10) {
 
-            //ObjectPool.ReturnToPool(currenttiles[currenttiles.Length - 1].gameObject);
-            player.inputtext.SetActive(false);
-        }
+        //    //ObjectPool.ReturnToPool(currenttiles[currenttiles.Length - 1].gameObject);
+        //    player.inputtext.SetActive(false);
+        //}
         //tileshiftfactor = currenttiles.Length == 1 ? 0 : 21; // tileshiftfactor spawns tiles 21 units ahead because when player enters trigger, there are 3 tiles in front. each tile is 7 units long on the x-axis
     }
     public void RestartLevel() {
         LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SaveSystem.Initialise(Level.Bus);
     }
     IEnumerator DisableTaskScreen() {
         yield return new WaitForSeconds(2f);
         taskcompletescreen.SetActive(false);
         onceComplete = false;
-    }
-    IEnumerator DisableLoadingScreen(float time) {
-        yield return new WaitForSeconds(time);
-        loadingscreen.SetActive(false);
-        onceLoading = false;
     }
     public void MoveToTrain() {
 
@@ -215,52 +197,12 @@ public class LevelManager : SceneLoader {
     }
 
 }
-//public class ObjectPool : MonoBehaviour{
-//    public static List<PooledObject> objectPools = new List<PooledObject>();
-//    public static GameObject Spawn(GameObject objectToSpawn, Vector3 position, Quaternion rotation) {
-//        PooledObject pool = objectPools.Find(p => p.name == objectToSpawn.name); // find pool where name matches name given in param
-//        // if pool doesnt exist, create it
-//        if(pool == null) {
-//            pool = new PooledObject() { name = objectToSpawn.name };
-//            objectPools.Add(pool);
-//        }
-//        // check if there are inactive objects in pool
-//        GameObject spawnedObject = pool.inactiveObjects.FirstOrDefault();
-//        if(spawnedObject == null) {
-//            // if there are no inactive objects
-//            spawnedObject = Instantiate(objectToSpawn, position, rotation);
-//        } 
-//        else {
-//            //if there is an inactive object, reactivate it
-//            spawnedObject.transform.position = position;
-//            spawnedObject.transform.rotation = rotation;
-//            pool.inactiveObjects.Remove(spawnedObject);
-//            spawnedObject.SetActive(true);
-//        }
-//        return spawnedObject;
-//    }
-//    public static void ReturnToPool(GameObject obj) {
-//        string name = obj.name.Substring(0, obj.name.Length - 7); // take off '(Clone)' from end of gameObject name
-//        PooledObject pool = objectPools.Find(p => p.name == name);
-//        if(pool == null) {
-//            Debug.LogWarning("Trying to release object that is not pooled:" + obj.name);
-//        } 
-//        else {
-//            obj.SetActive(false);
-//            pool.inactiveObjects.Add(obj);
-//        }
-//    }
-//}
-//public class PooledObject {
-//    public string name;
-//    public List<GameObject> inactiveObjects = new List<GameObject>();
-//}
 public static class SaveSystem {
     static string path = Application.persistentDataPath + "/SaveData.save";
-    public static void Initialise() {
+    public static void Initialise(LevelManager.Level level) {
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream stream = new FileStream(path,FileMode.Create);
-        SaveData data = new SaveData();
+        SaveData data = new SaveData(level);
         formatter.Serialize(stream, data);
         stream.Close();
     }
@@ -281,7 +223,7 @@ public static class SaveSystem {
         } 
         else {
             Debug.Log("Save file not found in " + path);
-            Initialise();
+            Initialise(LevelManager.Level.Bus);
             return null;
         }
     }
@@ -291,10 +233,10 @@ public class SaveData {
     public int score;
     public float energy;
     public LevelManager.Level level;
-    public SaveData() { // initial values. will have to figure out a way of doing this that doesn't require hard-coding values
+    public SaveData(LevelManager.Level lvl) { // initial values. will have to figure out a way of doing this that doesn't require hard-coding values
         score = 0;
         energy = 100;
-        level = LevelManager.Level.Bus;
+        level = lvl;
     }
     public SaveData(LevelManager levelManager) { // saves current values
         score = levelManager.score;
