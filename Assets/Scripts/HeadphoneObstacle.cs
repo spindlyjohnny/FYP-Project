@@ -15,9 +15,10 @@ public class HeadphoneObstacle : Obstacle
     }
     protected override void Update()
     {
+        RaycastHit hit;
         float distanceBetween = Vector3.SqrMagnitude(InitalPosition - transform.position);
         //print(distanceBetween);
-        if(distanceBetween >= Mathf.Pow(distanceBeforeTurningBack,2) && walkingRight)
+        if((distanceBetween >= Mathf.Pow(distanceBeforeTurningBack,2) || Physics.Raycast(front.position, front.forward, out hit, .5f)) && walkingRight)
         {
             walkingRight = false;
         }
