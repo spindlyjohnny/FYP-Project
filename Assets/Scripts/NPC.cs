@@ -158,13 +158,11 @@ public class NPC : MonoBehaviour
         Transition(levelManager.level); // does the actual transition, bus moves to train station/ player leaves train
         levelManager.taskcompletescreen.SetActive(true);
         player.inputtext.SetActive(false);
-        if (!upgraded) {
-            levelManager.upgradeText.SetActive(true);
-            levelManager.boost.GetComponentInChildren<TMP_Text>().text = "gain x 2";
-            levelManager.boost.GetComponentInChildren<Image>().enabled = true;
-            player.energygain = 20;
-            upgraded = true;
-        }
+
+        levelManager.upgradeText.SetActive(true);
+        levelManager.boost.GetComponentInChildren<TMP_Text>().text = "gain x 2";
+        levelManager.boost.GetComponentInChildren<Image>().enabled = true;
+        if (player.energygain < player.maxEnergyGain) player.energygain *= 2;
         AudioManager.instance.PlaySFX(correctsound);
     }
     void Transition(LevelManager.Level level) {

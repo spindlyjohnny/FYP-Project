@@ -1205,6 +1205,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 7.3760176
       objectReference: {fileID: 0}
+    - target: {fileID: 2737777695695530235, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
+      propertyPath: originalEnergyGain
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2941963278701057150, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 57.417442

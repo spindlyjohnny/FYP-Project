@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public bool canMove,NPC;
     LevelManager levelManager;
     public float energy,maxenergy;
-    public float energygain;
+    public float energygain,maxEnergyGain;
     public MeshRenderer[] meshes;
     public Color originalColor;
     public AudioClip hitsfx;

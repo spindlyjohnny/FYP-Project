@@ -489,6 +489,7 @@ MonoBehaviour:
   energy: 0
   maxenergy: 100
   energygain: 10
+  maxEnergyGain: 80
   meshes: []
   originalColor: {r: 0, g: 0, b: 0, a: 0}
   hitsfx: {fileID: 8300000, guid: 04ce29e238b537b41ba1f00462d3c4e0, type: 3}
