@@ -38,14 +38,11 @@ public class NPCQuestion : MonoBehaviour
             {
                 Explain();
                 levelManager.taskcompletescreen.SetActive(true);
-                if (player.originalInvincibleTime < player.maxInvincibleTime)
-                {
-                    levelManager.upgradeText.SetActive(true);
-                    levelManager.boost.GetComponentInChildren<TMP_Text>().text = "Invincibility (+10s)";
-                    levelManager.boost.GetComponentInChildren<Image>().enabled = false;
-                    player.Invincibility();
-                    player.originalInvincibleTime += 10;
-                }
+                levelManager.upgradeText.SetActive(true);
+                levelManager.boost.GetComponentInChildren<TMP_Text>().text = "Timed Boost: Invincibility";
+                levelManager.boost.GetComponentInChildren<Image>().enabled = false;
+                player.Invincibility();
+                if (player.originalInvincibleTime < player.maxInvincibleTime)player.originalInvincibleTime += 10;
                 levelManager.taskfailimg.SetActive(false);
                 levelManager.tasksuccesstext.text = "Correct!";
                 //levelManager.questionbox.SetActive(false);
