@@ -30,8 +30,9 @@ public class NPCQuestion : MonoBehaviour
             {
                 levelManager.upgradeText.SetActive(false);
                 Explain();
-                levelManager.tasksuccesstext.text = "Task failed!";
+                levelManager.tasksuccesstext.text = "Wrong!";
                 levelManager.taskcompletescreen.SetActive(true);
+                levelManager.taskfailimg.SetActive(true);
                 AudioManager.instance.PlaySFX(wrongsound);
             }
             else if (option == Options.CorrectOption)
@@ -43,6 +44,7 @@ public class NPCQuestion : MonoBehaviour
                     levelManager.upgradeText.SetActive(true);
                     levelManager.boost.GetComponentInChildren<TMP_Text>().text = "Invincibility (10s)";
                     levelManager.boost.GetComponentInChildren<Image>().enabled = false;
+                    levelManager.taskfailimg.SetActive(false);
                     player.Invincible();
                     upgraded = true;
                 }
@@ -51,7 +53,7 @@ public class NPCQuestion : MonoBehaviour
                     levelManager.upgradeText.SetActive(false);
                 }
 
-                levelManager.tasksuccesstext.text = "Task success!";
+                levelManager.tasksuccesstext.text = "Correct!";
                 //levelManager.questionbox.SetActive(false);
                 AudioManager.instance.PlaySFX(correctsound);
                

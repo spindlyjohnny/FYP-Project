@@ -34,7 +34,7 @@ public class LevelManager : SceneLoader {
     CameraController cam;
     public Sprite[] loadingimgs;
     [HideInInspector]public Player player;
-    public GameObject upgradeText,boost;
+    public GameObject upgradeText,boost,taskfailimg;
     ObjectPool objectPool;
     //[SerializeField]Tile starttile;
     // Start is called before the first frame update
@@ -96,9 +96,11 @@ public class LevelManager : SceneLoader {
         if (npcmanager.myNPC != null) {
             if (npcmanager.myNPC.tasksuccess == NPC.Task.Fail) {
                 tasksuccesstext.text = "Task failed!";
+                taskfailimg.SetActive(true);
             } 
             else if (npcmanager.myNPC.tasksuccess == NPC.Task.Success) {
                 tasksuccesstext.text = "Task success!";
+                taskfailimg.SetActive(false);
             }
         }
         if (taskcompletescreen.activeSelf && onceComplete == false)
