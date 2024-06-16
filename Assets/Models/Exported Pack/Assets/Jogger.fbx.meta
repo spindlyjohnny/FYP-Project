@@ -1,9 +1,24 @@
 fileFormatVersion: 2
-guid: 91aa9f42ef707f349a6ff7446807c710
+guid: 7fee91f02a8a41b4f86e561caf6a7323
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eye_expression
+    second: {fileID: 2100000, guid: a527b82edf2dcc340a7c1fc84f0b8f61, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: 72bdc1cf98f623b4c9bf1f581fa819a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mouth_n_nose
+    second: {fileID: 2100000, guid: ccd33ff3b6719a84a8943fc6bbf093b4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
