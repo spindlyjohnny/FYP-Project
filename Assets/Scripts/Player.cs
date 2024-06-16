@@ -20,7 +20,16 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     private void Awake() {
         if (Application.isEditor) {
-            energy = SaveSystem.Load().energy;
+            if (PlayerPrefs.GetInt("bool") == 1)
+            {
+                energy = PlayerPrefs.GetFloat("energy");
+            }
+            else
+            {
+                PlayerPrefs.SetFloat("energy", 100);
+                energy = PlayerPrefs.GetFloat("energy");
+            }
+            
         } else {
             energy = maxenergy;
         }

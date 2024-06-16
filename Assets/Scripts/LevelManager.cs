@@ -40,9 +40,20 @@ public class LevelManager : SceneLoader {
     // Start is called before the first frame update
     private void Awake() {
         if (Application.isEditor) { // for testing purposes, if statement will be removed in build
-            score = SaveSystem.Load().score;
-            level = SaveSystem.Load().level;
+            if (PlayerPrefs.GetInt("bool") == 1)
+            {
+                score = PlayerPrefs.GetInt("score");
+                level = (Level)PlayerPrefs.GetInt("Level");
+            }
+            else
+            {
+                PlayerPrefs.SetInt("bool",1);
+                PlayerPrefs.SetInt("score", 0);
+                PlayerPrefs.SetInt("Level", (int)level);
+            }
+
         } else {
+
             score = 0;
         }
     }
@@ -118,7 +129,7 @@ public class LevelManager : SceneLoader {
     }
     public void RestartLevel() {
         LoadScene(SceneManager.GetActiveScene().buildIndex);
-        SaveSystem.Initialise(Level.Bus); // reset player stats and stuff
+        Initalize();
     }
     IEnumerator DisableTaskScreen() {
         yield return new WaitForSeconds(1.3f);
@@ -129,7 +140,7 @@ public class LevelManager : SceneLoader {
 
         print("yes2");
         level = Level.MRT;
-        SaveSystem.Save(this);
+        SaveData();
         LoadScene(2); // mrt level
         loadingscreen.SetActive(true);
         loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];
@@ -138,7 +149,7 @@ public class LevelManager : SceneLoader {
 
         print("yuh");
         level = Level.Bus;
-        SaveSystem.Save(this);
+        SaveData();
         loadingscreen.SetActive(true);
         loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];
         LoadScene(1); // bus level
@@ -166,6 +177,28 @@ public class LevelManager : SceneLoader {
             if (amount == 1) numberOfTiles += 1;
         }
     }
+    void SaveData()
+    {
+        PlayerPrefs.SetInt("bool", 1);
+        PlayerPrefs.SetFloat("energy", player.energy);
+        PlayerPrefs.SetInt("score", score);
+        PlayerPrefs.SetInt("Level", (int)level);
+    }
+
+    public void Initalize()
+    {
+        PlayerPrefs.SetInt("bool", 1);
+        PlayerPrefs.SetFloat("energy", 100);
+        PlayerPrefs.SetInt("score", 0);
+        PlayerPrefs.SetInt("Level", (int)level);
+        LoadData();
+    }
+    void LoadData()
+    {
+        player.energy = PlayerPrefs.GetFloat("energy");
+        score = PlayerPrefs.GetInt("score");
+        level = (Level)PlayerPrefs.GetInt("Level");
+    }
     void RandomTile() {
         tilerng = UnityEngine.Random.Range(0f, 1f);
         if (tilerng <= .5f && tilerng > 0) { // 50% chance of getting a road tile
@@ -183,6 +216,7 @@ public class LevelManager : SceneLoader {
     }
 
 }
+/*
 public static class SaveSystem {
     static string path = Application.persistentDataPath + "/SaveData.save"; // actual save file, might not work on webgl
     public static void Initialise(LevelManager.Level level) { // honestly this might not need a param since it's only used for bus level but whatever
@@ -229,4 +263,4 @@ public class SaveData {
         energy = levelManager.player.energy;
         level = levelManager.level;
     }
-}
+}*/
