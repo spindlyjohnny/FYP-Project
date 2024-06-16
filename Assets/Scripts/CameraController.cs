@@ -9,17 +9,17 @@ public class CameraController : MonoBehaviour {
     public bool NPC,bus;
     // Start is called before the first frame update
     void Start() {
-        NPC = false;
-        bus = false;
-        originalposition = FindObjectOfType<Player>().transform.Find("Original Cam Pos").transform;
-        trainposition = FindObjectOfType<Player>().transform.Find("Train Cam Pos").transform;
-        lookOffset = defaultoffset;
+        NPC = false; // if player is talking to NPC, move to the NPC camera postion
+        bus = false;// same thing but for bus
+        originalposition = FindObjectOfType<Player>().transform.Find("Original Cam Pos").transform; // camera angle for bus level
+        trainposition = FindObjectOfType<Player>().transform.Find("Train Cam Pos").transform; // camera angle for train level
+        lookOffset = defaultoffset; // defaultoffset is camera offset in bus level. camera is closer in train level so there is a need for a trainoffset variable.
     }
 
     // Update is called once per frame
     void Update() {
         if (NPC || bus) {
-            targetposition = target.position;
+            targetposition = target.position; // when NPC or bus is true, camera exactly tracks the target. The bus and NPC prefabs have empty gameObjects as children that act as targets for the camera to track.
         }
         else {
             targetposition = new Vector3(target.position.x - lookOffset, transform.position.y, target.position.z);

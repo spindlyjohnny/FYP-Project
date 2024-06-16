@@ -4,9 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Bus : Obstacle
 {
-    [SerializeField]bool moving = true;
-    public Transform passengerpos;
-    [SerializeField] Collider destination;
+    [SerializeField]bool moving = true; // control when the bus moves
+    [SerializeField] Collider destination; // bus stop
     // Start is called before the first frame update
     void Start()
     {
@@ -23,10 +22,10 @@ public class Bus : Obstacle
         }
     }
     public IEnumerator BusTransitioninator() {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2f); // bus waits for a bit before moving off-screen
         moving = true;
-        FindObjectOfType<LevelManager>().loadingscreen.SetActive(true);
-        FindObjectOfType<LevelManager>().loadingscreen.GetComponent<Image>().sprite = FindObjectOfType<LevelManager>().loadingimgs[Random.Range(0, FindObjectOfType<LevelManager>().loadingimgs.Length)];
+        FindObjectOfType<LevelManager>().loadingscreen.SetActive(true); // activate loading screen
+        FindObjectOfType<LevelManager>().loadingscreen.GetComponent<Image>().sprite = FindObjectOfType<LevelManager>().loadingimgs[Random.Range(0, FindObjectOfType<LevelManager>().loadingimgs.Length)]; // set loading screen sprite
         yield return new WaitForSeconds(2.5f);
         FindObjectOfType<LevelManager>().MoveToTrain();
     }

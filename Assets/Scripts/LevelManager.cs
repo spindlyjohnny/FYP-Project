@@ -39,7 +39,7 @@ public class LevelManager : SceneLoader {
     //[SerializeField]Tile starttile;
     // Start is called before the first frame update
     private void Awake() {
-        if (Application.isEditor) {
+        if (Application.isEditor) { // for testing purposes, if statement will be removed in build
             score = SaveSystem.Load().score;
             level = SaveSystem.Load().level;
         } else {
@@ -49,10 +49,9 @@ public class LevelManager : SceneLoader {
     void Start() {
         objectPool = GetComponent<ObjectPool>();
         if (AudioManager.instance.CheckClip() != AudioManager.instance.levelmusic || !AudioManager.instance.IsPlaying()) {
+            // CheckClip() is for when player starts level from level select. the other condition is when level is restarted either from pause screen or game over screen.
             StartCoroutine(AudioManager.instance.SwitchMusic(AudioManager.instance.levelmusic));
         }
-        //score = 0;
-        //tileshiftfactor = 0;
         npcmanager = FindObjectOfType<NPCManagement>();
         gameover = false;
         gameoverscreen.SetActive(false);
@@ -61,19 +60,19 @@ public class LevelManager : SceneLoader {
         if (level == Level.Bus) {
             cam.transform.position = cam.originalposition.position;
             cam.lookOffset = cam.defaultoffset;
-            for (int i = 0; i < tiles.Length; i++) {
+            for (int i = 0; i < tiles.Length; i++) { // tiles is the array of tiles that are to be spawned for the level
                 tiles[i] = bustiles[i];
             }
             Spawn(8);
         } 
         else {
             cam.lookOffset = cam.trainoffset;
-            for (int i = 0; i < tiles.Length; i++) {
+            for (int i = 0; i < tiles.Length; i++) { // mrt is the single mrt prefab that we are using
                 tiles[i] = mrt;
             }
-            tileindex = 0;
+            tileindex = 0; // in bus level, tileindex is randomised for the purposes of tile randomisation. but in train level this not necessary as all tiles are the same. so tileindex does not matter and is just set to 0.
             Spawn(8);
-            foreach(var i in FindObjectsOfType<Tile>()) {
+            foreach(var i in FindObjectsOfType<Tile>()) { // finds closest train tile and moves player there. might get rid of this in the future.
                 float closest = 999;
                 if(Vector3.Distance(transform.position, i.transform.position) < closest) {
                     closest = Vector3.Distance(transform.position, i.transform.position);
@@ -97,7 +96,8 @@ public class LevelManager : SceneLoader {
         if (npcmanager.myNPC != null) {
             if (npcmanager.myNPC.tasksuccess == NPC.Task.Fail) {
                 tasksuccesstext.text = "Task failed!";
-            } else if (npcmanager.myNPC.tasksuccess == NPC.Task.Success) {
+            } 
+            else if (npcmanager.myNPC.tasksuccess == NPC.Task.Success) {
                 tasksuccesstext.text = "Task success!";
             }
         }
@@ -106,32 +106,17 @@ public class LevelManager : SceneLoader {
             onceComplete = true;
             StartCoroutine(DisableTaskScreen());
         }
-        //if (loadingscreen.activeSelf && onceLoading == false)
-        //{
-        //    onceLoading = true;
-        //    StartCoroutine(DisableLoadingScreen(2f));
-        //}
         currenttiles = FindObjectsOfType<Tile>();
         if (currenttiles.Length == 1 || level == Level.MRT) {
-            tileshiftfactor = 0;
+            tileshiftfactor = 0; // in mrt level, tileshiftfactor is 0 because the size of the train already shifts them properly (i think)(trust bro) 
         } 
         else if (level == Level.Bus) {
-            tileshiftfactor = 21;
+            tileshiftfactor = 21; //  tileshiftfactor spawns tiles 21 units ahead because when player enters trigger, there are 3 tiles in front. each tile is 7 units long on the x-axis
         }
-        //else {
-        //    tileshiftfactor = 0;
-        //    //tileshiftfactor = Mathf.RoundToInt(26.5f * 3);
-        //}
-        //if (currenttiles.Length > 10) {
-
-        //    //ObjectPool.ReturnToPool(currenttiles[currenttiles.Length - 1].gameObject);
-        //    player.inputtext.SetActive(false);
-        //}
-        //tileshiftfactor = currenttiles.Length == 1 ? 0 : 21; // tileshiftfactor spawns tiles 21 units ahead because when player enters trigger, there are 3 tiles in front. each tile is 7 units long on the x-axis
     }
     public void RestartLevel() {
         LoadScene(SceneManager.GetActiveScene().buildIndex);
-        SaveSystem.Initialise(Level.Bus);
+        SaveSystem.Initialise(Level.Bus); // reset player stats and stuff
     }
     IEnumerator DisableTaskScreen() {
         yield return new WaitForSeconds(2f);
@@ -143,7 +128,7 @@ public class LevelManager : SceneLoader {
         print("yes2");
         level = Level.MRT;
         SaveSystem.Save(this);
-        LoadScene(2);
+        LoadScene(2); // mrt level
         loadingscreen.SetActive(true);
         loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];
     }
@@ -154,7 +139,7 @@ public class LevelManager : SceneLoader {
         SaveSystem.Save(this);
         loadingscreen.SetActive(true);
         loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];
-        LoadScene(1);
+        LoadScene(1); // bus level
     }
     public void Spawn(int amount) {
         for (int x = 0; x < amount; x++) { // spawn amount tiles at a time
@@ -162,10 +147,10 @@ public class LevelManager : SceneLoader {
             if (amount == 1) {
                 x = numberOfTiles;
             }
-            if (level == Level.Bus) RandomTile();
-            mytile = tiles[tileindex].GetComponent<Tile>();
-            // spawn tile at spawn point + size of tile * order that tile was spawned
+            if (level == Level.Bus) RandomTile(); // randomise tiles in bus level, not needed in mrt level since all tiles are the same
+            mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
             if (level == Level.Bus) {
+                // spawn tile at spawn point + size of tile * order that tile was spawned + shift
                 objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
                 //ObjectPool.Spawn(tiles[tileindex], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
                 //Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
@@ -176,34 +161,33 @@ public class LevelManager : SceneLoader {
                 //ObjectPool.Spawn(tiles[tileindex], mytile.spawnpt.position + new Vector3(26.5f * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
                 //Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(26.5f * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
             }
-            //print("Yes");
             if (amount == 1) numberOfTiles += 1;
         }
     }
     void RandomTile() {
         tilerng = UnityEngine.Random.Range(0f, 1f);
-        if (tilerng <= .5f && tilerng > 0) {
+        if (tilerng <= .5f && tilerng > 0) { // 50% chance of getting a road tile
             foreach (var i in tiles) {
-                if (i.GetComponent<RoadTile>()) tileindex = Array.IndexOf(tiles, i);
+                if (i.GetComponent<RoadTile>()) tileindex = Array.IndexOf(tiles, i); // get index of road tile in tiles array
             }
         } else {
-            List<int> legalindexes = new List<int>();
+            List<int> legalindexes = new List<int>(); // indexes that are not the index of the road tile
             for (int i = 0; i < tiles.Length; i++) {
                 if (!tiles[i].GetComponent<RoadTile>()) legalindexes.Add(i);
             }
             System.Random random = new System.Random();
-            tileindex = legalindexes[random.Next(0, legalindexes.Count)];
+            tileindex = legalindexes[random.Next(0, legalindexes.Count)]; // gets random index
         }
     }
 
 }
 public static class SaveSystem {
-    static string path = Application.persistentDataPath + "/SaveData.save";
-    public static void Initialise(LevelManager.Level level) {
-        BinaryFormatter formatter = new BinaryFormatter();
+    static string path = Application.persistentDataPath + "/SaveData.save"; // actual save file, might not work on webgl
+    public static void Initialise(LevelManager.Level level) { // honestly this might not need a param since it's only used for bus level but whatever
+        BinaryFormatter formatter = new BinaryFormatter(); // saves data as binary
         FileStream stream = new FileStream(path,FileMode.Create);
         SaveData data = new SaveData(level);
-        formatter.Serialize(stream, data);
+        formatter.Serialize(stream, data); // turns data into binary
         stream.Close();
     }
     public static void Save(LevelManager levelManager) {
@@ -217,13 +201,13 @@ public static class SaveSystem {
         if (File.Exists(path)) {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
-            SaveData data = formatter.Deserialize(stream) as SaveData;
+            SaveData data = formatter.Deserialize(stream) as SaveData; // turns binary into SaveData class (i totally know what im talking about bro trust)
             stream.Close();
             return data;
         } 
         else {
             Debug.Log("Save file not found in " + path);
-            Initialise(LevelManager.Level.Bus);
+            Initialise(LevelManager.Level.Bus); // initialise data if save file doesnt exist
             return null;
         }
     }

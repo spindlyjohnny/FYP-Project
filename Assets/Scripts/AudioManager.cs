@@ -5,10 +5,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 public class AudioManager : MonoBehaviour {
     public static AudioManager instance;
-    [SerializeField] AudioSource audio, sfxaudio;
-    //public AudioClip staticnoise;
+    [SerializeField] AudioSource audio, sfxaudio; // one audio source for music, one for sfx
     public AudioClip levelmusic,titlemusic;
-    //public AudioClip intromessage;
     // Start is called before the first frame update
     private void Awake() {
         if (instance == null) { // create singleton.
@@ -45,7 +43,7 @@ public class AudioManager : MonoBehaviour {
     public void ResumeSFX() {
         sfxaudio.UnPause();
     }
-    public AudioClip CheckClip() {
+    public AudioClip CheckClip() { // for the purpose of checking the current audio clip being played at the start of a level
         return audio.clip;
     }
     public bool IsPlaying() {
@@ -61,16 +59,9 @@ public class AudioManager : MonoBehaviour {
     }
     // Update is called once per frame
     void Update() {
-        if(SceneManager.GetActiveScene().buildIndex < 1) {
+        if(SceneManager.GetActiveScene().buildIndex < 1) { // play title music on main menu. main menu buildindex is 0.
             PlayMusic(titlemusic);
-        } 
-        //if (SceneManager.GetActiveScene().buildIndex <= 2) {
-        //    PlayMusic(staticnoise);// plays static noise in menu screens
-        //}
-        //if (SceneManager.GetActiveScene().buildIndex == 0 && !PlayerPrefs.HasKey("Played")) { // play intro message on player's first ever playthrough
-        //    PlaySFX(intromessage);
-        //    PlayerPrefs.SetInt("Played", 1);
-        //}
+        }
     }
 
 }
