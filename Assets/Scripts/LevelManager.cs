@@ -121,7 +121,7 @@ public class LevelManager : SceneLoader {
         SaveSystem.Initialise(Level.Bus); // reset player stats and stuff
     }
     IEnumerator DisableTaskScreen() {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         taskcompletescreen.SetActive(false);
         onceComplete = false;
     }

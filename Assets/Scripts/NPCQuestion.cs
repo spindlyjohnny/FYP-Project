@@ -10,7 +10,6 @@ public class NPCQuestion : MonoBehaviour
     NPCManagement npcmanager;
     LevelManager levelManager;
     Player player;
-    bool upgraded;
     public AudioClip correctsound, wrongsound;
     // Start is called before the first frame update
     void Start() {
@@ -21,7 +20,7 @@ public class NPCQuestion : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-
+        
     }
     public void AnswerQuestion() {
         if (player.NPC == false)
@@ -38,21 +37,16 @@ public class NPCQuestion : MonoBehaviour
             else if (option == Options.CorrectOption)
             {
                 Explain();
-                levelManager.taskcompletescreen.SetActive(true);             
-                if (!upgraded)
+                levelManager.taskcompletescreen.SetActive(true);
+                if (player.originalInvincibleTime < player.maxInvincibleTime)
                 {
                     levelManager.upgradeText.SetActive(true);
-                    levelManager.boost.GetComponentInChildren<TMP_Text>().text = "Invincibility (10s)";
+                    levelManager.boost.GetComponentInChildren<TMP_Text>().text = "Invincibility (+10s)";
                     levelManager.boost.GetComponentInChildren<Image>().enabled = false;
-                    levelManager.taskfailimg.SetActive(false);
-                    player.Invincible();
-                    upgraded = true;
+                    player.Invincibility();
+                    player.originalInvincibleTime += 10;
                 }
-                else
-                {
-                    levelManager.upgradeText.SetActive(false);
-                }
-
+                levelManager.taskfailimg.SetActive(false);
                 levelManager.tasksuccesstext.text = "Correct!";
                 //levelManager.questionbox.SetActive(false);
                 AudioManager.instance.PlaySFX(correctsound);

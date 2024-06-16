@@ -494,6 +494,9 @@ MonoBehaviour:
   hitsfx: {fileID: 8300000, guid: 04ce29e238b537b41ba1f00462d3c4e0, type: 3}
   inputtext: {fileID: 1269153788632336677}
   invincibility: 0
+  originalInvincibleTime: 10
+  maxInvincibleTime: 40
+  invincibilitytime: 0
 --- !u!54 &7809966220103301839
 Rigidbody:
   m_ObjectHideFlags: 0
