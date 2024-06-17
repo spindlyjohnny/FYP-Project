@@ -186,6 +186,8 @@ MonoBehaviour:
   dialogueFile: {fileID: 4900000, guid: 7f6572bc9c81cbe478099944d37c4be0, type: 3}
   questionFile: {fileID: 4900000, guid: 7e22b63bf2dad2140a9e7e4afe98938d, type: 3}
   locationFile: {fileID: 4900000, guid: 9d3fcd6dd6641be479daf0d9d47ee1c9, type: 3}
+  nameFile: {fileID: 4900000, guid: f1f26e489f466544b8276ff858af8c93, type: 3}
+  explainsFile: {fileID: 4900000, guid: fd847761bc0ac8f47bb5d39f4fc8c7f2, type: 3}
   movespeed: 5
   startpos: {x: 0, y: 0, z: 0}
   tasksuccess: 0

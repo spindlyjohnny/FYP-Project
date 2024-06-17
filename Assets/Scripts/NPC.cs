@@ -24,7 +24,7 @@ public class NPC : MonoBehaviour
     string[] options,questionLocation;
     public List<string> filteredOptions= new List<string>(0);
     public List<OptionsOfQuestions> optionList;
-    public TextAsset optionsFile, dialogueFile, questionFile,locationFile;
+    public TextAsset optionsFile, dialogueFile, questionFile,locationFile, nameFile, explainsFile;
     public float movespeed;
     LevelManager levelManager;
     public Vector3 startpos;
@@ -48,9 +48,9 @@ public class NPC : MonoBehaviour
         cam = FindObjectOfType<CameraController>();
         player = FindObjectOfType<Player>();
 
-        names = File.ReadAllLines("Assets\\Misc\\first-names.txt");
+        names = nameFile.text.Split("\n");
         questions = questionFile.text.Split("\n");
-        explains = File.ReadAllLines("Assets\\Misc\\explanations.txt");
+        explains = explainsFile.text.Split("\n");
         questionLocation= locationFile.text.Split("\n");
         string[] dialogueEx = new string[0];
         dialogueEx = dialogueFile.text.Split("\n");
