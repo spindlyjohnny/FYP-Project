@@ -50,6 +50,7 @@ public class LevelManager : SceneLoader {
                 PlayerPrefs.SetInt("bool",1);
                 PlayerPrefs.SetInt("score", 0);
                 PlayerPrefs.SetInt("Level", (int)level);
+                PlayerPrefs.Save();
             }
 
         } else {
@@ -186,10 +187,12 @@ public class LevelManager : SceneLoader {
         PlayerPrefs.SetInt("Level", (int)level);
         PlayerPrefs.SetFloat("Invincibility Time", player.originalInvincibleTime);
         PlayerPrefs.SetFloat("Energy Gain", player.energygain);
+        PlayerPrefs.Save();
     }
 
     public void Initalize()
     {
+
         PlayerPrefs.SetInt("bool", 1);
         PlayerPrefs.SetFloat("energy", 100);
         PlayerPrefs.SetInt("score", 0);
@@ -197,6 +200,7 @@ public class LevelManager : SceneLoader {
         PlayerPrefs.SetFloat("Invincibility Time", 10f);
         PlayerPrefs.SetInt("Level", (int)Level.Bus);
         LoadData();
+        PlayerPrefs.Save();
     }
     void LoadData()
     {
@@ -205,6 +209,7 @@ public class LevelManager : SceneLoader {
         player.originalInvincibleTime = PlayerPrefs.GetFloat("Invincibility Time");
         score = PlayerPrefs.GetInt("score");
         level = (Level)PlayerPrefs.GetInt("Level");
+        PlayerPrefs.Save();
     }
     void RandomTile() {
         tilerng = UnityEngine.Random.Range(0f, 1f);
