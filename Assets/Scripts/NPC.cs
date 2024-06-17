@@ -155,17 +155,20 @@ public class NPC : MonoBehaviour
         player.GetComponent<Rigidbody>().isKinematic = false;
         //GetComponent<Collider>().enabled = true;
         tasksuccess = Task.Success;
-        Transition(levelManager.level); // does the actual transition, bus moves to train station/ player leaves train
+        StartCoroutine(Transition(levelManager.level)); // does the actual transition, bus moves to train station/ player leaves train
         levelManager.taskcompletescreen.SetActive(true);
         player.inputtext.SetActive(false);
 
         levelManager.upgradeText.SetActive(true);
         levelManager.boost.GetComponentInChildren<TMP_Text>().text = "gain x 2";
         levelManager.boost.GetComponentInChildren<Image>().enabled = true;
-        if (player.energygain < player.maxEnergyGain) player.energygain *= 2;
+        if (player.energygain < player.maxEnergyGain) {
+            player.energygain *= 2;
+            print("gains");
+        }
         AudioManager.instance.PlaySFX(correctsound);
     }
-    void Transition(LevelManager.Level level) {
+    IEnumerator Transition(LevelManager.Level level) {
         if (level == LevelManager.Level.Bus && street != null) {
             street.bus.gameObject.SetActive(true);
             cam.target = street.campos;
@@ -173,6 +176,7 @@ public class NPC : MonoBehaviour
             gameObject.SetActive(false);
             player.gameObject.SetActive(false);
         } else if (level == LevelManager.Level.MRT) {
+            yield return new WaitForSeconds(1f);
             levelManager.MoveToBus();
         }
     }

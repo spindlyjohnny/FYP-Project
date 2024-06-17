@@ -40,7 +40,7 @@ public class NPCQuestion : MonoBehaviour
                 levelManager.taskcompletescreen.SetActive(true);
                 levelManager.upgradeText.SetActive(true);
                 levelManager.boost.GetComponentInChildren<TMP_Text>().text = "Timed Boost: Invincibility";
-                levelManager.boost.GetComponentInChildren<Image>().enabled = false;
+                foreach(var i in levelManager.boost.GetComponentsInChildren<Image>())i.enabled = false;
                 player.Invincibility();
                 if (player.originalInvincibleTime < player.maxInvincibleTime)player.originalInvincibleTime += 10;
                 levelManager.taskfailimg.SetActive(false);

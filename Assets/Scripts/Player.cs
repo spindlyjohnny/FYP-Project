@@ -23,10 +23,14 @@ public class Player : MonoBehaviour
             if (PlayerPrefs.GetInt("bool") == 1)
             {
                 energy = PlayerPrefs.GetFloat("energy");
+                energygain = PlayerPrefs.GetFloat("Energy Gain");
+                originalInvincibleTime = PlayerPrefs.GetFloat("Invincibility Time");
             }
             else
             {
                 PlayerPrefs.SetFloat("energy", 100);
+                PlayerPrefs.SetFloat("Energy Gain", 10f);
+                PlayerPrefs.SetFloat("Invincibility Time", 10f);
                 energy = PlayerPrefs.GetFloat("energy");
             }
             
