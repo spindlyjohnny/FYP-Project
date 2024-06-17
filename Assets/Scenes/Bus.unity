@@ -519,6 +519,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1921310427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7260216091246469872, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+  m_PrefabInstance: {fileID: 7196524405884246908}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1966290426 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2052020801273092348, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
@@ -682,10 +687,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7196524405884246913}
     - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
-      propertyPath: score
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: busstart
       value: 
       objectReference: {fileID: 0}
@@ -701,6 +702,10 @@ PrefabInstance:
       propertyPath: starttile
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: fpsCounter
+      value: 
+      objectReference: {fileID: 1921310427}
     - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: creditstext
       value: 
