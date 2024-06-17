@@ -97,8 +97,8 @@ public class LevelManager : SceneLoader {
 
     // Update is called once per frame
     void Update() {
-        print("Level:" + level);
-        print("Shift:" + tileshiftfactor);
+        //print("Level:" + level);
+        //print("Shift:" + tileshiftfactor);
         if (gameover) {
             gameoverscreen.SetActive(true);
             AudioManager.instance.StopMusic();
