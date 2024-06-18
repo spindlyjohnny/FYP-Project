@@ -15,6 +15,7 @@ public class SceneLoader : MonoBehaviour {
     }
     private void Start()
     {
+        PlayerPrefs.SetInt("bool", 0);
         if (Return == false) return;
         Return = true;
         levelSelect.SetActive(true);
