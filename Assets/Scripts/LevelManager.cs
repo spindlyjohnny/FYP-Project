@@ -136,6 +136,7 @@ public class LevelManager : SceneLoader {
         print("yes2");
         level = Level.MRT;
         SaveData();
+        PlayerPrefs.Save();
         LoadScene(2); // mrt level
         loadingscreen.SetActive(true);
         loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];
@@ -147,6 +148,7 @@ public class LevelManager : SceneLoader {
         SaveData();
         loadingscreen.SetActive(true);
         loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];
+        PlayerPrefs.Save();
         LoadScene(1); // bus level
     }
     public void Spawn(int amount) {
@@ -180,6 +182,7 @@ public class LevelManager : SceneLoader {
         PlayerPrefs.SetInt("Level", (int)level);
         PlayerPrefs.SetFloat("Invincibility Time", player.originalInvincibleTime);
         PlayerPrefs.SetFloat("Energy Gain", player.energygain);
+        PlayerPrefs.Save();
     }
 
     public void Initalize()
@@ -191,6 +194,7 @@ public class LevelManager : SceneLoader {
         PlayerPrefs.SetFloat("Invincibility Time", 10f);
         PlayerPrefs.SetInt("Level", (int)Level.Bus);
         LoadData();
+        PlayerPrefs.Save();
     }
     void LoadData()
     {
@@ -199,6 +203,7 @@ public class LevelManager : SceneLoader {
         player.originalInvincibleTime = PlayerPrefs.GetFloat("Invincibility Time");
         score = PlayerPrefs.GetInt("score");
         level = (Level)PlayerPrefs.GetInt("Level");
+        PlayerPrefs.Save();
     }
     void RandomTile() {
         tilerng = UnityEngine.Random.Range(0f, 1f);
