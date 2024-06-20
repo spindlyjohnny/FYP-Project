@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public bool invincibility = false;
     public float originalInvincibleTime,maxInvincibleTime;
     [SerializeField]float invincibilitytime;
+    Tile tile;
     //NPCManagement npcmanager;
     // Start is called before the first frame update
     private void Awake() {
@@ -47,13 +48,32 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetAxisRaw("Horizontal") !=0 || Input.GetAxisRaw("Vertical") != 0)
-        {
-            movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-        }else if(Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
-        {
-            movement = new Vector3(0, 0, 0);
+        movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 1);
+        RaycastHit hit;
+        Physics.Raycast(transform.position, Vector3.down, out hit);
+        if (hit.collider) {
+            if (hit.collider.GetComponent<Tile>()) {
+                tile = hit.collider.GetComponent<Tile>();
+            }
         }
+        if(Input.GetAxisRaw("Horizontal") < 0) {
+            tile.newlane = Mathf.Clamp(tile.lane - 1, 0, 2);
+            Vector3 lerpPosition = new Vector3(tile.lanes[tile.newlane].x, transform.position.y, tile.lanes[tile.newlane].z);
+            transform.position = Vector3.Lerp(transform.position, /*transform.position +*/ lerpPosition, movespeed * Time.deltaTime);
+            //transform.position = tile.lanes[tile.newlane];
+        }
+        else if(Input.GetAxisRaw("Horizontal") > 0) {
+            tile.newlane = Mathf.Clamp(tile.lane + 1, 0, 2);
+            Vector3 lerpPosition = new Vector3(tile.lanes[tile.newlane].x, transform.position.y, tile.lanes[tile.newlane].z);
+            transform.position = Vector3.Lerp(transform.position, /*transform.position + */lerpPosition,movespeed * Time.deltaTime);
+        }
+        //if(Input.GetAxisRaw("Horizontal") !=0 || Input.GetAxisRaw("Vertical") != 0)
+        //{
+        //    movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0, movespeed);
+        //}else if(Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
+        //{
+        //    movement = new Vector3(0, 0, 0);
+        //}
         if (invincibility) {
             invincibilitytime -= Time.deltaTime;
         }
