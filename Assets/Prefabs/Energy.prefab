@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3137755713480474786}
   - component: {fileID: 7196063221469388886}
   - component: {fileID: 1481601406826888037}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Energy
   m_TagString: Energy
   m_Icon: {fileID: 0}
@@ -100,6 +100,9 @@ MonoBehaviour:
   myspawner: {fileID: 0}
   spawnoffset: {x: 0, y: 0.5, z: 0}
   dir: {x: 0, y: 0, z: 0}
+  front: {fileID: 0}
+  right: {fileID: 0}
+  left: {fileID: 0}
   originalsize: {x: 0, y: 0, z: 0}
   trainsize: {x: 2.3878973, y: 0.68039006, z: 0.68039006}
   collectsound: {fileID: 8300000, guid: 2961c5ebeac5950449d9a23af8b32f78, type: 3}

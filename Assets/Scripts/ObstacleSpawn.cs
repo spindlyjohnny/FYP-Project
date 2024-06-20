@@ -10,11 +10,11 @@ public class ObstacleSpawn : MonoBehaviour
     void Start()
     {
         
-        if (gameObject.tag == "Headphone")
-        {
-            float random = Random.Range(-3.5f, 2.5f);
-            transform.position = new Vector3(transform.position.x , transform.position.y, transform.position.z +random);
-        }
+        //if (gameObject.tag == "Headphone")
+        //{
+        //    float random = Random.Range(-3.5f, 2.5f);
+        //    transform.position = new Vector3(transform.position.x , transform.position.y, transform.position.z +random);
+        //}
         SpawnObstacle();
 
     }

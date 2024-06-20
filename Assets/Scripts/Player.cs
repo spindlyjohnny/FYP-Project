@@ -49,14 +49,15 @@ public class Player : MonoBehaviour
     void Update()
     {
         movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 1);
-        RaycastHit hit;
+        RaycastHit hit; // for detecting tile to access lane variables
         Physics.Raycast(transform.position, Vector3.down, out hit);
         if (hit.collider) {
             if (hit.collider.GetComponent<Tile>()) {
                 tile = hit.collider.GetComponent<Tile>();
             }
         }
-        if(Input.GetAxisRaw("Horizontal") < 0) {
+        if(Input.GetAxisRaw("Horizontal") < 0) { // need to figure out how to prevent this from happening when holding down button
+            // taken from unreal endless runner lololol
             tile.newlane = Mathf.Clamp(tile.lane - 1, 0, 2);
             Vector3 lerpPosition = new Vector3(tile.lanes[tile.newlane].x, transform.position.y, tile.lanes[tile.newlane].z);
             transform.position = Vector3.Lerp(transform.position, /*transform.position +*/ lerpPosition, movespeed * Time.deltaTime);
@@ -67,13 +68,6 @@ public class Player : MonoBehaviour
             Vector3 lerpPosition = new Vector3(tile.lanes[tile.newlane].x, transform.position.y, tile.lanes[tile.newlane].z);
             transform.position = Vector3.Lerp(transform.position, /*transform.position + */lerpPosition,movespeed * Time.deltaTime);
         }
-        //if(Input.GetAxisRaw("Horizontal") !=0 || Input.GetAxisRaw("Vertical") != 0)
-        //{
-        //    movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0, movespeed);
-        //}else if(Input.GetAxisRaw("Horizontal") == 0 && Input.GetAxisRaw("Vertical") == 0)
-        //{
-        //    movement = new Vector3(0, 0, 0);
-        //}
         if (invincibility) {
             invincibilitytime -= Time.deltaTime;
         }
