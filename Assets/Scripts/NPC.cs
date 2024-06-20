@@ -6,7 +6,6 @@ using TMPro;
 using System.IO;
 public class NPC : MonoBehaviour
 {
-    
     public GameObject dialoguebox,questionbox;
     CameraController cam;
     Player player;
@@ -33,7 +32,6 @@ public class NPC : MonoBehaviour
     public bool hasdestination; // set in inspector if NPC has a destination.
     public Coroutine dialogueco;
     [SerializeField]AudioClip dialoguesound, correctsound;
-    bool upgraded;
     public RoadTile street;
     public Answer[] answer = new Answer[51];
     public string sub;
@@ -135,8 +133,6 @@ public class NPC : MonoBehaviour
                 optionIndex += 1;
             }
         }
-
-        upgraded = false;
         startpos = transform.localPosition;
     }
 
