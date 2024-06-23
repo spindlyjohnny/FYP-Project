@@ -68,7 +68,7 @@ public class LevelManager : SceneLoader {
             for (int i = 0; i < tiles.Length; i++) { // tiles is the array of tiles that are to be spawned for the level
                 tiles[i] = bustiles[i];
             }
-            Spawn(8);
+            Spawn(8,13);
         } 
         else {
             cam.lookOffset = cam.trainoffset;
@@ -76,7 +76,7 @@ public class LevelManager : SceneLoader {
                 tiles[i] = mrt;
             }
             tileindex = 0; // in bus level, tileindex is randomised for the purposes of tile randomisation. but in train level this not necessary as all tiles are the same. so tileindex does not matter and is just set to 0.
-            Spawn(8);
+            Spawn(8,26.5f);
             foreach(var i in FindObjectsOfType<Tile>()) { // finds closest train tile and moves player there. might get rid of this in the future.
                 float closest = 999;
                 if(Vector3.Distance(transform.position, i.transform.position) < closest) {
@@ -151,7 +151,7 @@ public class LevelManager : SceneLoader {
         PlayerPrefs.Save();
         LoadScene(1); // bus level
     }
-    public void Spawn(int amount) {
+    public void Spawn(int amount,float size) {
         for (int x = 0; x < amount; x++) { // spawn amount tiles at a time
             Tile mytile;
             if (amount == 1) {
@@ -159,18 +159,19 @@ public class LevelManager : SceneLoader {
             }
             if (level == Level.Bus) RandomTile(); // randomise tiles in bus level, not needed in mrt level since all tiles are the same
             mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
-            if (level == Level.Bus) {
-                // spawn tile at spawn point + size of tile * order that tile was spawned + shift
-                objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
-                //ObjectPool.Spawn(tiles[tileindex], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
-                //Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
-            } 
-            else {
-                print("trains");
-                objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(26.5f * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
-                //ObjectPool.Spawn(tiles[tileindex], mytile.spawnpt.position + new Vector3(26.5f * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
-                //Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(26.5f * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
-            }
+            objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(size * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
+            //if (level == Level.Bus) {
+            //    // spawn tile at spawn point + size of tile * order that tile was spawned + shift
+            //    objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(size * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
+            //    //ObjectPool.Spawn(tiles[tileindex], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
+            //    //Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
+            //} 
+            //else {
+            //    print("trains");
+            //    objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(26.5f * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
+            //    //ObjectPool.Spawn(tiles[tileindex], mytile.spawnpt.position + new Vector3(26.5f * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
+            //    //Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(26.5f * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
+            //}
             if (amount == 1) numberOfTiles += 1;
         }
     }

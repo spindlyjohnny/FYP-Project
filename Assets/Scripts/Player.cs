@@ -60,13 +60,13 @@ public class Player : MonoBehaviour
             // taken from unreal endless runner lololol
             tile.newlane = Mathf.Clamp(tile.lane - 1, 0, 2);
             Vector3 lerpPosition = new Vector3(tile.lanes[tile.newlane].x, transform.position.y, tile.lanes[tile.newlane].z);
-            transform.position = Vector3.Lerp(transform.position, /*transform.position +*/ lerpPosition, movespeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position,lerpPosition, movespeed * Time.deltaTime);
             //transform.position = tile.lanes[tile.newlane];
         }
         else if(Input.GetAxisRaw("Horizontal") > 0) {
             tile.newlane = Mathf.Clamp(tile.lane + 1, 0, 2);
             Vector3 lerpPosition = new Vector3(tile.lanes[tile.newlane].x, transform.position.y, tile.lanes[tile.newlane].z);
-            transform.position = Vector3.Lerp(transform.position, /*transform.position + */lerpPosition,movespeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position,lerpPosition,movespeed * Time.deltaTime);
         }
         if (invincibility) {
             invincibilitytime -= Time.deltaTime;

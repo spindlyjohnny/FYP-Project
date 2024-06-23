@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 1628082032838913617}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0643, y: 0, z: 0.0158}
+  m_LocalPosition: {x: 0.0644, y: 0, z: 0.0003}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -281,7 +281,7 @@ Transform:
   m_GameObject: {fileID: 7621181523352037822}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.185746, y: 0, z: 0.777908}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 99.173, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -311,9 +311,9 @@ MonoBehaviour:
   NPC:
   - {fileID: 0}
   lanes:
-  - {x: 0, y: 0, z: 0.0151}
-  - {x: 0, y: 0, z: 0.0016}
-  - {x: 0, y: 0, z: -0.0121}
+  - {x: 0, y: 0, z: 0.1}
+  - {x: 0, y: 0, z: -0.00021}
+  - {x: 0, y: 0, z: -0.1}
   lane: 0
   newlane: 0
 --- !u!65 &4935924930495361121

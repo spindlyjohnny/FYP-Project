@@ -17,7 +17,7 @@ public class ObjectPool : MonoBehaviour {
         }  
     }
     public GameObject SpawnFromPool(string tag,Vector3 position) {
-        if (!poolDict.ContainsKey(tag)) return null;
+        if (!poolDict.ContainsKey(tag)) return null; // tags in pools array have to exactly match names of gameobjects in levelmanager tiles array
         GameObject spawnedObj = poolDict[tag].Dequeue();
         spawnedObj.SetActive(true);
         spawnedObj.transform.position = position;
