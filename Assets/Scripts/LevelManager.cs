@@ -28,7 +28,7 @@ public class LevelManager : SceneLoader {
     int numberOfTiles = 5;
     bool onceComplete = false;
     public float tilerng;
-    public enum Level { Bus, MRT };
+    public enum Level { Bus,BusInterior, MRT };
     public Level level;
     public Tile[] currenttiles;
     CameraController cam;
@@ -71,7 +71,7 @@ public class LevelManager : SceneLoader {
             Spawn(8,13);
         } 
         else {
-            cam.lookOffset = cam.trainoffset;
+            cam.lookOffset = cam.interioroffset;
             for (int i = 0; i < tiles.Length; i++) { // mrt is the single mrt prefab that we are using
                 tiles[i] = mrt;
             }
@@ -131,26 +131,24 @@ public class LevelManager : SceneLoader {
         taskcompletescreen.SetActive(false);
         onceComplete = false;
     }
-    public void MoveToTrain() {
-
-        print("yes2");
-        level = Level.MRT;
+    public void Move(int index,Level lvl) { // transition between levels
+        level = lvl;
+        LoadScene(index,true);
         SaveData();
         PlayerPrefs.Save();
-        LoadScene(2); // mrt level
         loadingscreen.SetActive(true);
         loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];
     }
-    public void MoveToBus() {
+    //public void MoveToTrain() {
 
-        print("yuh");
-        level = Level.Bus;
-        SaveData();
-        loadingscreen.SetActive(true);
-        loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];
-        PlayerPrefs.Save();
-        LoadScene(1); // bus level
-    }
+    //    print("yes2");
+    //    level = Level.MRT;
+    //    SaveData();
+    //    PlayerPrefs.Save();
+    //    LoadScene(3); // mrt level
+    //    loadingscreen.SetActive(true);
+    //    loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];
+    //}
     public void Spawn(int amount,float size) {
         for (int x = 0; x < amount; x++) { // spawn amount tiles at a time
             Tile mytile;

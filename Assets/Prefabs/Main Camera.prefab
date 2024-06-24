@@ -110,6 +110,8 @@ MonoBehaviour:
   trainposition: {fileID: 0}
   smoothing: 3
   lookOffset: 5
+  defaultoffset: 8
+  interioroffset: 3
   targetposition: {x: 0, y: 0, z: 0}
   NPC: 0
   bus: 0

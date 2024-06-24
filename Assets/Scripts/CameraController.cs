@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
     public Transform target,originalposition,trainposition;
-    public float smoothing = 1f,lookOffset,defaultoffset,trainoffset;
+    public float smoothing = 1f,lookOffset,defaultoffset,interioroffset;
     public Vector3 targetposition;
     public bool NPC,bus;
     // Start is called before the first frame update

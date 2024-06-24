@@ -7,7 +7,7 @@ using TMPro;
 public class SceneLoader : MonoBehaviour {
     public static bool Return = false;
     public GameObject levelSelect,fpsCounter;
-    public virtual void LoadScene(int scene) { // load scene when UI button pressed.
+    public virtual void LoadScene(int scene,bool aynsc = false) { // load scene when UI button pressed.
         SceneManager.LoadScene(scene);
     }
     public void QuitGame() {

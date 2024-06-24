@@ -56,17 +56,17 @@ public class Player : MonoBehaviour
                 tile = hit.collider.GetComponent<Tile>();
             }
         }
-        if(Input.GetAxisRaw("Horizontal") < 0) { // need to figure out how to prevent this from happening when holding down button
+        if (Input.GetAxisRaw("Horizontal") < 0) { // need to figure out how to prevent this from happening when holding down button
             // taken from unreal endless runner lololol
             tile.newlane = Mathf.Clamp(tile.lane - 1, 0, 2);
             Vector3 lerpPosition = new Vector3(tile.lanes[tile.newlane].x, transform.position.y, tile.lanes[tile.newlane].z);
-            transform.position = Vector3.Lerp(transform.position,lerpPosition, movespeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, lerpPosition, movespeed * Time.deltaTime);
             //transform.position = tile.lanes[tile.newlane];
-        }
-        else if(Input.GetAxisRaw("Horizontal") > 0) {
+        } 
+        else if (Input.GetAxisRaw("Horizontal") > 0) {
             tile.newlane = Mathf.Clamp(tile.lane + 1, 0, 2);
             Vector3 lerpPosition = new Vector3(tile.lanes[tile.newlane].x, transform.position.y, tile.lanes[tile.newlane].z);
-            transform.position = Vector3.Lerp(transform.position,lerpPosition,movespeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, lerpPosition, movespeed * Time.deltaTime);
         }
         if (invincibility) {
             invincibilitytime -= Time.deltaTime;
@@ -83,6 +83,7 @@ public class Player : MonoBehaviour
         }
         levelManager.energyslider.value = energy;
         if (canMove) {
+            movespeed += .1f * Time.deltaTime;
             transform.Translate(movespeed * Time.deltaTime * movement, Space.Self);
             if (movement.z > 0) {
                 levelManager.score++;

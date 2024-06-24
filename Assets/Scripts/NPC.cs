@@ -173,7 +173,7 @@ public class NPC : MonoBehaviour
             player.gameObject.SetActive(false);
         } else if (level == LevelManager.Level.MRT) {
             yield return new WaitForSeconds(1f);
-            levelManager.MoveToBus();
+            levelManager.Move(1,LevelManager.Level.Bus);
         }
     }
     private void OnTriggerEnter(Collider other) {
