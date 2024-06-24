@@ -122,7 +122,7 @@ public class LevelManager : SceneLoader {
             tileshiftfactor = 0; // in mrt level, tileshiftfactor is 0 because the size of the train already shifts them properly (i think)(trust bro) 
         } 
         else if (level == Level.Bus) {
-            tileshiftfactor = 21; //  tileshiftfactor spawns tiles 21 units ahead because when player enters trigger, there are 3 tiles in front. each tile is 7 units long on the x-axis
+            tileshiftfactor = 39; //  tileshiftfactor spawns tiles 21 units ahead because when player enters trigger, there are 3 tiles in front. each tile is 7 units long on the x-axis
         }
     }
     public void RestartLevel() {
@@ -159,6 +159,7 @@ public class LevelManager : SceneLoader {
                 x = numberOfTiles;
             }
             if (level == Level.Bus) RandomTile(); // randomise tiles in bus level, not needed in mrt level since all tiles are the same
+            tileindex = 1;
             mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
             objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(size * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
             //if (level == Level.Bus) {
