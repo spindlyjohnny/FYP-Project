@@ -11,7 +11,10 @@ public class CameraController : MonoBehaviour {
     void Start() {
         NPC = false; // if player is talking to NPC, move to the NPC camera postion
         bus = false;// same thing but for bus
-        originalposition = FindObjectOfType<Player>().transform.Find("Original Cam Pos").transform; // camera angle for bus level
+        originalposition = FindObjectOfType<LevelManager>().level == LevelManager.Level.Bus ? FindObjectOfType<Player>().transform.Find("Original Cam Pos")
+            : FindObjectOfType<Player>().transform.Find("Bus Interior Cam Pos"); // camera angle for bus level and interior
+        
+        
         trainposition = FindObjectOfType<Player>().transform.Find("Train Cam Pos").transform; // camera angle for train level
         lookOffset = defaultoffset; // defaultoffset is camera offset in bus level. camera is closer in train level so there is a need for a trainoffset variable.
     }

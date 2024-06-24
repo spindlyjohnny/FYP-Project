@@ -204,7 +204,7 @@ public class NPC : MonoBehaviour
         player.canMove = true;
         cam.target = player.transform;
         cam.NPC = false;
-        if (levelManager.level == LevelManager.Level.Bus) cam.transform.position = cam.originalposition.position;
+        if (levelManager.level == LevelManager.Level.Bus || levelManager.level == LevelManager.Level.BusInterior) cam.transform.position = cam.originalposition.position;
         else cam.transform.position = cam.trainposition.position;
         cam.smoothing = 3;
         spoken = true;

@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         } else {
             PlayerPrefs.SetFloat("energy", 100);
             PlayerPrefs.SetFloat("Energy Gain", 10f);
-            PlayerPrefs.SetFloat("Invincibility Time", 10f);
+            PlayerPrefs.SetFloat("Invincibility Time", 3f);
             energy = PlayerPrefs.GetFloat("energy");
         }
     }
@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
             transform.Translate(movespeed * Time.deltaTime * movement, Space.Self);
             if (movement.z > 0) {
                 levelManager.score++;
-                energy -= .01f;
+                if(!invincibility)energy -= .01f;
             }
         }
         if(energy <= 0) {
@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
 
     void Movement()
     {
-        movement = new Vector3(0, 0,1);      
+        movement = new Vector3(0, 0,levelManager.level == LevelManager.Level.BusInterior ? Input.GetAxisRaw("Vertical") : 1);      
         
         RaycastHit hit; // for detecting tile to access lane variables
         Physics.Raycast(transform.position, Vector3.down, out hit);
