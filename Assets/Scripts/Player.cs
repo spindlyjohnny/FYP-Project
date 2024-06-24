@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     public GameObject inputtext;
     public bool invincibility = false;
     public float originalInvincibleTime,maxInvincibleTime;
+    bool once=false;
+    float direction=3;
     [SerializeField]float invincibilitytime;
     Tile tile;
     //NPCManagement npcmanager;
@@ -48,26 +50,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 1);
-        RaycastHit hit; // for detecting tile to access lane variables
-        Physics.Raycast(transform.position, Vector3.down, out hit);
-        if (hit.collider) {
-            if (hit.collider.GetComponent<Tile>()) {
-                tile = hit.collider.GetComponent<Tile>();
-            }
-        }
-        if (Input.GetAxisRaw("Horizontal") < 0) { // need to figure out how to prevent this from happening when holding down button
-            // taken from unreal endless runner lololol
-            tile.newlane = Mathf.Clamp(tile.lane - 1, 0, 2);
-            Vector3 lerpPosition = new Vector3(tile.lanes[tile.newlane].x, transform.position.y, tile.lanes[tile.newlane].z);
-            transform.position = Vector3.Lerp(transform.position, lerpPosition, movespeed * Time.deltaTime);
-            //transform.position = tile.lanes[tile.newlane];
-        } 
-        else if (Input.GetAxisRaw("Horizontal") > 0) {
-            tile.newlane = Mathf.Clamp(tile.lane + 1, 0, 2);
-            Vector3 lerpPosition = new Vector3(tile.lanes[tile.newlane].x, transform.position.y, tile.lanes[tile.newlane].z);
-            transform.position = Vector3.Lerp(transform.position, lerpPosition, movespeed * Time.deltaTime);
-        }
+        Movement();
         if (invincibility) {
             invincibilitytime -= Time.deltaTime;
         }
@@ -95,6 +78,54 @@ public class Player : MonoBehaviour
             levelManager.gameover = true;
         }
 
+    }
+
+    void Movement()
+    {
+        movement = new Vector3(0, 0,1);      
+        
+        RaycastHit hit; // for detecting tile to access lane variables
+        Physics.Raycast(transform.position, Vector3.down, out hit);
+        if (hit.collider)
+        {
+            if (hit.collider.GetComponent<Tile>())
+            {
+                tile = hit.collider.GetComponent<Tile>();
+            }
+        }
+        if (Input.GetAxisRaw("Horizontal") < 0 && direction!= Input.GetAxisRaw("Horizontal"))
+        { // need to figure out how to prevent this from happening when holding down button
+            // taken from unreal endless runner lololol
+            
+            tile.newlane = Mathf.Clamp(tile.lane - 1, 0, 2);
+            print(tile.newlane);
+            Vector3 lerpPosition = new Vector3(tile.lanes[tile.newlane].x, transform.position.y, tile.lanes[tile.newlane].z);
+            float distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
+            while (distanceBetween > 0.01)
+            {
+                transform.position = Vector3.Lerp(transform.position, lerpPosition, movespeed * Time.deltaTime);
+                distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
+            }
+            transform.position = lerpPosition;
+            //transform.position = tile.lanes[tile.newlane]
+            tile.lane = tile.newlane;
+        }
+        else if (Input.GetAxisRaw("Horizontal") > 0 && direction != Input.GetAxisRaw("Horizontal"))
+        {
+            print("yes");
+            tile.newlane = Mathf.Clamp(tile.lane + 1, 0, 2);
+            print(tile.newlane);
+            Vector3 lerpPosition = new Vector3(tile.lanes[tile.newlane].x, transform.position.y, tile.lanes[tile.newlane].z);
+            float distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
+            while (distanceBetween > 0.01)
+            {
+                transform.position = Vector3.Lerp(transform.position, lerpPosition, movespeed * Time.deltaTime);
+                distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
+            }
+            transform.position = lerpPosition;
+            tile.lane = tile.newlane;
+        }
+        direction = Input.GetAxisRaw("Horizontal");
     }
     private void OnCollisionEnter(Collision collision) {
         if (NPC) return;
