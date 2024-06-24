@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public float originalInvincibleTime,maxInvincibleTime;
     [SerializeField]float invincibilitytime;
     Tile tile;
+    public TrailRenderer trailRenderer;
     //NPCManagement npcmanager;
     // Start is called before the first frame update
     private void Awake() {
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour
         canMove = true;
         levelManager = FindObjectOfType<LevelManager>();
         invincibilitytime = originalInvincibleTime;
+        trailRenderer = GetComponent<TrailRenderer>();
         //energy = maxenergy;
         levelManager.energyslider.maxValue = maxenergy;
         //npcmanager = FindObjectOfType<NPCManagement>();
@@ -74,6 +76,8 @@ public class Player : MonoBehaviour
         if(invincibilitytime <= 0) {
             invincibility = false;
             invincibilitytime = originalInvincibleTime;
+            movespeed /= 2;
+            trailRenderer.emitting = false;
             GetComponent<Rigidbody>().isKinematic = false;
             for (int i = 0; i < 5; i++) {
                 foreach (MeshRenderer mesh in meshes) {
@@ -104,7 +108,7 @@ public class Player : MonoBehaviour
             energy -= 10;
         }
     }
-    public void Invincibility()
+    public void RushMode()
     {
         invincibility = true;
         invincibilitytime = originalInvincibleTime;
@@ -113,9 +117,11 @@ public class Player : MonoBehaviour
         {
             foreach (MeshRenderer mesh in meshes)
             {
-                foreach (Material mat in mesh.materials) mat.color = Color.blue;
+                foreach (Material mat in mesh.materials) mat.color = Color.red;
             }
         }
+        trailRenderer.emitting = true;
+        movespeed *= 2;
     }
 
     IEnumerator HitReaction()
