@@ -204,6 +204,8 @@ MonoBehaviour:
   sub: 
   temp: 
   character: 2
+  avatar: {fileID: 0}
+  dialogueSprite: {fileID: 21300000, guid: 82fb5dc5d75acaa40af8ad8576a8c4b0, type: 3}
 --- !u!1001 &1963066803236420356
 PrefabInstance:
   m_ObjectHideFlags: 0

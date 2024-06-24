@@ -37,6 +37,8 @@ public class NPC : MonoBehaviour
     public string sub;
     public string temp;
     public int character = 2;
+    public Image avatar;
+    public Sprite dialogueSprite;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +47,8 @@ public class NPC : MonoBehaviour
         levelManager = FindObjectOfType<LevelManager>();
         cam = FindObjectOfType<CameraController>();
         player = FindObjectOfType<Player>();
-
+        avatar = levelManager.npcAvatar;
+        avatar.sprite = dialogueSprite;
         names = nameFile.text.Split("\n");
         questions = questionFile.text.Split("\n");
         explains = explainsFile.text.Split("\n");
@@ -181,7 +184,9 @@ public class NPC : MonoBehaviour
             UpdateCanvas();
             player.canMove = false;
             player.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            CameraPan();
+            player.avatar.gameObject.SetActive(true);
+            avatar.gameObject.SetActive(true);
+            //CameraPan();
             StartDialogue();
         }
     }
@@ -209,6 +214,8 @@ public class NPC : MonoBehaviour
         cam.smoothing = 3;
         spoken = true;
         player.NPC = false;
+        player.avatar.gameObject.SetActive(false);
+        avatar.gameObject.SetActive(false);
         //dialoguetext.text = "";
         //if (!spoken) { // ensures spokencount is only increased once
         //    spoken = true;
@@ -227,13 +234,13 @@ public class NPC : MonoBehaviour
             yield return new WaitForSeconds(wordspeed);
         }
     }
-    void CameraPan() {
-        cam.target = transform.GetChild(0);
-        cam.NPC = true;
-        player.NPC = true;
-        cam.smoothing = 4f;
-        cam.transform.position = Vector3.Lerp(transform.position, cam.targetposition, Time.deltaTime * cam.smoothing);
-    }
+    //void CameraPan() {
+    //    cam.target = transform.GetChild(0);
+    //    cam.NPC = true;
+    //    player.NPC = true;
+    //    cam.smoothing = 4f;
+    //    cam.transform.position = Vector3.Lerp(transform.position, cam.targetposition, Time.deltaTime * cam.smoothing);
+    //}
     public void FollowPlayer() {
         if (!followplayer) return;
         if (levelManager.level == LevelManager.Level.Bus) player.GetComponent<Rigidbody>().isKinematic = true;

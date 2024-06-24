@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     Vector3 movement;
@@ -20,6 +21,8 @@ public class Player : MonoBehaviour
     [SerializeField]float invincibilitytime;
     Tile tile;
     public TrailRenderer trailRenderer;
+    public Image avatar;
+    public Sprite dialogueSprite;
     //NPCManagement npcmanager;
     // Start is called before the first frame update
     private void Awake() {
@@ -40,6 +43,7 @@ public class Player : MonoBehaviour
         levelManager = FindObjectOfType<LevelManager>();
         invincibilitytime = originalInvincibleTime;
         trailRenderer = GetComponent<TrailRenderer>();
+        avatar.sprite = dialogueSprite;
         //energy = maxenergy;
         levelManager.energyslider.maxValue = maxenergy;
         //npcmanager = FindObjectOfType<NPCManagement>();

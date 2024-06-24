@@ -36,6 +36,7 @@ public class LevelManager : SceneLoader {
     [HideInInspector]public Player player;
     public GameObject upgradeText,boost,taskfailimg;
     ObjectPool objectPool;
+    public Image npcAvatar;
     //[SerializeField]Tile starttile;
     // Start is called before the first frame update
     private void Awake() {

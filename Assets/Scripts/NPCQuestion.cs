@@ -59,6 +59,7 @@ public class NPCQuestion : MonoBehaviour
             //Explain();
             levelManager.upgradeText.SetActive(false);
             npcmanager.myNPC.questionbox.SetActive(false);
+            // NPC responds to player's choice here
             npcmanager.myNPC.EndDialogue();
             levelManager.taskcompletescreen.SetActive(true);
             npcmanager.myNPC.tasksuccess = NPC.Task.Fail;
@@ -67,6 +68,7 @@ public class NPCQuestion : MonoBehaviour
         else if (option == Options.CorrectOption) {
             //Explain();
             npcmanager.myNPC.questionbox.SetActive(false);
+            // NPC responds to player's choice here
             npcmanager.myNPC.EndDialogue();
             if (npcmanager.myNPC.hasdestination) {
                 npcmanager.myNPC.followplayer = true;
