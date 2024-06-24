@@ -20,6 +20,9 @@ public class Tile : MonoBehaviour {
         rng = Random.Range(0f, 1f);
         lane = 1; // middle lane
         newlane = 0;
+        lanes[0].z = 1;
+        lanes[1].z = 0;
+        lanes[2].z = -1;
     }
 
     // Update is called once per frame

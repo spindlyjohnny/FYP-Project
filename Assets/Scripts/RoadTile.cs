@@ -14,6 +14,9 @@ public class RoadTile : Tile
         npcmanager = FindObjectOfType<NPCManagement>();
         bus = GetComponentInChildren<Bus>(true);
         campos = bus.transform.Find("Cam Position");
+        lanes[0].z = 1;
+        lanes[1].z = 0;
+        lanes[2].z = -1;
     }
 
     // Update is called once per frame
