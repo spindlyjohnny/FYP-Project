@@ -38,8 +38,9 @@ public class Interactable : MonoBehaviour
             if (GetComponentInParent<RoadTile>()) { // sets NPC street to gameobject if it's a roadtile
                 npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
             }
-            if (target /*&& npcmanager.myNPC.sub == npcmanager.myNPC.temp/*!gameObject.CompareTag("Finish") && !GetComponent<TrainObstacle>()*/) {
+            if (target) {
                 player.inputtext.SetActive(true);
+                player.canMove = false;
                 //transform.SetParent(null);
                 if (Input.GetKeyDown(KeyCode.F) && gameObject.CompareTag("Transition")) npcmanager.myNPC.Transitioninator(); // transitions only if player presses F on an NPC destination. This is so that tasks that dont transition, dont transition.
                 //levelManager.Spawn(1);

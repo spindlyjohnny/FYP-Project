@@ -70,7 +70,7 @@ public class LevelManager : SceneLoader {
             }
             Spawn(8,13);
         } 
-        else {
+        else if(level == Level.MRT){
             cam.lookOffset = cam.interioroffset;
             for (int i = 0; i < tiles.Length; i++) { // mrt is the single mrt prefab that we are using
                 tiles[i] = mrt;
@@ -86,12 +86,15 @@ public class LevelManager : SceneLoader {
                     player.transform.position = i.transform.Find("Player Start Point").position;
                 }
             }
+        } 
+        else {
+            cam.lookOffset = cam.interioroffset;
         }
     }
 
     // Update is called once per frame
     void Update() {
-        //print("Level:" + level);
+        print("Level:" + level);
         //print("Shift:" + tileshiftfactor);
         if (gameover) {
             gameoverscreen.SetActive(true);
