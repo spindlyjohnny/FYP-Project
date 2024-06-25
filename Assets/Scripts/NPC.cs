@@ -83,7 +83,13 @@ public class NPC : MonoBehaviour
         {
             dialogueList.Add(dialogueEx[i]);
         }
-
+        foreach(string str in outcomes)
+        {
+            if (str == "Start task")
+            {
+                print("Task");
+            }
+        }
         bool continuing = false;
         int optionIndex = 0;
         char quotationMark = filteredOptions[0].ToCharArray()[0];
@@ -203,6 +209,7 @@ public class NPC : MonoBehaviour
     //    }
     //}
     void StartDialogue() {
+        player.NPC = true;
         dialoguebox.SetActive(true);
         avatar.sprite = dialogueSprite;
         dialoguetext.text = "";
