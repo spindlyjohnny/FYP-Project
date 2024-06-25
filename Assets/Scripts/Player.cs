@@ -65,7 +65,9 @@ public class Player : MonoBehaviour
             invincibilitytime = originalInvincibleTime;
             movespeed /= 2;
             trailRenderer.emitting = false;
-            GetComponent<Rigidbody>().isKinematic = false;
+            //GetComponent<Rigidbody>().isKinematic = false;
+            Physics.IgnoreLayerCollision(gameObject.layer, 8, false); // obstacle layer
+            Physics.IgnoreLayerCollision(gameObject.layer, 7, false); // npc layer
             for (int i = 0; i < 5; i++) {
                 foreach (MeshRenderer mesh in meshes) {
                     foreach (Material mat in mesh.materials) mat.color = originalColor;
@@ -147,7 +149,9 @@ public class Player : MonoBehaviour
     {
         invincibility = true;
         invincibilitytime = originalInvincibleTime;
-        GetComponent<Rigidbody>().isKinematic = true;
+        Physics.IgnoreLayerCollision(gameObject.layer, 8,true);
+        Physics.IgnoreLayerCollision(gameObject.layer, 7,true);
+        //GetComponent<Rigidbody>().isKinematic = true;
         for (int i =0; i< 5; i++)
         {
             foreach (MeshRenderer mesh in meshes)

@@ -16,7 +16,7 @@ public class NPC : MonoBehaviour
     public TMP_Text nametext;
     public float wordspeed;
     public int currentline;
-    bool spoken;
+    //bool spoken;
     public bool followplayer;
     public NPCManagement npcmanager;
     string[] names, questions, explains,outcomes;
@@ -144,8 +144,9 @@ public class NPC : MonoBehaviour
     void Update()
     {
         FollowPlayer();
+        if (tasksuccess == Task.Fail) npcmanager.myNPC = null;
         //if (hasdestination) {
-           
+
         //}
     }
     public void Transitioninator() {
@@ -185,7 +186,7 @@ public class NPC : MonoBehaviour
         }
     }
     private void OnTriggerEnter(Collider other) {
-        if (other.GetComponent<Player>() && !spoken && !npcmanager.myNPC) {
+        if (other.GetComponent<Player>() && !npcmanager.myNPC) {
             UpdateCanvas();
             player.canMove = false;
             player.GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -215,12 +216,12 @@ public class NPC : MonoBehaviour
     public void EndDialogue() {
         dialoguebox.SetActive(false);
         player.canMove = true;
-        cam.target = player.transform;
-        cam.NPC = false;
+        //cam.target = player.transform;
+        //cam.NPC = false;
         //if (levelManager.level == LevelManager.Level.Bus || levelManager.level == LevelManager.Level.BusInterior) cam.transform.position = cam.originalposition.position;
         //else cam.transform.position = cam.trainposition.position;
-        cam.smoothing = 3;
-        spoken = true;
+        //cam.smoothing = 3;
+        //spoken = true;
         player.NPC = false;
         levelManager.dialoguescreen.SetActive(false);
         //player.avatar.gameObject.SetActive(false);
@@ -278,6 +279,8 @@ public class NPC : MonoBehaviour
         hasdestination = false;
         string subOutcome = outcomes[qnindex].Substring(0, 6);
         string tempOutcome = "Start task".Substring(0, 6);
+        print(subOutcome);
+        print(tempOutcome);
         if (subOutcome == tempOutcome)
         {
             hasdestination = true;

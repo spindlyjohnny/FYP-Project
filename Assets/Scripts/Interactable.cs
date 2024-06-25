@@ -50,12 +50,15 @@ public class Interactable : MonoBehaviour
     private void OnDrawGizmos() {
         Gizmos.DrawWireSphere(transform.position, radius);
     }
+    private void OnTriggerStay(Collider other) {
+        if (gameObject.CompareTag("Transition") && Input.GetKeyDown(KeyCode.F)) npcmanager.myNPC.Transitioninator();
+    }
     protected virtual void OnTriggerEnter(Collider other) {
         if(npcmanager.myNPC != null && other.GetComponent<Player>()) {
             player.canMove = false;
             player.inputtext.SetActive(true);
             if (GetComponentInParent<RoadTile>()) npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
-            if (gameObject.CompareTag("Transition") && Input.GetKeyDown(KeyCode.F)) npcmanager.myNPC.Transitioninator();
+            //if (gameObject.CompareTag("Transition") && Input.GetKeyDown(KeyCode.F)) npcmanager.myNPC.Transitioninator();
         }
     }
     protected void OnTriggerExit(Collider other) {

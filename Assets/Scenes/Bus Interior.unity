@@ -395,17 +395,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4910137914769632328, guid: 8d6271973f8b3d940804a8a700fde8fb, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7404829644063580020, guid: 8d6271973f8b3d940804a8a700fde8fb, type: 3}
       propertyPath: m_Name
       value: Bus Interior
-      objectReference: {fileID: 0}
-    - target: {fileID: 7404829644063580020, guid: 8d6271973f8b3d940804a8a700fde8fb, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
