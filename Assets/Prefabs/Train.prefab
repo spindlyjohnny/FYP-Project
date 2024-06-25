@@ -682,7 +682,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3004979976792649330}
   - component: {fileID: 5041008657791542488}
-  - component: {fileID: 4910137914769632328}
+  - component: {fileID: 5036701176287110458}
   m_Layer: 0
   m_Name: Train
   m_TagString: Train
@@ -737,7 +737,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.005490913, y: 0.010200885, z: 0.014847331}
   m_Center: {x: 0.13186994, y: 0.0002291131, z: 0.0004107356}
---- !u!114 &4910137914769632328
+--- !u!114 &5036701176287110458
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -746,13 +746,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7404829644063580020}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be53504eca576324ca1d7adba0662de3, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d60584f40661c04591e11f9f0cd89ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnpt: {fileID: 482604437530124305}
-  NPC:
-  - {fileID: 0}
-  obstacleNPCs: {fileID: 7281757386624872829}
+  NPC: []
+  lanes: []
+  lane: 0
+  newlane: 0
 --- !u!1 &8392333901124686423
 GameObject:
   m_ObjectHideFlags: 0

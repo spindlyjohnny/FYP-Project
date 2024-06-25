@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     Tile tile;
     public TrailRenderer trailRenderer;
     public Image avatar;
-    public Sprite dialogueSprite;
+    public Sprite dialogueSprite; // this var exists cuz there's 2 playable charas
     //NPCManagement npcmanager;
     // Start is called before the first frame update
     private void Awake() {

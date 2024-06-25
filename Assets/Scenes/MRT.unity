@@ -556,6 +556,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6254555688944105572, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
   m_PrefabInstance: {fileID: 8004116751846742633}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2101437862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1109707619842819586, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+  m_PrefabInstance: {fileID: 7196524405884246908}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &785670746770996512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -724,6 +729,10 @@ PrefabInstance:
       propertyPath: optionDButton
       value: 
       objectReference: {fileID: 7196524405884246909}
+    - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: dialoguescreen
+      value: 
+      objectReference: {fileID: 2101437862}
     - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: gameoverscreen
       value: 

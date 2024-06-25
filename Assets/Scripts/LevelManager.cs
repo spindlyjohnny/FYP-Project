@@ -10,7 +10,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Linq;
 public class LevelManager : SceneLoader {
     public bool gameover;
-    public GameObject gameoverscreen, taskcompletescreen, loadingscreen;
+    public GameObject gameoverscreen, taskcompletescreen, loadingscreen, dialoguescreen;
     public Slider energyslider;
     public GameObject[] tiles;
     [SerializeField] GameObject[] bustiles;
@@ -136,6 +136,7 @@ public class LevelManager : SceneLoader {
         onceComplete = false;
     }
     public void Move(int index,Level lvl) { // transition between levels
+        // index is the buildIndex of the level that you are going to, lvl is the Level enum value of the level that you are going to
         level = lvl;
         LoadScene(index,true);
         SaveData();

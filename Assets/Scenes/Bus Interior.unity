@@ -1121,6 +1121,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1460206461 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1109707619842819586, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+  m_PrefabInstance: {fileID: 1923099090}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1509404879 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5474369308337915223, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
@@ -1466,6 +1471,10 @@ PrefabInstance:
       propertyPath: optionDButton
       value: 
       objectReference: {fileID: 1923099096}
+    - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: dialoguescreen
+      value: 
+      objectReference: {fileID: 1460206461}
     - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: gameoverscreen
       value: 

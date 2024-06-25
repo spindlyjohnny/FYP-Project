@@ -47,8 +47,6 @@ public class NPC : MonoBehaviour
         levelManager = FindObjectOfType<LevelManager>();
         cam = FindObjectOfType<CameraController>();
         player = FindObjectOfType<Player>();
-        avatar = levelManager.npcAvatar;
-        avatar.sprite = dialogueSprite;
         names = nameFile.text.Split("\n");
         questions = questionFile.text.Split("\n");
         explains = explainsFile.text.Split("\n");
@@ -69,6 +67,8 @@ public class NPC : MonoBehaviour
         optionDtext = levelManager.optionDtext;
         dialoguebox = levelManager.dialoguebox;
         questionbox = levelManager.questionbox;
+        avatar = levelManager.npcAvatar;
+        //avatar.sprite = dialogueSprite;
         //turning the visibility on
         levelManager.optionCButton.SetActive(true);
         levelManager.optionDButton.SetActive(true);
@@ -168,15 +168,19 @@ public class NPC : MonoBehaviour
         AudioManager.instance.PlaySFX(correctsound);
     }
     IEnumerator Transition(LevelManager.Level level) {
-        if (level == LevelManager.Level.Bus && street != null) {
+        if (level == LevelManager.Level.Bus && street != null) {// called by bus.cs
             street.bus.gameObject.SetActive(true);
             cam.target = street.campos;
             cam.bus = true;
             gameObject.SetActive(false);
             player.gameObject.SetActive(false);
-        } else if (level == LevelManager.Level.MRT) {
+        } 
+        else if (level == LevelManager.Level.MRT) { // called by interactable.cs
             yield return new WaitForSeconds(1f);
             levelManager.Move(1,LevelManager.Level.Bus);
+        }
+        else if(level == LevelManager.Level.BusInterior) {// called by interactable.cs
+            levelManager.Move(3, LevelManager.Level.MRT);
         }
     }
     private void OnTriggerEnter(Collider other) {
@@ -184,8 +188,9 @@ public class NPC : MonoBehaviour
             UpdateCanvas();
             player.canMove = false;
             player.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            player.avatar.gameObject.SetActive(true);
-            avatar.gameObject.SetActive(true);
+            levelManager.dialoguescreen.SetActive(true);
+            //player.avatar.gameObject.SetActive(true);
+            //avatar.gameObject.SetActive(true);
             //CameraPan();
             StartDialogue();
         }
@@ -198,6 +203,7 @@ public class NPC : MonoBehaviour
     //}
     void StartDialogue() {
         dialoguebox.SetActive(true);
+        avatar.sprite = dialogueSprite;
         dialoguetext.text = "";
         currentline = 0;
         npcmanager.myNPC = this;
@@ -209,13 +215,14 @@ public class NPC : MonoBehaviour
         player.canMove = true;
         cam.target = player.transform;
         cam.NPC = false;
-        if (levelManager.level == LevelManager.Level.Bus || levelManager.level == LevelManager.Level.BusInterior) cam.transform.position = cam.originalposition.position;
-        else cam.transform.position = cam.trainposition.position;
+        //if (levelManager.level == LevelManager.Level.Bus || levelManager.level == LevelManager.Level.BusInterior) cam.transform.position = cam.originalposition.position;
+        //else cam.transform.position = cam.trainposition.position;
         cam.smoothing = 3;
         spoken = true;
         player.NPC = false;
-        player.avatar.gameObject.SetActive(false);
-        avatar.gameObject.SetActive(false);
+        levelManager.dialoguescreen.SetActive(false);
+        //player.avatar.gameObject.SetActive(false);
+        //avatar.gameObject.SetActive(false);
         //dialoguetext.text = "";
         //if (!spoken) { // ensures spokencount is only increased once
         //    spoken = true;
