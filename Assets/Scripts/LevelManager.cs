@@ -161,7 +161,6 @@ public class LevelManager : SceneLoader {
                 x = numberOfTiles;
             }
             if (level == Level.Bus) RandomTile(); // randomise tiles in bus level, not needed in mrt level since all tiles are the same
-            tileindex = 1;
             mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
             objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(size * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
             //if (level == Level.Bus) {
