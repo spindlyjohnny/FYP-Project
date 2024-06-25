@@ -20,9 +20,9 @@ public class Tile : MonoBehaviour {
         rng = Random.Range(0f, 1f);
         lane = 1; // middle lane
         newlane = 0;
-        lanes[0].z = 1;
+        lanes[0].z = 1.3f;
         lanes[1].z = 0;
-        lanes[2].z = -1;
+        lanes[2].z = -1.3f;
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class Tile : MonoBehaviour {
         else if (rng <= 0.5f && rng > 0) { // 50% chance of NPC
             foreach (var i in NPC) {
                 if(i != null)i.gameObject.SetActive(true);
-                if (!i.followplayer) i.transform.localPosition = i.startpos;
+                //if (!i.followplayer) i.transform.localPosition = i.startpos;
             }
         }
         for(int i = 0; i < lanes.Length; i++) { // position at which player snaps to changes as they move
