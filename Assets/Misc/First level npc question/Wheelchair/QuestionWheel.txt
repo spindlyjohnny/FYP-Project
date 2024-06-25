@@ -2,3 +2,5 @@
 "Oh no... (She looks like she is struggling with her wheelchair)"
 "Hey, this train is too crowded! And I'm a quite exhausted to move on my own. I need to get to the nearest wheelchair zone and leave at my stop, can you assist me?"
 "I need to alight soon, but there's too many people at the train door!"
+"please press the stop button for me, I can't reach it from here"
+"Hi there, the foldable seat is blocking me, could you help me adjust it?"

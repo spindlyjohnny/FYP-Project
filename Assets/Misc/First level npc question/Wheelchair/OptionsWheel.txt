@@ -7,3 +7,7 @@ Laugh at her"
 Sorry, I can't"
 "Help her inform passengers to make way.
 Shrug it off"
+"Help her press it
+Let her do it herself"
+"Yes, I can help
+No, I don't know how"

@@ -2,3 +2,5 @@ Pavement
 Pavement
 Wheelchair Zone
 Train
+Inside Bus
+Inside Bus
