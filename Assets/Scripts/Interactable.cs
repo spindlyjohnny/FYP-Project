@@ -53,8 +53,9 @@ public class Interactable : MonoBehaviour
     protected virtual void OnTriggerEnter(Collider other) {
         if(npcmanager.myNPC != null && other.GetComponent<Player>()) {
             player.canMove = false;
+            player.inputtext.SetActive(true);
             if (GetComponentInParent<RoadTile>()) npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
-            if (gameObject.CompareTag("Transition")) npcmanager.myNPC.Transitioninator();
+            if (gameObject.CompareTag("Transition") && Input.GetKeyDown(KeyCode.F)) npcmanager.myNPC.Transitioninator();
         }
     }
     protected void OnTriggerExit(Collider other) {

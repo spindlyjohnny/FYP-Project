@@ -19,11 +19,11 @@ public class NPC : MonoBehaviour
     bool spoken;
     public bool followplayer;
     public NPCManagement npcmanager;
-    string[] names, questions, explains;
+    string[] names, questions, explains,outcomes;
     string[] options,questionLocation;
     public List<string> filteredOptions= new List<string>(0);
     public List<OptionsOfQuestions> optionList;
-    public TextAsset optionsFile, dialogueFile, questionFile,locationFile, nameFile, explainsFile;
+    public TextAsset optionsFile, dialogueFile, questionFile,locationFile, nameFile, explainsFile,outcomesFile;
     public float movespeed;
     LevelManager levelManager;
     public Vector3 startpos;
@@ -51,6 +51,7 @@ public class NPC : MonoBehaviour
         questions = questionFile.text.Split("\n");
         explains = explainsFile.text.Split("\n");
         questionLocation= locationFile.text.Split("\n");
+        outcomes= outcomesFile.text.Split("\n");
         string[] dialogueEx = new string[0];
         dialogueEx = dialogueFile.text.Split("\n");
         tasksuccess = Task.Default;
