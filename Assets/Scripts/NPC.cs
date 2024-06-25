@@ -83,13 +83,7 @@ public class NPC : MonoBehaviour
         {
             dialogueList.Add(dialogueEx[i]);
         }
-        foreach(string str in outcomes)
-        {
-            if (str == "Start task")
-            {
-                print("Task");
-            }
-        }
+       
         bool continuing = false;
         int optionIndex = 0;
         char quotationMark = filteredOptions[0].ToCharArray()[0];
@@ -281,7 +275,13 @@ public class NPC : MonoBehaviour
         }
         int index = Random.Range(0, locationIndexs.Count);
         qnindex = locationIndexs[index];
-
+        hasdestination = false;
+        string subOutcome = outcomes[qnindex].Substring(0, 6);
+        string tempOutcome = "Start task".Substring(0, 6);
+        if (subOutcome == tempOutcome)
+        {
+            hasdestination = true;
+        }
 
 
         levelManager.optionAButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
