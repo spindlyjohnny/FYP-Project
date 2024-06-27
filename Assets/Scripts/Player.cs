@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public bool canMove,NPC;
     LevelManager levelManager;
     public float energy,maxenergy;
-    public float energygain,maxEnergyGain;
+    //public float energygain,maxEnergyGain;
     public MeshRenderer[] meshes;
     public Color originalColor;
     public AudioClip hitsfx;
@@ -28,11 +28,13 @@ public class Player : MonoBehaviour
     private void Awake() {
         if (PlayerPrefs.GetInt("bool") == 1) {
             energy = PlayerPrefs.GetFloat("energy");
-            energygain = PlayerPrefs.GetFloat("Energy Gain");
+            maxenergy = PlayerPrefs.GetFloat("Max Energy");
+            //energygain = PlayerPrefs.GetFloat("Energy Gain");
             originalInvincibleTime = PlayerPrefs.GetFloat("Invincibility Time");
         } else {
             PlayerPrefs.SetFloat("energy", 100);
-            PlayerPrefs.SetFloat("Energy Gain", 10f);
+            PlayerPrefs.SetFloat("Max Energy", 100);
+            //PlayerPrefs.SetFloat("Energy Gain", 10f);
             PlayerPrefs.SetFloat("Invincibility Time", 3f);
             energy = PlayerPrefs.GetFloat("energy");
         }
@@ -87,7 +89,7 @@ public class Player : MonoBehaviour
             gameObject.SetActive(false);
             levelManager.gameover = true;
         }
-
+        if (energy > maxenergy) energy = maxenergy;
     }
 
     void Movement()
@@ -178,15 +180,15 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other) {
-        if (other.GetComponent<Collectible>()) {
-            if (other.CompareTag("Energy")) {
-                energy += energygain;
-                if (energy > maxenergy) energy = maxenergy;
-            } 
-            else {
-                // question.
-            }
-        }
-    }
+    //private void OnTriggerEnter(Collider other) {
+    //    if (other.GetComponent<Collectible>()) {
+    //        if (other.CompareTag("Energy")) {
+    //            energy += energygain;
+    //            if (energy > maxenergy) energy = maxenergy;
+    //        } 
+    //        else {
+    //            // question.
+    //        }
+    //    }
+    //}
 }

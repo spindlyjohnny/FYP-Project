@@ -7,8 +7,8 @@ public class Interactable : MonoBehaviour
     protected NPCManagement npcmanager;
     protected LevelManager levelManager;
     //public string location;
-    public bool target = false;
-    float radius;
+    //public bool target = false;
+    //float radius;
     // Start is called before the first frame update
     protected void Start()
     {
@@ -21,12 +21,12 @@ public class Interactable : MonoBehaviour
     protected virtual void Update()
     {
         //Collider[] detector;
-        if (levelManager.level == LevelManager.Level.Bus) {
-            radius = 1f; // radius of detector
-        } 
-        else {
-            radius = 0.4f; // radius in train, 1 is too big
-        }
+        //if (levelManager.level == LevelManager.Level.Bus) {
+        //    radius = 1f; // radius of detector
+        //} 
+        //else {
+        //    radius = 0.4f; // radius in train, 1 is too big
+        //}
         //if (npcmanager.myNPC != null) {
         //    detector = Physics.OverlapSphere(transform.position, radius); // detects NPC
         //    for (int i = 0; i < detector.Length; i++) {
@@ -48,7 +48,7 @@ public class Interactable : MonoBehaviour
         //}
     }
     private void OnDrawGizmos() {
-        Gizmos.DrawWireSphere(transform.position, radius);
+        //Gizmos.DrawWireSphere(transform.position, radius);
     }
     private void OnTriggerStay(Collider other) {
         if (gameObject.CompareTag("Transition") && Input.GetKeyDown(KeyCode.F)) npcmanager.myNPC.Transitioninator();

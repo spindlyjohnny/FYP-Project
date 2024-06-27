@@ -161,12 +161,14 @@ public class NPC : MonoBehaviour
         player.inputtext.SetActive(false);
 
         levelManager.upgradeText.SetActive(true);
-        levelManager.boost.GetComponentInChildren<TMP_Text>().text = "gain x 2";
+        levelManager.boost.GetComponentInChildren<TMP_Text>().text = "max increased";
         levelManager.boost.GetComponentInChildren<Image>().enabled = true;
-        if (player.energygain < player.maxEnergyGain) {
-            player.energygain *= 2;
-            print("gains");
-        }
+        player.maxenergy *= 1.5f;
+        player.energy += player.maxenergy * .2f;
+        //if (player.energygain < player.maxEnergyGain) {
+        //    player.energygain *= 2;
+        //    print("gains");
+        //}
         AudioManager.instance.PlaySFX(correctsound);
     }
     IEnumerator Transition(LevelManager.Level level) {

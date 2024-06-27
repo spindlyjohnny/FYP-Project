@@ -76,6 +76,7 @@ public class NPCQuestion : MonoBehaviour
             else {
                 levelManager.taskcompletescreen.SetActive(true);
                 npcmanager.myNPC.tasksuccess = NPC.Task.Success;
+                player.energy += player.maxenergy * .2f;
                 //if (!upgraded) {
                 //    FindObjectOfType<Player>().maxenergy *= 1.5f;
                 //    upgraded = true;
