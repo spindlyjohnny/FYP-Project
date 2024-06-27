@@ -40,10 +40,10 @@ TextureImporter:
     wrapU: 0
     wrapV: 0
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -173,18 +173,348 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: 2_Eye_Texture_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 910.2222
+        width: 256
+        height: 113.77778
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cab8cee2fee1db74991c9239c20a7b0b
+      internalID: 1381775738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Eye_Texture_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 797.2222
+        width: 256
+        height: 113.77778
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf31ca8e68c3db54498a59a2933c3d1c
+      internalID: 1521774084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Eye_Texture_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 684.2222
+        width: 256
+        height: 113.77778
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e61866be599032e4b9b0bc46ac4e737c
+      internalID: 1169288902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Eye_Texture_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 571.2222
+        width: 256
+        height: 113.77778
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c2ee0cfa95d6c14fad108f535118fa6
+      internalID: 1861027555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Eye_Texture_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 571.2222
+        width: 256
+        height: 113.77778
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8e4657ae25887f429758e14379ebe81
+      internalID: -1570583599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Eye_Texture_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 458.22223
+        width: 256
+        height: 113.77778
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a4eb7fce38a64d46b04c4861820c8fb
+      internalID: -1502603671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Eye_Texture_6
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 458.22223
+        width: 256
+        height: 113.77778
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcaa9c1c6720fa745b426deef4869da0
+      internalID: -1401645637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Eye_Texture_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 345.22223
+        width: 256
+        height: 113.77778
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d4a7f2ae39139f4695ba23bf05dee03
+      internalID: -591539948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Eye_Texture_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 345.22223
+        width: 256
+        height: 113.77778
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62386f845f7fa9649b69f5736f39db24
+      internalID: 872655064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Eye_Texture_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 232.22223
+        width: 256
+        height: 113.77778
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a014ee5aa48713b498b7adfd2b57b862
+      internalID: 561103647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Eye_Texture_10
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 232.22223
+        width: 256
+        height: 113.77778
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 379831164c01d144991f31d345489f14
+      internalID: 876870082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Eye_Texture_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 119.22222
+        width: 256
+        height: 113.77778
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a678a550d3659e4458077f3ec51901e0
+      internalID: 1641271938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Eye_Texture_12
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 119.22222
+        width: 256
+        height: 113.77778
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b4e9deafc44c8f49bcb04608b6d6579
+      internalID: 453719142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Eye_Texture_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6.2222214
+        width: 256
+        height: 113.77778
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d97f073c15029284486271a3648ac97e
+      internalID: 317045594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2_Eye_Texture_14
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 6.2222214
+        width: 256
+        height: 113.77778
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0d7b03c5fee5b44ca3108e6844d5152
+      internalID: -1372345054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 499131a60ac4fcf47aad668afca19e42
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      2_Eye_Texture_0: 1381775738
+      2_Eye_Texture_1: 1521774084
+      2_Eye_Texture_10: 876870082
+      2_Eye_Texture_11: 1641271938
+      2_Eye_Texture_12: 453719142
+      2_Eye_Texture_13: 317045594
+      2_Eye_Texture_14: -1372345054
+      2_Eye_Texture_2: 1169288902
+      2_Eye_Texture_3: 1861027555
+      2_Eye_Texture_4: -1570583599
+      2_Eye_Texture_5: -1502603671
+      2_Eye_Texture_6: -1401645637
+      2_Eye_Texture_7: -591539948
+      2_Eye_Texture_8: 872655064
+      2_Eye_Texture_9: 561103647
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
