@@ -15,7 +15,9 @@ public class NPCManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       if(myNPC != null) {
+            if (myNPC.tasksuccess == NPC.Task.Fail) Destroy(myNPC.gameObject, .1f);
+        }
     }
     public void ContinueDialogue() {
         if (myNPC.dialogue.Length == 0) return;

@@ -144,7 +144,7 @@ public class NPC : MonoBehaviour
     void Update()
     {
         FollowPlayer();
-        if (tasksuccess == Task.Fail) npcmanager.myNPC = null;
+        //if (tasksuccess == Task.Fail) npcmanager.myNPC = null;
         //if (hasdestination) {
 
         //}
@@ -209,7 +209,7 @@ public class NPC : MonoBehaviour
         avatar.sprite = dialogueSprite;
         dialoguetext.text = "";
         currentline = 0;
-        npcmanager.myNPC = this;
+        npcmanager.myNPC = GetComponent<NPC>();
         dialogueco = StartCoroutine(Dialogue());
     }
    
