@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
     public GameObject inputtext;
     public bool invincibility = false;
     public float originalInvincibleTime,maxInvincibleTime;
-    bool once=false;
     float direction=3;
     [SerializeField]float invincibilitytime;
     Tile tile;

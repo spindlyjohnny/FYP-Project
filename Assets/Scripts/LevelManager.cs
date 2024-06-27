@@ -95,7 +95,7 @@ public class LevelManager : SceneLoader {
 
     // Update is called once per frame
     void Update() {
-        print("Level:" + level);
+        
         //print("Shift:" + tileshiftfactor);
         if (gameover) {
             gameoverscreen.SetActive(true);
@@ -131,7 +131,8 @@ public class LevelManager : SceneLoader {
         Initalize();
     }
     IEnumerator DisableTaskScreen() {
-        yield return new WaitForSeconds(1.3f);
+
+        yield return new WaitForSecondsRealtime(1.3f);
         taskcompletescreen.SetActive(false);
         onceComplete = false;
     }

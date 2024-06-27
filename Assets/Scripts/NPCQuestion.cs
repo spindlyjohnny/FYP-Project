@@ -50,7 +50,6 @@ public class NPCQuestion : MonoBehaviour
                
                 
             }
-            player.canMove = true;
             return;
         }
 
@@ -88,12 +87,18 @@ public class NPCQuestion : MonoBehaviour
 
     }
     public void Explain() {
+               
+        Time.timeScale = 0;
         levelManager.upgradeText.SetActive(false);
         if (npcmanager.myNPC!=null)
         {
             for(int i = 0; i < npcmanager.myNPC.questionbox.transform.childCount; i++) {
                 GameObject go = npcmanager.myNPC.questionbox.transform.GetChild(i).gameObject;
-                if (go.name == "Explanation" || go.name == "Question Panel" || go.name == "Close Button") go.SetActive(true);
+                if (go.name == "Explanation" || go.name == "Question Panel" || go.name == "Close Button") 
+                {
+                    print(go.name);
+                    go.SetActive(true);
+                }
                 else go.SetActive(false);
             }
         }
@@ -111,6 +116,8 @@ public class NPCQuestion : MonoBehaviour
 
     }
     public void CloseQuestion() {
+        player.canMove = true;
+        Time.timeScale = 1;
         if (npcmanager.myNPC == true)
         {
             npcmanager.myNPC.questionbox.SetActive(false);
@@ -134,4 +141,5 @@ public class NPCQuestion : MonoBehaviour
 
         }
     }
+
 }
