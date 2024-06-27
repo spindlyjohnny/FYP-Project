@@ -16,11 +16,27 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: "Copied Avatar Rig Configuration mis-match. Transform hierarchy
-      does not match:\n\tTransform 'Left_Leg' for human bone 'LeftUpperLeg' not found\n"
-    rigImportWarnings: 
+    rigImportErrors: 
+    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
+      copied configuration does not match position in animation file:\n\t'Character_LeftLeg'
+      : position error = 40.605713 mm\n\t'Character_LeftKnee' : position error =
+      169.386948 mm\n\t'Character_RightLeg' : position error = 82.000481 mm\n"
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Run' has import animation warnings that might
+      lower retargeting quality:\nNote: Activate translation DOF on avatar to improve
+      retargeting quality.\n\t'Character_LeftShoulder' has translation animation
+      that will be discarded.\n\t'Character_LeftArm' has translation animation that
+      will be discarded.\n\t'Character_Head' has translation animation that will
+      be discarded.\n\t'Character_RightShoulder' has translation animation that will
+      be discarded.\n\t'Character_RightArm' has translation animation that will be
+      discarded.\n\t'Character_LeftLeg' has translation animation that will be discarded.\n\t'Character_LeftKnee'
+      has translation animation that will be discarded.\n\t'Character_LeftFoot' has
+      translation animation that will be discarded.\n\t'Character_LeftToeBase' has
+      translation animation that will be discarded.\n\t'Character_RightLeg' has translation
+      animation that will be discarded.\n\t'Character_RightKnee' has translation
+      animation that will be discarded.\n\t'Character_RightFoot' has translation
+      animation that will be discarded.\n\t'Character_RightToeBase' has translation
+      animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
