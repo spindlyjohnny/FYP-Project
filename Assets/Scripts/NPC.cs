@@ -179,14 +179,12 @@ public class NPC : MonoBehaviour
             cam.bus = true;
             gameObject.SetActive(false);
             player.gameObject.SetActive(false);
-        } 
-        else if (level == LevelManager.Level.MRT) { // called by interactable.cs
+        } else if (level == LevelManager.Level.MRT) { // called by interactable.cs
             yield return new WaitForSeconds(1f);
-            levelManager.Move(1,LevelManager.Level.Bus);
-        }
-        else if(level == LevelManager.Level.BusInterior) {// called by interactable.cs
+            levelManager.Move(1, LevelManager.Level.Bus);
+        } /*else if (level == LevelManager.Level.BusInterior) {// called by interactable.cs
             levelManager.Move(3, LevelManager.Level.MRT);
-        }
+        }*/
     }
     private void OnTriggerEnter(Collider other) {
         if (other.GetComponent<Player>() && !npcmanager.myNPC) {
@@ -260,6 +258,7 @@ public class NPC : MonoBehaviour
         else Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
         transform.SetParent(null);
         Vector3 dir = (player.transform.position - transform.position);
+        //transform.LookAt(dir, Vector3.up);
         //GetComponent<Collider>().enabled = false;
         transform.Translate(movespeed * Time.deltaTime * dir);
     }

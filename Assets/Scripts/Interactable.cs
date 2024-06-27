@@ -51,7 +51,10 @@ public class Interactable : MonoBehaviour
         //Gizmos.DrawWireSphere(transform.position, radius);
     }
     private void OnTriggerStay(Collider other) {
-        if (gameObject.CompareTag("Transition") && Input.GetKeyDown(KeyCode.F)) npcmanager.myNPC.Transitioninator();
+        if (gameObject.CompareTag("Transition") && Input.GetKeyDown(KeyCode.F)) {
+            if (npcmanager.myNPC != null) npcmanager.myNPC.Transitioninator();
+            else levelManager.Move(3, LevelManager.Level.MRT);
+        }
     }
     protected virtual void OnTriggerEnter(Collider other) {
         if(npcmanager.myNPC != null && other.GetComponent<Player>()) {
@@ -59,6 +62,9 @@ public class Interactable : MonoBehaviour
             player.inputtext.SetActive(true);
             if (GetComponentInParent<RoadTile>()) npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
             //if (gameObject.CompareTag("Transition") && Input.GetKeyDown(KeyCode.F)) npcmanager.myNPC.Transitioninator();
+        }
+        else if (other.GetComponent<Player>()) {
+            player.inputtext.SetActive(true);
         }
     }
     protected void OnTriggerExit(Collider other) {

@@ -27,12 +27,12 @@ public class Tile : MonoBehaviour {
 
     // Update is called once per frame
     protected virtual void Update() {
-        if (NPC == null) return;
-        if (rng > 0.5f && rng <= 1) { // no NPC
+        if (NPC[0] == null || NPC[1] == null) return;
+        if (rng > 0.5f && rng <= 1) { // 50% chance of npc 0
             NPC[0].gameObject.SetActive(true);
             NPC[1].gameObject.SetActive(false);
         } 
-        else if (rng <= 0.5f && rng > 0) { // 50% chance of NPC
+        else if (rng <= 0.5f && rng > 0) { // 50% chance of NPC 1
             NPC[0].gameObject.SetActive(false);
             NPC[1].gameObject.SetActive(true);
             //foreach (var i in NPC) {
