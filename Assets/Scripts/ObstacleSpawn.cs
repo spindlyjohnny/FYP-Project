@@ -24,10 +24,34 @@ public class ObstacleSpawn : MonoBehaviour
     {
         //if (myobstacle == null) SpawnObstacle();
     }
-    void SpawnObstacle() {
-        myobstacle = Instantiate(obstacles[Random.Range(0, obstacles.Length)], transform.position,transform.rotation);        
+    void SpawnObstacle()
+    {
+        myobstacle = Instantiate(obstacles[Random.Range(0, obstacles.Length)], transform.position + new Vector3(Randomness(), 0, 0), transform.rotation);
         myobstacle.GetComponent<Obstacle>().myspawner = this;
         myobstacle.transform.position += myobstacle.GetComponent<Obstacle>().spawnoffset;
         if (myobstacle.GetComponent<Collectible>() == null) myobstacle.transform.rotation = Quaternion.Euler(0, -90, 0);
+    }
+    int Randomness()
+    {
+        int random = 0;
+       
+        if (obstacles.Length == 1)
+        {
+            return random;
+        }
+        else
+        {
+            int indexer = Random.Range(0, 2);
+            if (indexer == 0)
+            {
+                random = Random.Range(-6, 0);
+            }
+            else
+            {
+                random = Random.Range(1, 6);
+            }
+            return random;
+        }
+        
     }
 }

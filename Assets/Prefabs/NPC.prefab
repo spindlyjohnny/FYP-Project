@@ -202,6 +202,8 @@ MonoBehaviour:
   - element: 01000000
   - element: 01000000
   - element: 01000000
+  - element: 01000000
+  - element: 01000000
   sub: 
   temp: 
   character: 2

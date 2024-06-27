@@ -939,6 +939,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Success Image
       objectReference: {fileID: 0}
+    - target: {fileID: 3626603133118987883, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3982750440406723458, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -962,6 +966,10 @@ PrefabInstance:
     - target: {fileID: 5376649452963288279, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063980683864536156, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+      propertyPath: m_margin.z
+      value: -77.22728
       objectReference: {fileID: 0}
     - target: {fileID: 7720399667744455033, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
       propertyPath: m_Name

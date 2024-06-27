@@ -270,7 +270,7 @@ MonoBehaviour:
   front: {fileID: 6760848994617811491}
   right: {fileID: 0}
   left: {fileID: 0}
-  distanceBeforeTurningBack: 10
+  distanceBeforeTurningBack: 3
   walkingRight: 1
 --- !u!65 &6422348654464122316
 BoxCollider:

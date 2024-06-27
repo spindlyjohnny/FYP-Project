@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     float direction=3;
     [SerializeField]float invincibilitytime;
     Tile tile;
-    public TrailRenderer trailRenderer;
+    TrailRenderer trailRenderer;
     public Image avatar;
     public Sprite dialogueSprite; // this var exists cuz there's 2 playable charas
     //NPCManagement npcmanager;
