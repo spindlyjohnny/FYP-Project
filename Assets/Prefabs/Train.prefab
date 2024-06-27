@@ -146,7 +146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  target: 0
 --- !u!1 &1438432342573962762
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,7 +191,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacles:
-  - {fileID: 3658114392855194944, guid: 6a44e815b257d964e902ffc13d41b0b2, type: 3}
   - {fileID: 8064431277538921078, guid: 83e4d15618ed8e244b067ee1d3ed1b03, type: 3}
 --- !u!1 &2524415150929751551
 GameObject:
@@ -261,7 +259,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  target: 0
 --- !u!1 &4132712998331090848
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,7 +327,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  target: 0
 --- !u!1 &4596255932900024031
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +394,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  target: 0
 --- !u!1 &4730506864292505445
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,7 +493,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  target: 0
 --- !u!1 &6337663996066418240
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,7 +591,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  target: 0
 --- !u!1 &7387704892844680403
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,7 +662,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  target: 0
   moveNPC: {fileID: 2783862356764392481}
   NPClocation: {fileID: 6752089458666360246}
 --- !u!1 &7404829644063580020

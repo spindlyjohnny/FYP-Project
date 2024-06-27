@@ -76,7 +76,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacles:
-  - {fileID: 3658114392855194944, guid: 6a44e815b257d964e902ffc13d41b0b2, type: 3}
   - {fileID: 7065292097607841402, guid: a0b41d455e465a741905a6d786dc5f0a, type: 3}
   - {fileID: 8064431277538921078, guid: 83e4d15618ed8e244b067ee1d3ed1b03, type: 3}
 --- !u!1 &5676769563118282335
@@ -202,7 +201,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacles:
-  - {fileID: 3658114392855194944, guid: 6a44e815b257d964e902ffc13d41b0b2, type: 3}
   - {fileID: 7065292097607841402, guid: a0b41d455e465a741905a6d786dc5f0a, type: 3}
   - {fileID: 8064431277538921078, guid: 83e4d15618ed8e244b067ee1d3ed1b03, type: 3}
 --- !u!1 &7020513656737403918
@@ -250,7 +248,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacles:
-  - {fileID: 3658114392855194944, guid: 6a44e815b257d964e902ffc13d41b0b2, type: 3}
   - {fileID: 7065292097607841402, guid: a0b41d455e465a741905a6d786dc5f0a, type: 3}
   - {fileID: 8064431277538921078, guid: 83e4d15618ed8e244b067ee1d3ed1b03, type: 3}
 --- !u!1 &7621181523352037822
