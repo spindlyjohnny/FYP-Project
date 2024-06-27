@@ -399,6 +399,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5374082183466899821, guid: 8d6271973f8b3d940804a8a700fde8fb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845685058615178265, guid: 8d6271973f8b3d940804a8a700fde8fb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7404829644063580020, guid: 8d6271973f8b3d940804a8a700fde8fb, type: 3}
       propertyPath: m_Name
       value: Bus Interior

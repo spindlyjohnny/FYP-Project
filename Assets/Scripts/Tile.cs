@@ -28,14 +28,17 @@ public class Tile : MonoBehaviour {
     // Update is called once per frame
     protected virtual void Update() {
         if (NPC == null) return;
-        if (rng == 0) { // no NPC
-            foreach(var i in NPC)i.gameObject.SetActive(false);
+        if (rng > 0.5f && rng <= 1) { // no NPC
+            NPC[0].gameObject.SetActive(true);
+            NPC[1].gameObject.SetActive(false);
         } 
         else if (rng <= 0.5f && rng > 0) { // 50% chance of NPC
-            foreach (var i in NPC) {
-                if(i != null)i.gameObject.SetActive(true);
-                //if (!i.followplayer) i.transform.localPosition = i.startpos;
-            }
+            NPC[0].gameObject.SetActive(false);
+            NPC[1].gameObject.SetActive(true);
+            //foreach (var i in NPC) {
+            //    if(i != null)i.gameObject.SetActive(true);
+            //    //if (!i.followplayer) i.transform.localPosition = i.startpos;
+            //}
         }
         for(int i = 0; i < lanes.Length; i++) { // position at which player snaps to changes as they move
             lanes[i] = new Vector3(levelManager.player.transform.position.x, lanes[i].y, lanes[i].z);
