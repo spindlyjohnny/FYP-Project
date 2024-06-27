@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
         invincibilitytime = originalInvincibleTime;
         trailRenderer = GetComponent<TrailRenderer>();
         avatar.sprite = dialogueSprite;
-        energy = maxenergy;
+        //energy = maxenergy;
         levelManager.energyslider.maxValue = maxenergy;
         //npcmanager = FindObjectOfType<NPCManagement>();
         meshes = GetComponentsInChildren<MeshRenderer>();

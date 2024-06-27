@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Collectible : Obstacle
 {
-    [SerializeField]Vector3 originalsize;
+    protected Vector3 originalsize;
     public Vector3 trainsize; // change size of collectible when in train since it's too big otherwise
     public AudioClip collectsound;
     // Start is called before the first frame update

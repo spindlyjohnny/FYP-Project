@@ -5,6 +5,7 @@ public class ObjectPool : MonoBehaviour {
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDict;
     private void Awake() {
+        if ((LevelManager.Level)PlayerPrefs.GetInt("Level") == LevelManager.Level.BusInterior) return;
         poolDict = new Dictionary<string, Queue<GameObject>>(); // dictionary containing pools of tiles to be spawned
         foreach (Pool pool in pools) {
             Queue<GameObject> objectPool = new Queue<GameObject>();

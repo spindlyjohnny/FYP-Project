@@ -27,6 +27,7 @@ public class GeneralQuestion : Collectible
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        originalsize = transform.localScale;
         levelManager = FindObjectOfType<LevelManager>();
         npcManager = FindObjectOfType<NPCManagement>();
         player = FindObjectOfType<Player>();
@@ -98,7 +99,10 @@ public class GeneralQuestion : Collectible
     }
     override protected void Update()
     {
-        
+        if (myspawner == null) Destroy(gameObject);
+        //else Destroy(gameObject, 20f);
+        if (levelManager.level == LevelManager.Level.MRT || levelManager.level == LevelManager.Level.BusInterior) transform.localScale = trainsize; // change size in mrt level
+        else transform.localScale = originalsize;
     }
 
     void Destroying()
