@@ -63,7 +63,7 @@ public class Interactable : MonoBehaviour
             if (GetComponentInParent<RoadTile>()) npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
             //if (gameObject.CompareTag("Transition") && Input.GetKeyDown(KeyCode.F)) npcmanager.myNPC.Transitioninator();
         }
-        else if (other.GetComponent<Player>()) {
+        else if (other.GetComponent<Player>() && levelManager.level == LevelManager.Level.BusInterior) {
             player.inputtext.SetActive(true);
         }
     }
