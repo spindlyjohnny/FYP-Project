@@ -6,6 +6,7 @@ public class TrainObstacle : Interactable
 {
     public GameObject moveNPC;
     public Transform NPClocation;
+    public GameObject[] NPCGroup;
     // Start is called before the first frame update
     public void MoveNPC() {
         moveNPC.transform.position = NPClocation.position;

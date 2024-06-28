@@ -7,10 +7,12 @@ public class PauseScreen : MonoBehaviour {
     public Player player;
     public LevelManager levelManager;
     public GameObject pausescreen;
+    NPCManagement npcmanager;
     // Start is called before the first frame update
     void Start() {
         player = FindObjectOfType<Player>();
         levelManager = FindObjectOfType<LevelManager>();
+        npcmanager = FindObjectOfType<NPCManagement>();
     }
 
     // Update is called once per frame
@@ -29,7 +31,7 @@ public class PauseScreen : MonoBehaviour {
     public void ResumeGame() {
         Time.timeScale = 1;
         pausescreen.SetActive(false);
-        player.canMove = true;
+        if(!npcmanager.myGeneral)player.canMove = true;
         AudioManager.instance.ResumeMusic();
     }
     public void BackToMainMenu() {

@@ -230,8 +230,7 @@ MonoBehaviour:
   front: {fileID: 0}
   right: {fileID: 0}
   left: {fileID: 0}
-  originalsize: {x: 0, y: 0, z: 0}
-  trainsize: {x: 0.5, y: 0.5, z: 0.5}
+  trainsize: {x: 44, y: 44, z: 44}
   collectsound: {fileID: 8300000, guid: 2961c5ebeac5950449d9a23af8b32f78, type: 3}
   questionbox: {fileID: 0}
   optionA: "\"True \r"

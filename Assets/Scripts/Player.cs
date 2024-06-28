@@ -112,7 +112,7 @@ public class Player : MonoBehaviour
             print(tile.newlane);
             Vector3 lerpPosition = new Vector3(tile.lanes[tile.newlane].x, transform.position.y, tile.lanes[tile.newlane].z);
             float distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
-            while (distanceBetween > 0.01)
+            while (distanceBetween > 0.01f)
             {
                 transform.position = Vector3.Lerp(transform.position, lerpPosition, movespeed * Time.deltaTime);
                 distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
@@ -128,7 +128,7 @@ public class Player : MonoBehaviour
             print(tile.newlane);
             Vector3 lerpPosition = new Vector3(tile.lanes[tile.newlane].x, transform.position.y, tile.lanes[tile.newlane].z);
             float distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
-            while (distanceBetween > 0.01)
+            while (distanceBetween > 0.01f)
             {
                 transform.position = Vector3.Lerp(transform.position, lerpPosition, movespeed * Time.deltaTime);
                 distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);

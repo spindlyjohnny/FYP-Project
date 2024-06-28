@@ -20,9 +20,11 @@ public class Tile : MonoBehaviour {
         rng = Random.Range(0f, 1f);
         lane = 1; // middle lane
         newlane = 0;
-        lanes[0].z = 1.3f;
-        lanes[1].z = 0;
-        lanes[2].z = -1.3f;
+        if (!gameObject.CompareTag("Train")) {
+            lanes[0].z = 1.3f;
+            lanes[1].z = 0;
+            lanes[2].z = -1.3f;
+        }
     }
 
     // Update is called once per frame
