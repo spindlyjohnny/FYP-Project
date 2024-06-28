@@ -10,7 +10,7 @@ public class Interactable : MonoBehaviour
     //public bool target = false;
     //float radius;
     // Start is called before the first frame update
-    protected void Start()
+    protected virtual void Start()
     {
         player = FindObjectOfType<Player>();
         npcmanager = FindObjectOfType<NPCManagement>();

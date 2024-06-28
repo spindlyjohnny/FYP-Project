@@ -54,6 +54,7 @@ public class Tile : MonoBehaviour {
             once = true;
             float size = levelManager.level == LevelManager.Level.Bus ? 13 : 26.5f;
             levelManager.Spawn(1,size);
+            if (GetComponentInChildren<TrainObstacle>()) GetComponentInChildren<TrainObstacle>().SetNPCs();
         }
     }
 
