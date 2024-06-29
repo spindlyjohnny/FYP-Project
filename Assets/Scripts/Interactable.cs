@@ -68,6 +68,10 @@ public class Interactable : MonoBehaviour
         }
     }
     protected void OnTriggerExit(Collider other) {
-        if (other.GetComponent<Player>()) player.inputtext.SetActive(false);
+        if (other.GetComponent<Player>()) 
+        {
+            player.inputtext.SetActive(false);
+            player.canMove = false;
+        }
     }
 }

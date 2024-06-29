@@ -239,7 +239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5cfea4dd4cd50d54b896d39bc890f21f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.034
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5cfea4dd4cd50d54b896d39bc890f21f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -379,10 +379,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myspawner: {fileID: 0}
   spawnoffset: {x: 0, y: 0, z: 0}
-  dir: {x: 0, y: 0, z: 1}
+  dir: {x: -1, y: 0, z: 0}
   front: {fileID: 1377114905284737265}
   right: {fileID: 6423100441018237509}
   left: {fileID: 3623175933604640332}
+  elapsedFromMoved: 0
 --- !u!54 &1700725067293291086
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -405,11 +406,11 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!4 &7586072874469452992 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5cfea4dd4cd50d54b896d39bc890f21f, type: 3}

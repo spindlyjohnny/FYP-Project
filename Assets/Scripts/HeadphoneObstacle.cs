@@ -32,14 +32,14 @@ public class HeadphoneObstacle : Obstacle
             direction = ((transform.position + Vector3.forward) - transform.position).normalized;
             var targettedRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targettedRotation, 540*Time.deltaTime );
-            transform.Translate(0 * Time.deltaTime * Vector3.forward,Space.World);
+            transform.Translate(3 * Time.deltaTime * Vector3.forward,Space.World);
         }
         else
         {
             direction = (InitalPosition - transform.position).normalized;
             var targettedRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targettedRotation, 540 *Time.deltaTime);
-            transform.Translate(0 * Time.deltaTime * -Vector3.forward,Space.World);
+            transform.Translate(3 * Time.deltaTime * -Vector3.forward,Space.World);
             
         }
         if (!myspawner.gameObject.activeInHierarchy) Destroy(gameObject);
