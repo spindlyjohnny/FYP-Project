@@ -258,6 +258,8 @@ public class NPC : MonoBehaviour
         else Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
         transform.SetParent(null);
         Vector3 dir = (player.transform.position - transform.position);
+        Quaternion lookRotation = Quaternion.LookRotation(dir, Vector3.up);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, 30 * Time.deltaTime);
         //GetComponent<Collider>().enabled = false;
         transform.Translate(movespeed * Time.deltaTime * dir);
     }

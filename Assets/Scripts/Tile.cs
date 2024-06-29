@@ -20,6 +20,9 @@ public class Tile : MonoBehaviour {
         rng = Random.Range(0f, 1f);
         lane = 1; // middle lane
         newlane = 0;
+        //lanes[0].z = 1.3f;
+        //lanes[1].z = 0;
+        //lanes[2].z = -1.3f;
         if (!gameObject.CompareTag("Train")) {
             lanes[0].z = 1.3f;
             lanes[1].z = 0;
@@ -42,9 +45,9 @@ public class Tile : MonoBehaviour {
             //    //if (!i.followplayer) i.transform.localPosition = i.startpos;
             //}
         }
-        for(int i = 0; i < lanes.Length; i++) { // position at which player snaps to changes as they move
-            lanes[i] = new Vector3(levelManager.player.transform.position.x, lanes[i].y, lanes[i].z);
-        }
+        //for(int i = 0; i < lanes.Length; i++) { // position at which player snaps to changes as they move
+        //    lanes[i] = new Vector3(levelManager.player.transform.position.x, lanes[i].y, lanes[i].z);
+        //}
     }
     protected void OnTriggerEnter(Collider other) {
         if (once == true) return;

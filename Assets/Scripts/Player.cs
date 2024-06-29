@@ -45,7 +45,6 @@ public class Player : MonoBehaviour
         invincibilitytime = originalInvincibleTime;
         trailRenderer = GetComponent<TrailRenderer>();
         avatar.sprite = dialogueSprite;
-        //energy = maxenergy;
         levelManager.energyslider.maxValue = maxenergy;
         //npcmanager = FindObjectOfType<NPCManagement>();
         meshes = GetComponentsInChildren<MeshRenderer>();
@@ -93,8 +92,8 @@ public class Player : MonoBehaviour
 
     void Movement()
     {
+        if (!canMove) return;
         movement = new Vector3(0, 0,levelManager.level == LevelManager.Level.BusInterior ? Input.GetAxisRaw("Vertical") : 1);      
-        
         RaycastHit hit; // for detecting tile to access lane variables
         Physics.Raycast(transform.position, Vector3.down, out hit);
         if (hit.collider)
@@ -106,11 +105,12 @@ public class Player : MonoBehaviour
         }
         if (Input.GetAxisRaw("Horizontal") < 0 && direction!= Input.GetAxisRaw("Horizontal"))
         { // need to figure out how to prevent this from happening when holding down button
-            // taken from unreal endless runner lololol
-            
+          // taken from unreal endless runner lololol
+
             tile.newlane = Mathf.Clamp(tile.lane - 1, 0, 2);
             print(tile.newlane);
-            Vector3 lerpPosition = new Vector3(tile.lanes[tile.newlane].x, transform.position.y, tile.lanes[tile.newlane].z);
+            Vector3 lerpPosition = new Vector3(transform.position.x, transform.position.y, tile.lanes[tile.newlane].z);
+            //print(lerpPosition);
             float distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
             while (distanceBetween > 0.01f)
             {
@@ -126,7 +126,8 @@ public class Player : MonoBehaviour
             print("yes");
             tile.newlane = Mathf.Clamp(tile.lane + 1, 0, 2);
             print(tile.newlane);
-            Vector3 lerpPosition = new Vector3(tile.lanes[tile.newlane].x, transform.position.y, tile.lanes[tile.newlane].z);
+            Vector3 lerpPosition = new Vector3(transform.position.x, transform.position.y, tile.lanes[tile.newlane].z);
+            //print(lerpPosition);
             float distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
             while (distanceBetween > 0.01f)
             {

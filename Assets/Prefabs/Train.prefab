@@ -777,6 +777,8 @@ GameObject:
   - component: {fileID: 5041008657791542488}
   - component: {fileID: 5036701176287110458}
   - component: {fileID: 6883879705118451379}
+  - component: {fileID: 5768282915429219887}
+  - component: {fileID: 4254936586997887315}
   m_Layer: 0
   m_Name: Train
   m_TagString: Train
@@ -846,9 +848,9 @@ MonoBehaviour:
   spawnpt: {fileID: 482604437530124305}
   NPC: []
   lanes:
-  - {x: 0, y: 0, z: -0.608}
-  - {x: 0, y: 0, z: -0.0382452}
-  - {x: 0, y: 0, z: 0.7202454}
+  - {x: 0, y: 0, z: 9.615}
+  - {x: 0, y: 0, z: 8.987}
+  - {x: 0, y: 0, z: 8.358}
   lane: 0
   newlane: 0
 --- !u!65 &6883879705118451379
@@ -872,6 +874,48 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.26668015, y: 0, z: 0.04226327}
   m_Center: {x: -0.00008075714, y: -0.0057100556, z: 0.00081523415}
+--- !u!65 &5768282915429219887
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7404829644063580020}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.2632901, y: 0.013669014, z: 0.006005239}
+  m_Center: {x: 0.0011219549, y: -0.002133064, z: -0.017039062}
+--- !u!65 &4254936586997887315
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7404829644063580020}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.26467037, y: 0.01398878, z: 0.01012846}
+  m_Center: {x: -0.0011787701, y: -0.002292946, z: 0.019304004}
 --- !u!1 &8392333901124686423
 GameObject:
   m_ObjectHideFlags: 0
@@ -2185,10 +2229,10 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0, y: 0.013669014, z: 0.26892945}
-  m_Center: {x: -0.0074881925, y: -0.002133064, z: -0.00028574944}
+  m_Size: {x: 0.002573849, y: 0.013669014, z: 0.26892945}
+  m_Center: {x: -0.0067358664, y: -0.002133064, z: -0.00028574944}
 --- !u!65 &5973246632391439092
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2206,10 +2250,10 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
-  m_Size: {x: 0, y: 0.01398878, z: 0.26892945}
-  m_Center: {x: 0.008459308, y: -0.002292946, z: -0.00028574944}
+  m_Size: {x: 0.0019035318, y: 0.01398878, z: 0.26892945}
+  m_Center: {x: 0.006212266, y: -0.002292946, z: -0.00028574944}
 --- !u!4 &5677640562387704307 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c49494fe70047af40a1a5fc182d6f7da, type: 3}
