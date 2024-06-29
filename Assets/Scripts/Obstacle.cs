@@ -9,69 +9,139 @@ public class Obstacle : MonoBehaviour
     public Vector3 dir;
     protected LevelManager levelManager;
     public Transform front, right, left;
+    Vector3 inital;
+    Rigidbody rb;
+    float timeElapsed;
+    public float elapsedFromMoved=0;
+    float lerpDuration02 = 1f;
+    float duration = 0.8f;
+    bool lerp = false;
+    float valueToLerp;
+
     // Start is called before the first frame update
     void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
+        rb = GetComponent<Rigidbody>();
+        inital = transform.position;
+        print(inital.z);
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
-        transform.Translate(3 * Time.deltaTime * dir);
-        if (myspawner == null) Destroy(gameObject);
+        rb.velocity = (3 * dir);
         Sensors();
+        if (!myspawner.gameObject.activeInHierarchy) Destroy(gameObject);
+        
         //else Destroy(gameObject, 15f);
     }
    void Sensors() {
         RaycastHit hit;
         Vector3 temp;
         bool fronthit = false, lefthit = false, righthit = false;
-        bool[] hits = { fronthit, lefthit, righthit };
+        
         // casts rays in 3 directions. if any ray detects an object, move away from object until there is nothing blocking.
         // current problem is that ai doesnt know what to do if more than 1 ray detects an object. unsure of how to do this efficiently.
-        if(Physics.Raycast(front.position,front.forward,out hit, .5f)) {
+        if(Physics.Raycast(front.position,front.forward,out hit, 1f)) {
             fronthit = true;
-            temp = (transform.position - hit.transform.position);
-            if (temp.sqrMagnitude <= .5f) {
-                dir = new Vector3(temp.x,0,temp.z).normalized;
+            float difference = 0.2f;
+            if (Mathf.Abs(hit.collider.transform.position.z - inital.z) < difference & lerp == false)
+            {
+                
+                valueToLerp= difference - (hit.collider.transform.position.z - inital.z);
+                lerp = true;
+                transform.position = new Vector3(transform.position.x, transform.position.y,inital.z+ valueToLerp);
+
+                temp = (transform.position - hit.transform.position );
             }
-            if (temp.sqrMagnitude > .5f) {
-                dir = Vector3.forward;
+            else
+            {
+                temp = (transform.position - hit.transform.position);
+            }            
+            
+            if (temp.sqrMagnitude <= .5f) {
+                
+                dir = new Vector3(-temp.x,0,temp.z).normalized;
+            }
+            if (temp.sqrMagnitude > .5) {
+                dir = -Vector3.right;
                 fronthit = false;
             }
             Debug.DrawLine(front.position, hit.point,Color.red);
         }
-        if(Physics.Raycast(right.position,right.forward,out hit, .5f)) {
+        if(Physics.Raycast(right.position,right.forward,out hit, 1f)) {
             righthit = true;
-            temp = (transform.position - hit.transform.position);
+            if (hit.collider.transform.position.z == transform.position.z)
+            {
+                temp = (transform.position - hit.transform.position );
+
+            }
+            else
+            {
+                temp = (transform.position - hit.transform.position);
+            }
             if (temp.sqrMagnitude <= .5f) {
-                dir = new Vector3(temp.x, 0, temp.z).normalized;
+                dir = new Vector3(-temp.x, 0, temp.z).normalized;
             }
             if (temp.sqrMagnitude > .5f) {
-                dir = Vector3.forward;
+                dir = -Vector3.right;
                 righthit = false;
             }
             Debug.DrawLine(right.position, hit.point,Color.red);
         }
-        if(Physics.Raycast(left.position,left.forward,out hit, .5f)) {
+        if(Physics.Raycast(left.position,left.forward,out hit, 1f)) {
             lefthit = true;
-            temp = (transform.position - hit.transform.position);
+            if (hit.collider.transform.position.z == transform.position.z)
+            {
+                temp = (transform.position - hit.transform.position );
+            }
+            else
+            {
+                temp = (transform.position - hit.transform.position);
+            }
             if (temp.sqrMagnitude <= .5f) {
-                dir = new Vector3(temp.x, 0, temp.z).normalized;
+                dir = new Vector3(-temp.x, 0, temp.z).normalized;
             }
             if (temp.sqrMagnitude > .5f) {
-                dir = Vector3.forward;
+                dir = -Vector3.right;
                 lefthit = false;
             }
             Debug.DrawLine(left.position, hit.point,Color.red);
         }
+        if (lerp == true)
+        {
+            elapsedFromMoved += Time.deltaTime;
+        }
+        bool[] hits = { fronthit, lefthit, righthit };
+        //print(dir);
         int truths = 0;
         foreach(var i in hits) {
             if (i) truths += 1;
         }
+        print(truths);
         if(truths > 1) {
-            dir = Vector3.back;
+            dir = Vector3.right;
+        }
+        if (dir.x==-1 &lerp== true && elapsedFromMoved>=duration)
+        {
+            
+            print("yes");
+            if (timeElapsed < lerpDuration02 )
+            {
+                valueToLerp = Mathf.Lerp(transform.position.z, inital.z, timeElapsed / lerpDuration02);
+                timeElapsed += Time.deltaTime;
+            }
+            else
+            {
+                valueToLerp = inital.z;
+                timeElapsed = 0;
+                elapsedFromMoved = 0;
+                lerp = false;
+            }
+            
+            transform.position = new Vector3(transform.position.x, transform.position.y, valueToLerp);
+            
         }
     }
 }

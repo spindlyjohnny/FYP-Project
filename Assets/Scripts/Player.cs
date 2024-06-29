@@ -139,10 +139,12 @@ public class Player : MonoBehaviour
         }
         direction = Input.GetAxisRaw("Horizontal");
     }
-    private void OnCollisionEnter(Collision collision) {
-        if (NPC) return;
+    private void OnTriggerExit(Collider other)
+    {
+        if(NPC) return;
         if (invincibility) return;
-        if (collision.gameObject.layer == 8) {
+        if (other.gameObject.layer == 8)
+        {
             StartCoroutine(HitReaction());
             energy -= 10;
         }

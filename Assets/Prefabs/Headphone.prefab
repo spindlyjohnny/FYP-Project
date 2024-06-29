@@ -139,15 +139,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5cfea4dd4cd50d54b896d39bc890f21f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5704584
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5cfea4dd4cd50d54b896d39bc890f21f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000023841858
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5cfea4dd4cd50d54b896d39bc890f21f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23.500488
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5cfea4dd4cd50d54b896d39bc890f21f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -270,6 +270,7 @@ MonoBehaviour:
   front: {fileID: 6760848994617811491}
   right: {fileID: 0}
   left: {fileID: 0}
+  elapsedFromMoved: 0
   distanceBeforeTurningBack: 4
   walkingRight: 1
 --- !u!65 &6422348654464122316
@@ -318,7 +319,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!4 &6731048444078833701 stripped
 Transform:

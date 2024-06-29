@@ -22,7 +22,7 @@ public class HeadphoneObstacle : Obstacle
         {
             walkingRight = false;
         }
-        else if(distanceBetween <=1*1 && walkingRight==false)
+        else if(distanceBetween <=1*0.1 && walkingRight==false)
         {
             walkingRight = true;
         }
@@ -32,17 +32,17 @@ public class HeadphoneObstacle : Obstacle
             direction = ((transform.position + Vector3.forward) - transform.position).normalized;
             var targettedRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targettedRotation, 540*Time.deltaTime );
-            transform.Translate(3 * Time.deltaTime * Vector3.forward,Space.World);
+            transform.Translate(0 * Time.deltaTime * Vector3.forward,Space.World);
         }
         else
         {
             direction = (InitalPosition - transform.position).normalized;
             var targettedRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targettedRotation, 540 *Time.deltaTime);
-            transform.Translate(3 * Time.deltaTime * -Vector3.forward,Space.World);
+            transform.Translate(0 * Time.deltaTime * -Vector3.forward,Space.World);
             
         }
-        if (myspawner == null) Destroy(gameObject);
+        if (!myspawner.gameObject.activeInHierarchy) Destroy(gameObject);
         //else Destroy(gameObject, 15);
     }
 }
