@@ -175,6 +175,8 @@ public class GeneralQuestion : Collectible
         explaintext.text = explains[qnindex];
         optionAtext.text = "a)" + optionA;
         optionBtext.text = "b)" + optionB;
+        levelManager.optionCButton.SetActive(true);
+        levelManager.optionDButton.SetActive(true);
         if (optionList[qnindex].option.Count >= 3) optionCtext.text = "c)" + optionC;
         else
         {
