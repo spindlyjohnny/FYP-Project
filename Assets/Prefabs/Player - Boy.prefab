@@ -1597,7 +1597,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1623,7 +1623,9 @@ MonoBehaviour:
   energy: 0
   maxenergy: 100
   meshes: []
+  skin: []
   originalColor: {r: 0, g: 0, b: 0, a: 0}
+  hitColor: {r: 0, g: 0, b: 0, a: 0}
   hitsfx: {fileID: 8300000, guid: 04ce29e238b537b41ba1f00462d3c4e0, type: 3}
   inputtext: {fileID: 1269153788632336677}
   invincibility: 0
