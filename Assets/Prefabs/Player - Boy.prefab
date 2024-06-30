@@ -530,8 +530,8 @@ MonoBehaviour:
   hitsfx: {fileID: 8300000, guid: 04ce29e238b537b41ba1f00462d3c4e0, type: 3}
   inputtext: {fileID: 1269153788632336677}
   invincibility: 0
-  originalInvincibleTime: 3
-  maxInvincibleTime: 3
+  originalInvincibleTime: 5
+  maxInvincibleTime: 5
   invincibilitytime: 0
   avatar: {fileID: 0}
   dialogueSprite: {fileID: 21300000, guid: c96b9095690335443acd0fa8b193e7f1, type: 3}

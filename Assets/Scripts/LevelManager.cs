@@ -195,8 +195,9 @@ public class LevelManager : SceneLoader {
         PlayerPrefs.SetInt("bool", 1);
         PlayerPrefs.SetFloat("energy", 100);
         PlayerPrefs.SetInt("score", 0);
-        PlayerPrefs.SetFloat("Energy Gain", 10f);
-        PlayerPrefs.SetFloat("Invincibility Time", 10f);
+        PlayerPrefs.SetFloat("Max Energy", 100);
+        //PlayerPrefs.SetFloat("Energy Gain", 10f);
+        PlayerPrefs.SetFloat("Invincibility Time", 5f);
         PlayerPrefs.SetInt("Level", (int)Level.Bus);
         LoadData();
         PlayerPrefs.Save();

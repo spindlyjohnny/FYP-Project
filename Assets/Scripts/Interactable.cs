@@ -71,7 +71,7 @@ public class Interactable : MonoBehaviour
         if (other.GetComponent<Player>()) 
         {
             player.inputtext.SetActive(false);
-            player.canMove = false;
+            player.canMove = true;
         }
     }
 }
