@@ -42,7 +42,7 @@ public class PauseScreen : MonoBehaviour {
     }
     public void RestartLevel() {
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(1);
         levelManager.Initalize();
         //AudioManager.instance.PlayMusic(levelManager.levelmusic);
         //PlayerPrefs.SetInt("Current Room", 0);

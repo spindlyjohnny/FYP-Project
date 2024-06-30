@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
             PlayerPrefs.SetFloat("energy", 100);
             PlayerPrefs.SetFloat("Max Energy", 100);
             //PlayerPrefs.SetFloat("Energy Gain", 10f);
-            PlayerPrefs.SetFloat("Invincibility Time", 3f);
+            PlayerPrefs.SetFloat("Invincibility Time", 5f);
             energy = PlayerPrefs.GetFloat("energy");
         }
     }
