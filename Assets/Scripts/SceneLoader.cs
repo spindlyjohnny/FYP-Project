@@ -7,12 +7,24 @@ using TMPro;
 public class SceneLoader : MonoBehaviour {
     public static bool Return = false;
     public GameObject levelSelect,fpsCounter;
-    public virtual void LoadScene(int scene,bool async = false) { // load scene when UI button pressed.
+    public virtual void LoadScene(int scene,bool async = false) { // load scene from levelmanager
         if (async) SceneManager.LoadSceneAsync(scene);
         else SceneManager.LoadScene(scene);
     }
     public virtual void LoadScene(int scene) { // load scene when UI button pressed.
         SceneManager.LoadScene(scene);
+        if(scene == 1) { // bus scene
+            if (PlayerPrefs.GetInt("bool") == 0) {
+                PlayerPrefs.SetFloat("energy", 100);
+                PlayerPrefs.SetFloat("Max Energy", 100);
+                //PlayerPrefs.SetFloat("Energy Gain", 10f);
+                PlayerPrefs.SetFloat("Invincibility Time", 5f);
+                //energy = PlayerPrefs.GetFloat("energy");
+                //maxenergy = PlayerPrefs.GetFloat("Max Energy");
+                ////energygain = PlayerPrefs.GetFloat("Energy Gain");
+                //originalInvincibleTime = PlayerPrefs.GetFloat("Invincibility Time");
+            }
+        }
     }
     public void QuitGame() {
         Application.Quit();
