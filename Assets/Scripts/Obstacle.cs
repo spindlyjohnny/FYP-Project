@@ -17,7 +17,7 @@ public class Obstacle : MonoBehaviour
     float duration = 0.8f;
     bool lerp = false;
     float valueToLerp;
-
+    bool hitPlayer=false;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +30,11 @@ public class Obstacle : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        rb.velocity = (3 * dir);
+        rb.velocity = (5 * dir);
+        if(dir== new Vector3(0, 0, 0))
+        {
+            dir = new Vector3(-1, 0, 0);
+        }
         Sensors();
         if (!myspawner.gameObject.activeInHierarchy) Destroy(gameObject);
         
@@ -119,14 +123,12 @@ public class Obstacle : MonoBehaviour
         foreach(var i in hits) {
             if (i) truths += 1;
         }
-        print(truths);
         if(truths > 1) {
             dir = Vector3.right;
         }
         if (dir.x==-1 &lerp== true && elapsedFromMoved>=duration)
         {
             
-            print("yes");
             if (timeElapsed < lerpDuration02 )
             {
                 valueToLerp = Mathf.Lerp(transform.position.z, inital.z, timeElapsed / lerpDuration02);
@@ -142,6 +144,11 @@ public class Obstacle : MonoBehaviour
             
             transform.position = new Vector3(transform.position.x, transform.position.y, valueToLerp);
             
+        }
+        if((transform.position.z>inital.z+2 )||( transform.position.z > inital.z + 2))
+        {
+            dir = -Vector3.right;
+            transform.position = new Vector3(transform.position.x - 0.5f, transform.position.y, inital.z);
         }
     }
 }

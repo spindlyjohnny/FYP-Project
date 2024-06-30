@@ -11,7 +11,8 @@ public class Player : MonoBehaviour
     public float energy,maxenergy;
     //public float energygain,maxEnergyGain;
     public MeshRenderer[] meshes;
-    public Color originalColor;
+    public SkinnedMeshRenderer[] skin;
+    public Color originalColor,hitColor;
     public AudioClip hitsfx;
     public GameObject inputtext;
     public bool invincibility = false;
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
     TrailRenderer trailRenderer;
     public Image avatar;
     public Sprite dialogueSprite; // this var exists cuz there's 2 playable charas
+    public Animator anim;
     //NPCManagement npcmanager;
     // Start is called before the first frame update
     private void Awake() {
@@ -48,8 +50,13 @@ public class Player : MonoBehaviour
         levelManager.energyslider.maxValue = maxenergy;
         //npcmanager = FindObjectOfType<NPCManagement>();
         meshes = GetComponentsInChildren<MeshRenderer>();
+        skin = GetComponentsInChildren<SkinnedMeshRenderer>();
         foreach (MeshRenderer mesh in meshes) {
             foreach(Material mat in mesh.materials)originalColor=mat.color;
+        }
+        foreach (SkinnedMeshRenderer mesh in skin)
+        {
+            foreach (Material mat in mesh.materials) originalColor = mat.color;
         }
     }
 
@@ -70,6 +77,10 @@ public class Player : MonoBehaviour
             Physics.IgnoreLayerCollision(gameObject.layer, 7, false); // npc layer
             for (int i = 0; i < 5; i++) {
                 foreach (MeshRenderer mesh in meshes) {
+                    foreach (Material mat in mesh.materials) mat.color = originalColor;
+                }
+                foreach (SkinnedMeshRenderer mesh in skin)
+                {
                     foreach (Material mat in mesh.materials) mat.color = originalColor;
                 }
             }
@@ -94,6 +105,17 @@ public class Player : MonoBehaviour
     {
         if (!canMove) return;
         movement = new Vector3(0, 0,levelManager.level == LevelManager.Level.BusInterior ? Input.GetAxisRaw("Vertical") : 1);      
+        if((Input.GetAxisRaw("Vertical")==1 || Input.GetAxisRaw("Vertical") == -1)&& levelManager.level == LevelManager.Level.BusInterior)
+        {
+            anim.SetBool("CanMove", true);
+        } else if(Input.GetAxisRaw("Vertical") == 0&& levelManager.level == LevelManager.Level.BusInterior)
+        {
+            anim.SetBool("CanMove", true);
+        }
+        else
+        {
+            anim.SetBool("CanMove", canMove);
+        }
         RaycastHit hit; // for detecting tile to access lane variables
         Physics.Raycast(transform.position, Vector3.down, out hit);
         if (hit.collider)
@@ -145,6 +167,7 @@ public class Player : MonoBehaviour
         if (invincibility) return;
         if (other.gameObject.layer == 8)
         {
+            print("yes");
             StartCoroutine(HitReaction());
             energy -= 10;
         }
@@ -163,6 +186,10 @@ public class Player : MonoBehaviour
                 foreach (Material mat in mesh.materials) mat.color = Color.red;
             }
         }
+        foreach (SkinnedMeshRenderer mesh in skin)
+        {
+            foreach (Material mat in mesh.materials) mat.color = Color.red;
+        }
         trailRenderer.emitting = true;
         movespeed *= 2;
     }
@@ -171,12 +198,20 @@ public class Player : MonoBehaviour
     {
         foreach (MeshRenderer mesh in meshes)
         {
+            foreach (Material mat in mesh.materials) mat.color = hitColor;
+        }
+        foreach (SkinnedMeshRenderer mesh in skin)
+        {
             foreach (Material mat in mesh.materials) mat.color = Color.red;
         }
         AudioManager.instance.PlaySFX(hitsfx);
         yield return new WaitForSeconds(0.5f);
         print("Change color");
         foreach (MeshRenderer mesh in meshes)
+        {
+            foreach (Material mat in mesh.materials) mat.color = originalColor;
+        }
+        foreach (SkinnedMeshRenderer mesh in skin)
         {
             foreach (Material mat in mesh.materials) mat.color = originalColor;
         }

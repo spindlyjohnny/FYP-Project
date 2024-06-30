@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public class ObjectPool : MonoBehaviour {
+    int removalIndex = 0;
+    public List<GameObject> activeObject = new List<GameObject>();
+    bool once = false;
+    int spawningIndex = 0;
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDict;
     private void Awake() {
@@ -19,13 +23,30 @@ public class ObjectPool : MonoBehaviour {
     }
     public GameObject SpawnFromPool(string tag,Vector3 position) {
         if (!poolDict.ContainsKey(tag)) return null; // tags in pools array have to exactly match names of gameobjects in levelmanager tiles array
+        if (spawningIndex == 8)
+        {
+            spawningIndex += 1;
+            return null;
+        }
+        spawningIndex += 1;
         GameObject spawnedObj = poolDict[tag].Dequeue();
         spawnedObj.SetActive(true);
         spawnedObj.transform.position = position;
         spawnedObj.transform.rotation = Quaternion.identity;
+        activeObject.Add(spawnedObj);
         poolDict[tag].Enqueue(spawnedObj);
         return spawnedObj;
     }
+
+    public void Remove()
+    {
+        if (activeObject.Count >= 10)
+        {
+            activeObject[removalIndex].SetActive(false);
+            activeObject.RemoveAt(0);
+        }
+    }
+
     [System.Serializable]
     public class Pool {
         public string tag; // name of object
