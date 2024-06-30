@@ -230,6 +230,7 @@ MonoBehaviour:
   front: {fileID: 0}
   right: {fileID: 0}
   left: {fileID: 0}
+  elapsedFromMoved: 0
   trainsize: {x: 44, y: 44, z: 44}
   collectsound: {fileID: 8300000, guid: 2961c5ebeac5950449d9a23af8b32f78, type: 3}
   questionbox: {fileID: 0}
@@ -240,6 +241,10 @@ MonoBehaviour:
   questions: []
   explains: []
   options: []
+  type: []
+  currentTypes:
+  - Wheelchair
+  - Elderly
   filteredOptions: []
   optionList:
   - option: []
@@ -347,6 +352,7 @@ MonoBehaviour:
   optionsFile: {fileID: 4900000, guid: ef3db7a4b0ff3f84d95d1706f145b3ae, type: 3}
   Question: {fileID: 4900000, guid: cc33ac22406d74a49abca7b1b19dfd1e, type: 3}
   ExplainationFile: {fileID: 4900000, guid: fd847761bc0ac8f47bb5d39f4fc8c7f2, type: 3}
+  TypeFile: {fileID: 4900000, guid: 340a37a562d0cf44a8b84642f3c62d9e, type: 3}
   dialoguesound: {fileID: 0}
   correctsound: {fileID: 8300000, guid: 95465fb1e58813e4b91097a1d15aa71c, type: 3}
   tasksuccess: 2

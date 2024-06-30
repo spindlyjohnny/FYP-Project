@@ -10,10 +10,10 @@ public class GeneralQuestion : Collectible
     public GameObject questionbox;
     public string  optionA, optionB, optionC, optionD;
     TMP_Text  questiontext, explaintext, optionAtext, optionBtext, optionCtext, optionDtext;
-    public string[] questions, explains,options;
+    public string[] questions, explains,options,type,currentTypes;
     public List<string> filteredOptions = new List<string>(0);
     public List<OptionsOfQuestions> optionList;
-    public TextAsset optionsFile,Question,ExplainationFile;
+    public TextAsset optionsFile,Question,ExplainationFile,TypeFile;
     NPCManagement npcManager;
     NPC npc;
     Player player;
@@ -72,6 +72,7 @@ public class GeneralQuestion : Collectible
         options = optionsFile.text.Split("\n");
         explains = ExplainationFile.text.Split("\n");
         questions = Question.text.Split("\n");
+        type = TypeFile.text.Split("\n");
         for (int i = 0; i < options.Length; i++)
         {
             if (options[i] != options[1])
@@ -125,7 +126,19 @@ public class GeneralQuestion : Collectible
 
     void UpdateCanvas()//this function is to be called when the player collide with the questionaire
     {
-        int qnindex = Random.Range(0, questions.Length);//random index for a question
+        List<int> typeIndexs = new List<int>(0);
+        for(int e=0; e < currentTypes.Length; e++)
+        {
+            for (int i = 0; i < type.Length; i++)
+            {
+                string sub = type[i].Substring(0, 3);
+                string temp = currentTypes[e].Substring(0, 3);
+                if (sub == temp) typeIndexs.Add(i);
+
+            }
+        }
+        int index = Random.Range(0, typeIndexs.Count);
+        int qnindex = typeIndexs[index];//random index for a question that is related to the current type
         levelManager.optionAButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
         levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
         levelManager.optionCButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
