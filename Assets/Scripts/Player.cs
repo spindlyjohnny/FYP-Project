@@ -58,6 +58,14 @@ public class Player : MonoBehaviour
         {
             foreach (Material mat in mesh.materials) originalColor = mat.color;
         }
+        //if(levelManager.level == LevelManager.Level.Bus) {
+        //    GetComponent<Collider>().isTrigger = true;
+        //} 
+        //else {
+        //    GetComponent<Collider>().isTrigger = false;
+        //}
+        //Physics.IgnoreLayerCollision(gameObject.layer, 8, false);
+        //Physics.IgnoreLayerCollision(gameObject.layer, 7, false);
     }
 
     // Update is called once per frame
@@ -110,7 +118,7 @@ public class Player : MonoBehaviour
             anim.SetBool("CanMove", true);
         } else if(Input.GetAxisRaw("Vertical") == 0&& levelManager.level == LevelManager.Level.BusInterior)
         {
-            anim.SetBool("CanMove", true);
+            anim.SetBool("CanMove", false);
         }
         else
         {
@@ -161,7 +169,7 @@ public class Player : MonoBehaviour
         }
         direction = Input.GetAxisRaw("Horizontal");
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         if(NPC) return;
         if (invincibility) return;
