@@ -11,6 +11,9 @@ public class SceneLoader : MonoBehaviour {
         if (async) SceneManager.LoadSceneAsync(scene);
         else SceneManager.LoadScene(scene);
     }
+    public virtual void LoadScene(int scene) { // load scene when UI button pressed.
+        SceneManager.LoadScene(scene);
+    }
     public void QuitGame() {
         Application.Quit();
     }
