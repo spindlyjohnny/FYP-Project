@@ -139,7 +139,7 @@ public class Player : MonoBehaviour
         }
         direction = Input.GetAxisRaw("Horizontal");
     }
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if(NPC) return;
         if (invincibility) return;
