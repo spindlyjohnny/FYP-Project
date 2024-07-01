@@ -182,24 +182,33 @@ public class Player : MonoBehaviour
     }
     public void RushMode()
     {
-        invincibility = true;
-        invincibilitytime = originalInvincibleTime;
-        Physics.IgnoreLayerCollision(gameObject.layer, 8,true);
-        Physics.IgnoreLayerCollision(gameObject.layer, 7,true);
-        //GetComponent<Rigidbody>().isKinematic = true;
-        for (int i =0; i< 5; i++)
+        if (invincibilitytime > 0)
         {
-            foreach (MeshRenderer mesh in meshes)
+            invincibilitytime = originalInvincibleTime;
+            return;
+        }
+        else
+        {
+            invincibility = true;
+            invincibilitytime = originalInvincibleTime;
+            Physics.IgnoreLayerCollision(gameObject.layer, 8,true);
+            Physics.IgnoreLayerCollision(gameObject.layer, 7,true);
+            //GetComponent<Rigidbody>().isKinematic = true;
+            for (int i =0; i< 5; i++)
+            {
+                foreach (MeshRenderer mesh in meshes)
+                {
+                    foreach (Material mat in mesh.materials) mat.color = Color.red;
+                }
+            }
+            foreach (SkinnedMeshRenderer mesh in skin)
             {
                 foreach (Material mat in mesh.materials) mat.color = Color.red;
             }
+            trailRenderer.emitting = true;
+            movespeed *= 2;
         }
-        foreach (SkinnedMeshRenderer mesh in skin)
-        {
-            foreach (Material mat in mesh.materials) mat.color = Color.red;
-        }
-        trailRenderer.emitting = true;
-        movespeed *= 2;
+
     }
 
     IEnumerator HitReaction()
