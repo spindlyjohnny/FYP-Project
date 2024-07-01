@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public Image avatar;
     public Sprite dialogueSprite; // this var exists cuz there's 2 playable charas
     public Animator anim;
+    public int lane=1, newlane;
     //NPCManagement npcmanager;
     // Start is called before the first frame update
     private void Awake() {
@@ -67,7 +68,6 @@ public class Player : MonoBehaviour
         //Physics.IgnoreLayerCollision(gameObject.layer, 8, false);
         //Physics.IgnoreLayerCollision(gameObject.layer, 7, false);
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -136,10 +136,12 @@ public class Player : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") < 0 && direction!= Input.GetAxisRaw("Horizontal"))
         { // need to figure out how to prevent this from happening when holding down button
           // taken from unreal endless runner lololol
-
-            tile.newlane = Mathf.Clamp(tile.lane - 1, 0, 2);
-            print(tile.newlane);
-            Vector3 lerpPosition = new Vector3(transform.position.x, transform.position.y, tile.lanes[tile.newlane].z);
+            print("change direction");
+            print(direction);
+            newlane = Mathf.Clamp(lane - 1, 0, 2);
+            print(newlane);
+            lane = newlane;
+            Vector3 lerpPosition = new Vector3(transform.position.x, transform.position.y, tile.lanes[newlane].z);
             //print(lerpPosition);
             float distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
             while (distanceBetween > 0.01f)
@@ -148,15 +150,16 @@ public class Player : MonoBehaviour
                 distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
             }
             transform.position = lerpPosition;
-            //transform.position = tile.lanes[tile.newlane]
-            tile.lane = tile.newlane;
+            //transform.position = tile.lanes[tile.newlane]\
         }
         else if (Input.GetAxisRaw("Horizontal") > 0 && direction != Input.GetAxisRaw("Horizontal"))
         {
             print("yes");
-            tile.newlane = Mathf.Clamp(tile.lane + 1, 0, 2);
-            print(tile.newlane);
-            Vector3 lerpPosition = new Vector3(transform.position.x, transform.position.y, tile.lanes[tile.newlane].z);
+            
+            newlane = Mathf.Clamp(lane + 1, 0, 2);
+            print(newlane);
+            lane = newlane;
+            Vector3 lerpPosition = new Vector3(transform.position.x, transform.position.y, tile.lanes[newlane].z);
             //print(lerpPosition);
             float distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
             while (distanceBetween > 0.01f)
@@ -165,7 +168,7 @@ public class Player : MonoBehaviour
                 distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
             }
             transform.position = lerpPosition;
-            tile.lane = tile.newlane;
+            
         }
         direction = Input.GetAxisRaw("Horizontal");
     }

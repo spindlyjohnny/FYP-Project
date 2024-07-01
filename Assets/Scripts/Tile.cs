@@ -11,15 +11,12 @@ public class Tile : MonoBehaviour {
     protected float rng;
     bool once = false;
     public Vector3[] lanes; // order of array should be like so: left, middle, right
-    public int lane,newlane;
     // Start is called before the first frame update
     protected virtual void Start() {
         NPC = GetComponentsInChildren<NPC>(true);
         levelManager = FindObjectOfType<LevelManager>();
         npcmanager = FindObjectOfType<NPCManagement>();
         rng = Random.Range(0f, 1f);
-        lane = 1; // middle lane
-        newlane = 0;
         //lanes[0].z = 1.3f;
         //lanes[1].z = 0;
         //lanes[2].z = -1.3f;
