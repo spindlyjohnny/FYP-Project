@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.Audio;
 public class AudioManager : MonoBehaviour {
     public static AudioManager instance;
     [SerializeField] AudioSource audio, sfxaudio; // one audio source for music, one for sfx
+    [SerializeField] AudioMixer mixer;
     public AudioClip levelmusic,titlemusic;
     // Start is called before the first frame update
     private void Awake() {
@@ -16,6 +18,11 @@ public class AudioManager : MonoBehaviour {
         else {
             Destroy(gameObject);
         }
+        LoadVolume();
+    }
+    void LoadVolume() {
+        mixer.SetFloat("SFX Volume", Mathf.Log10(PlayerPrefs.GetFloat("SFX Volume", 1f)) * 20);
+        mixer.SetFloat("BGM Volume", Mathf.Log10(PlayerPrefs.GetFloat("Music Volume", 1f)) * 20);
     }
     public void StopMusic() {
         audio.Stop();

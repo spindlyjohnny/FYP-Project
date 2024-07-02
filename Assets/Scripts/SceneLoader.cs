@@ -26,9 +26,6 @@ public class SceneLoader : MonoBehaviour {
             }
         }
     }
-    public void QuitGame() {
-        Application.Quit();
-    }
     private void Start()
     {
         PlayerPrefs.SetInt("bool", 0);
