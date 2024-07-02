@@ -266,7 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myspawner: {fileID: 0}
   spawnoffset: {x: 0, y: 0, z: 0}
-  dir: {x: 0, y: 0, z: 0}
+  dir: {x: 0, y: 0, z: -1}
   front: {fileID: 6760848994617811491}
   right: {fileID: 0}
   left: {fileID: 0}

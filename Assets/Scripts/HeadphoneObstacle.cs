@@ -13,35 +13,31 @@ public class HeadphoneObstacle : Obstacle
     {
         InitalPosition = transform.position;
     }
-    protected override void Update()
-    {
-        RaycastHit hit;
-        float distanceBetween = Vector3.SqrMagnitude(InitalPosition - transform.position);
-        //print(distanceBetween);
-        if((distanceBetween >= Mathf.Pow(distanceBeforeTurningBack,2) || Physics.Raycast(front.position, front.forward, out hit, .5f)) && walkingRight)
-        {
-            walkingRight = false;
-        }
-        else if(distanceBetween <=1*0.1 && walkingRight==false)
-        {
-            walkingRight = true;
-        }
+    protected override void Update() {
+        //RaycastHit hit;
+        //float distanceBetween = Vector3.SqrMagnitude(InitalPosition - transform.position);
+        ////print(distanceBetween);
+        //if ((distanceBetween >= Mathf.Pow(distanceBeforeTurningBack, 2) || Physics.Raycast(front.position, front.forward, out hit, .5f)) && walkingRight) {
+        //    walkingRight = false;
+        //} else if (distanceBetween <= 1 * 0.1 && walkingRight == false) {
+        //    walkingRight = true;
+        //}
+        direction = ((transform.position + Vector3.forward) - transform.position).normalized;
+        var targettedRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targettedRotation, 540 * Time.deltaTime);
+        transform.Translate(3 * Time.deltaTime * Vector3.forward, Space.World);
+        //if (walkingRight) {
+        //    direction = ((transform.position + Vector3.forward) - transform.position).normalized;
+        //    var targettedRotation = Quaternion.LookRotation(direction);
+        //    transform.rotation = Quaternion.RotateTowards(transform.rotation, targettedRotation, 540 * Time.deltaTime);
+        //    transform.Translate(3 * Time.deltaTime * Vector3.forward, Space.World);
+        //} else {
+        //    direction = (InitalPosition - transform.position).normalized;
+        //    var targettedRotation = Quaternion.LookRotation(direction);
+        //    transform.rotation = Quaternion.RotateTowards(transform.rotation, targettedRotation, 540 * Time.deltaTime);
+        //    transform.Translate(3 * Time.deltaTime * -Vector3.forward, Space.World);
 
-        if (walkingRight)
-        {
-            direction = ((transform.position + Vector3.forward) - transform.position).normalized;
-            var targettedRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targettedRotation, 540*Time.deltaTime );
-            transform.Translate(3 * Time.deltaTime * Vector3.forward,Space.World);
-        }
-        else
-        {
-            direction = (InitalPosition - transform.position).normalized;
-            var targettedRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targettedRotation, 540 *Time.deltaTime);
-            transform.Translate(3 * Time.deltaTime * -Vector3.forward,Space.World);
-            
-        }
+        //}
         if (!myspawner.gameObject.activeInHierarchy) Destroy(gameObject);
         //else Destroy(gameObject, 15);
     }

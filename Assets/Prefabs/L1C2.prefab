@@ -126,7 +126,7 @@ GameObject:
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1754208818748935472
 Transform:
   m_ObjectHideFlags: 0
@@ -311,8 +311,6 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0.6}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: -0.6}
-  lane: 0
-  newlane: 0
 --- !u!65 &4935924930495361121
 BoxCollider:
   m_ObjectHideFlags: 0
