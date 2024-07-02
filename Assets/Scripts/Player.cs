@@ -78,8 +78,8 @@ public class Player : MonoBehaviour
         if(invincibilitytime <= 0) {
             invincibility = false;
             invincibilitytime = originalInvincibleTime;
-            movespeed /= 2;
-            trailRenderer.emitting = false;
+            //movespeed /= 2;
+            //trailRenderer.emitting = false;
             //GetComponent<Rigidbody>().isKinematic = false;
             Physics.IgnoreLayerCollision(gameObject.layer, 8, false); // obstacle layer
             Physics.IgnoreLayerCollision(gameObject.layer, 7, false); // npc layer
@@ -183,34 +183,23 @@ public class Player : MonoBehaviour
             energy -= 10;
         }
     }
-    public void RushMode()
+    public void Invincibility()
     {
-        if (invincibilitytime > 0)
-        {
-            invincibilitytime = originalInvincibleTime;
-            return;
-        }
-        else
-        {
-            invincibility = true;
-            invincibilitytime = originalInvincibleTime;
-            Physics.IgnoreLayerCollision(gameObject.layer, 8,true);
-            Physics.IgnoreLayerCollision(gameObject.layer, 7,true);
-            //GetComponent<Rigidbody>().isKinematic = true;
-            for (int i =0; i< 5; i++)
-            {
-                foreach (MeshRenderer mesh in meshes)
-                {
-                    foreach (Material mat in mesh.materials) mat.color = Color.red;
-                }
-            }
-            foreach (SkinnedMeshRenderer mesh in skin)
-            {
+        invincibility = true;
+        invincibilitytime = originalInvincibleTime;
+        Physics.IgnoreLayerCollision(gameObject.layer, 8, true);
+        Physics.IgnoreLayerCollision(gameObject.layer, 7, true);
+        //GetComponent<Rigidbody>().isKinematic = true;
+        for (int i = 0; i < 5; i++) {
+            foreach (MeshRenderer mesh in meshes) {
                 foreach (Material mat in mesh.materials) mat.color = Color.red;
             }
-            trailRenderer.emitting = true;
-            movespeed *= 2;
         }
+        foreach (SkinnedMeshRenderer mesh in skin) {
+            foreach (Material mat in mesh.materials) mat.color = Color.red;
+        }
+        //trailRenderer.emitting = true;
+        //movespeed *= 2;
 
     }
 

@@ -300,8 +300,6 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0.6}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: -0.6}
-  lane: 0
-  newlane: 0
   bus: {fileID: 6392394581985633441}
   campos: {fileID: 869228552405954623}
   station: {fileID: 7856495692004522139}
@@ -578,6 +576,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 36eba00138fd4cc41b203362f95143c3, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3796623983001304451, guid: 36eba00138fd4cc41b203362f95143c3, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 36eba00138fd4cc41b203362f95143c3, type: 3}
       propertyPath: m_Name
