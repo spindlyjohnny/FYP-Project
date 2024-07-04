@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837e60c421f34a9448d4edad5e66d4cb, type: 3}
+  m_Name: Wheelchair
+  m_EditorClassIdentifier: 
+  dialogueQuestions:
+  - question: '"Scuse me, i need a bit of help. I need to get to the nearest bus
+      stop, mind helping me?"'
+    Dialogue:
+    - '"Scuse me, i need a bit of help"'
+    - '"I need to get to the nearest bus stop, mind helping me?" '
+    options:
+    - '"Sure thing, I''ll bring you there"'
+    - (Ignore them)
+    answer: 0100
+    location: Pavement
+    outcome: Start task
+  - question: '"Oh no... (She looks like she is struggling with her wheelchair)"'
+    Dialogue:
+    - '"Oh no..."'
+    - (She looks like she is struggling with her wheelchair)
+    options:
+    - (Push the wheelchair for her)
+    - (Ask if she needs help)
+    - '"Sorry, I can''t"'
+    answer: 000100
+    location: Pavement
+    outcome: Task Complete
+  - question: '"Hey, this train is too crowded! And I''m a quite exhausted to move
+      on my own. I need to get to the nearest wheelchair zone and leave at my stop,
+      can you assist me?"'
+    Dialogue:
+    - '"Hey, this train is too crowded!"'
+    - '"And I''m a quite exhausted to move on my own" '
+    - '"I need to get to the nearest wheelchair zone and leave at my stop, can you
+      assist me?" '
+    options:
+    - '"No problem, I''ll help you"'
+    - '"Sorry, I can''t"'
+    answer: 0100
+    location: Wheelchair Zone
+    outcome: Start task
+  - question: '"I need to alight soon, but there''s too many people at the train
+      door!"'
+    Dialogue:
+    - '"I need to alight soon, but there''s too many people at the train door!" '
+    options:
+    - (Help her inform passengers to make way.)
+    - (Shrug it off)
+    answer: 0100
+    location: Train
+    outcome: 'Task Complete '
+  - question: '"Please press the stop button for me, I can''t reach it from here" '
+    Dialogue:
+    - '"please press the stop button for me, I can''t reach it from here" '
+    options:
+    - (Help her press it)
+    - (Let her do it herself)
+    answer: 0100
+    location: Inside Bus
+    outcome: 'Task Complete '
+  - question: '"Hi there, the foldable seat is blocking me, could you help me adjust
+      it?"'
+    Dialogue:
+    - '"Hi there, the foldable seat is blocking me, could you help me adjust it?"'
+    options:
+    - '"Yes, I can help"'
+    - '"No, I don''t know how"'
+    answer: 0100
+    location: Inside Bus
+    outcome: 'Task Complete '

@@ -19,11 +19,8 @@ public class NPC : MonoBehaviour
     //bool spoken;
     public bool followplayer;
     public NPCManagement npcmanager;
-    string[] names, questions, explains,outcomes;
-    string[] options,questionLocation;
-    public List<string> filteredOptions= new List<string>(0);
-    public List<OptionsOfQuestions> optionList;
-    public TextAsset optionsFile, dialogueFile, questionFile,locationFile, nameFile, explainsFile,outcomesFile;
+    string[] names;
+    public DialogueSO dialogueData;
     public float movespeed;
     LevelManager levelManager;
     public Vector3 startpos;
@@ -47,15 +44,7 @@ public class NPC : MonoBehaviour
         levelManager = FindObjectOfType<LevelManager>();
         cam = FindObjectOfType<CameraController>();
         player = FindObjectOfType<Player>();
-        names = nameFile.text.Split("\n");
-        questions = questionFile.text.Split("\n");
-        explains = explainsFile.text.Split("\n");
-        questionLocation= locationFile.text.Split("\n");
-        outcomes= outcomesFile.text.Split("\n");
-        string[] dialogueEx = new string[0];
-        dialogueEx = dialogueFile.text.Split("\n");
         tasksuccess = Task.Default;
-        options = optionsFile.text.Split("\n");
 
         //setting the text reference to the right canvas
         nametext = levelManager.nametext;
@@ -74,69 +63,6 @@ public class NPC : MonoBehaviour
         levelManager.optionCButton.SetActive(true);
         levelManager.optionDButton.SetActive(true);
 
-        for (int i = 0; i < options.Length; i++)
-        {
-             filteredOptions.Add(options[i]);
-        }
-
-        for(int i = 0; i < dialogueEx.Length; i++)
-        {
-            dialogueList.Add(dialogueEx[i]);
-        }
-       
-        bool continuing = false;
-        int optionIndex = 0;
-        char quotationMark = filteredOptions[0].ToCharArray()[0];
-        for (int i = 0; i < dialogueList.Count; i++)
-        {
-            int numberOfCharacter = dialogueList[i].ToCharArray().Length;
-            if (continuing==false && dialogueList[i].ToCharArray()[0]== quotationMark && dialogueList[i].ToCharArray()[numberOfCharacter - character] != quotationMark)
-            {
-                continuing = true;
-                this.optionList[optionIndex].Dialogue.Add(dialogueList[i]);
-            }
-            else if(continuing ==true && dialogueList[i].ToCharArray()[numberOfCharacter- character] != quotationMark)//end with no quotation
-            {
-                this.optionList[optionIndex].Dialogue.Add(dialogueList[i]);
-            }
-            else if(continuing == true && dialogueList[i].ToCharArray()[numberOfCharacter - character] == quotationMark)
-            {
-                
-                this.optionList[optionIndex].Dialogue.Add(dialogueList[i]);
-                continuing = false;
-                optionIndex += 1;
-            }
-            else if(continuing == false && dialogueList[i].ToCharArray()[0] == quotationMark && dialogueList[i].ToCharArray()[numberOfCharacter - character] == quotationMark)
-            {
-                this.optionList[optionIndex].Dialogue.Add(dialogueList[i]);
-                optionIndex += 1;
-            }
-        }
-        continuing = false;
-        optionIndex = 0;
-        for (int i = 0; i < filteredOptions.Count; i++)
-        {
-            int numberOfCharacter = filteredOptions[i].ToCharArray().Length;
-            if (continuing==false && filteredOptions[i].ToCharArray()[0]== quotationMark && filteredOptions[i].ToCharArray()[numberOfCharacter - 2] != quotationMark)
-            {
-                continuing = true;
-                this.optionList[optionIndex].option.Add(filteredOptions[i]);
-            }else if(continuing ==true && filteredOptions[i].ToCharArray()[numberOfCharacter-2] != quotationMark)
-            {
-                this.optionList[optionIndex].option.Add(filteredOptions[i]);
-            }
-            else if(continuing == true && filteredOptions[i].ToCharArray()[numberOfCharacter - 2] == quotationMark )
-            {
-                this.optionList[optionIndex].option.Add(filteredOptions[i]);
-                continuing = false;
-                optionIndex += 1;
-            }
-            else if (continuing == false && filteredOptions[i].ToCharArray()[0] == quotationMark && filteredOptions[i].ToCharArray()[numberOfCharacter - 2] == quotationMark)
-            {
-                this.optionList[optionIndex].option.Add(filteredOptions[i]);
-                optionIndex += 1;
-            }
-        }
         startpos = transform.localPosition;
     }
 
@@ -246,25 +172,21 @@ public class NPC : MonoBehaviour
     }
     void UpdateCanvas() {
         List<int> locationIndexs = new List<int>(0);
-        for (int i = 0; i < questionLocation.Length; i++) {
-            sub = questionLocation[i].Substring(0, 2);
+        for (int i = 0; i < dialogueData.dialogueQuestions.Length; i++) {
+            sub = dialogueData.dialogueQuestions[i].location.Substring(0, 2);
             temp = npcLocation.Substring(0, 2);
             print(temp);
             print(sub);
             if (sub == temp) locationIndexs.Add(i);
-
         }
-        int qnindex;
         if (locationIndexs.Count == 0) {
             Debug.LogError("No valid question with the assigned Location");
         }
         int index = Random.Range(0, locationIndexs.Count);
-        qnindex = locationIndexs[index];
+        int qnindex = locationIndexs[index];
         hasdestination = false;
-        string subOutcome = outcomes[qnindex].Substring(0, 6);
+        string subOutcome = dialogueData.dialogueQuestions[qnindex].outcome.Substring(0, 6);
         string tempOutcome = "Start task".Substring(0, 6);
-        print(subOutcome);
-        print(tempOutcome);
         if (subOutcome == tempOutcome)
         {
             hasdestination = true;
@@ -275,38 +197,42 @@ public class NPC : MonoBehaviour
         levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
         levelManager.optionCButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
         levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
-        foreach (int i in answer[qnindex].element) {
-            if (i == 1) {
-                levelManager.optionAButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
-            } else if (i == 2) {
-                levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
-            } else if (i == 3) {
-                levelManager.optionCButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
-            } else if (i == 4) {
-                levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
-            }
+        if (dialogueData.dialogueQuestions[qnindex].answer[0] == true)
+        {
+            levelManager.optionAButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
         }
-        dialogue = new string[optionList[qnindex].Dialogue.Count];
-        for (int i = 0; i < optionList[qnindex].Dialogue.Count; i++) {
-            dialogue[i] = optionList[qnindex].Dialogue[i];
+        if (dialogueData.dialogueQuestions[qnindex].answer[1] == true)
+        {
+            levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
         }
-        optionA = optionList[qnindex].option[0];
-        optionB = optionList[qnindex].option[1];
-        if (optionList[qnindex].option.Count >= 3) optionC = this.optionList[qnindex].option[2];
-        if (optionList[qnindex].option.Count >= 4) optionD = this.optionList[qnindex].option[3];
+        if (dialogueData.dialogueQuestions[qnindex].answer[2] == true)
+        {
+            levelManager.optionCButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
+        }
+        if (dialogueData.dialogueQuestions[qnindex].answer[3] == true)
+        {
+            levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
+        }
+
+
+        dialogue = new string[dialogueData.dialogueQuestions[qnindex].Dialogue.Length];
+        for (int i = 0; i < dialogueData.dialogueQuestions[qnindex].Dialogue.Length; i++) {
+            dialogue[i] = dialogueData.dialogueQuestions[qnindex].Dialogue[i];
+        }
+        if (dialogueData.dialogueQuestions[qnindex].options.Length >= 3) optionC = this.dialogueData.dialogueQuestions[qnindex].options[2];
+        if (dialogueData.dialogueQuestions[qnindex].options.Length >= 4) optionD = this.dialogueData.dialogueQuestions[qnindex].options[3];
         nametext.text = names[Random.Range(0, names.Length)];
-        questiontext.text = questions[qnindex];
-        explaintext.text = explains[qnindex];
-        optionAtext.text = "a)" + optionA;
-        optionBtext.text = "b)" + optionB;
+        questiontext.text = dialogueData.dialogueQuestions[qnindex].question;
+        optionAtext.text = "a)" + dialogueData.dialogueQuestions[qnindex].options[0];
+        optionBtext.text = "b)" + dialogueData.dialogueQuestions[qnindex].options[1];
         levelManager.optionCButton.SetActive(true);
         levelManager.optionDButton.SetActive(true);
-        if (optionList[qnindex].option.Count >= 3) optionCtext.text = "c)" + optionC;
+        if (dialogueData.dialogueQuestions[qnindex].options.Length >= 3) optionCtext.text = "c)" + dialogueData.dialogueQuestions[qnindex].options[2];
         else {
             optionCtext.text = "";
             levelManager.optionCButton.SetActive(false);
         }
-        if (optionList[qnindex].option.Count >= 4) optionDtext.text = "d)" + optionD;
+        if (dialogueData.dialogueQuestions[qnindex].options.Length >= 4) optionDtext.text = "d)" + dialogueData.dialogueQuestions[qnindex].options[3];
         else {
             optionDtext.text = "";
             levelManager.optionDButton.SetActive(false);

@@ -1,0 +1,324 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d7f28b3959714047aaaff3d3f3dbba3, type: 3}
+  m_Name: new general Dialogue
+  m_EditorClassIdentifier: 
+  dialogueQuestions:
+  - question: Why should we take public transport?
+    type: 
+    options:
+    - We can be more environmentally friendly
+    - 'We can eat and drink '
+    - 'We can chat loudly with our friends '
+    - We can put our bags on the seats
+    answer: 01000000
+    explain: 
+  - question: 'What should you do when you see a vulnerable commuter e.g., Visually-impaired,
+      deaf, senior, pregnant lady? Select any that apply. '
+    type: 
+    options:
+    - Ask them if they need help
+    - 'Ask if they need a seat/Give up your seat '
+    - 'Ignore them  '
+    - Continue using your phone
+    answer: 00000000
+    explain: 
+  - question: What should you do when you see someone wearing the 'May I have a seat
+      please?' card and lanyard?
+    type: 
+    options:
+    - Give up your seat/nicely ask someone to give their seat to them
+    - Ignore them and continue using your phone/chatting with your friends"
+    answer: 0100
+    explain: 
+  - question: What should you do when you see someone wearing the 'Alert me when
+      I am approaching my stop' card and lanyard?
+    type: 
+    options:
+    - Ask him/her where they are stopping and help them keep a look out for their
+      stop
+    - Ignore them and continue using your phone/chatting with your friends
+    answer: 0100
+    explain: 
+  - question: Why is being caring on public transport important? Select any that
+      apply
+    type: 
+    options:
+    - We can be caring and kind towards one another, to have a caring commuting culture
+    - We can ignore others and be focused on ourselves only
+    - We can use our phones
+    - Others can receive help when they need it
+    answer: 01000001
+    explain: 
+  - question: 'What should you do when you see someone put their bags on the seats? '
+    type: 
+    options:
+    - Ignore them
+    - 'Put your bag on the seat as well '
+    - Ask them politely to put their bags on the floor instead
+    answer: 000001
+    explain: 
+  - question: 'What are the Four Caring Norms you should show on public transport?
+      Select any that apply '
+    type: 
+    options:
+    - Give Time, Give Care, Give Care, Give Thanks
+    - Give Care, Give Help, Give Advice, Give Thanks
+    - Give a Hand, Give Care, Give Time, Give Advice
+    - Give Thanks, Give Kindness, Give a Hand, Give Time
+    answer: 01000000
+    explain: 
+  - question: 'Is the Heart Zone one of the places  at MRT stations and bus interchanges
+      for commuters to give and receive help? '
+    type: 
+    options:
+    - Yes
+    - No
+    answer: 0100
+    explain: 
+  - question: 'What should you do if you see someone who needs help using Heartwheels
+      @ Linkway wheelchairs? '
+    type: 
+    options:
+    - Ask an adult if they can help
+    - Ignore them
+    answer: 0100
+    explain: 
+  - question: 'What should you NOT do when you see a vulnerable commuter e.g, commuter
+      with physical disability, holding a cane, pregnant etc? '
+    type: 
+    options:
+    - Stare at them
+    - Laugh at them
+    - Speak to them very loudly
+    - All of the above
+    answer: 00000001
+    explain: 
+  - question: 'What are the three As on how to help someone? Select any that apply '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'Do all pregnant ladies have big stomachs? '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: What should you do when you see a pregnant lady or suspect a woman
+      is pregnant?
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: What should you do when you see young children (below 6 years old)
+      on the train?
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'Do all commuters with vision problems completely not see? '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'What does a white cane mean? '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'What does a white cane with red bottom mean? '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'What should you do when you see a visually impaired commuter?  '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: Do all blind commuters wear sunglasses?
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: How many active guide dogs are there in Singapore?
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: How do you guide someone who is blind?
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'What should you do when you see a commuter wearing a hearing aid?
+      [insert image of hearing aid] '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: Do all deaf commuters know/use sign language?
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'Do all deaf commuters wear hearing aids? [insert image of a hearing
+      aid] '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: How do you communicate someone who is deaf/cannot hear properly? Select
+      any that apply.
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: What should you do when you see a wheelchair user who is struggling?
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: What should you do when you see a commuter with physical disabilty
+      e.g., using crutches, on a wheelchair?
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'Can you hang your belongings on a wheelchair user''s wheelchair? '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'Do all commuters with physical disabilities use a wheelchair? '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: What do you call a commuter in a wheelchair?
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'True or False? "Some people with Intellectual Disability can travel
+      on public transport on their own." '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'What should you do if  you see someone with Intellectual Disability
+      queueing up for the bus or train? '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'True or False?"Commuters with Intellectual Disability always behave
+      strangely." '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: What should you do if you see a commuter with Intellectual Disability
+      who is lost?
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'Should you call someone with Intellectual Disability stupid if they
+      don''t understand you? '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'What should you do when someone with Autism is stimming e.g., rocking
+      back and forth, talking loudly? Select any that apply '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'What main problem do commuters with Autism face? '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'What should you do if you identify someone with Autism queueing up
+      for the bus or train? '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'What should you do if you observe someone having a meltdown e.g. screaming,
+      crying, waving their hands etc.? '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'Do commuters with Autism look like everyone else?  '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'What should you do if you see a commuter with Autism who is lost? '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'What should you do if you see a commuter with dementia/elderly commuter
+      that is lost? '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'How do you know someone has dementia? Select any that apply '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'Someone approaches you for help but you''re not sure how to help them.
+      What should you do? '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'You see a commuter behaving oddly e.g., talking to themselves. What
+      should you do? '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'Are all medical conditions visible? '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'You notice someone has fainted. What should you do? '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'You notice someone looks weak, tired or in pain. What should you do?
+      Select any that apply '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: 'What are some examples of invisible medical conditions? Select any
+      that apply  '
+    type: 
+    options: []
+    answer: 
+    explain: 
+  - question: Do only old commuters have health issues?
+    type: 
+    options: []
+    answer: 
+    explain: 
