@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public Sprite dialogueSprite; // this var exists cuz there's 2 playable charas
     public Animator anim;
     public int lane=1, newlane;
+    Vector3 startZ,distTravelled;
     //NPCManagement npcmanager;
     // Start is called before the first frame update
     private void Awake() {
@@ -59,6 +60,7 @@ public class Player : MonoBehaviour
         {
             foreach (Material mat in mesh.materials) originalColor = mat.color;
         }
+        startZ = transform.position;
         //if(levelManager.level == LevelManager.Level.Bus) {
         //    GetComponent<Collider>().isTrigger = true;
         //} 
@@ -72,6 +74,9 @@ public class Player : MonoBehaviour
     void Update()
     {
         Movement();
+        distTravelled = transform.position - startZ;
+        print("Distance"+distTravelled.magnitude);
+        print("Time:"+Time.timeSinceLevelLoad);
         if (invincibility) {
             invincibilitytime -= Time.deltaTime;
         }

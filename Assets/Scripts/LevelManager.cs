@@ -145,16 +145,6 @@ public class LevelManager : SceneLoader {
         loadingscreen.SetActive(true);
         loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];
     }
-    //public void MoveToTrain() {
-
-    //    print("yes2");
-    //    level = Level.MRT;
-    //    SaveData();
-    //    PlayerPrefs.Save();
-    //    LoadScene(3); // mrt level
-    //    loadingscreen.SetActive(true);
-    //    loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];
-    //}
     public void Spawn(int amount,float size) {
         for (int x = 0; x < amount; x++) { // spawn amount tiles at a time
             Tile mytile;
@@ -165,18 +155,6 @@ public class LevelManager : SceneLoader {
             mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
             objectPool.Remove();
             objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(size * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
-            //if (level == Level.Bus) {
-            //    // spawn tile at spawn point + size of tile * order that tile was spawned + shift
-            //    objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(size * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
-            //    //ObjectPool.Spawn(tiles[tileindex], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
-            //    //Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(7 * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
-            //} 
-            //else {
-            //    print("trains");
-            //    objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(26.5f * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
-            //    //ObjectPool.Spawn(tiles[tileindex], mytile.spawnpt.position + new Vector3(26.5f * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
-            //    //Instantiate(tiles[tileindex], mytile.spawnpt.position + new Vector3(26.5f * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0), Quaternion.identity);
-            //}
             if (amount == 1) numberOfTiles += 1;
         }
     }

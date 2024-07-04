@@ -193,9 +193,6 @@ public class NPC : MonoBehaviour
             player.canMove = false;
             player.GetComponent<Rigidbody>().velocity = Vector3.zero;
             levelManager.dialoguescreen.SetActive(true);
-            //player.avatar.gameObject.SetActive(true);
-            //avatar.gameObject.SetActive(true);
-            //CameraPan();
             StartDialogue();
         }
     }
@@ -218,21 +215,8 @@ public class NPC : MonoBehaviour
     public void EndDialogue() {
         dialoguebox.SetActive(false);
         player.canMove = true;
-        //cam.target = player.transform;
-        //cam.NPC = false;
-        //if (levelManager.level == LevelManager.Level.Bus || levelManager.level == LevelManager.Level.BusInterior) cam.transform.position = cam.originalposition.position;
-        //else cam.transform.position = cam.trainposition.position;
-        //cam.smoothing = 3;
-        //spoken = true;
         player.NPC = false;
         levelManager.dialoguescreen.SetActive(false);
-        //player.avatar.gameObject.SetActive(false);
-        //avatar.gameObject.SetActive(false);
-        //dialoguetext.text = "";
-        //if (!spoken) { // ensures spokencount is only increased once
-        //    spoken = true;
-        //    npcmanager.spokencount += 1;
-        //}
     }
 
     public void Stop()
@@ -240,19 +224,15 @@ public class NPC : MonoBehaviour
         StopCoroutine(dialogueco);
     }
     public IEnumerator Dialogue() {
-        foreach (char chr in dialogue[currentline]) { // types out dialogue character by character
-            dialoguetext.text += chr;
+        for (int i = 0; i < 5; i++) {
             AudioManager.instance.PlaySFX(dialoguesound);
             yield return new WaitForSeconds(wordspeed);
         }
+        foreach (char chr in dialogue[currentline]) { // types out dialogue character by character
+            dialoguetext.text += chr;
+            yield return new WaitForSeconds(wordspeed);
+        }
     }
-    //void CameraPan() {
-    //    cam.target = transform.GetChild(0);
-    //    cam.NPC = true;
-    //    player.NPC = true;
-    //    cam.smoothing = 4f;
-    //    cam.transform.position = Vector3.Lerp(transform.position, cam.targetposition, Time.deltaTime * cam.smoothing);
-    //}
     public void FollowPlayer() {
         if (!followplayer) return;
         if (levelManager.level == LevelManager.Level.Bus) player.GetComponent<Rigidbody>().isKinematic = true;
@@ -260,7 +240,7 @@ public class NPC : MonoBehaviour
         transform.SetParent(null);
         Vector3 dir = (player.transform.position - transform.position);
         Quaternion lookRotation = Quaternion.LookRotation(dir, Vector3.up);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, 30 * Time.deltaTime);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, 180 * Time.deltaTime);
         //GetComponent<Collider>().enabled = false;
         transform.Translate(movespeed * Time.deltaTime * dir);
     }
