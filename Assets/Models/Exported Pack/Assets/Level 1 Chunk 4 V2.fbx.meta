@@ -3,7 +3,12 @@ guid: 7ffecd36e0956a549988d0af87cf4f20
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rough_colour_scheme
+    second: {fileID: 2100000, guid: 7f993f67ccf2dc14ca41c6b86c16ad43, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
