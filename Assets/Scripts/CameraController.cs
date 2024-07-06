@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour {
-    public Transform target,originalposition,trainposition;
+    public Transform target,originalposition/*,trainposition*/;
     public float smoothing = 1f,lookOffset,defaultoffset,interioroffset;
     public Vector3 targetposition;
     public bool NPC,bus;
@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour {
             : FindObjectOfType<Player>().transform.Find("Bus Interior Cam Pos"); // camera angle for bus level and interior
         
         
-        trainposition = FindObjectOfType<Player>().transform.Find("Train Cam Pos").transform; // camera angle for train level
+        //trainposition = FindObjectOfType<Player>().transform.Find("Train Cam Pos").transform; // camera angle for train level
         lookOffset = defaultoffset; // defaultoffset is camera offset in bus level. camera is closer in train level so there is a need for a trainoffset variable.
     }
 

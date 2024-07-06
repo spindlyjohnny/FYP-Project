@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 69618733873651285}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.037257142, y: -0.0007714286, z: 0}
+  m_LocalPosition: {x: -0.037257142, y: 0.0017514286, z: 0.0011114286}
   m_LocalScale: {x: 0.28571427, y: 0.28571427, z: 0.28571427}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 8819381316846652440}
   m_Layer: 0
   m_Name: Train Cabin 2
-  m_TagString: Untagged
+  m_TagString: Train
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -367,7 +367,7 @@ Transform:
   m_GameObject: {fileID: 7611240421450239496}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: -2.05, z: -10.6}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 350, y: 350, z: 350}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -462,9 +462,9 @@ MonoBehaviour:
   spawnpt: {fileID: 5394473250288453494}
   NPC: []
   lanes:
-  - {x: 0, y: 0, z: 9.615}
-  - {x: 0, y: 0, z: 8.987}
-  - {x: 0, y: 0, z: 8.358}
+  - {x: 0, y: 0, z: 2.39}
+  - {x: 0, y: 0, z: 1.019}
+  - {x: 0, y: 0, z: -0.319}
 --- !u!1 &8092174219389227315
 GameObject:
   m_ObjectHideFlags: 0

@@ -143,53 +143,7 @@ MonoBehaviour:
   currentline: 0
   followplayer: 0
   npcmanager: {fileID: 0}
-  filteredOptions: []
-  optionList:
-  - option: []
-    Dialogue: []
-  - option: []
-    Dialogue: []
-  - option: []
-    Dialogue: []
-  - option: []
-    Dialogue: []
-  - option: []
-    Dialogue: []
-  - option: []
-    Dialogue: []
-  - option: []
-    Dialogue: []
-  - option: []
-    Dialogue: []
-  - option: []
-    Dialogue: []
-  - option: []
-    Dialogue: []
-  - option: []
-    Dialogue: []
-  - option: []
-    Dialogue: []
-  - option: []
-    Dialogue: []
-  - option: []
-    Dialogue: []
-  - option: []
-    Dialogue: []
-  - option: []
-    Dialogue: []
-  - option: []
-    Dialogue: []
-  - option: []
-    Dialogue: []
-  - option: []
-    Dialogue: []
-  optionsFile: {fileID: 4900000, guid: f14a45166c493c94db96129ed02d328d, type: 3}
-  dialogueFile: {fileID: 4900000, guid: 39ea7c6bbd7809944a08ec6d8dcbdd0c, type: 3}
-  questionFile: {fileID: 4900000, guid: 9c3ffdbd86d8ab64bb2d41b38124e2aa, type: 3}
-  locationFile: {fileID: 4900000, guid: 2232913297c99604fb570baba75c2f81, type: 3}
-  nameFile: {fileID: 4900000, guid: f1f26e489f466544b8276ff858af8c93, type: 3}
-  explainsFile: {fileID: 4900000, guid: fd847761bc0ac8f47bb5d39f4fc8c7f2, type: 3}
-  outcomesFile: {fileID: 4900000, guid: 64e1e9417945be74ea79dfda33a2011e, type: 3}
+  dialogueData: {fileID: 11400000, guid: 934b73efe80730040a4597f108068f88, type: 2}
   movespeed: 5
   startpos: {x: 0, y: 0, z: 0}
   tasksuccess: 0

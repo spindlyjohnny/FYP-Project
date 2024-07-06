@@ -196,37 +196,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5562811747765062126}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1999687545020511284
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6254555688944105572}
-  m_Layer: 6
-  m_Name: Train Cam Pos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6254555688944105572
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999687545020511284}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.08011264, y: 0.28554985, z: -0.37959105, w: 0.87632984}
-  m_LocalPosition: {x: 0.386, y: 0.295, z: 0.915}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5562811747765062126}
-  m_LocalEulerAnglesHint: {x: 20.928, y: 28.08, z: -41.552}
 --- !u!1 &6089143364145234718
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,9 +1517,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 92e6a260986ac8741a26359b5599977b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4182528912839714712}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 92e6a260986ac8741a26359b5599977b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6254555688944105572}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 92e6a260986ac8741a26359b5599977b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8291623509978137831}

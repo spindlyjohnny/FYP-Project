@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4124045966975161015}
   m_Layer: 0
   m_Name: Train Cabin 3
-  m_TagString: Untagged
+  m_TagString: Train
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 396153803299045869}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.02, y: -2.05, z: -10.6}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 350, y: 350, z: 350}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -41,6 +41,7 @@ Transform:
   - {fileID: 6127010079322341973}
   - {fileID: 7270235701330927730}
   - {fileID: 7647072201440606411}
+  - {fileID: 2931575328560804334}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8368919316071741575
@@ -121,9 +122,9 @@ MonoBehaviour:
   spawnpt: {fileID: 2251241738693709455}
   NPC: []
   lanes:
-  - {x: 0, y: 0, z: 9.615}
-  - {x: 0, y: 0, z: 8.987}
-  - {x: 0, y: 0, z: 8.358}
+  - {x: 0, y: 0, z: 2.39}
+  - {x: 0, y: 0, z: 1.019}
+  - {x: 0, y: 0, z: -0.319}
 --- !u!1 &734344319774812687
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +249,7 @@ Transform:
   m_GameObject: {fileID: 5576530783826361240}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.047, y: 0, z: 0.0018}
+  m_LocalPosition: {x: 0.0484, y: 0, z: 0.0018}
   m_LocalScale: {x: 0.28571427, y: 0.28571427, z: 0.28571427}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -279,12 +280,230 @@ Transform:
   m_GameObject: {fileID: 6218121023459280914}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.037257142, y: -0.0007714286, z: 0}
+  m_LocalPosition: {x: -0.037257142, y: 0.0017514286, z: 0.0011114286}
   m_LocalScale: {x: 0.28571427, y: 0.28571427, z: 0.28571427}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1185185799482330226}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &954649963085683781
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1185185799482330226}
+    m_Modifications:
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: explain
+      value: thats not where the station is
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: optionA
+      value: Sure, I'll guide you there
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: optionB
+      value: Im sorry, I'm too busy right now
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: optionC
+      value: '[laugh at them]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: optionD
+      value: '[ignore]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: nametext
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: question
+      value: Can you help me find my way to the nearest bus stop?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: mycredits
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: startpos.x
+      value: -0.0784
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: startpos.y
+      value: -0.00493
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: startpos.z
+      value: -0.00134
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: destination
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: dialoguebox
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: explaintext
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: npcLocation
+      value: Train
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: optionAtext
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: optionBtext
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: optionCtext
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: optionDtext
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: questionbox
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: tasksuccess
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: dialoguetext
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: questiontext
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: Hello
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: dialogue.Array.data[1]
+      value: Can you help me find my way to the nearest bus stop?
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863821231898360523, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: dialogue.Array.data[2]
+      value: 'I cannot remember where it is '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706827409266945451, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.002481599
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706827409266945451, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.002435328
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706827409266945451, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.002435328
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706827409266945451, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0176
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706827409266945451, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00011
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706827409266945451, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.00072
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706827409266945451, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706827409266945451, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706827409266945451, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706827409266945451, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706827409266945451, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706827409266945451, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706827409266945451, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400988405361731566, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_Size.y
+      value: 2.2064772
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400988405361731566, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_Center.y
+      value: 1.0699812
+      objectReference: {fileID: 0}
+    - target: {fileID: 3691485958082300389, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194266150530353860, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_Size.y
+      value: 0.74312866
+      objectReference: {fileID: 0}
+    - target: {fileID: 5194266150530353860, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_Center.y
+      value: 0.26936376
+      objectReference: {fileID: 0}
+    - target: {fileID: 5649981623296280584, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5649981623296280584, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5649981623296280584, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165041437090717006, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_Name
+      value: NPC (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165041437090717006, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6165041437090717006, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+--- !u!4 &2931575328560804334 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2706827409266945451, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+  m_PrefabInstance: {fileID: 954649963085683781}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4981604275820576111
 PrefabInstance:
   m_ObjectHideFlags: 0

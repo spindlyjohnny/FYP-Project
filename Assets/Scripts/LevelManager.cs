@@ -72,7 +72,7 @@ public class LevelManager : SceneLoader {
             Spawn(8,13);
         } 
         else if(level == Level.MRT){
-            cam.lookOffset = cam.interioroffset;
+            //cam.lookOffset = cam.interioroffset;
             for (int i = 0; i < tiles.Length; i++) {
                 tiles[i] = mrt[i];
             }
