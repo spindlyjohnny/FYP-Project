@@ -360,7 +360,7 @@ Light:
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
-    m_NormalBias: 0.4
+    m_NormalBias: 0.59
     m_NearPlane: 0.2
     m_CullingMatrixOverride:
       e00: 1
@@ -408,7 +408,7 @@ Transform:
   m_GameObject: {fileID: 1179562177}
   serializedVersion: 2
   m_LocalRotation: {x: 0.74259615, y: 0.3783771, z: 0.27341697, w: 0.48023424}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: -41.4, y: 20.4, z: 25.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -611,20 +611,56 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1150282314607055674, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: pools.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1150282314607055674, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: pools.Array.data[0].tag
-      value: Train
+      value: Train Cabin 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150282314607055674, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: pools.Array.data[1].tag
+      value: Train Cabin 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150282314607055674, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: pools.Array.data[2].tag
+      value: Train Cabin 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150282314607055674, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: pools.Array.data[3].tag
+      value: Train Cabin 4
       objectReference: {fileID: 0}
     - target: {fileID: 1150282314607055674, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: pools.Array.data[0].size
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1150282314607055674, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: pools.Array.data[1].size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150282314607055674, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: pools.Array.data[2].size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150282314607055674, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: pools.Array.data[3].size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150282314607055674, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: pools.Array.data[0].prefab
       value: 
-      objectReference: {fileID: 7404829644063580020, guid: 6d404cd9cec35b1469bd2504cd6c7229, type: 3}
+      objectReference: {fileID: 1947645973731038382, guid: a7855c1b00ce90d4d9db9fb129e0e295, type: 3}
+    - target: {fileID: 1150282314607055674, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: pools.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 7611240421450239496, guid: ae9dd9c5ae675864eb8273bc199493f7, type: 3}
+    - target: {fileID: 1150282314607055674, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: pools.Array.data[2].prefab
+      value: 
+      objectReference: {fileID: 396153803299045869, guid: 8904fcbd8070ef8409fbfd612dc23595, type: 3}
+    - target: {fileID: 1150282314607055674, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: pools.Array.data[3].prefab
+      value: 
+      objectReference: {fileID: 3002043870293167261, guid: 202f51f9772206d4bb9a282c0679b3ad, type: 3}
     - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: boost
       value: 

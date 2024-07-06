@@ -14,7 +14,7 @@ public class LevelManager : SceneLoader {
     public Slider energyslider;
     public GameObject[] tiles;
     [SerializeField] GameObject[] bustiles;
-    public GameObject mrt;
+    public GameObject[] mrt;
     public int score; 
     public int tileindex;
     public TMP_Text scoretext, tasksuccesstext;
@@ -73,11 +73,12 @@ public class LevelManager : SceneLoader {
         } 
         else if(level == Level.MRT){
             cam.lookOffset = cam.interioroffset;
-            for (int i = 0; i < tiles.Length; i++) { // mrt is the single mrt prefab that we are using
-                tiles[i] = mrt;
+            for (int i = 0; i < tiles.Length; i++) {
+                tiles[i] = mrt[i];
             }
             tileindex = 0; // in bus level, tileindex is randomised for the purposes of tile randomisation. but in train level this not necessary as all tiles are the same. so tileindex does not matter and is just set to 0.
-            Spawn(8,26.5f);
+            //Spawn(8,26.5f);
+            Spawn(8,30f);
             foreach(var i in FindObjectsOfType<Tile>()) { // finds closest train tile and moves player there. might get rid of this in the future.
                 float closest = 999;
                 if(Vector3.Distance(transform.position, i.transform.position) < closest) {
@@ -151,7 +152,7 @@ public class LevelManager : SceneLoader {
             if (amount == 1) {
                 x = numberOfTiles;
             }
-            if (level == Level.Bus) RandomTile(); // randomise tiles in bus level, not needed in mrt level since all tiles are the same
+            /*if (level == Level.Bus)*/ RandomTile(); // randomise tiles /*in bus level, not needed in mrt level since all tiles are the same*/
             mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
             objectPool.Remove();
             objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(size * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));

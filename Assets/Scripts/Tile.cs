@@ -52,7 +52,7 @@ public class Tile : MonoBehaviour {
         if (other.GetComponent<Player>())//only the player collision will spawn the tile
         {
             once = true;
-            float size = levelManager.level == LevelManager.Level.Bus ? 13 : 26.5f;
+            float size = levelManager.level == LevelManager.Level.Bus ? 13 : 30/*26.5f*/;
             levelManager.Spawn(1,size);
             if (GetComponentInChildren<TrainObstacle>()) GetComponentInChildren<TrainObstacle>().SetNPCs();
         }

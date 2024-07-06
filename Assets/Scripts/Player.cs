@@ -75,8 +75,8 @@ public class Player : MonoBehaviour
     {
         Movement();
         distTravelled = transform.position - startZ;
-        print("Distance"+distTravelled.magnitude);
-        print("Time:"+Time.timeSinceLevelLoad);
+        //print("Distance"+distTravelled.magnitude);
+        //print("Time:"+Time.timeSinceLevelLoad);
         if (invincibility) {
             invincibilitytime -= Time.deltaTime;
         }
