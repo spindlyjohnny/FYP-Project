@@ -661,6 +661,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7196524405884246913}
     - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: level
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: busstart
       value: 
       objectReference: {fileID: 0}
