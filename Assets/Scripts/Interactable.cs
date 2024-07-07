@@ -52,19 +52,26 @@ public class Interactable : MonoBehaviour
     }
     private void OnTriggerStay(Collider other) {
         if (gameObject.CompareTag("Transition") && Input.GetKeyDown(KeyCode.F)) {
-            if (npcmanager.myNPC != null) npcmanager.myNPC.Transitioninator();
-            else levelManager.Move(3, LevelManager.Level.MRT);
+            if (npcmanager.myNPC != null) {
+                npcmanager.myNPC.Transitioninator();
+            }
+            if(npcmanager.myNPC == null){
+                if(levelManager.level == LevelManager.Level.BusInterior)levelManager.Move(1, LevelManager.Level.Bus); // go from bus interior to bus
+                if (levelManager.level == LevelManager.Level.Bus) levelManager.Move(3, LevelManager.Level.MRT); // go from bus to mrt
+            }
         }
     }
     protected virtual void OnTriggerEnter(Collider other) {
-        if(npcmanager.myNPC != null && other.GetComponent<Player>()) {
+        if (other.GetComponent<Player>() && levelManager.level == LevelManager.Level.BusInterior || levelManager.level == LevelManager.Level.MRT) {
+            player.inputtext.SetActive(true);
+        }
+        else if (other.GetComponent<Player>()) {
             player.canMove = false;
             player.inputtext.SetActive(true);
-            if (GetComponentInParent<RoadTile>()) npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
+            if (npcmanager.myNPC != null) {
+                if (GetComponentInParent<RoadTile>()) npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
+            }
             //if (gameObject.CompareTag("Transition") && Input.GetKeyDown(KeyCode.F)) npcmanager.myNPC.Transitioninator();
-        }
-        else if (other.GetComponent<Player>() && levelManager.level == LevelManager.Level.BusInterior) {
-            player.inputtext.SetActive(true);
         }
     }
     protected void OnTriggerExit(Collider other) {

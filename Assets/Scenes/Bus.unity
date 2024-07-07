@@ -556,11 +556,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2052020801273092348, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
   m_PrefabInstance: {fileID: 7196524405884246908}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2047160498 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6254555688944105572, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
-  m_PrefabInstance: {fileID: 8004116751846742633}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &785670746770996512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -861,7 +856,7 @@ PrefabInstance:
     - target: {fileID: 1867751650460203515, guid: 883f847bd93626149a71c25e5090a08a, type: 3}
       propertyPath: trainposition
       value: 
-      objectReference: {fileID: 2047160498}
+      objectReference: {fileID: 0}
     - target: {fileID: 1867751650460203515, guid: 883f847bd93626149a71c25e5090a08a, type: 3}
       propertyPath: originalposition
       value: 

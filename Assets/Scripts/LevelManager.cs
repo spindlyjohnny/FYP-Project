@@ -76,7 +76,7 @@ public class LevelManager : SceneLoader {
             for (int i = 0; i < tiles.Length; i++) {
                 tiles[i] = mrt[i];
             }
-            tileindex = 0; // in bus level, tileindex is randomised for the purposes of tile randomisation. but in train level this not necessary as all tiles are the same. so tileindex does not matter and is just set to 0.
+            //tileindex = 0; // in bus level, tileindex is randomised for the purposes of tile randomisation. but in train level this not necessary as all tiles are the same. so tileindex does not matter and is just set to 0.
             //Spawn(8,26.5f);
             Spawn(8,30f);
             foreach(var i in FindObjectsOfType<Tile>()) { // finds closest train tile and moves player there. might get rid of this in the future.
@@ -197,14 +197,16 @@ public class LevelManager : SceneLoader {
             foreach (var i in tiles) {
                 if (i.GetComponent<RoadTile>()) tileindex = Array.IndexOf(tiles, i); // get index of road tile in tiles array
             }
-        } else {
-            List<int> legalindexes = new List<int>(); // indexes that are not the index of the road tile
+        } 
+        else {
+            List<int> legalindexes = new List<int>(); // indexes that are not the index of the road tile or the train station
             for (int i = 0; i < tiles.Length; i++) {
-                if (!tiles[i].GetComponent<RoadTile>()) legalindexes.Add(i);
+                if (!tiles[i].GetComponent<RoadTile>() || !tiles[i].CompareTag("Transition")) legalindexes.Add(i);
             }
             System.Random random = new System.Random();
             tileindex = legalindexes[random.Next(0, legalindexes.Count)]; // gets random index
         }
+        foreach (var i in tiles) if (i.CompareTag("Transition")) if (player.distTravelled.magnitude % 50 == 0 && player.distTravelled.magnitude > 0) tileindex = Array.IndexOf(tiles, i); // wow so readable
     }
 
 }

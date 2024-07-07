@@ -1,17 +1,17 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HeadphoneObstacle : Obstacle
 {
-    public float distanceBeforeTurningBack=10f;
-    Vector3 InitalPosition;    
-    float distanceBetween;
+    //public float distanceBeforeTurningBack=10f;
+    //Vector3 InitalPosition;    
+    //float distanceBetween;
     public bool walkingRight = true;
     Vector3 direction;
     private void Start()
     {
-        InitalPosition = transform.position;
+        //InitalPosition = transform.position;
     }
     protected override void Update() {
         //RaycastHit hit;
@@ -39,6 +39,6 @@ public class HeadphoneObstacle : Obstacle
 
         //}
         if (!myspawner.gameObject.activeInHierarchy) Destroy(gameObject);
-        //else Destroy(gameObject, 15);
+        else Destroy(gameObject, 15);
     }
 }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5462208086776468001}
   - component: {fileID: 5322468459597957410}
   - component: {fileID: 6930810622962498420}
+  - component: {fileID: 5060462927611113993}
   m_Layer: 0
   m_Name: Train Cabin 4
   m_TagString: Train
@@ -64,8 +65,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.085188024, y: 0.0000000023841857, z: 0.019967508}
-  m_Center: {x: -0.00020376206, y: -0.0003756181, z: 0.0014845391}
+  m_Size: {x: 0.08989458, y: 0.0000000023841857, z: 0.019967508}
+  m_Center: {x: 0.0021496392, y: -0.0003756181, z: 0.0014845398}
 --- !u!65 &5462208086776468001
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -85,8 +86,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.08530208, y: 0.013533307, z: 0}
-  m_Center: {x: -0.00014667238, y: 0.0063910354, z: 0.008888328}
+  m_Size: {x: 0.08987097, y: 0.013533307, z: 0}
+  m_Center: {x: 0.002137819, y: 0.0063910354, z: 0.008888328}
 --- !u!65 &5322468459597957410
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -106,8 +107,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.0841862, y: 0.013533307, z: 0}
-  m_Center: {x: 0.00029712677, y: 0.0063910354, z: -0.0054915673}
+  m_Size: {x: 0.08870129, y: 0.013533307, z: 0}
+  m_Center: {x: 0.0025547273, y: 0.0063910354, z: -0.0054915673}
 --- !u!114 &6930810622962498420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,6 +127,27 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 2.39}
   - {x: 0, y: 0, z: 1.019}
   - {x: 0, y: 0, z: -0.319}
+--- !u!65 &5060462927611113993
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3002043870293167261}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0018977083, y: 0.0036847952, z: 0.012762745}
+  m_Center: {x: 0.048070613, y: 0.001171194, z: 0.0016487169}
 --- !u!1 &3313323237601284838
 GameObject:
   m_ObjectHideFlags: 0

@@ -100,13 +100,13 @@ public class NPC : MonoBehaviour
         AudioManager.instance.PlaySFX(correctsound);
     }
     IEnumerator Transition(LevelManager.Level level) {
-        if (level == LevelManager.Level.Bus && street != null) {// called by bus.cs
+        if (level == LevelManager.Level.Bus && street != null) {// called by bus.cs go from bus to bus interior
             street.bus.gameObject.SetActive(true);
             cam.target = street.campos;
             cam.bus = true;
             gameObject.SetActive(false);
             player.gameObject.SetActive(false);
-        } else if (level == LevelManager.Level.MRT) { // called by interactable.cs
+        } else if (level == LevelManager.Level.MRT) { // called by interactable.cs go from mrt to bus
             yield return new WaitForSeconds(1f);
             levelManager.Move(1, LevelManager.Level.Bus);
         } /*else if (level == LevelManager.Level.BusInterior) {// called by interactable.cs

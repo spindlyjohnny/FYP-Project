@@ -1067,11 +1067,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1056336602}
   m_SourcePrefab: {fileID: 100100000, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
---- !u!4 &1056336598 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6254555688944105572, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
-  m_PrefabInstance: {fileID: 1056336596}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1056336599 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5562811747765062126, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
@@ -1168,7 +1163,7 @@ PrefabInstance:
     - target: {fileID: 1867751650460203515, guid: 883f847bd93626149a71c25e5090a08a, type: 3}
       propertyPath: trainposition
       value: 
-      objectReference: {fileID: 1056336598}
+      objectReference: {fileID: 0}
     - target: {fileID: 1867751650460203515, guid: 883f847bd93626149a71c25e5090a08a, type: 3}
       propertyPath: originalposition
       value: 
