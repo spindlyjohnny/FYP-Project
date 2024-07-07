@@ -14,311 +14,470 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueQuestions:
   - question: Why should we take public transport?
-    type: 
+    type: General
     options:
     - We can be more environmentally friendly
     - 'We can eat and drink '
     - 'We can chat loudly with our friends '
     - We can put our bags on the seats
     answer: 01000000
-    explain: 
+    explain: Public Transport is a more environmentally friendly travel option than
+      private cars and ride-hailing
   - question: 'What should you do when you see a vulnerable commuter e.g., Visually-impaired,
       deaf, senior, pregnant lady? Select any that apply. '
-    type: 
+    type: General
     options:
     - Ask them if they need help
     - 'Ask if they need a seat/Give up your seat '
     - 'Ignore them  '
     - Continue using your phone
     answer: 00000000
-    explain: 
+    explain: We should show care towards others who may need help
   - question: What should you do when you see someone wearing the 'May I have a seat
       please?' card and lanyard?
-    type: 
+    type: Invisible
     options:
     - Give up your seat/nicely ask someone to give their seat to them
     - Ignore them and continue using your phone/chatting with your friends"
     answer: 0100
-    explain: 
+    explain: The 'May I have a seat please?'card is to let others known that those
+      with hidden medical conditions may need a seat
   - question: What should you do when you see someone wearing the 'Alert me when
       I am approaching my stop' card and lanyard?
-    type: 
+    type: Visual
     options:
     - Ask him/her where they are stopping and help them keep a look out for their
       stop
     - Ignore them and continue using your phone/chatting with your friends
     answer: 0100
-    explain: 
+    explain: The 'Alert me when I am approaching my stop' card is to alert others
+      to those who need to be informed when they are reaching their stop
   - question: Why is being caring on public transport important? Select any that
       apply
-    type: 
+    type: General
     options:
     - We can be caring and kind towards one another, to have a caring commuting culture
     - We can ignore others and be focused on ourselves only
     - We can use our phones
     - Others can receive help when they need it
     answer: 01000001
-    explain: 
+    explain: Together, we can be Caring Commuters!
   - question: 'What should you do when you see someone put their bags on the seats? '
-    type: 
+    type: General
     options:
     - Ignore them
     - 'Put your bag on the seat as well '
     - Ask them politely to put their bags on the floor instead
     answer: 000001
-    explain: 
+    explain: The seat can be freed up for another commuter who needs a seat and we
+      can help remind others to be gracious and Caring Commuters!
   - question: 'What are the Four Caring Norms you should show on public transport?
       Select any that apply '
-    type: 
+    type: General
     options:
     - Give Time, Give Care, Give Care, Give Thanks
     - Give Care, Give Help, Give Advice, Give Thanks
     - Give a Hand, Give Care, Give Time, Give Advice
     - Give Thanks, Give Kindness, Give a Hand, Give Time
     answer: 01000000
-    explain: 
+    explain: The Four Caring Norms are Give Time, Give Care, Give a Hand and Give
+      Thanks!
   - question: 'Is the Heart Zone one of the places  at MRT stations and bus interchanges
       for commuters to give and receive help? '
-    type: 
+    type: General
     options:
     - Yes
     - No
     answer: 0100
-    explain: 
+    explain: The Heart Zone helps to build awareness and is a place for commuters
+      to give and receive help
   - question: 'What should you do if you see someone who needs help using Heartwheels
       @ Linkway wheelchairs? '
-    type: 
+    type: Wheelchair
     options:
     - Ask an adult if they can help
     - Ignore them
     answer: 0100
-    explain: 
+    explain: The wheelchairs are available for vulnerable commuters to use
   - question: 'What should you NOT do when you see a vulnerable commuter e.g, commuter
       with physical disability, holding a cane, pregnant etc? '
-    type: 
+    type: General
     options:
     - Stare at them
     - Laugh at them
     - Speak to them very loudly
     - All of the above
     answer: 00000001
-    explain: 
+    explain: The behaviours listed are rude. We should not be quick to judge or laugh
+      at others, and should be caring to commuters in need instead. Together, we
+      can be Caring Commuters!
   - question: 'What are the three As on how to help someone? Select any that apply '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: General
+    options:
+    - Assess, Ask, Assist
+    - Alone, Ask Assist
+    - Aid, Ask,Assess
+    answer: 010000
+    explain: If you Assess that someone seems to need help, Ask them if and how they
+      would like to be helped and Assist them accordingly
   - question: 'Do all pregnant ladies have big stomachs? '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: General
+    options:
+    - Yes
+    - No
+    answer: 0001
+    explain: You may not be able to tell if someone is pregnant as her baby bump
+      may not be visible or she may be wearing loose clothing
   - question: What should you do when you see a pregnant lady or suspect a woman
       is pregnant?
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Pregnant
+    options:
+    - Ignore them
+    - Ask if she needs a seat/give up your seat for them
+    answer: 0001
+    explain: Pregnant ladies may need a seat if they are experiencing  symptoms such
+      as giddiness, feeling nauseous or they may find it hard to keep their balance
+      in a moving bus or train
   - question: What should you do when you see young children (below 6 years old)
       on the train?
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: General
+    options:
+    - Ask the caregiver/children if they need a seat
+    - Ignore them
+    - Play with them
+    - 'Stare at them '
+    answer: 01000000
+    explain: Young children may not be able to balance well in a moving bus or train 
+      or might feel tired more easily
   - question: 'Do all commuters with vision problems completely not see? '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Visual
+    options:
+    - Yes
+    - No, there are those with only some vision loss
+    answer: 0001
+    explain: Blindness is a range - it can vary from having low vision to being completely
+      blind
   - question: 'What does a white cane mean? '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Visual
+    options:
+    - User is completely blind
+    - User has low vision
+    - User is blind and deaf
+    answer: 010000
+    explain: Commuters with visual impairment or blindness use a white cane. However,
+      persons with low vision do not touch the floor with the cane
   - question: 'What does a white cane with red bottom mean? '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Visual
+    options:
+    - User completely cannot see
+    - 'User has low vision '
+    - User is blind and dea
+    answer: 000100
+    explain: A white and red striped cane means that the user is completely blind
+      and deaf
   - question: 'What should you do when you see a visually impaired commuter?  '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Visual
+    options:
+    - 'Grab their cane   '
+    - Pet and play their guide dog if they have one
+    - Ask them if they need help
+    - Pull them along with you
+    answer: 00000100
+    explain: A visually impaired commuter may need help finding their destination. 
+      We must not pet or play with the guide dog as it distracts them from their
+      duty
   - question: Do all blind commuters wear sunglasses?
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Visual
+    options:
+    - Yes
+    - No
+    answer: 0001
+    explain: Not all visually imapired commuters wear sunglasses
   - question: How many active guide dogs are there in Singapore?
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: General
+    options:
+    - 100
+    - 50
+    - less than 10
+    answer: 000001
+    explain: 'Not all blind commuters have guide dogs - in 2024 there are less than
+      10 active guide dogs '
   - question: How do you guide someone who is blind?
-    type: 
-    options: []
-    answer: 
-    explain: 
-  - question: 'What should you do when you see a commuter wearing a hearing aid?
-      [insert image of hearing aid] '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Visual
+    options:
+    - Hold their hand
+    - Lead them by their cane
+    - Let them hold your hand
+    answer: 000001
+    explain: Letting blind commuters hold your elbow is the right way to guide commuters
+      with visual impairment
+  - question: What should you do when you see a commuter wearing a hearing aid?
+    type: Hearing
+    options:
+    - Ignore them
+    - 'Ask them if they need help if there is an important announcement in the MRT '
+    - Shout at them because they cannot hear
+    answer: 000100
+    explain: Commuters who are deaf may not be able to hear important announcements
+      - We can do our part to help them when they need it via our mobile phones or
+      writing.
   - question: Do all deaf commuters know/use sign language?
-    type: 
-    options: []
-    answer: 
-    explain: 
-  - question: 'Do all deaf commuters wear hearing aids? [insert image of a hearing
-      aid] '
-    type: 
-    options: []
-    answer: 
-    explain: 
-  - question: How do you communicate someone who is deaf/cannot hear properly? Select
+    type: Hearing
+    options:
+    - Yes
+    - No
+    answer: 0001
+    explain: Not all deaf commuters know sign language. Some may have only some level
+      of hearing loss or loss their hearing at an older age
+  - question: 'Do all deaf commuters wear hearing aids? '
+    type: Hearing
+    options:
+    - Yes
+    - No
+    answer: 0001
+    explain: Some deaf or hard-of-hearing commuters choose not to wear hearing aids,
+      it is based on one's preference. They may also customise sound levels depending
+      on their environment.
+  - question: How do you communicate someone who is deaf/cannot hear clearly? Select
       any that apply.
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Hearing
+    options:
+    - Gesture wildly at them
+    - Shout at them
+    - Use a paper/phone and write/type it out
+    - Point to the MRT map or screen
+    answer: 00000101
+    explain: Writing/typing out and pointing at screens are some ways to help deaf/hard-of-hearing
+      commuters
   - question: What should you do when you see a wheelchair user who is struggling?
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Wheelchair
+    options:
+    - Push their wheelchair for them
+    - Ask them if they need help
+    - Stand on their wheelchair
+    answer: 000100
+    explain: 'Wheelchairs are personal belongings and should not be touched without
+      permission. '
   - question: What should you do when you see a commuter with physical disabilty
-      e.g., using crutches, on a wheelchair?
-    type: 
-    options: []
-    answer: 
-    explain: 
+      e.g.,on a wheelchair?
+    type: Wheelchair
+    options:
+    - Help to hold the lift and press the lift buttons for them
+    - 'Allow them to board the bus or train first  '
+    - ' Ignore them'
+    - Laugh about their disability
+    answer: 01010000
+    explain: Commuters with physical disabilities have challenges in moving about
+      and we should do our part to help them
   - question: 'Can you hang your belongings on a wheelchair user''s wheelchair? '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Wheelchair
+    options:
+    - Yes
+    - No
+    answer: 0001
+    explain: A wheelchair is a person's personal belongings and should not be touched
+      without permission.
   - question: 'Do all commuters with physical disabilities use a wheelchair? '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Wheelchair
+    options:
+    - Yes
+    - No
+    answer: 0001
+    explain: Not all commuters with physical disabilities use a wheelchair and may
+      use other mobility aids like crutches and walking frames.  Some disabilities
+      may not be so easily visible
   - question: What do you call a commuter in a wheelchair?
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Wheelchair
+    options:
+    - Wheelchair-bound
+    - Wheelchair user
+    answer: 0001
+    explain: Wheelchair user' is the correct way to refer to a commuter using a wheelchair
   - question: 'True or False? "Some people with Intellectual Disability can travel
       on public transport on their own." '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Intellectual
+    options:
+    - True
+    - False
+    answer: 0100
+    explain: Some commuters with Intellectual Disability are able to take public
+      transport on their own
   - question: 'What should you do if  you see someone with Intellectual Disability
       queueing up for the bus or train? '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Intellectual
+    options:
+    - 'Let them board the bus first using the side that they want to board on  '
+    - Ask them to move away
+    - 'Stare at them '
+    answer: 010000
+    explain: Some commuters with Intellectual Disability have specific routines they
+      wish to follow
   - question: 'True or False?"Commuters with Intellectual Disability always behave
       strangely." '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Intellectual
+    options:
+    - True
+    - False
+    answer: 0001
+    explain: Commuters with Intellectual Disability may behave differently at times. 
+      We should not judge them but be caring towards them
   - question: What should you do if you see a commuter with Intellectual Disability
       who is lost?
-    type: 
-    options: []
-    answer: 
-    explain: 
-  - question: 'Should you call someone with Intellectual Disability stupid if they
-      don''t understand you? '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Intellectual
+    options:
+    - Alert an adult or the Passenger Service Office
+    - Laugh at them
+    - 'Drag them away to where you think they should be  '
+    - Ignore them
+    answer: 01000000
+    explain: Ask if they need help and help them if you know the directions. If not,
+      it may be better to ask an adult for help with the commuter.
+  - question: A commuter with intellectual disabilities does not understand what
+      you are saying. What should you do?
+    type: Intellectual
+    options:
+    - Use shorter and simpler sentences
+    - 'Just pull the person in the direction you think he/she should go '
+    - Scream at him/her
+    - 'Be patient and understanding '
+    answer: 01000001
+    explain: We should be patient and understanding when communicating with commuters
+      with intellectual disabilities, and speak more simply if necessary
   - question: 'What should you do when someone with Autism is stimming e.g., rocking
       back and forth, talking loudly? Select any that apply '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Autism
+    options:
+    - 'Stare at them '
+    - 'Laugh at them '
+    - Leave them to stim
+    - Don't stare and tell others not to stare as well
+    answer: 00000001
+    explain: We should not judge others who may be behaving differently from us,
+      and should be caring towards them instead
   - question: 'What main problem do commuters with Autism face? '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Autism
+    options:
+    - Communicating with others
+    - 'Remembering things  '
+    - Walking and moving
+    answer: 010000
+    explain: The main challenge commuters with Autism face is interacting and communicating
+      with others
   - question: 'What should you do if you identify someone with Autism queueing up
       for the bus or train? '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Autism
+    options:
+    - Let them board the bus first and the side that they want to board
+    - 'Ask them to move away '
+    - 'Stare at them '
+    answer: 010000
+    explain: Some commuters with Autism have specific routines they wish to follow,
+      so let us be caring towards them
   - question: 'What should you do if you observe someone having a meltdown e.g. screaming,
       crying, waving their hands etc.? '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Autism
+    options:
+    - Do not stare
+    - 'Try to stop them   '
+    - 'Stare at them  '
+    - 'Ask their caregiver if they need help '
+    answer: 01000001
+    explain: Sometimes, commuters with Autism having a meltdown can have difficulty
+      expressing themselves, and we should not judge them
   - question: 'Do commuters with Autism look like everyone else?  '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Autism
+    options:
+    - Yes
+    - No
+    answer: 0100
+    explain: Autism is a hidden condition
   - question: 'What should you do if you see a commuter with Autism who is lost? '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Autism
+    options:
+    - Alert an adult or the Passenger Service Office
+    - 'Drag them away to where you think they should be '
+    - 'Ask if they need help and help them if you can '
+    - 'Laugh at them '
+    answer: 01000100
+    explain: Ask if they need help and help them if you know the directions. If not,
+      it may be better to ask an adult for help with the commuter.
   - question: 'What should you do if you see a commuter with dementia/elderly commuter
       that is lost? '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Elderly
+    options:
+    - 'Notify an adult  '
+    - Seek help at the Passenger Service Control Centre/Dementia Go-To Point
+    - 'Drag them away to where you think they should be   '
+    - Ignore them
+    answer: 01010000
+    explain: It may be better to ask an adult for help with the commuter
   - question: 'How do you know someone has dementia? Select any that apply '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Dementia
+    options:
+    - Memory loss
+    - 'Confusion  '
+    - 'Difficulty in speaking '
+    - Unkempt (untidy) appearance
+    answer: 01010101
+    explain: All the symptoms are indicators that a commuter has dementia
   - question: 'Someone approaches you for help but you''re not sure how to help them.
       What should you do? '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Dementia
+    options:
+    - 'Bring them to the Passenger Service Office  '
+    - Ignore them and walk away
+    answer: 0100
+    explain: It may be better to ask an adult or Passenger Service Office for help
+      with the commuter
   - question: 'You see a commuter behaving oddly e.g., talking to themselves. What
       should you do? '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Dementia
+    options:
+    - Stare at them
+    - 'Laugh at them   '
+    - ' Alert an adult or the Passenger Service Office, as they may need help'
+    answer: 000001
+    explain: It may be better to ask an adult for help with the commuter
   - question: 'Are all medical conditions visible? '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Invisible
+    options:
+    - Yes
+    - No
+    answer: 0001
+    explain: There are some invisible medical conditions as well e.g. Autism, cancer
   - question: 'You notice someone has fainted. What should you do? '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Invisible
+    options:
+    - Ignore them
+    - Notify the nearest adult and the Passenger Service Office
+    answer: 0001
+    explain: It may be better to ask an adult or Passenger Service Office for help
+      with the commuter
   - question: 'You notice someone looks weak, tired or in pain. What should you do?
       Select any that apply '
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Invisible
+    options:
+    - 'Guide the commuter to a seat  '
+    - Ignore them and walk away
+    - Notify the nearest adult and the Passenger Service Office
+    answer: 010001
+    explain: Help the commuter get a seat, and ask adults or the Passenger Service
+      Office for help
   - question: 'What are some examples of invisible medical conditions? Select any
       that apply  '
-    type: 
-    options: []
-    answer: 
-    explain: 
-  - question: Do only old commuters have health issues?
-    type: 
-    options: []
-    answer: 
-    explain: 
+    type: Invisible
+    options:
+    - 'Autism '
+    - Dementia
+    - Immune System Disorders
+    answer: 010101
+    explain: All the above are some examples of invisible medical conditions - others
+      include headache, fever and mental disorders
+  - question: '"Only senior commuters have health issues." True or False?'
+    type: Elderly
+    options:
+    - True
+    - False
+    answer: 0001
+    explain: Young commuters may experience symptoms such as giddiness, nausea, imbalance
+      and other hidden symptoms as well

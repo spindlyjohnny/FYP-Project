@@ -12,4 +12,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 837e60c421f34a9448d4edad5e66d4cb, type: 3}
   m_Name: Elderly
   m_EditorClassIdentifier: 
-  dialogueQuestions: []
+  dialogueQuestions:
+  - question: '"Hi ah, I''m a bit lost, uncle is a bit old already, I went to the
+      market but can''t remember my way back"'
+    Dialogue:
+    - 'Hi ah, I''m a bit lost, uncle is a bit old already, I went to the market but
+      can''t remember my way back$ '
+    options:
+    - (Stare at him)
+    - (Laugh at him)
+    - (Offer to contact an adult)
+    answer: 000001
+    location: Bus stop
+    outcome: 'Task complete '
+  - question: 'Eh, I need help, these shopping bags are too heavy '
+    Dialogue:
+    - '"Eh, I need help, these shopping bags are too heavy" '
+    options:
+    - Offer your help
+    - Pretend not to hear him
+    answer: 0100
+    location: Pavement
+    outcome: Start task
+  - question: (The elderly man looks confused, maybe he needs help)
+    Dialogue:
+    - (The elderly man looks confused, maybe he needs help)
+    options:
+    - (Gently asks if he needs help)
+    - (Turn Away)
+    answer: 0100
+    location: Pavement
+    outcome: Start task
+  - question: 'Oh dear,.. I''m in the wrong train route, I can''t remember where
+      I went. What should I do? '
+    Dialogue:
+    - '"Oh dear... " '
+    - '"I''m in the wrong train route, I can''t remember where I went"'
+    - '"What should I do?"'
+    options:
+    - '"I''ll help you find a Transport Officer" '
+    - '"I can''t help you"'
+    answer: 0100
+    location: Train
+    outcome: Start task
+  - question: 'Please help! my grandchild was wandering in the train and I can''t
+      find her! Please help me look for her! '
+    Dialogue:
+    - '"Please help! my grandchild was wandering in the train and I can''t find her!
+      Please help me look for her!" '
+    options:
+    - '"Help her out" '
+    - '"Tell her you''re unable to"'
+    answer: 0100
+    location: Train
+    outcome: Start task:grandkid
+  - question: '(There is a lady on twin seats who have placed her handbag on the
+      other seat)(What should I tell her?) '
+    Dialogue:
+    - '(There is a lady on twin seats who have placed her handbag on the other seat) '
+    - (What should I tell her?)
+    options:
+    - (Ask her to free up the seat for the elderly man)
+    - (It can't be helped)
+    answer: 0100
+    location: Inside Bus
+    outcome: 'Task Complete '
+  - question: I...I forgot which stop my house is, I d-don't know what to do(I might
+      not be able to help him, but what should I do?)
+    Dialogue:
+    - '"I...I forgot which stop my house is, I d-don''t know what to do"'
+    - (I might not be able to help him, but what should I do?)
+    options:
+    - (Notify an adult)
+    - (Ignore him)
+    answer: 0100
+    location: Inside Bus
+    outcome: 'Task Complete '
