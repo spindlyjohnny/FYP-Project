@@ -192,21 +192,27 @@ public class LevelManager : SceneLoader {
         PlayerPrefs.Save();
     }
     void RandomTile() {
-        tilerng = UnityEngine.Random.Range(0f, 1f);
-        if (tilerng <= .5f && tilerng > 0) { // 50% chance of getting a road tile
+        if (Mathf.FloorToInt(player.distTravelled.magnitude) % 50 == 0 && player.distTravelled.magnitude > 0) {
             foreach (var i in tiles) {
-                if (i.GetComponent<RoadTile>()) tileindex = Array.IndexOf(tiles, i); // get index of road tile in tiles array
-            }
+                if (i.CompareTag("Transition")) tileindex = Array.IndexOf(tiles, i);
+             }
         } 
         else {
-            List<int> legalindexes = new List<int>(); // indexes that are not the index of the road tile or the train station
-            for (int i = 0; i < tiles.Length; i++) {
-                if (!tiles[i].GetComponent<RoadTile>() || !tiles[i].CompareTag("Transition")) legalindexes.Add(i);
+            tilerng = UnityEngine.Random.Range(0f, 1f);
+            if (tilerng <= .5f && tilerng > 0) { // 50% chance of getting a road tile
+                foreach (var i in tiles) {
+                    if (i.GetComponent<RoadTile>()) tileindex = Array.IndexOf(tiles, i); // get index of road tile in tiles array
+                }
+            } 
+            else {
+                List<int> legalindexes = new List<int>(); // indexes that are not the index of the road tile or the train station
+                for (int i = 0; i < tiles.Length; i++) {
+                    if (!tiles[i].GetComponent<RoadTile>() || !tiles[i].CompareTag("Transition")) legalindexes.Add(i);
+                }
+                System.Random random = new System.Random();
+                tileindex = legalindexes[random.Next(0, legalindexes.Count)]; // gets random index
             }
-            System.Random random = new System.Random();
-            tileindex = legalindexes[random.Next(0, legalindexes.Count)]; // gets random index
         }
-        foreach (var i in tiles) if (i.CompareTag("Transition")) if (player.distTravelled.magnitude % 50 == 0 && player.distTravelled.magnitude > 0) tileindex = Array.IndexOf(tiles, i); // wow so readable
     }
 
 }
