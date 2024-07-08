@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     Vector3 startPos;
     [HideInInspector]public Vector3 distTravelled;
     //NPCManagement npcmanager;
+    bool animating = false;
     // Start is called before the first frame update
     private void Awake() {
         if (PlayerPrefs.GetInt("bool") == 1) {
@@ -147,6 +148,7 @@ public class Player : MonoBehaviour
             newlane = Mathf.Clamp(lane - 1, 0, 2);
             print(newlane);
             lane = newlane;
+            /*
             Vector3 lerpPosition = new Vector3(transform.position.x, transform.position.y, tile.lanes[newlane].z);
             //print(lerpPosition);
             float distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
@@ -155,16 +157,18 @@ public class Player : MonoBehaviour
                 transform.position = Vector3.Lerp(transform.position, lerpPosition, movespeed * Time.deltaTime);
                 distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
             }
-            transform.position = lerpPosition;
+            transform.position = lerpPosition;*/
+            StartCoroutine(LaneMoving());
             //transform.position = tile.lanes[tile.newlane]\
         }
-        else if (Input.GetAxisRaw("Horizontal") > 0 && direction != Input.GetAxisRaw("Horizontal"))
+        else if (Input.GetAxisRaw("Horizontal") > 0 && direction != Input.GetAxisRaw("Horizontal") &animating==false)
         {
             print("yes");
             
             newlane = Mathf.Clamp(lane + 1, 0, 2);
             print(newlane);
             lane = newlane;
+            /*
             Vector3 lerpPosition = new Vector3(transform.position.x, transform.position.y, tile.lanes[newlane].z);
             //print(lerpPosition);
             float distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
@@ -173,11 +177,31 @@ public class Player : MonoBehaviour
                 transform.position = Vector3.Lerp(transform.position, lerpPosition, movespeed * Time.deltaTime);
                 distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
             }
-            transform.position = lerpPosition;
+            transform.position = lerpPosition;*/
+            StartCoroutine(LaneMoving());
             
         }
         direction = Input.GetAxisRaw("Horizontal");
     }
+
+    IEnumerator LaneMoving()
+    {
+        animating = true;
+        float elapsedTime = 0;
+        float duration = 0.8f;
+        Vector3 lerpPosition = new Vector3(transform.position.x, transform.position.y, tile.lanes[newlane].z);
+
+        while (elapsedTime<duration)
+        {
+            float t = elapsedTime / duration;
+            transform.position = Vector3.Lerp(transform.position, lerpPosition, t);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        transform.position = lerpPosition;
+        animating = false;
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         if(NPC) return;
