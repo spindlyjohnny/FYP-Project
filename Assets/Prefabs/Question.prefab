@@ -234,7 +234,9 @@ MonoBehaviour:
   trainsize: {x: 44, y: 44, z: 44}
   collectsound: {fileID: 8300000, guid: 2961c5ebeac5950449d9a23af8b32f78, type: 3}
   questionbox: {fileID: 0}
-  type: []
+  type:
+  - Elderly
+  - Wheelchair
   dialogueData: {fileID: 11400000, guid: 2fa9f4077118518448a5276e0ea1347b, type: 2}
   dialoguesound: {fileID: 0}
   correctsound: {fileID: 8300000, guid: 95465fb1e58813e4b91097a1d15aa71c, type: 3}

@@ -97,6 +97,7 @@ public class GeneralQuestion : Collectible
             }
         }
         int index = Random.Range(0, typeIndexs.Count);
+        print(typeIndexs.Count);
         int qnindex = typeIndexs[index];//random index for a question that is related to the current type
         levelManager.optionAButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
         levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;

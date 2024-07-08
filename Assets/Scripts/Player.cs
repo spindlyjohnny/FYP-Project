@@ -140,14 +140,12 @@ public class Player : MonoBehaviour
                 tile = hit.collider.GetComponent<Tile>();
             }
         }
-        if (Input.GetAxisRaw("Horizontal") < 0 && direction!= Input.GetAxisRaw("Horizontal"))
+        if (Input.GetAxisRaw("Horizontal") < 0 && direction != Input.GetAxisRaw("Horizontal") & animating == false)
         { // need to figure out how to prevent this from happening when holding down button
           // taken from unreal endless runner lololol
             print("change direction");
             print(direction);
             newlane = Mathf.Clamp(lane - 1, 0, 2);
-            print(newlane);
-            lane = newlane;
             /*
             Vector3 lerpPosition = new Vector3(transform.position.x, transform.position.y, tile.lanes[newlane].z);
             //print(lerpPosition);
@@ -167,7 +165,6 @@ public class Player : MonoBehaviour
             
             newlane = Mathf.Clamp(lane + 1, 0, 2);
             print(newlane);
-            lane = newlane;
             /*
             Vector3 lerpPosition = new Vector3(transform.position.x, transform.position.y, tile.lanes[newlane].z);
             //print(lerpPosition);
@@ -188,17 +185,19 @@ public class Player : MonoBehaviour
     {
         animating = true;
         float elapsedTime = 0;
-        float duration = 0.8f;
-        Vector3 lerpPosition = new Vector3(transform.position.x, transform.position.y, tile.lanes[newlane].z);
+        float duration = 0.2f;
 
         while (elapsedTime<duration)
         {
             float t = elapsedTime / duration;
-            transform.position = Vector3.Lerp(transform.position, lerpPosition, t);
+            float lerpValue = Mathf.Lerp(tile.lanes[lane].z, tile.lanes[newlane].z, t);
+            transform.position = new Vector3(transform.position.x,transform.position.y,lerpValue);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        transform.position = lerpPosition;
+
+        lane = newlane;
+        transform.position = new Vector3(transform.position.x, transform.position.y, tile.lanes[newlane].z); ;
         animating = false;
     }
 
