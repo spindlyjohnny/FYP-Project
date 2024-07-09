@@ -13,18 +13,38 @@ MonoBehaviour:
   m_Name: Wheelchair
   m_EditorClassIdentifier: 
   dialogueQuestions:
-  - question: '"Scuse me, i need a bit of help. I need to get to the nearest bus
+  - assessDialogue:
+    - (A girl using a wheelchair, waves at you)
+    - (Does she need my help?)
+    assessQuestion: (Does she need my help?)
+    assessOption:
+    - 'Approach her '
+    - Turn away
+    assessAnswer: 0100
+    question: '"Scuse me, i need a bit of help. I need to get to the nearest bus
       stop, mind helping me?"'
     Dialogue:
     - '"Scuse me, i need a bit of help"'
     - '"I need to get to the nearest bus stop, mind helping me?" '
     options:
     - '"Sure thing, I''ll bring you there"'
-    - (Ignore them)
+    - (Ignore her)
     answer: 0100
     location: Pavement
+    response:
+    - response:
+      - '"Ok let''s go!"'
+    - response:
+      - '"Oh, nevermind..."'
     outcome: Start task
-  - question: '"Oh no... (She looks like she is struggling with her wheelchair)"'
+  - assessDialogue:
+    - Oh no... (She looks like she is struggling with her wheelchair)
+    assessQuestion: (She looks like she is struggling with her wheelchair)
+    assessOption:
+    - 'Do you need my help? '
+    - Leave her be
+    assessAnswer: 0100
+    question: '"Oh no... (She looks like she is struggling with her wheelchair)"'
     Dialogue:
     - '"Oh no..."'
     - (She looks like she is struggling with her wheelchair)
@@ -34,8 +54,23 @@ MonoBehaviour:
     - '"Sorry, I can''t"'
     answer: 000100
     location: Pavement
+    response:
+    - response:
+      - 'Hey! Don''t touch that! '
+    - response:
+      - 'Yes, please help me ride the bus, it''s only a stop away '
+    - response:
+      - (She angrily glares at you)
     outcome: Task Complete
-  - question: '"Hey, this train is too crowded! And I''m a quite exhausted to move
+  - assessDialogue:
+    - '(A girl on a wheelchair looks in distress) '
+    - (She waves at you, with a worried look)
+    assessQuestion: (She waves at you, with a worried look)
+    assessOption:
+    - 'Approach her '
+    - Do nothing
+    assessAnswer: 0100
+    question: '"Hey, this train is too crowded! And I''m a quite exhausted to move
       on my own. I need to get to the nearest wheelchair zone and leave at my stop,
       can you assist me?"'
     Dialogue:
@@ -48,8 +83,21 @@ MonoBehaviour:
     - '"Sorry, I can''t"'
     answer: 0100
     location: Wheelchair Zone
+    response:
+    - response:
+      - '"Great! Thanks for your help! "'
+    - response:
+      - '"Oh... then maybe it''s too difficult..."'
     outcome: Start task
-  - question: '"I need to alight soon, but there''s too many people at the train
+  - assessDialogue:
+    - '"Hey there I need your help!"'
+    - (She calls out to you)
+    assessQuestion: (She calls out to you)
+    assessOption:
+    - 'Ask her what she needs '
+    - Assume she's calling someone else
+    assessAnswer: 0100
+    question: '"I need to alight soon, but there''s too many people at the train
       door!"'
     Dialogue:
     - '"I need to alight soon, but there''s too many people at the train door!" '
@@ -58,8 +106,21 @@ MonoBehaviour:
     - (Shrug it off)
     answer: 0100
     location: Train
+    response:
+    - response:
+      - '"I greatly appreciate it!"'
+    - response:
+      - (She looks stressed out)
     outcome: 'Task Complete '
-  - question: '"Please press the stop button for me, I can''t reach it from here" '
+  - assessDialogue:
+    - '(The girl using a wheelchair is reaching to the stop button) '
+    - (She might need help pressing it, what should I do?)
+    assessQuestion: (She might need help pressing it, what should I do?)
+    assessOption:
+    - 'Ask her if she needs your help '
+    - Ignore her
+    assessAnswer: 0100
+    question: '"Please press the stop button for me, I can''t reach it from here" '
     Dialogue:
     - '"please press the stop button for me, I can''t reach it from here" '
     options:
@@ -67,8 +128,21 @@ MonoBehaviour:
     - (Let her do it herself)
     answer: 0100
     location: Inside Bus
+    response:
+    - response:
+      - '"Thank you so much!"'
+    - response:
+      - (She managed to pressed the button, but strained her arm)
     outcome: 'Task Complete '
-  - question: '"Hi there, the foldable seat is blocking me, could you help me adjust
+  - assessDialogue:
+    - '(A girl using a wheelchair is near the wheelchair zone) '
+    - (However, a foldable chair is blocking her way)
+    assessQuestion: (However, a foldable chair is blocking her way)
+    assessOption:
+    - 'Asks if she needs help '
+    - Assume she's okay
+    assessAnswer: 0100
+    question: '"Hi there, the foldable seat is blocking me, could you help me adjust
       it?"'
     Dialogue:
     - '"Hi there, the foldable seat is blocking me, could you help me adjust it?"'
@@ -77,4 +151,9 @@ MonoBehaviour:
     - '"No, I don''t know how"'
     answer: 0100
     location: Inside Bus
+    response:
+    - response:
+      - '"Thank you!"'
+    - response:
+      - '"Oh ok..."'
     outcome: 'Task Complete '
