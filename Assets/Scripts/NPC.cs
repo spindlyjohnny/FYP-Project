@@ -37,6 +37,8 @@ public class NPC : MonoBehaviour
     public Image avatar;
     public Sprite dialogueSprite;
     Rigidbody rb;
+    int qnindex;
+    public int indexDialogue = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -117,7 +119,7 @@ public class NPC : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) {
         if (other.GetComponent<Player>() && !npcmanager.myNPC) {
-            UpdateCanvas();
+            Assess();
             player.canMove = false;
             player.GetComponent<Rigidbody>().velocity = Vector3.zero;
             levelManager.dialoguescreen.SetActive(true);
@@ -130,7 +132,7 @@ public class NPC : MonoBehaviour
     //        levelManager.gameover = true;
     //    }
     //}
-    void StartDialogue() {
+    public void StartDialogue() {
         player.NPC = true;
         dialoguebox.SetActive(true);
         avatar.sprite = dialogueSprite;
@@ -175,20 +177,82 @@ public class NPC : MonoBehaviour
         rb.velocity = movespeed * Time.deltaTime * dir;
         //transform.Translate(movespeed * Time.deltaTime * dir);
     }
-    void UpdateCanvas() {
+
+    public void Response(int index)
+    {
+        dialogue = new string[dialogueData.dialogueQuestions[qnindex].response[index].response.Length];
+        for (int i = 0; i < dialogueData.dialogueQuestions[qnindex].response[index].response.Length; i++)
+        {
+            dialogue[i] = dialogueData.dialogueQuestions[qnindex].response[index].response[i];
+        }
+    }
+
+    void Assess()
+    {
         List<int> locationIndexs = new List<int>(0);
-        for (int i = 0; i < dialogueData.dialogueQuestions.Length; i++) {
+        for (int i = 0; i < dialogueData.dialogueQuestions.Length; i++)
+        {
             sub = dialogueData.dialogueQuestions[i].location.Substring(0, 2);
             temp = npcLocation.Substring(0, 2);
             print(temp);
             print(sub);
             if (sub == temp) locationIndexs.Add(i);
         }
-        if (locationIndexs.Count == 0) {
+        if (locationIndexs.Count == 0)
+        {
             Debug.LogError("No valid question with the assigned Location");
         }
         int index = Random.Range(0, locationIndexs.Count);
-        int qnindex = locationIndexs[index];
+        qnindex = locationIndexs[index];
+
+
+        levelManager.optionAButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
+        levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
+        levelManager.optionCButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
+        levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
+        if (dialogueData.dialogueQuestions[qnindex].assessAnswer[0] == true)
+        {
+            levelManager.optionAButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
+        }
+        if (dialogueData.dialogueQuestions[qnindex].assessAnswer[1] == true)
+        {
+            levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
+        }
+        if (dialogueData.dialogueQuestions[qnindex].assessAnswer.Length == 3 && dialogueData.dialogueQuestions[qnindex].assessAnswer[2] == true)
+        {
+            levelManager.optionCButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;            
+        }
+        if (dialogueData.dialogueQuestions[qnindex].assessAnswer.Length == 4 && dialogueData.dialogueQuestions[qnindex].assessAnswer[3] == true)
+        {
+            levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;            
+        }
+
+        dialogue = new string[dialogueData.dialogueQuestions[qnindex].assessDialogue.Length];
+        for (int i = 0; i < dialogueData.dialogueQuestions[qnindex].assessDialogue.Length; i++)
+        {
+            dialogue[i] = dialogueData.dialogueQuestions[qnindex].assessDialogue[i];
+        }
+        nametext.text = names[Random.Range(0, names.Length)];
+        questiontext.text = dialogueData.dialogueQuestions[qnindex].assessQuestion;
+        optionAtext.text = "a)" + dialogueData.dialogueQuestions[qnindex].assessOption[0];
+        optionBtext.text = "b)" + dialogueData.dialogueQuestions[qnindex].assessOption[1];
+        levelManager.optionCButton.SetActive(true);
+        levelManager.optionDButton.SetActive(true);
+        if (dialogueData.dialogueQuestions[qnindex].options.Length >= 3) optionCtext.text = "c)" + dialogueData.dialogueQuestions[qnindex].assessOption[2];
+        else
+        {
+            optionCtext.text = "";
+            levelManager.optionCButton.SetActive(false);
+        }
+        if (dialogueData.dialogueQuestions[qnindex].options.Length >= 4) optionDtext.text = "d)" + dialogueData.dialogueQuestions[qnindex].assessOption[3];
+        else
+        {
+            optionDtext.text = "";
+            levelManager.optionDButton.SetActive(false);
+        }
+    }
+
+    public void UpdateCanvas() {
         hasdestination = false;
         string subOutcome = dialogueData.dialogueQuestions[qnindex].outcome.Substring(0, 6);
         string tempOutcome = "Start task".Substring(0, 6);
@@ -227,7 +291,6 @@ public class NPC : MonoBehaviour
         }
         if (dialogueData.dialogueQuestions[qnindex].options.Length >= 3) optionC = this.dialogueData.dialogueQuestions[qnindex].options[2];
         if (dialogueData.dialogueQuestions[qnindex].options.Length >= 4) optionD = this.dialogueData.dialogueQuestions[qnindex].options[3];
-        nametext.text = names[Random.Range(0, names.Length)];
         questiontext.text = dialogueData.dialogueQuestions[qnindex].question;
         optionAtext.text = "a)" + dialogueData.dialogueQuestions[qnindex].options[0];
         optionBtext.text = "b)" + dialogueData.dialogueQuestions[qnindex].options[1];

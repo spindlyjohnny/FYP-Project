@@ -6,10 +6,13 @@ public class NPCManagement : MonoBehaviour
 {
     public NPC myNPC;
     public GeneralQuestion myGeneral;
+    LevelManager levelManager;
+    Player player;
     // Start is called before the first frame update
     void Start()
     {
-        
+        levelManager = FindObjectOfType<LevelManager>();
+        player = FindObjectOfType<Player>();
     }
 
     // Update is called once per frame
@@ -44,7 +47,32 @@ public class NPCManagement : MonoBehaviour
                 myNPC.dialogueco = StartCoroutine(myNPC.Dialogue());
             } 
             else {
-                if (!myNPC.questionbox.activeSelf) myNPC.questionbox.SetActive(true);
+                if (myNPC.indexDialogue==2)
+                {
+                    myNPC.EndDialogue();
+                    if (myNPC.hasdestination)
+                    {
+                        myNPC.followplayer = true;
+                    }
+                    else
+                    {
+                        levelManager.taskcompletescreen.SetActive(true);
+                        myNPC.tasksuccess = NPC.Task.Success;
+                        player.energy += player.maxenergy * .2f;
+                        levelManager.upgradeText.SetActive(true);
+                        //if (!upgraded) {
+                        //    FindObjectOfType<Player>().maxenergy *= 1.5f;
+                        //    upgraded = true;
+                        //}
+                    }
+                    return;
+                }else if(myNPC.indexDialogue == 3)
+                {
+                    myNPC.EndDialogue();
+                    levelManager.taskcompletescreen.SetActive(true);
+                    return;
+                }
+                myNPC.questionbox.SetActive(true);//need to change this probably
                 //myNPC.EndDialogue();
             }
         } 

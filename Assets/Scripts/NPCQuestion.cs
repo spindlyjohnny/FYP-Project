@@ -11,6 +11,7 @@ public class NPCQuestion : MonoBehaviour
     LevelManager levelManager;
     Player player;
     public AudioClip correctsound, wrongsound;
+    public int indexQuestion;
     // Start is called before the first frame update
     void Start() {
         npcmanager = FindObjectOfType<NPCManagement>();
@@ -18,10 +19,6 @@ public class NPCQuestion : MonoBehaviour
         player = FindObjectOfType<Player>();
     }
 
-    // Update is called once per frame
-    void Update() {
-        
-    }
     public void AnswerQuestion() {
         if (player.NPC == false)
         {
@@ -59,6 +56,16 @@ public class NPCQuestion : MonoBehaviour
             //Explain();
             levelManager.upgradeText.SetActive(false);
             npcmanager.myNPC.questionbox.SetActive(false);
+            if(npcmanager.myNPC.indexDialogue == 1)
+            {
+                npcmanager.myNPC.indexDialogue += 2;
+                npcmanager.myNPC.tasksuccess = NPC.Task.Fail;
+                AudioManager.instance.PlaySFX(wrongsound);
+                npcmanager.myNPC.Response(indexQuestion);
+                npcmanager.myNPC.dialoguebox.SetActive(true);
+                levelManager.dialoguescreen.SetActive(true);
+                return;
+            }
             // NPC responds to player's choice here
             npcmanager.myNPC.EndDialogue();
             levelManager.taskcompletescreen.SetActive(true);
@@ -66,10 +73,22 @@ public class NPCQuestion : MonoBehaviour
             AudioManager.instance.PlaySFX(wrongsound);
         } 
         else if (option == Options.CorrectOption) {
+           
             //Explain();
             npcmanager.myNPC.questionbox.SetActive(false);
-            // NPC responds to player's choice here
-            npcmanager.myNPC.EndDialogue();
+            if (npcmanager.myNPC.indexDialogue < 1)
+            {
+                npcmanager.myNPC.indexDialogue += 1;
+                npcmanager.myNPC.UpdateCanvas();
+                levelManager.dialoguescreen.SetActive(true);
+                npcmanager.myNPC.StartDialogue();
+                return;
+            }
+            npcmanager.myNPC.indexDialogue += 1;
+            npcmanager.myNPC.Response(indexQuestion);
+            npcmanager.myNPC.dialoguebox.SetActive(true);
+            levelManager.dialoguescreen.SetActive(true);
+            AudioManager.instance.PlaySFX(correctsound);/*
             if (npcmanager.myNPC.hasdestination) {
                 npcmanager.myNPC.followplayer = true;
             } 
@@ -82,9 +101,10 @@ public class NPCQuestion : MonoBehaviour
                 //    FindObjectOfType<Player>().maxenergy *= 1.5f;
                 //    upgraded = true;
                 //}
-            }
-            AudioManager.instance.PlaySFX(correctsound);
+            }*/
+            
         }
+
 
     }
     public void Explain() {
