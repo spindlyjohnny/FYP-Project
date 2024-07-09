@@ -37,6 +37,7 @@ public class LevelManager : SceneLoader {
     public GameObject upgradeText,boost,taskfailimg;
     ObjectPool objectPool;
     public Image npcAvatar;
+    int numTiles;
     //[SerializeField]Tile starttile;
     // Start is called before the first frame update
     private void Awake() {
@@ -53,6 +54,7 @@ public class LevelManager : SceneLoader {
         }
     }
     void Start() {
+        numTiles = 0;
         objectPool = GetComponent<ObjectPool>();
         if (AudioManager.instance.CheckClip() != AudioManager.instance.levelmusic || !AudioManager.instance.IsPlaying()) {
             // CheckClip() is for when player starts level from level select. the other condition is when level is restarted either from pause screen or game over screen.
@@ -152,6 +154,7 @@ public class LevelManager : SceneLoader {
             mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
             objectPool.Remove();
             objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(size * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
+            numTiles++;
             if (amount == 1) numberOfTiles += 1;
         }
     }
@@ -199,11 +202,6 @@ public class LevelManager : SceneLoader {
                 if (i.GetComponent<RoadTile>()) tileindex = Array.IndexOf(tiles, i); // get index of road tile in tiles array
             }
         }
-        else if(tilerng > .9999f && tilerng <= 1f) {
-            foreach (var i in tiles) {
-                if (i.CompareTag("Transition")) tileindex = Array.IndexOf(tiles, i);
-            }
-        }
         else {
             List<int> legalindexes = new List<int>(); // indexes that are not the index of the road tile or the train station
             for (int i = 0; i < tiles.Length; i++) {
@@ -211,6 +209,13 @@ public class LevelManager : SceneLoader {
             }
             System.Random random = new System.Random();
             tileindex = legalindexes[random.Next(0, legalindexes.Count)]; // gets random index
+        }
+        if(numTiles >= 10) {
+            if (tilerng > .5f && tilerng <= .75f) {
+                foreach (var i in tiles) {
+                    if (i.CompareTag("Transition")) tileindex = Array.IndexOf(tiles, i);
+                }
+            }
         }
     }
 
