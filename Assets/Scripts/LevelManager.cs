@@ -117,6 +117,11 @@ public class LevelManager : SceneLoader {
         else if (level == Level.Bus) {
             tileshiftfactor = 26; //  tileshiftfactor spawns tiles 21 units ahead because when player enters trigger, there are 3 tiles in front. each tile is 7 units long on the x-axis
         }
+        //if (Mathf.FloorToInt(player.distTravelled.magnitude) % 50 == 0 && player.distTravelled.magnitude > 0) {
+        //    foreach (var i in tiles) {
+        //        if (i.CompareTag("Transition")) tileindex = Array.IndexOf(tiles, i);
+        //    }
+        //}
     }
     public void RestartLevel() {
         LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -183,26 +188,29 @@ public class LevelManager : SceneLoader {
         PlayerPrefs.Save();
     }
     void RandomTile() {
-        if (Mathf.FloorToInt(player.distTravelled.magnitude) % 50 == 0 && player.distTravelled.magnitude > 0) {
+        //if (Mathf.FloorToInt(player.distTravelled.magnitude) % 50 == 0 && player.distTravelled.magnitude > 0) {
+        //    foreach (var i in tiles) {
+        //        if (i.CompareTag("Transition")) tileindex = Array.IndexOf(tiles, i);
+        //     }
+        //} 
+        tilerng = UnityEngine.Random.Range(0f, 1f);
+        if (tilerng <= .5f && tilerng > 0) { // 50% chance of getting a road tile
+            foreach (var i in tiles) {
+                if (i.GetComponent<RoadTile>()) tileindex = Array.IndexOf(tiles, i); // get index of road tile in tiles array
+            }
+        }
+        else if(tilerng > .9999f && tilerng <= 1f) {
             foreach (var i in tiles) {
                 if (i.CompareTag("Transition")) tileindex = Array.IndexOf(tiles, i);
-             }
-        } 
-        else {
-            tilerng = UnityEngine.Random.Range(0f, 1f);
-            if (tilerng <= .5f && tilerng > 0) { // 50% chance of getting a road tile
-                foreach (var i in tiles) {
-                    if (i.GetComponent<RoadTile>()) tileindex = Array.IndexOf(tiles, i); // get index of road tile in tiles array
-                }
-            } 
-            else {
-                List<int> legalindexes = new List<int>(); // indexes that are not the index of the road tile or the train station
-                for (int i = 0; i < tiles.Length; i++) {
-                    if (!tiles[i].GetComponent<RoadTile>() || !tiles[i].CompareTag("Transition")) legalindexes.Add(i);
-                }
-                System.Random random = new System.Random();
-                tileindex = legalindexes[random.Next(0, legalindexes.Count)]; // gets random index
             }
+        }
+        else {
+            List<int> legalindexes = new List<int>(); // indexes that are not the index of the road tile or the train station
+            for (int i = 0; i < tiles.Length; i++) {
+                if (!tiles[i].GetComponent<RoadTile>() || !tiles[i].CompareTag("Transition")) legalindexes.Add(i);
+            }
+            System.Random random = new System.Random();
+            tileindex = legalindexes[random.Next(0, legalindexes.Count)]; // gets random index
         }
     }
 
