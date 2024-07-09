@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     [HideInInspector]public Vector3 distTravelled;
     //NPCManagement npcmanager;
     bool animating = false;
+    //Rigidbody rb;
     // Start is called before the first frame update
     private void Awake() {
         if (PlayerPrefs.GetInt("bool") == 1) {
@@ -61,6 +62,7 @@ public class Player : MonoBehaviour
             foreach (Material mat in mesh.materials) originalColor = mat.color;
         }
         startPos = transform.position;
+        //rb = GetComponent<Rigidbody>();
         //if(levelManager.level == LevelManager.Level.Bus) {
         //    GetComponent<Collider>().isTrigger = true;
         //} 
@@ -241,8 +243,8 @@ public class Player : MonoBehaviour
             foreach (Material mat in mesh.materials) mat.color = Color.red;
         }
         AudioManager.instance.PlaySFX(hitsfx);
+        canMove = false;
         yield return new WaitForSeconds(0.5f);
-        print("Change color");
         foreach (MeshRenderer mesh in meshes)
         {
             foreach (Material mat in mesh.materials) mat.color = originalColor;
@@ -251,6 +253,7 @@ public class Player : MonoBehaviour
         {
             foreach (Material mat in mesh.materials) mat.color = originalColor;
         }
+        canMove = true;
     }
 
     //private void OnTriggerEnter(Collider other) {
