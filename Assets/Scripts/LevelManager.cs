@@ -43,7 +43,7 @@ public class LevelManager : SceneLoader {
         if (PlayerPrefs.GetInt("bool") == 1)
         {
             score = PlayerPrefs.GetInt("score");
-            level = (Level)PlayerPrefs.GetInt("Level");
+            //level = (Level)PlayerPrefs.GetInt("Level");
         }
         else
         {
@@ -164,7 +164,7 @@ public class LevelManager : SceneLoader {
         PlayerPrefs.SetInt("bool", 1);
         PlayerPrefs.SetFloat("energy", player.energy);
         PlayerPrefs.SetInt("score", score);
-        PlayerPrefs.SetInt("Level", (int)level);
+        //PlayerPrefs.SetInt("Level", (int)level);
         PlayerPrefs.SetFloat("Invincibility Time", player.originalInvincibleTime);
         PlayerPrefs.SetFloat("Max Energy", player.maxenergy);
         PlayerPrefs.Save();
@@ -178,7 +178,7 @@ public class LevelManager : SceneLoader {
         PlayerPrefs.SetFloat("Max Energy", 100);
         //PlayerPrefs.SetFloat("Energy Gain", 10f);
         PlayerPrefs.SetFloat("Invincibility Time", 5f);
-        PlayerPrefs.SetInt("Level", (int)Level.Bus);
+        //PlayerPrefs.SetInt("Level", (int)Level.Bus);
         LoadData();
         PlayerPrefs.Save();
     }

@@ -47,31 +47,32 @@ public class Interactable : MonoBehaviour
         //    } 
         //}
     }
-    private void OnDrawGizmos() {
-        //Gizmos.DrawWireSphere(transform.position, radius);
-    }
     private void OnTriggerStay(Collider other) {
         if (gameObject.CompareTag("Transition") && Input.GetKeyDown(KeyCode.F)) {
-            if (npcmanager.myNPC != null) {
+            if (npcmanager.myNPC != null) { // bus to bus interior, mrt to bus
                 npcmanager.myNPC.Transitioninator();
             }
-            if(npcmanager.myNPC == null){
+            if(npcmanager.myNPC == null){ // for when player is in bus interior or if they are touching train station
                 if(levelManager.level == LevelManager.Level.BusInterior)levelManager.Move(1, LevelManager.Level.Bus); // go from bus interior to bus
                 if (levelManager.level == LevelManager.Level.Bus) levelManager.Move(3, LevelManager.Level.MRT); // go from bus to mrt
             }
         }
     }
     protected virtual void OnTriggerEnter(Collider other) {
-        if (other.GetComponent<Player>() && levelManager.level == LevelManager.Level.BusInterior || levelManager.level == LevelManager.Level.MRT) {
-            player.inputtext.SetActive(true);
-        }
-        else if (other.GetComponent<Player>()) {
-            player.canMove = false;
-            player.inputtext.SetActive(true);
-            if (npcmanager.myNPC != null) {
+        if (other.GetComponent<Player>() && gameObject.CompareTag("Transition")) {
+            if (npcmanager.myNPC != null) { // stop player no matter what if have NPC
+                player.canMove = false;
+                player.inputtext.SetActive(true);
                 if (GetComponentInParent<RoadTile>()) npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
+            }else if(npcmanager.myNPC == null) {
+                if(levelManager.level == LevelManager.Level.BusInterior) { // dont stop player if in bus 
+                    player.inputtext.SetActive(true);
+                } 
+                else if(gameObject.name.Contains("Train Station")){ // stop player if touching mrt station even if no NPC
+                    player.canMove = false;
+                    player.inputtext.SetActive(true);
+                }
             }
-            //if (gameObject.CompareTag("Transition") && Input.GetKeyDown(KeyCode.F)) npcmanager.myNPC.Transitioninator();
         }
     }
     protected void OnTriggerExit(Collider other) {
