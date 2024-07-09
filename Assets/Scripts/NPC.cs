@@ -36,6 +36,7 @@ public class NPC : MonoBehaviour
     public int character = 2;
     public Image avatar;
     public Sprite dialogueSprite;
+    Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +46,7 @@ public class NPC : MonoBehaviour
         cam = FindObjectOfType<CameraController>();
         player = FindObjectOfType<Player>();
         tasksuccess = Task.Default;
-
+        rb = GetComponent<Rigidbody>();
         //setting the text reference to the right canvas
         nametext = levelManager.nametext;
         dialoguetext = levelManager.dialoguetext;
@@ -57,6 +58,7 @@ public class NPC : MonoBehaviour
         optionDtext = levelManager.optionDtext;
         dialoguebox = levelManager.dialoguebox;
         questionbox = levelManager.questionbox;
+        names = File.ReadAllLines("Assets/Misc/first-names.txt");
         avatar = levelManager.npcAvatar;
         //avatar.sprite = dialogueSprite;
         //turning the visibility on
@@ -79,7 +81,7 @@ public class NPC : MonoBehaviour
         print("yes");
         // starts transition between levels
         followplayer = false;
-        player.GetComponent<Rigidbody>().isKinematic = false;
+        rb.isKinematic = false;
         //GetComponent<Collider>().enabled = true;
         tasksuccess = Task.Success;
         StartCoroutine(Transition(levelManager.level)); // does the actual transition, bus moves to train station/ player leaves train
@@ -161,14 +163,17 @@ public class NPC : MonoBehaviour
     }
     public void FollowPlayer() {
         if (!followplayer) return;
-        if (levelManager.level == LevelManager.Level.Bus) player.GetComponent<Rigidbody>().isKinematic = true;
-        else Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
-        transform.SetParent(null);
+        /*if (levelManager.level == LevelManager.Level.Bus) player.GetComponent<Rigidbody>().isKinematic = true;
+        else*/ //Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
+        rb.isKinematic = true;
+        //transform.position = player.NPCPos.position;
+        transform.SetParent(player.transform);
         Vector3 dir = (player.transform.position - transform.position);
         Quaternion lookRotation = Quaternion.LookRotation(dir, Vector3.up);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, 180 * Time.deltaTime);
         //GetComponent<Collider>().enabled = false;
-        transform.Translate(movespeed * Time.deltaTime * dir);
+        rb.velocity = movespeed * Time.deltaTime * dir;
+        //transform.Translate(movespeed * Time.deltaTime * dir);
     }
     void UpdateCanvas() {
         List<int> locationIndexs = new List<int>(0);
@@ -205,15 +210,16 @@ public class NPC : MonoBehaviour
         {
             levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
         }
-        if (dialogueData.dialogueQuestions[qnindex].answer[2] == true)
-        {
-            levelManager.optionCButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
+        if(dialogueData.dialogueQuestions[qnindex].answer.Length == 3) {
+            if (dialogueData.dialogueQuestions[qnindex].answer[2] == true) {
+                levelManager.optionCButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
+            }  
         }
-        if (dialogueData.dialogueQuestions[qnindex].answer[3] == true)
-        {
-            levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
+        if(dialogueData.dialogueQuestions[qnindex].answer.Length == 4) {
+            if (dialogueData.dialogueQuestions[qnindex].answer[3] == true) {
+                levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
+            }
         }
-
 
         dialogue = new string[dialogueData.dialogueQuestions[qnindex].Dialogue.Length];
         for (int i = 0; i < dialogueData.dialogueQuestions[qnindex].Dialogue.Length; i++) {

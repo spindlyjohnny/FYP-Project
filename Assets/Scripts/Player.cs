@@ -20,7 +20,6 @@ public class Player : MonoBehaviour
     float direction=3;
     [SerializeField]float invincibilitytime;
     Tile tile;
-    TrailRenderer trailRenderer;
     public Image avatar;
     public Sprite dialogueSprite; // this var exists cuz there's 2 playable charas
     public Animator anim;
@@ -49,7 +48,6 @@ public class Player : MonoBehaviour
         canMove = true;
         levelManager = FindObjectOfType<LevelManager>();
         invincibilitytime = originalInvincibleTime;
-        trailRenderer = GetComponent<TrailRenderer>();
         avatar.sprite = dialogueSprite;
         levelManager.energyslider.maxValue = maxenergy;
         //npcmanager = FindObjectOfType<NPCManagement>();

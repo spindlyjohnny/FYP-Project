@@ -165,37 +165,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5562811747765062126}
   m_LocalEulerAnglesHint: {x: 3.914, y: 22.888, z: -21.68}
---- !u!1 &1986354371239109177
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5985892621279346929}
-  m_Layer: 0
-  m_Name: Bus Interior Cam Pos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5985892621279346929
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1986354371239109177}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0891, z: -0.3018}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5562811747765062126}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6089143364145234718
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,9 +1489,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 92e6a260986ac8741a26359b5599977b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8291623509978137831}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 92e6a260986ac8741a26359b5599977b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5985892621279346929}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 92e6a260986ac8741a26359b5599977b, type: 3}
       insertIndex: -1
@@ -1603,6 +1569,7 @@ MonoBehaviour:
   anim: {fileID: 5291072309314294536}
   lane: 1
   newlane: 0
+  distTravelled: {x: 0, y: 0, z: 0}
 --- !u!54 &7809966220103301839
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1638,7 +1605,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5078023411361928020}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
