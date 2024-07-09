@@ -42,7 +42,6 @@ Transform:
   - {fileID: 6973410478336899613}
   - {fileID: 7243612861980720160}
   - {fileID: 1398910156085261868}
-  - {fileID: 3624326186591300980}
   - {fileID: 5032714765252016770}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -369,37 +368,6 @@ MonoBehaviour:
   - {fileID: 5383583381489809881, guid: 0b218a80d8c13544690edc43cbef1b65, type: 3}
   - {fileID: 3297237490245076983, guid: c5dadacb88bdfc64abfb937f8f7462de, type: 3}
   - {fileID: 887195354605392655, guid: e606723dff88456419db8d9ec1c8b59f, type: 3}
---- !u!1 &6800083845807489131
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3624326186591300980}
-  m_Layer: 0
-  m_Name: Player Start Point
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3624326186591300980
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6800083845807489131}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.037257142, y: 0.0017514286, z: 0.0011114286}
-  m_LocalScale: {x: 0.28571427, y: 0.28571427, z: 0.28571427}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4382729601934125810}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7016145399248004990
 GameObject:
   m_ObjectHideFlags: 0

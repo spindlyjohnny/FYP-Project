@@ -79,15 +79,6 @@ public class LevelManager : SceneLoader {
             //tileindex = 0; // in bus level, tileindex is randomised for the purposes of tile randomisation. but in train level this not necessary as all tiles are the same. so tileindex does not matter and is just set to 0.
             //Spawn(8,26.5f);
             Spawn(8,30f);
-            foreach(var i in FindObjectsOfType<Tile>()) { // finds closest train tile and moves player there. might get rid of this in the future.
-                float closest = 999;
-                if(Vector3.Distance(transform.position, i.transform.position) < closest) {
-                    closest = Vector3.Distance(transform.position, i.transform.position);
-                }
-                if(Vector3.Distance(transform.position, i.transform.position) == closest) {
-                    player.transform.position = i.transform.Find("Player Start Point").position;
-                }
-            }
         } 
         else {
             cam.lookOffset = cam.interioroffset;
