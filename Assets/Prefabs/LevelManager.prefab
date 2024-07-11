@@ -72,6 +72,33 @@ MonoBehaviour:
   - {fileID: 8069987741948419533, guid: 7fd2089fd616b2e449104035046c91db, type: 3}
   - {fileID: 8644082906898212650, guid: 0f7617d5e084433438f28059016bca83, type: 3}
   - {fileID: 8079574988167343021, guid: 973f63143bbd50148aff2985c02598ac, type: 3}
+  level1Bus:
+  - {fileID: 5179747357244827615, guid: f6ddb29c6ac1e444c8c264d2d714cfe1, type: 3}
+  - {fileID: 7621181523352037822, guid: 0084880dee8cde844ba78026ad045e6f, type: 3}
+  - {fileID: 377410254696918908, guid: ef59d2ce6bb989c4291eead70d12b4bf, type: 3}
+  - {fileID: 5619750261169252043, guid: eb2ed2fd2da14c444943bb0a147f543d, type: 3}
+  - {fileID: 6660389373174502101, guid: b1ebd68865e670d4a9f7f2e06be1161d, type: 3}
+  - {fileID: 8069987741948419533, guid: 7fd2089fd616b2e449104035046c91db, type: 3}
+  - {fileID: 8644082906898212650, guid: 0f7617d5e084433438f28059016bca83, type: 3}
+  - {fileID: 8079574988167343021, guid: 973f63143bbd50148aff2985c02598ac, type: 3}
+  level2Bus:
+  - {fileID: 5179747357244827615, guid: 5afd7e4d571b0704e8e6aa4a6a254b2c, type: 3}
+  - {fileID: 7621181523352037822, guid: fdba09c9f6a561749846e42a9e64500d, type: 3}
+  - {fileID: 377410254696918908, guid: 7e1cbc1b1f88b9d4389a17b7e240fbea, type: 3}
+  - {fileID: 5619750261169252043, guid: 99142692c694a3d48b97ed9be8f31912, type: 3}
+  - {fileID: 6660389373174502101, guid: 137ccc1f56dc3b44c8c1df645b094b62, type: 3}
+  - {fileID: 8069987741948419533, guid: 34624e40535b2d24e835f08c8de821a4, type: 3}
+  - {fileID: 8644082906898212650, guid: b70d7f2aac02d064e9c26d8ef501b73d, type: 3}
+  - {fileID: 8079574988167343021, guid: 973f63143bbd50148aff2985c02598ac, type: 3}
+  level3Bus:
+  - {fileID: 5179747357244827615, guid: 4a17a0d52013b074b81caa031d80a665, type: 3}
+  - {fileID: 7621181523352037822, guid: fa80a3203fbe2b14587cf25d6507e569, type: 3}
+  - {fileID: 377410254696918908, guid: 33e1129f5a208f64eb7968ca1cf25827, type: 3}
+  - {fileID: 5619750261169252043, guid: f32f814558bbc884aacd4d43d8df8cee, type: 3}
+  - {fileID: 6660389373174502101, guid: aff5f102106731547a7c5de2c84c6a32, type: 3}
+  - {fileID: 8069987741948419533, guid: addeb34d2f7725147bf27d54f6ac6804, type: 3}
+  - {fileID: 8644082906898212650, guid: 184f6433fae48fd4eb2fcf06c3f960c7, type: 3}
+  - {fileID: 8079574988167343021, guid: 973f63143bbd50148aff2985c02598ac, type: 3}
   mrt:
   - {fileID: 1947645973731038382, guid: a7855c1b00ce90d4d9db9fb129e0e295, type: 3}
   - {fileID: 7611240421450239496, guid: ae9dd9c5ae675864eb8273bc199493f7, type: 3}
@@ -101,6 +128,7 @@ MonoBehaviour:
   questionbox: {fileID: 0}
   tilerng: 0
   level: 0
+  levelNum: 0
   currenttiles: []
   loadingimgs:
   - {fileID: 21300000, guid: 68e1ad12fc30cc1418620d6014ac33d0, type: 3}

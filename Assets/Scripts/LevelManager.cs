@@ -13,7 +13,7 @@ public class LevelManager : SceneLoader {
     public GameObject gameoverscreen, taskcompletescreen, loadingscreen, dialoguescreen;
     public Slider energyslider;
     public GameObject[] tiles;
-    [SerializeField] GameObject[] bustiles;
+    [SerializeField] GameObject[] bustiles,level1Bus,level2Bus,level3Bus;
     public GameObject[] mrt;
     public int score; 
     public int tileindex;
@@ -29,7 +29,9 @@ public class LevelManager : SceneLoader {
     bool onceComplete = false;
     public float tilerng;
     public enum Level { Bus,BusInterior, MRT };
+    public enum LevelNum { Level1,Level2,Level3 }
     public Level level;
+    public LevelNum levelNum;
     public Tile[] currenttiles;
     CameraController cam;
     public Sprite[] loadingimgs;
@@ -38,7 +40,6 @@ public class LevelManager : SceneLoader {
     ObjectPool objectPool;
     public Image npcAvatar;
     int numTiles;
-    //[SerializeField]Tile starttile;
     // Start is called before the first frame update
     private void Awake() {
         if (PlayerPrefs.GetInt("bool") == 1)
@@ -51,6 +52,7 @@ public class LevelManager : SceneLoader {
             PlayerPrefs.SetInt("bool",1);
             PlayerPrefs.SetInt("score", 0);
             PlayerPrefs.SetInt("Level", (int)level);
+            PlayerPrefs.SetInt("Level Num", (int)levelNum);
         }
     }
     void Start() {
@@ -65,6 +67,17 @@ public class LevelManager : SceneLoader {
         gameoverscreen.SetActive(false);
         cam = FindObjectOfType<CameraController>();
         player = FindObjectOfType<Player>();
+        switch (levelNum) {
+            case LevelNum.Level1:
+                bustiles = level1Bus;
+                break;
+            case LevelNum.Level2:
+                bustiles = level2Bus;
+                break;
+            case LevelNum.Level3:
+                bustiles = level3Bus;
+                break;
+        }
         if (level == Level.Bus) {
             cam.transform.position = cam.originalposition.position;
             cam.lookOffset = cam.defaultoffset;
@@ -90,7 +103,7 @@ public class LevelManager : SceneLoader {
     // Update is called once per frame
     void Update() {
         
-        //print("Shift:" + tileshiftfactor);
+        //print("Tiles:" + numTiles);
         if (gameover) {
             gameoverscreen.SetActive(true);
             AudioManager.instance.StopMusic();
@@ -154,7 +167,7 @@ public class LevelManager : SceneLoader {
             mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
             objectPool.Remove();
             objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(size * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
-            numTiles++;
+            numTiles += 1;
             if (amount == 1) numberOfTiles += 1;
         }
     }
@@ -175,8 +188,8 @@ public class LevelManager : SceneLoader {
         PlayerPrefs.SetFloat("energy", 100);
         PlayerPrefs.SetInt("score", 0);
         PlayerPrefs.SetFloat("Max Energy", 100);
-        //PlayerPrefs.SetFloat("Energy Gain", 10f);
         PlayerPrefs.SetFloat("Invincibility Time", 5f);
+        //PlayerPrefs.SetInt("Level Num", (int)LevelNum.Level1);
         //PlayerPrefs.SetInt("Level", (int)Level.Bus);
         LoadData();
         PlayerPrefs.Save();
@@ -188,6 +201,7 @@ public class LevelManager : SceneLoader {
         player.originalInvincibleTime = PlayerPrefs.GetFloat("Invincibility Time");
         score = PlayerPrefs.GetInt("score");
         level = (Level)PlayerPrefs.GetInt("Level");
+        levelNum = (LevelNum)PlayerPrefs.GetInt("Level Num");
         PlayerPrefs.Save();
     }
     void RandomTile() {
@@ -197,7 +211,13 @@ public class LevelManager : SceneLoader {
         //     }
         //} 
         tilerng = UnityEngine.Random.Range(0f, 1f);
-        if (tilerng <= .5f && tilerng > 0) { // 50% chance of getting a road tile
+
+        if (/*tilerng > .999999f && tilerng <= 1f*/tilerng == 1) {
+            foreach (var i in tiles) {
+                if (i.CompareTag("Transition")) tileindex = Array.IndexOf(tiles, i);
+            }
+        } 
+        else if (tilerng <= .5f && tilerng > 0) { // 50% chance of getting a road tile
             foreach (var i in tiles) {
                 if (i.GetComponent<RoadTile>()) tileindex = Array.IndexOf(tiles, i); // get index of road tile in tiles array
             }
@@ -209,13 +229,6 @@ public class LevelManager : SceneLoader {
             }
             System.Random random = new System.Random();
             tileindex = legalindexes[random.Next(0, legalindexes.Count)]; // gets random index
-        }
-        if(numTiles >= 10) {
-            if (tilerng > .5f && tilerng <= .75f) {
-                foreach (var i in tiles) {
-                    if (i.CompareTag("Transition")) tileindex = Array.IndexOf(tiles, i);
-                }
-            }
         }
     }
 
