@@ -17,7 +17,7 @@ public class NPC : MonoBehaviour
     public float wordspeed;
     public int currentline;
     //bool spoken;
-    public bool followplayer;
+    public bool followplayer,once=false;
     public NPCManagement npcmanager;
     string[] names;
     public DialogueSO dialogueData;
@@ -36,7 +36,6 @@ public class NPC : MonoBehaviour
     public int character = 2;
     public Image avatar;
     public Sprite dialogueSprite;
-    Rigidbody rb;
     int qnindex;
     public int indexDialogue = 0;
     // Start is called before the first frame update
@@ -48,7 +47,6 @@ public class NPC : MonoBehaviour
         cam = FindObjectOfType<CameraController>();
         player = FindObjectOfType<Player>();
         tasksuccess = Task.Default;
-        rb = GetComponent<Rigidbody>();
         //setting the text reference to the right canvas
         nametext = levelManager.nametext;
         dialoguetext = levelManager.dialoguetext;
@@ -83,7 +81,6 @@ public class NPC : MonoBehaviour
         print("yes");
         // starts transition between levels
         followplayer = false;
-        rb.isKinematic = false;
         //GetComponent<Collider>().enabled = true;
         tasksuccess = Task.Success;
         StartCoroutine(Transition(levelManager.level)); // does the actual transition, bus moves to train station/ player leaves train
@@ -167,14 +164,18 @@ public class NPC : MonoBehaviour
         if (!followplayer) return;
         /*if (levelManager.level == LevelManager.Level.Bus) player.GetComponent<Rigidbody>().isKinematic = true;
         else*/ //Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
-        rb.isKinematic = true;
-        //transform.position = player.NPCPos.position;
+        transform.position = player.npcPosition.position;
         transform.SetParent(player.transform);
+        if (once == false)
+        {
+            once = true;
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
+        }
+            /*
         Vector3 dir = (player.transform.position - transform.position);
-        Quaternion lookRotation = Quaternion.LookRotation(dir, Vector3.up);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, 180 * Time.deltaTime);
+        Quaternion lookRotation = Quaternion.LookRotation(dir   );
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, 180 * Time.deltaTime);*/
         //GetComponent<Collider>().enabled = false;
-        rb.velocity = movespeed * Time.deltaTime * dir;
         //transform.Translate(movespeed * Time.deltaTime * dir);
     }
 
@@ -204,7 +205,7 @@ public class NPC : MonoBehaviour
         }
         int index = Random.Range(0, locationIndexs.Count);
         qnindex = locationIndexs[index];
-
+        print(qnindex);
 
         levelManager.optionAButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
         levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
@@ -238,13 +239,13 @@ public class NPC : MonoBehaviour
         optionBtext.text = "b)" + dialogueData.dialogueQuestions[qnindex].assessOption[1];
         levelManager.optionCButton.SetActive(true);
         levelManager.optionDButton.SetActive(true);
-        if (dialogueData.dialogueQuestions[qnindex].options.Length >= 3) optionCtext.text = "c)" + dialogueData.dialogueQuestions[qnindex].assessOption[2];
+        if (dialogueData.dialogueQuestions[qnindex].assessOption.Length >= 3) optionCtext.text = "c)" + dialogueData.dialogueQuestions[qnindex].assessOption[2];
         else
         {
             optionCtext.text = "";
             levelManager.optionCButton.SetActive(false);
         }
-        if (dialogueData.dialogueQuestions[qnindex].options.Length >= 4) optionDtext.text = "d)" + dialogueData.dialogueQuestions[qnindex].assessOption[3];
+        if (dialogueData.dialogueQuestions[qnindex].assessOption.Length >= 4) optionDtext.text = "d)" + dialogueData.dialogueQuestions[qnindex].assessOption[3];
         else
         {
             optionDtext.text = "";

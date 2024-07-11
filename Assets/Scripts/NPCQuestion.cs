@@ -58,12 +58,13 @@ public class NPCQuestion : MonoBehaviour
             npcmanager.myNPC.questionbox.SetActive(false);
             if(npcmanager.myNPC.indexDialogue == 1)
             {
+                
                 npcmanager.myNPC.indexDialogue += 2;
-                npcmanager.myNPC.tasksuccess = NPC.Task.Fail;
                 AudioManager.instance.PlaySFX(wrongsound);
                 npcmanager.myNPC.Response(indexQuestion);
                 npcmanager.myNPC.dialoguebox.SetActive(true);
                 levelManager.dialoguescreen.SetActive(true);
+                npcmanager.myNPC.StartDialogue();
                 return;
             }
             // NPC responds to player's choice here
@@ -88,6 +89,7 @@ public class NPCQuestion : MonoBehaviour
             npcmanager.myNPC.Response(indexQuestion);
             npcmanager.myNPC.dialoguebox.SetActive(true);
             levelManager.dialoguescreen.SetActive(true);
+            npcmanager.myNPC.StartDialogue();
             AudioManager.instance.PlaySFX(correctsound);/*
             if (npcmanager.myNPC.hasdestination) {
                 npcmanager.myNPC.followplayer = true;

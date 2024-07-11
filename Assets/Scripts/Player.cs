@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
     public Sprite dialogueSprite; // this var exists cuz there's 2 playable charas
     public Animator anim;
     public int lane=1, newlane;
+    public Transform npcPosition;
     //Vector3 startPos;
     //[HideInInspector]public Vector3 distTravelled;
     //NPCManagement npcmanager;

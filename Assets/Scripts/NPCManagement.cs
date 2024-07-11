@@ -36,6 +36,33 @@ public class NPCManagement : MonoBehaviour
                 myNPC.dialogueco = StartCoroutine(myNPC.Dialogue());
             } else {
                 myNPC.dialoguetext.text = myNPC.dialogue[myNPC.currentline];
+                if (myNPC.indexDialogue == 2)
+                {
+                    myNPC.EndDialogue();
+                    if (myNPC.hasdestination)
+                    {
+                        myNPC.followplayer = true;
+                    }
+                    else
+                    {
+                        levelManager.taskcompletescreen.SetActive(true);
+                        myNPC.tasksuccess = NPC.Task.Success;
+                        player.energy += player.maxenergy * .2f;
+                        levelManager.upgradeText.SetActive(true);
+                        //if (!upgraded) {
+                        //    FindObjectOfType<Player>().maxenergy *= 1.5f;
+                        //    upgraded = true;
+                        //}
+                    }
+                    return;
+                }
+                else if (myNPC.indexDialogue == 3)
+                {
+                    myNPC.EndDialogue();
+                    myNPC.tasksuccess = NPC.Task.Fail;
+                    levelManager.taskcompletescreen.SetActive(true);
+                    return;
+                }
                 if (!myNPC.questionbox.activeSelf) myNPC.questionbox.SetActive(true);
                 //myNPC.EndDialogue();
             }
@@ -69,6 +96,7 @@ public class NPCManagement : MonoBehaviour
                 }else if(myNPC.indexDialogue == 3)
                 {
                     myNPC.EndDialogue();
+                    myNPC.tasksuccess = NPC.Task.Fail;
                     levelManager.taskcompletescreen.SetActive(true);
                     return;
                 }
