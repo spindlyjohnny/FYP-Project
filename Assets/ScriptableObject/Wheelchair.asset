@@ -44,10 +44,10 @@ MonoBehaviour:
     - 'Do you need my help? '
     - Leave her be
     assessAnswer: 0100
-    question: '"Oh no... (She looks like she is struggling with her wheelchair)"'
+    question: '"Yes, I have trouble moving my wheelchair "'
     Dialogue:
-    - '"Oh no..."'
-    - (She looks like she is struggling with her wheelchair)
+    - '"Yes, I have trouble moving my wheelchair "'
+    - '"I might miss my bus!"'
     options:
     - (Push the wheelchair for her)
     - (Ask if she needs help)
@@ -61,7 +61,7 @@ MonoBehaviour:
       - 'Yes, please help me ride the bus, it''s only a stop away '
     - response:
       - (She angrily glares at you)
-    outcome: Task Complete
+    outcome: 'Start task: Bring Commuter to Bus Stop'
   - assessDialogue:
     - '(A girl on a wheelchair looks in distress) '
     - (She waves at you, with a worried look)

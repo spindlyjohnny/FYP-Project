@@ -70,7 +70,7 @@ MonoBehaviour:
     assessOption:
     - Ask what does he need
     - Pretend not to see
-    assessAnswer: 
+    assessAnswer: 0100
     question: (The elderly man looks confused, maybe he needs help)
     Dialogue:
     - (The elderly man looks confused, maybe he needs help)
