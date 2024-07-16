@@ -29,9 +29,9 @@ public class LevelManager : SceneLoader {
     bool onceComplete = false;
     public float tilerng;
     public enum Level { Bus,BusInterior, MRT };
-    public enum LevelNum { Level1,Level2,Level3 }
+    public enum LevelNum { Level1 = 1,Level2 = 2,Level3 = 3 }
     public Level level;
-    public LevelNum levelNum;
+    public static LevelNum levelNum;
     public Tile[] currenttiles;
     CameraController cam;
     public Sprite[] loadingimgs;
@@ -39,7 +39,7 @@ public class LevelManager : SceneLoader {
     public GameObject upgradeText,boost,taskfailimg;
     ObjectPool objectPool;
     public Image npcAvatar;
-    int numTiles;
+    //int numTiles;
     // Start is called before the first frame update
     private void Awake() {
         if (PlayerPrefs.GetInt("bool") == 1)
@@ -56,7 +56,8 @@ public class LevelManager : SceneLoader {
         }
     }
     void Start() {
-        numTiles = 0;
+        print("Level Num: " + levelNum);
+        //numTiles = 0;
         objectPool = GetComponent<ObjectPool>();
         if (AudioManager.instance.CheckClip() != AudioManager.instance.levelmusic || !AudioManager.instance.IsPlaying()) {
             // CheckClip() is for when player starts level from level select. the other condition is when level is restarted either from pause screen or game over screen.
@@ -167,7 +168,7 @@ public class LevelManager : SceneLoader {
             mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
             objectPool.Remove();
             objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(size * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
-            numTiles += 1;
+            //numTiles += 1;
             if (amount == 1) numberOfTiles += 1;
         }
     }

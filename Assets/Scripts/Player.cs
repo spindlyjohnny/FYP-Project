@@ -141,43 +141,42 @@ public class Player : MonoBehaviour
                 tile = hit.collider.GetComponent<Tile>();
             }
         }
-        if (Input.GetAxisRaw("Horizontal") < 0 && direction != Input.GetAxisRaw("Horizontal") & animating == false)
-        { // need to figure out how to prevent this from happening when holding down button
-          // taken from unreal endless runner lololol
-            print("change direction");
-            print(direction);
-            newlane = Mathf.Clamp(lane - 1, 0, 2);
-            /*
-            Vector3 lerpPosition = new Vector3(transform.position.x, transform.position.y, tile.lanes[newlane].z);
-            //print(lerpPosition);
-            float distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
-            while (distanceBetween > 0.01f)
-            {
-                transform.position = Vector3.Lerp(transform.position, lerpPosition, movespeed * Time.deltaTime);
-                distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
+        if(levelManager.level != LevelManager.Level.BusInterior) {
+            if (Input.GetAxisRaw("Horizontal") < 0 && direction != Input.GetAxisRaw("Horizontal") & animating == false) { // need to figure out how to prevent this from happening when holding down button
+                                                                                                                          // taken from unreal endless runner lololol
+                print("change direction");
+                print(direction);
+                newlane = Mathf.Clamp(lane - 1, 0, 2);
+                /*
+                Vector3 lerpPosition = new Vector3(transform.position.x, transform.position.y, tile.lanes[newlane].z);
+                //print(lerpPosition);
+                float distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
+                while (distanceBetween > 0.01f)
+                {
+                    transform.position = Vector3.Lerp(transform.position, lerpPosition, movespeed * Time.deltaTime);
+                    distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
+                }
+                transform.position = lerpPosition;*/
+                StartCoroutine(LaneMoving());
+                //transform.position = tile.lanes[tile.newlane]\
+            } else if (Input.GetAxisRaw("Horizontal") > 0 && direction != Input.GetAxisRaw("Horizontal") & animating == false) {
+                print("yes");
+
+                newlane = Mathf.Clamp(lane + 1, 0, 2);
+                print(newlane);
+                /*
+                Vector3 lerpPosition = new Vector3(transform.position.x, transform.position.y, tile.lanes[newlane].z);
+                //print(lerpPosition);
+                float distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
+                while (distanceBetween > 0.01f)
+                {
+                    transform.position = Vector3.Lerp(transform.position, lerpPosition, movespeed * Time.deltaTime);
+                    distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
+                }
+                transform.position = lerpPosition;*/
+                StartCoroutine(LaneMoving());
+
             }
-            transform.position = lerpPosition;*/
-            StartCoroutine(LaneMoving());
-            //transform.position = tile.lanes[tile.newlane]\
-        }
-        else if (Input.GetAxisRaw("Horizontal") > 0 && direction != Input.GetAxisRaw("Horizontal") &animating==false)
-        {
-            print("yes");
-            
-            newlane = Mathf.Clamp(lane + 1, 0, 2);
-            print(newlane);
-            /*
-            Vector3 lerpPosition = new Vector3(transform.position.x, transform.position.y, tile.lanes[newlane].z);
-            //print(lerpPosition);
-            float distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
-            while (distanceBetween > 0.01f)
-            {
-                transform.position = Vector3.Lerp(transform.position, lerpPosition, movespeed * Time.deltaTime);
-                distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
-            }
-            transform.position = lerpPosition;*/
-            StartCoroutine(LaneMoving());
-            
         }
         direction = Input.GetAxisRaw("Horizontal");
     }

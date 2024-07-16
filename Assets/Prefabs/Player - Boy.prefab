@@ -1569,7 +1569,7 @@ MonoBehaviour:
   anim: {fileID: 5291072309314294536}
   lane: 1
   newlane: 0
-  distTravelled: {x: 0, y: 0, z: 0}
+  npcPosition: {fileID: 0}
 --- !u!54 &7809966220103301839
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -17,14 +17,15 @@ public class SceneLoader : MonoBehaviour {
             if (PlayerPrefs.GetInt("bool") == 0) {
                 PlayerPrefs.SetFloat("energy", 100);
                 PlayerPrefs.SetFloat("Max Energy", 100);
-                //PlayerPrefs.SetFloat("Energy Gain", 10f);
                 PlayerPrefs.SetFloat("Invincibility Time", 5f);
-                //energy = PlayerPrefs.GetFloat("energy");
                 //maxenergy = PlayerPrefs.GetFloat("Max Energy");
                 ////energygain = PlayerPrefs.GetFloat("Energy Gain");
                 //originalInvincibleTime = PlayerPrefs.GetFloat("Invincibility Time");
             }
         }
+    }
+    public void SetLevel(int levelNum) {
+        LevelManager.levelNum = (LevelManager.LevelNum)levelNum;
     }
     private void Start()
     {

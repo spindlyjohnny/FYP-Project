@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 8652012433497869005}
   - component: {fileID: 3028522119891868847}
   m_Layer: 0
-  m_Name: L3 Street Holder 1
+  m_Name: L3 Street Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
