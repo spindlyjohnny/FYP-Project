@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     [SerializeField]float invincibilitytime;
     Tile tile;
     public Image avatar;
-    public Sprite dialogueSprite; // this var exists cuz there's 2 playable charas
+    public Sprite dialogueSprite,loseSprite,pauseSprite; // these vars exist cuz there's 2 playable charas
     public Animator anim;
     public int lane=1, newlane;
     public Transform npcPosition;
