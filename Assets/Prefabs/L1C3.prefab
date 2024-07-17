@@ -39,6 +39,7 @@ Transform:
   - {fileID: 3042919404746323499}
   - {fileID: 8813913288214821605}
   - {fileID: 4893859116333317781}
+  - {fileID: 2698764880631875456}
   - {fileID: 5652915312570087201}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -61,6 +62,10 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0.6}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: -0.6}
+  NPCSpawnPoints:
+  - {fileID: 4893859116333317781}
+  - {fileID: 2698764880631875456}
+  hasNPC: 1
 --- !u!65 &2145253665364564709
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -191,14 +196,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4893859116333317781}
-  - component: {fileID: 7270161989017555997}
   m_Layer: 0
-  m_Name: Spawner (3)
+  m_Name: Spawn Location
   m_TagString: Headphone
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4893859116333317781
 Transform:
   m_ObjectHideFlags: 0
@@ -208,27 +212,12 @@ Transform:
   m_GameObject: {fileID: 3339806468318761973}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0020319999, z: -0.0146}
+  m_LocalPosition: {x: 0.001, y: 0.0020319999, z: -0.014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5249308971674014830}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7270161989017555997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3339806468318761973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97da4c31901d4f24c93df7225fea9a6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstacles:
-  - {fileID: 6206712666706385567, guid: 78e9304602ab2304da5bbf5401e3902c, type: 3}
-  spawnamt: 0
 --- !u!1 &3697104840406993266
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +296,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8928509477618752097}
+  m_Father: {fileID: 5249308971674014830}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5569044337650420915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2698764880631875456}
+  m_Layer: 0
+  m_Name: Spawn Location (1)
+  m_TagString: Headphone
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2698764880631875456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5569044337650420915}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.022, y: 0.0020319999, z: 0.0132}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 5249308971674014830}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7163057425049023644
@@ -499,7 +519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6165041437090717006, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

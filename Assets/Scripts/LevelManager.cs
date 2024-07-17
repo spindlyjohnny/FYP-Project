@@ -39,6 +39,7 @@ public class LevelManager : SceneLoader {
     public GameObject upgradeText,boost,taskfailimg;
     ObjectPool objectPool;
     public Image npcAvatar;
+    public GameObject[] level1NPC, level2NPC, level3NPC;
     //int numTiles;
     // Start is called before the first frame update
     private void Awake() {
@@ -56,6 +57,7 @@ public class LevelManager : SceneLoader {
         }
     }
     void Start() {
+        //levelNum = LevelNum.Level1;
         print("Level Num: " + levelNum);
         //numTiles = 0;
         objectPool = GetComponent<ObjectPool>();

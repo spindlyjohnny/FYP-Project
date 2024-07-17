@@ -137,6 +137,11 @@ MonoBehaviour:
   boost: {fileID: 0}
   taskfailimg: {fileID: 0}
   npcAvatar: {fileID: 0}
+  level1NPC:
+  - {fileID: 6165041437090717006, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+  - {fileID: 6165041437090717006, guid: 491c736909fe82e499ab10b6f37ff05a, type: 3}
+  level2NPC: []
+  level3NPC: []
 --- !u!114 &1150282314607055674
 MonoBehaviour:
   m_ObjectHideFlags: 0

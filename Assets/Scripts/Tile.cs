@@ -4,16 +4,29 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour {
     public Transform spawnpt;
-    public NPC[] NPC;
+    public GameObject[] NPC;
     protected LevelManager levelManager;
     protected NPCManagement npcmanager;
     //public Vector3 spawnoffset;
     protected float rng;
     bool once = false;
     public Vector3[] lanes; // order of array should be like so: left, middle, right
+    public Transform[] NPCSpawnPoints;
+    [SerializeField] bool hasNPC;
     // Start is called before the first frame update
     protected virtual void Start() {
-        NPC = GetComponentsInChildren<NPC>(true);
+        switch (LevelManager.levelNum) {
+            case LevelManager.LevelNum.Level1:
+                NPC = levelManager.level1NPC;
+                break;
+            case LevelManager.LevelNum.Level2:
+                NPC = levelManager.level2NPC;
+                break;
+            case LevelManager.LevelNum.Level3:
+                NPC = levelManager.level3NPC;
+                break;
+        }
+        //NPC = GetComponentsInChildren<NPC>(true);
         levelManager = FindObjectOfType<LevelManager>();
         npcmanager = FindObjectOfType<NPCManagement>();
         rng = Random.Range(0f, 1f);
@@ -29,28 +42,36 @@ public class Tile : MonoBehaviour {
 
     // Update is called once per frame
     protected virtual void Update() {
-        if (NPC.Length == 0) return;
-        
-        if(NPC.Length == 1) {
-            if (NPC[0] == null) return;
-            if (rng > 0.5f && rng <= 1) NPC[0].gameObject.SetActive(true);
-            else NPC[0].gameObject.SetActive(false);
+        if (!hasNPC) return;
+        if(rng > .5f && rng < 1) {
+            Transform spawnpt = NPCSpawnPoints[Random.Range(0, NPCSpawnPoints.Length)];
+            Instantiate(NPC[0], spawnpt.position, Quaternion.identity);
+        } 
+        else {
+            Transform spawnpt = NPCSpawnPoints[Random.Range(0, NPCSpawnPoints.Length)];
+            Instantiate(NPC[1], spawnpt.position, Quaternion.identity);
         }
+        //if(NPC.Length == 1) {
+        //    if (NPC[0] == null) return;
+        //    if (rng > 0.5f && rng <= 1) NPC[0].SetActive(true);
+        //    else NPC[0].SetActive(false);
+        //}
         
-        if (NPC.Length > 1) {
-            if (NPC[0] == null || NPC[1] == null) return;
-            if (rng > 0.5f && rng <= 1) { // 50% chance of npc 0
-                NPC[0].gameObject.SetActive(true);
-                NPC[1].gameObject.SetActive(false);
-            } else if (rng <= 0.5f && rng > 0) { // 50% chance of NPC 1
-                NPC[0].gameObject.SetActive(false);
-                NPC[1].gameObject.SetActive(true);
-                //foreach (var i in NPC) {
-                //    if(i != null)i.gameObject.SetActive(true);
-                //    //if (!i.followplayer) i.transform.localPosition = i.startpos;
-                //}
-            }
-        }
+        //if (NPC.Length > 1) {
+        //    if (NPC[0] == null || NPC[1] == null) return;
+        //    if (rng > 0.5f && rng <= 1) { // 50% chance of npc 0
+        //        NPC[0].SetActive(true);
+        //        NPC[1].SetActive(false);
+        //    } else if (rng <= 0.5f && rng > 0) { // 50% chance of NPC 1
+        //        NPC[0].SetActive(false);
+        //        NPC[1].SetActive(true);
+        //        //foreach (var i in NPC) {
+        //        //    if(i != null)i.gameObject.SetActive(true);
+        //        //    //if (!i.followplayer) i.transform.localPosition = i.startpos;
+        //        //}
+        //    }
+        //}
+
         //for(int i = 0; i < lanes.Length; i++) { // position at which player snaps to changes as they move
         //    lanes[i] = new Vector3(levelManager.player.transform.position.x, lanes[i].y, lanes[i].z);
         //}
