@@ -1,0 +1,5 @@
+Bus stop
+Pavement
+Pavement
+Train
+Train
