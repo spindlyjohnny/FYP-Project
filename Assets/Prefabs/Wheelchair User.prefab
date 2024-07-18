@@ -987,6 +987,7 @@ MonoBehaviour:
   wordspeed: 0.025
   currentline: 0
   followplayer: 0
+  once: 0
   npcmanager: {fileID: 0}
   dialogueData: {fileID: 11400000, guid: 934b73efe80730040a4597f108068f88, type: 2}
   movespeed: 5
@@ -1009,6 +1010,7 @@ MonoBehaviour:
   avatar: {fileID: 0}
   dialogueSprite: {fileID: 21300000, guid: 82fb5dc5d75acaa40af8ad8576a8c4b0, type: 3}
   indexDialogue: 0
+  nameFile: {fileID: 4900000, guid: b76ef913fe1927d4ebc818638bfb1fe4, type: 3}
 --- !u!1 &7513910125044678174
 GameObject:
   m_ObjectHideFlags: 0

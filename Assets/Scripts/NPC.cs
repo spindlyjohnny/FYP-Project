@@ -38,6 +38,7 @@ public class NPC : MonoBehaviour
     public Sprite dialogueSprite;
     int qnindex;
     public int indexDialogue = 0;
+    [SerializeField]TextAsset nameFile;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,7 +59,7 @@ public class NPC : MonoBehaviour
         optionDtext = levelManager.optionDtext;
         dialoguebox = levelManager.dialoguebox;
         questionbox = levelManager.questionbox;
-        names = File.ReadAllLines("Assets/Misc/first-names.txt");
+        names = File.ReadAllLines("Assets/Misc/"+nameFile.ToString());
         avatar = levelManager.npcAvatar;
         //avatar.sprite = dialogueSprite;
         //turning the visibility on

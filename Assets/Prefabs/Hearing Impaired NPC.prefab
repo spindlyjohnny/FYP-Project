@@ -133,6 +133,7 @@ MonoBehaviour:
   avatar: {fileID: 0}
   dialogueSprite: {fileID: 21300000, guid: ed4e22dccfed37d4285cfe6427a925dc, type: 3}
   indexDialogue: 0
+  nameFile: {fileID: 4900000, guid: 7aeddbc9f09412943b845e7b94326548, type: 3}
 --- !u!1 &4547924655639231345
 GameObject:
   m_ObjectHideFlags: 0
