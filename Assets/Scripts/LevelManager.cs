@@ -55,10 +55,9 @@ public class LevelManager : SceneLoader {
             PlayerPrefs.SetInt("Level", (int)level);
             PlayerPrefs.SetInt("Level Num", (int)levelNum);
         }
+
     }
     void Start() {
-        //levelNum = LevelNum.Level1;
-        print("Level Num: " + levelNum);
         //numTiles = 0;
         objectPool = GetComponent<ObjectPool>();
         if (AudioManager.instance.CheckClip() != AudioManager.instance.levelmusic || !AudioManager.instance.IsPlaying()) {
@@ -105,7 +104,7 @@ public class LevelManager : SceneLoader {
 
     // Update is called once per frame
     void Update() {
-        
+        print("Level Num: " + levelNum);
         //print("Tiles:" + numTiles);
         if (gameover) {
             gameoverscreen.SetActive(true);
@@ -182,6 +181,7 @@ public class LevelManager : SceneLoader {
         //PlayerPrefs.SetInt("Level", (int)level);
         PlayerPrefs.SetFloat("Invincibility Time", player.originalInvincibleTime);
         PlayerPrefs.SetFloat("Max Energy", player.maxenergy);
+        PlayerPrefs.SetInt("Level Num",(int)levelNum);
         PlayerPrefs.Save();
     }
 
@@ -193,7 +193,7 @@ public class LevelManager : SceneLoader {
         PlayerPrefs.SetFloat("Max Energy", 100);
         PlayerPrefs.SetFloat("Invincibility Time", 5f);
         //PlayerPrefs.SetInt("Level Num", (int)LevelNum.Level1);
-        //PlayerPrefs.SetInt("Level", (int)Level.Bus);
+        PlayerPrefs.SetInt("Level", (int)Level.Bus);
         LoadData();
         PlayerPrefs.Save();
     }
