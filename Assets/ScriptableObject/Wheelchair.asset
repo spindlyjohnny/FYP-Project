@@ -18,13 +18,13 @@ MonoBehaviour:
     - (Does she need my help?)
     assessQuestion: (Does she need my help?)
     assessOption:
-    - 'Approach her '
-    - Turn away
+    - (Approach her)
+    - (Turn away)
     assessAnswer: 0100
-    question: '"Scuse me, i need a bit of help. I need to get to the nearest bus
+    question: '"Excuse me, i need a bit of help. I need to get to the nearest bus
       stop, mind helping me?"'
     Dialogue:
-    - '"Scuse me, i need a bit of help"'
+    - '"Excuse me, i need a bit of help"'
     - '"I need to get to the nearest bus stop, mind helping me?" '
     options:
     - '"Sure thing, I''ll bring you there"'
@@ -41,8 +41,8 @@ MonoBehaviour:
     - Oh no... (She looks like she is struggling with her wheelchair)
     assessQuestion: (She looks like she is struggling with her wheelchair)
     assessOption:
-    - 'Do you need my help? '
-    - Leave her be
+    - (Do you need my help?)
+    - (Leave her be)
     assessAnswer: 0100
     question: '"Yes, I have trouble moving my wheelchair "'
     Dialogue:
@@ -50,15 +50,15 @@ MonoBehaviour:
     - '"I might miss my bus!"'
     options:
     - (Push the wheelchair for her)
-    - (Ask if she needs help)
-    - '"Sorry, I can''t"'
+    - (Offer to help)
+    - (Laugh at her)
     answer: 000100
     location: Pavement
     response:
     - response:
-      - 'Hey! Don''t touch that! '
+      - '"Hey! Don''t touch that! "'
     - response:
-      - 'Yes, please help me ride the bus, it''s only a stop away '
+      - '"Yes, please help me ride the bus, it''s only a stop away"'
     - response:
       - (She angrily glares at you)
     outcome: 'Start task: Bring Commuter to Bus Stop'
@@ -67,8 +67,8 @@ MonoBehaviour:
     - (She waves at you, with a worried look)
     assessQuestion: (She waves at you, with a worried look)
     assessOption:
-    - 'Approach her '
-    - Do nothing
+    - (Approach her)
+    - (Do nothing)
     assessAnswer: 0100
     question: '"Hey, this train is too crowded! And I''m a quite exhausted to move
       on my own. I need to get to the nearest wheelchair zone and leave at my stop,
@@ -94,8 +94,8 @@ MonoBehaviour:
     - (She calls out to you)
     assessQuestion: (She calls out to you)
     assessOption:
-    - 'Ask her what she needs '
-    - Assume she's calling someone else
+    - (Ask her what she needs)
+    - (Assume she's calling someone else)
     assessAnswer: 0100
     question: '"I need to alight soon, but there''s too many people at the train
       door!"'
@@ -117,12 +117,12 @@ MonoBehaviour:
     - (She might need help pressing it, what should I do?)
     assessQuestion: (She might need help pressing it, what should I do?)
     assessOption:
-    - 'Ask her if she needs your help '
-    - Ignore her
+    - (Ask her if she needs your help)
+    - (Ignore her)
     assessAnswer: 0100
     question: '"Please press the stop button for me, I can''t reach it from here" '
     Dialogue:
-    - '"please press the stop button for me, I can''t reach it from here" '
+    - '"Yes, please press the stop button for me, I can''t reach it from here" '
     options:
     - (Help her press it)
     - (Let her do it herself)
@@ -139,8 +139,8 @@ MonoBehaviour:
     - (However, a foldable chair is blocking her way)
     assessQuestion: (However, a foldable chair is blocking her way)
     assessOption:
-    - 'Asks if she needs help '
-    - Assume she's okay
+    - '(Asks if she needs help) '
+    - (Assume she's okay)
     assessAnswer: 0100
     question: '"Hi there, the foldable seat is blocking me, could you help me adjust
       it?"'
@@ -155,5 +155,5 @@ MonoBehaviour:
     - response:
       - '"Thank you!"'
     - response:
-      - '"Oh ok..."'
+      - '"Oh okay..."'
     outcome: 'Task Complete '

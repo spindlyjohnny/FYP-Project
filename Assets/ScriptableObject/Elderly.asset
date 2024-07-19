@@ -26,7 +26,7 @@ MonoBehaviour:
       market but can''t remember my way back"'
     Dialogue:
     - 'Hi ah, I''m a bit lost, uncle is a bit old already, I went to the market but
-      can''t remember my way back$ '
+      can''t remember my way back '
     options:
     - (Stare at him)
     - (Laugh at him)
@@ -46,15 +46,15 @@ MonoBehaviour:
     - (It looks like the bags are pulling him down)
     assessQuestion: (It looks like the bags are pulling him down)
     assessOption:
-    - 'Ask if he needs your help '
-    - Walk away
+    - (Ask if he needs your help )
+    - (Walk away)
     assessAnswer: 0100
-    question: 'Eh, I need help, these shopping bags are too heavy '
+    question: 'Sorry, I need help, these shopping bags are too heavy '
     Dialogue:
-    - '"Eh, I need help, these shopping bags are too heavy" '
+    - '"Sorry, I need help, these shopping bags are too heavy"'
     options:
-    - Offer your help
-    - Pretend not to hear him
+    - (Offer your help)
+    - (Pretend not to hear him)
     answer: 0100
     location: Pavement
     response:
@@ -68,8 +68,8 @@ MonoBehaviour:
     - (He gestures at you)
     assessQuestion: '(An elderly man was looking troubled and paces about) '
     assessOption:
-    - Ask what does he need
-    - Pretend not to see
+    - (Ask what does he need)
+    - (Pretend not to see)
     assessAnswer: 0100
     question: (The elderly man looks confused, maybe he needs help)
     Dialogue:
@@ -86,7 +86,7 @@ MonoBehaviour:
       - (He gave a disappointed look)
     outcome: Start task
   - assessDialogue:
-    - '(An elderly man is looking frantically in all directions) '
+    - '(An elderly man is looking frantically around) '
     - (Did something happen?)
     assessQuestion: (Did something happen?)
     assessOption:
@@ -96,7 +96,7 @@ MonoBehaviour:
     question: 'Oh dear,.. I''m in the wrong train route, I can''t remember where
       I went. What should I do? '
     Dialogue:
-    - '"Oh dear... " '
+    - '"Oh no... " '
     - '"I''m in the wrong train route, I can''t remember where I went"'
     - '"What should I do?"'
     options:
@@ -108,7 +108,7 @@ MonoBehaviour:
     - response:
       - '"Oh okay, let''s go"'
     - response:
-      - '"How would I find my way home?"'
+      - '"How shoould I find my way home?"'
     outcome: Start task
   - assessDialogue:
     - '(An old man was calling out to someone while walking around the carriage) '
@@ -124,28 +124,28 @@ MonoBehaviour:
     - '"Please help! my grandchild was wandering in the train and I can''t find her!
       Please help me look for her!" '
     options:
-    - '"Help her out" '
-    - '"Tell her you''re unable to"'
+    - (Help him out)
+    - (Tell him you're unable to)
     answer: 0100
     location: Train
     response:
     - response:
-      - '"Thank you for your help!"'
+      - '"Thank you, once we find her and alight the train, we will take our leave"'
     - response:
-      - (I just shrugged it off)
+      - '"Oh nevermind, maybe I will find her myself"'
     outcome: Start task:grandkid
   - assessDialogue:
     - '(The elderly man was standing up and looking tired) '
     - '(Maybe I should help him) '
     assessQuestion: '(Maybe I should help him) '
     assessOption:
-    - 'Search for a seat for him '
-    - Ignore it
+    - (Search for a seat for him)
+    - (Ignore it)
     assessAnswer: 0100
     question: '(There is a lady on twin seats who have placed her handbag on the
       other seat)(What should I tell her?) '
     Dialogue:
-    - '(There is a lady on twin seats who have placed her handbag on the other seat) '
+    - (There is a lady on twin seats who have placed her handbag on the other seat)
     - (What should I tell her?)
     options:
     - (Ask her to free up the seat for the elderly man)
