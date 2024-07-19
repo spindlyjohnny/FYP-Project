@@ -9,7 +9,7 @@ public class ObjectPool : MonoBehaviour {
     public List<Pool> L1pools,L2pools,L3pools,MRTPools;
     public Dictionary<string, Queue<GameObject>> poolDict;
     private void Awake() {
-        if ((LevelManager.Level)PlayerPrefs.GetInt("Level") == LevelManager.Level.BusInterior) return;
+        if (GetComponent<LevelManager>().level == LevelManager.Level.BusInterior) return;
         poolDict = new Dictionary<string, Queue<GameObject>>(); // dictionary containing pools of tiles to be spawned
         List<Pool> pools = new();
         if(GetComponent<LevelManager>().level != LevelManager.Level.MRT) {

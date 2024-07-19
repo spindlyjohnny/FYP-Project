@@ -55,7 +55,7 @@ public class LevelManager : SceneLoader {
             PlayerPrefs.SetInt("Level", (int)level);
             PlayerPrefs.SetInt("Level Num", (int)levelNum);
         }
-
+        //levelNum = LevelNum.Level1;
     }
     void Start() {
         //numTiles = 0;
