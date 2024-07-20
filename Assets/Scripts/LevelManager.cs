@@ -215,7 +215,7 @@ public class LevelManager : SceneLoader {
         //} 
         tilerng = UnityEngine.Random.Range(0f, 1f);
         print(tilerng);
-        if (tilerng > .999f && tilerng <= 1f) {
+        if (tilerng > .999999999f && tilerng <= 1f) {
             foreach (var i in tiles) {
                 if (i.CompareTag("Transition")) tileindex = Array.IndexOf(tiles, i);
             }

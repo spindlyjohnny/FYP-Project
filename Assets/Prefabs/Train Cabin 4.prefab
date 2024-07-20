@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5322468459597957410}
   - component: {fileID: 6930810622962498420}
   - component: {fileID: 5060462927611113993}
+  - component: {fileID: -182623814553489863}
   m_Layer: 0
   m_Name: Train Cabin 4
   m_TagString: Train
@@ -151,6 +152,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0018977083, y: 0.0036847952, z: 0.012762745}
   m_Center: {x: 0.048070613, y: 0.001171194, z: 0.0016487169}
+--- !u!114 &-182623814553489863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3002043870293167261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484087b422f17164ab967967f6e3645c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeObject: []
+  L1pools: []
+  L2pools: []
+  L3pools: []
+  MRTPools: []
 --- !u!1 &3313323237601284838
 GameObject:
   m_ObjectHideFlags: 0

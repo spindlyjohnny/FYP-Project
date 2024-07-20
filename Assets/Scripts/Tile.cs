@@ -13,12 +13,14 @@ public class Tile : MonoBehaviour {
     public Vector3[] lanes; // order of array should be like so: left, middle, right
     public Transform[] NPCSpawnPoints;
     [SerializeField] bool hasNPC;
+    ObjectPool objectPool;
     // Start is called before the first frame update
     protected virtual void Start() {
         //NPC = GetComponentsInChildren<NPC>(true);
         levelManager = FindObjectOfType<LevelManager>();
         npcmanager = FindObjectOfType<NPCManagement>();
         rng = Random.Range(0f, 1f);
+        objectPool = GetComponent<ObjectPool>();
         //lanes[0].z = 1.3f;
         //lanes[1].z = 0;
         //lanes[2].z = -1.3f;
@@ -38,19 +40,21 @@ public class Tile : MonoBehaviour {
                 NPC = levelManager.level3NPC;
                 break;
         }
+        if (!hasNPC) return;
+        if (rng > .5f && rng < 1) {
+            Transform spawnpt = NPCSpawnPoints[Random.Range(0, NPCSpawnPoints.Length)];
+            objectPool.SpawnFromPool(NPC[0].name, spawnpt.position);
+            //Instantiate(NPC[0], spawnpt.position, Quaternion.identity);
+        } else {
+            Transform spawnpt = NPCSpawnPoints[Random.Range(0, NPCSpawnPoints.Length)];
+            objectPool.SpawnFromPool(NPC[1].name, spawnpt.position);
+            //Instantiate(NPC[1], spawnpt.position, Quaternion.identity);
+        }
     }
 
     // Update is called once per frame
     protected virtual void Update() {
-        if (!hasNPC) return;
-        if(rng > .5f && rng < 1) {
-            Transform spawnpt = NPCSpawnPoints[Random.Range(0, NPCSpawnPoints.Length)];
-            Instantiate(NPC[0], spawnpt.position, Quaternion.identity);
-        } 
-        else {
-            Transform spawnpt = NPCSpawnPoints[Random.Range(0, NPCSpawnPoints.Length)];
-            Instantiate(NPC[1], spawnpt.position, Quaternion.identity);
-        }
+       
         //if(NPC.Length == 1) {
         //    if (NPC[0] == null) return;
         //    if (rng > 0.5f && rng <= 1) NPC[0].SetActive(true);

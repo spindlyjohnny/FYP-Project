@@ -4,15 +4,15 @@ using UnityEngine;
 public class ObjectPool : MonoBehaviour {
     int removalIndex = 0;
     public List<GameObject> activeObject = new List<GameObject>();
-    bool once = false;
+    //public bool once = false;
     int spawningIndex = 0;
     public List<Pool> L1pools,L2pools,L3pools,MRTPools;
     public Dictionary<string, Queue<GameObject>> poolDict;
     private void Awake() {
-        if (GetComponent<LevelManager>().level == LevelManager.Level.BusInterior) return;
+        if (FindObjectOfType<LevelManager>().level == LevelManager.Level.BusInterior) return;
         poolDict = new Dictionary<string, Queue<GameObject>>(); // dictionary containing pools of tiles to be spawned
         List<Pool> pools = new();
-        if(GetComponent<LevelManager>().level != LevelManager.Level.MRT) {
+        if (FindObjectOfType<LevelManager>().level != LevelManager.Level.MRT) {
             switch (LevelManager.levelNum) {
                 case LevelManager.LevelNum.Level1:
                     pools = L1pools;
@@ -24,19 +24,18 @@ public class ObjectPool : MonoBehaviour {
                     pools = L3pools;
                     break;
             }
-        } 
-        else {
+        } else {
             pools = MRTPools;
         }
         foreach (Pool pool in pools) {
             Queue<GameObject> objectPool = new Queue<GameObject>();
-            for(int i = 0; i < pool.size; i++) {
+            for (int i = 0; i < pool.size; i++) {
                 GameObject go = Instantiate(pool.prefab); // generate objects
                 go.SetActive(false);
                 objectPool.Enqueue(go);
             }
             poolDict.Add(pool.tag, objectPool);
-        }  
+        }
     }
     public GameObject SpawnFromPool(string tag,Vector3 position) {
         if (!poolDict.ContainsKey(tag)) return null; // tags in pools array have to exactly match names of gameobjects in levelmanager tiles array

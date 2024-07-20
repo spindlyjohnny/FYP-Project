@@ -391,9 +391,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeObject: []
-  L1pools: []
-  L2pools: []
-  L3pools: []
+  L1pools:
+  - tag: NPC
+    prefab: {fileID: 6165041437090717006, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
+    size: 1
+  - tag: Wheelchair User
+    prefab: {fileID: 6165041437090717006, guid: 491c736909fe82e499ab10b6f37ff05a, type: 3}
+    size: 1
+  L2pools:
+  - tag: Visually Impaired NPC
+    prefab: {fileID: 8216624222408438454, guid: aa3b8e22314e3cb42917a17253a7595a, type: 3}
+    size: 1
+  - tag: Hearing Impaired NPC
+    prefab: {fileID: 1791650631843702452, guid: db12ddc3f84f7dd47adda3b460c96a98, type: 3}
+    size: 1
+  L3pools:
+  - tag: Invisible Needs NPC
+    prefab: {fileID: 3150791528455194462, guid: 194c72ab4554f824fabee7d3f9112f4b, type: 3}
+    size: 1
+  - tag: Autism NPC
+    prefab: {fileID: 7665079195801556620, guid: ddc339b32c0998643bc686bdd64f6b1e, type: 3}
+    size: 1
   MRTPools: []
 --- !u!1001 &569024490153297367
 PrefabInstance:
@@ -603,7 +621,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6165041437090717006, guid: 491c736909fe82e499ab10b6f37ff05a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -757,7 +775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6165041437090717006, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
