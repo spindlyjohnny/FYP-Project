@@ -43,11 +43,11 @@ public class Tile : MonoBehaviour {
         if (!hasNPC) return;
         if (rng > .5f && rng < 1) {
             Transform spawnpt = NPCSpawnPoints[Random.Range(0, NPCSpawnPoints.Length)];
-            objectPool.SpawnFromPool(NPC[0].name, spawnpt.position);
+            objectPool.SpawnFromPool(NPC[0].name, new Vector3(spawnpt.position.x,spawnpt.position.y + NPC[0].GetComponent<NPC>().spawnYOffset,spawnpt.position.z));
             //Instantiate(NPC[0], spawnpt.position, Quaternion.identity);
         } else {
             Transform spawnpt = NPCSpawnPoints[Random.Range(0, NPCSpawnPoints.Length)];
-            objectPool.SpawnFromPool(NPC[1].name, spawnpt.position);
+            objectPool.SpawnFromPool(NPC[1].name, new Vector3(spawnpt.position.x, spawnpt.position.y + NPC[1].GetComponent<NPC>().spawnYOffset, spawnpt.position.z));
             //Instantiate(NPC[1], spawnpt.position, Quaternion.identity);
         }
     }

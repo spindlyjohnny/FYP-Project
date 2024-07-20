@@ -39,6 +39,7 @@ public class NPC : MonoBehaviour
     int qnindex;
     public int indexDialogue = 0;
     [SerializeField]TextAsset nameFile;
+    public float spawnYOffset;
     // Start is called before the first frame update
     void Start()
     {

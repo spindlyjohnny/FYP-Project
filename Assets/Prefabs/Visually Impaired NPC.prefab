@@ -165,6 +165,7 @@ MonoBehaviour:
   dialogueSprite: {fileID: 21300000, guid: cec6bf5586dc83848ac839138b65d8cf, type: 3}
   indexDialogue: 0
   nameFile: {fileID: 4900000, guid: b76ef913fe1927d4ebc818638bfb1fe4, type: 3}
+  spawnYOffset: 0.232
 --- !u!1001 &5780847664486884855
 PrefabInstance:
   m_ObjectHideFlags: 0
