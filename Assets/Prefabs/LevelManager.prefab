@@ -144,8 +144,8 @@ MonoBehaviour:
   - {fileID: 8216624222408438454, guid: aa3b8e22314e3cb42917a17253a7595a, type: 3}
   - {fileID: 1791650631843702452, guid: db12ddc3f84f7dd47adda3b460c96a98, type: 3}
   level3NPC:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7665079195801556620, guid: ddc339b32c0998643bc686bdd64f6b1e, type: 3}
+  - {fileID: 3150791528455194462, guid: 194c72ab4554f824fabee7d3f9112f4b, type: 3}
 --- !u!114 &1150282314607055674
 MonoBehaviour:
   m_ObjectHideFlags: 0
