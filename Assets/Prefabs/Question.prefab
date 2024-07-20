@@ -105,7 +105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b6723ce3f45808b48b792241f4215285, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.749
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b6723ce3f45808b48b792241f4215285, type: 3}
       propertyPath: m_LocalPosition.y
@@ -113,7 +113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b6723ce3f45808b48b792241f4215285, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.72
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b6723ce3f45808b48b792241f4215285, type: 3}
       propertyPath: m_LocalRotation.w
@@ -146,6 +146,26 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b6723ce3f45808b48b792241f4215285, type: 3}
       propertyPath: m_Name
       value: qn cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387848941270248248, guid: b6723ce3f45808b48b792241f4215285, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8871779
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387848941270248248, guid: b6723ce3f45808b48b792241f4215285, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8871779
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387848941270248248, guid: b6723ce3f45808b48b792241f4215285, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8871779
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387848941270248248, guid: b6723ce3f45808b48b792241f4215285, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6387848941270248248, guid: b6723ce3f45808b48b792241f4215285, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -227,7 +247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 51c841cf515abf544af626814394f35c, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 51c841cf515abf544af626814394f35c, type: 3}
       propertyPath: m_Materials.Array.data[0]
