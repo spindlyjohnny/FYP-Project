@@ -119,6 +119,7 @@ public class Player : MonoBehaviour
 
     void Movement()
     {
+        anim.SetBool("CanMove", canMove);
         if (!canMove) return;
         movement = new Vector3(0, 0,levelManager.level == LevelManager.Level.BusInterior ? Input.GetAxisRaw("Vertical") : 1);      
         if((Input.GetAxisRaw("Vertical")==1 || Input.GetAxisRaw("Vertical") == -1)&& levelManager.level == LevelManager.Level.BusInterior)
