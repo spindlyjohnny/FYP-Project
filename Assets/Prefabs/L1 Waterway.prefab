@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 6508037724650907302}
   - component: {fileID: 5706700370318645208}
   - component: {fileID: 3215822275558921391}
+  - component: {fileID: 6543325797972830612}
   m_Layer: 0
   m_Name: L1 Waterway
   m_TagString: Untagged
@@ -230,6 +231,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.121400855, y: 0.009835105, z: 0.26550016}
   m_Center: {x: -0.0009156236, y: -0.004327313, z: -0.00008201599}
+--- !u!114 &6543325797972830612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8069987741948419533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484087b422f17164ab967967f6e3645c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeObject: []
+  L1pools: []
+  L2pools: []
+  L3pools: []
+  MRTPools: []
 --- !u!1001 &582367713685479049
 PrefabInstance:
   m_ObjectHideFlags: 0

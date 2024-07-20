@@ -67,16 +67,16 @@ public class GeneralQuestion : Collectible
 
     void Destroying()
     {
-        for (int i = 0; i < this.transform.childCount + 1; i++)
+        for (int i = 0; i < transform.childCount + 1; i++)
         {
-            if (i == this.transform.childCount)
+            if (i == transform.childCount)
             {
-                this.GetComponent<MeshRenderer>().enabled = false;
+                GetComponent<MeshRenderer>().enabled = false;
             }
             else
             {
-                MeshRenderer go = this.transform.GetChild(i).GetComponent<MeshRenderer>();
-                go.enabled = false;
+                GameObject go = transform.GetChild(i).gameObject;
+                go.SetActive(false);
             }
 
 

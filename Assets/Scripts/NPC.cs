@@ -59,7 +59,7 @@ public class NPC : MonoBehaviour
         optionDtext = levelManager.optionDtext;
         dialoguebox = levelManager.dialoguebox;
         questionbox = levelManager.questionbox;
-        names = File.ReadAllLines("Assets/Misc/"+nameFile.ToString());
+        names = File.ReadAllLines("Assets/Misc/"+nameFile.name+".txt");
         avatar = levelManager.npcAvatar;
         //avatar.sprite = dialogueSprite;
         //turning the visibility on

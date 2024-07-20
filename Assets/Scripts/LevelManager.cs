@@ -214,8 +214,8 @@ public class LevelManager : SceneLoader {
         //     }
         //} 
         tilerng = UnityEngine.Random.Range(0f, 1f);
-
-        if (/*tilerng > .999999f && tilerng <= 1f*/tilerng == 1) {
+        print(tilerng);
+        if (tilerng > .999f && tilerng <= 1f) {
             foreach (var i in tiles) {
                 if (i.CompareTag("Transition")) tileindex = Array.IndexOf(tiles, i);
             }
@@ -228,7 +228,16 @@ public class LevelManager : SceneLoader {
         else {
             List<int> legalindexes = new List<int>(); // indexes that are not the index of the road tile or the train station
             for (int i = 0; i < tiles.Length; i++) {
-                if (!tiles[i].GetComponent<RoadTile>() || !tiles[i].CompareTag("Transition")) legalindexes.Add(i);
+                if (!tiles[i].GetComponent<RoadTile>()) {
+                    if (!tiles[i].CompareTag("Transition")) {
+                        legalindexes.Add(i);
+                    }
+                }
+                if(!tiles[i].CompareTag("Transition")) {
+                    if (!tiles[i].GetComponent<RoadTile>()) {
+                        legalindexes.Add(i);
+                    }
+                }
             }
             System.Random random = new System.Random();
             tileindex = legalindexes[random.Next(0, legalindexes.Count)]; // gets random index

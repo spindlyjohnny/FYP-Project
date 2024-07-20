@@ -24,7 +24,7 @@ public class Obstacle : MonoBehaviour
         levelManager = FindObjectOfType<LevelManager>();
         rb = GetComponent<Rigidbody>();
         inital = transform.position;
-        print(inital.z);
+        //print(inital.z);
     }
 
     // Update is called once per frame

@@ -15,17 +15,6 @@ public class Tile : MonoBehaviour {
     [SerializeField] bool hasNPC;
     // Start is called before the first frame update
     protected virtual void Start() {
-        switch (LevelManager.levelNum) {
-            case LevelManager.LevelNum.Level1:
-                NPC = levelManager.level1NPC;
-                break;
-            case LevelManager.LevelNum.Level2:
-                NPC = levelManager.level2NPC;
-                break;
-            case LevelManager.LevelNum.Level3:
-                NPC = levelManager.level3NPC;
-                break;
-        }
         //NPC = GetComponentsInChildren<NPC>(true);
         levelManager = FindObjectOfType<LevelManager>();
         npcmanager = FindObjectOfType<NPCManagement>();
@@ -37,6 +26,17 @@ public class Tile : MonoBehaviour {
             lanes[0].z = 1.3f;
             lanes[1].z = 0;
             lanes[2].z = -1.3f;
+        }
+        switch (LevelManager.levelNum) {
+            case LevelManager.LevelNum.Level1:
+                NPC = levelManager.level1NPC;
+                break;
+            case LevelManager.LevelNum.Level2:
+                NPC = levelManager.level2NPC;
+                break;
+            case LevelManager.LevelNum.Level3:
+                NPC = levelManager.level3NPC;
+                break;
         }
     }
 
