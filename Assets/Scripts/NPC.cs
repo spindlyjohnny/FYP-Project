@@ -67,7 +67,20 @@ public class NPC : MonoBehaviour
         //turning the visibility on
         levelManager.optionCButton.SetActive(true);
         levelManager.optionDButton.SetActive(true);
-
+        if(levelManager.level == LevelManager.Level.Bus) {
+            npcLocation = "Pavement";
+            //RaycastHit hit;
+            //Physics.Raycast(transform.position, Vector3.down, out hit);
+            //if (hit.collider.gameObject.CompareTag("Train")) {
+            //    npcLocation = "Train";
+            //}
+        }
+        else if(levelManager.level == LevelManager.Level.BusInterior) {
+            npcLocation = "Inside Bus";
+        }
+        else if(levelManager.level == LevelManager.Level.MRT) {
+            npcLocation = "Train";
+        }
         startpos = transform.localPosition;
     }
 
