@@ -31,7 +31,7 @@ MonoBehaviour:
     - 'Ask if they need a seat/Give up your seat '
     - 'Ignore them  '
     - Continue using your phone
-    answer: 00000000
+    answer: 01010000
     explain: We should show care towards others who may need help
   - question: What should you do when you see someone wearing the 'May I have a seat
       please?' card and lanyard?

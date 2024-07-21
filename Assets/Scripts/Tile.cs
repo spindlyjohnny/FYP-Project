@@ -43,10 +43,22 @@ public class Tile : MonoBehaviour {
         if (!hasNPC) return;
         if (rng > .5f && rng < 1) {
             Transform spawnpt = NPCSpawnPoints[Random.Range(0, NPCSpawnPoints.Length)];
-            objectPool.SpawnFromPool(NPC[0].name, new Vector3(spawnpt.position.x,spawnpt.position.y + NPC[0].GetComponent<NPC>().spawnYOffset,spawnpt.position.z));
+            if (gameObject.CompareTag("Train")) {
+                GameObject go = objectPool.SpawnFromPool(NPC[0].name, new Vector3(spawnpt.position.x, spawnpt.position.y + NPC[0].GetComponent<NPC>().spawnYOffset, spawnpt.position.z));
+                go.transform.localScale = new Vector3(.8f, .8f, .8f);
+            } 
+            else {
+                objectPool.SpawnFromPool(NPC[0].name, new Vector3(spawnpt.position.x, spawnpt.position.y + NPC[0].GetComponent<NPC>().spawnYOffset, spawnpt.position.z));
+            }
         } else {
             Transform spawnpt = NPCSpawnPoints[Random.Range(0, NPCSpawnPoints.Length)];
-            objectPool.SpawnFromPool(NPC[1].name, new Vector3(spawnpt.position.x, spawnpt.position.y + NPC[1].GetComponent<NPC>().spawnYOffset, spawnpt.position.z));
+            if (gameObject.CompareTag("Train")) {
+                GameObject go = objectPool.SpawnFromPool(NPC[1].name, new Vector3(spawnpt.position.x, spawnpt.position.y + NPC[1].GetComponent<NPC>().spawnYOffset, spawnpt.position.z));
+                go.transform.localScale = new Vector3(.8f, .8f, .8f);
+            } 
+            else {
+                objectPool.SpawnFromPool(NPC[1].name, new Vector3(spawnpt.position.x, spawnpt.position.y + NPC[1].GetComponent<NPC>().spawnYOffset, spawnpt.position.z));
+            }
         }
     }
 
