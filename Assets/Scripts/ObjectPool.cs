@@ -9,10 +9,28 @@ public class ObjectPool : MonoBehaviour {
     public List<Pool> L1pools,L2pools,L3pools,MRTPools;
     public Dictionary<string, Queue<GameObject>> poolDict;
     private void Awake() {
-        if (FindObjectOfType<LevelManager>().level == LevelManager.Level.BusInterior) return;
+        //if (FindObjectOfType<LevelManager>().level == LevelManager.Level.BusInterior) return;
         poolDict = new Dictionary<string, Queue<GameObject>>(); // dictionary containing pools of tiles to be spawned
         List<Pool> pools = new();
-        if (FindObjectOfType<LevelManager>().level != LevelManager.Level.MRT) {
+        if (GetComponent<LevelManager>()) {
+            if (GetComponent<LevelManager>().level != LevelManager.Level.MRT) {
+                switch (LevelManager.levelNum) {
+                    case LevelManager.LevelNum.Level1:
+                        pools = L1pools;
+                        break;
+                    case LevelManager.LevelNum.Level2:
+                        pools = L2pools;
+                        break;
+                    case LevelManager.LevelNum.Level3:
+                        pools = L3pools;
+                        break;
+                }
+            } 
+            else {
+                pools = MRTPools;
+            }
+        } 
+        else {
             switch (LevelManager.levelNum) {
                 case LevelManager.LevelNum.Level1:
                     pools = L1pools;
@@ -24,8 +42,6 @@ public class ObjectPool : MonoBehaviour {
                     pools = L3pools;
                     break;
             }
-        } else {
-            pools = MRTPools;
         }
         foreach (Pool pool in pools) {
             Queue<GameObject> objectPool = new Queue<GameObject>();

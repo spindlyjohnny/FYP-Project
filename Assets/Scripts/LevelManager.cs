@@ -46,6 +46,7 @@ public class LevelManager : SceneLoader {
         if (PlayerPrefs.GetInt("bool") == 1)
         {
             score = PlayerPrefs.GetInt("score");
+            levelNum = (LevelNum)PlayerPrefs.GetInt("Level Num");
             //level = (Level)PlayerPrefs.GetInt("Level");
         }
         else
@@ -110,7 +111,7 @@ public class LevelManager : SceneLoader {
             gameoverscreen.SetActive(true);
             AudioManager.instance.StopMusic();
         }
-        scoretext.text = "Score:" + score;
+        scoretext.text = score.ToString();
         ShowFPS(FPS.GetCurrentFPS().ToString());
         if (npcmanager.myNPC != null) {
             if (npcmanager.myNPC.tasksuccess == NPC.Task.Fail) {
@@ -214,7 +215,7 @@ public class LevelManager : SceneLoader {
         //     }
         //} 
         tilerng = UnityEngine.Random.Range(0f, 1f);
-        print(tilerng);
+        //print(tilerng);
         if (tilerng > .999999999f && tilerng <= 1f) {
             foreach (var i in tiles) {
                 if (i.CompareTag("Transition")) tileindex = Array.IndexOf(tiles, i);

@@ -193,6 +193,8 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+  NPCSpawnPoints: []
+  hasNPC: 1
 --- !u!65 &7077621434765645895
 BoxCollider:
   m_ObjectHideFlags: 0
