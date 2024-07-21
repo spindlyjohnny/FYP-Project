@@ -92,7 +92,11 @@ public class GeneralQuestion : Collectible
             {
                 string sub = type[i].Substring(0, 3);
                 string temp = dialogueData.dialogueQuestions[e].type.Substring(0, 3);
-                if (sub == temp) typeIndexs.Add(i);
+                if (sub == temp)
+                {
+                    typeIndexs.Add(e);
+                    print(temp);
+                }
 
             }
         }

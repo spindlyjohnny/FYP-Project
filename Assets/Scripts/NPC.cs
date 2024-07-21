@@ -203,6 +203,15 @@ public class NPC : MonoBehaviour
             print(sub);
             if (sub == temp) locationIndexs.Add(i);
         }
+        /* for later use
+        for (int i = 0; i < dialogueData.dialogueQuestions.Length; i++)
+        {
+            if (dialogueData.dialogueQuestions[i].locationE != locationNpc)
+            {
+                return;
+            }
+            locationIndexs.Add(i);
+        }*/
         if (locationIndexs.Count == 0)
         {
             Debug.LogError("No valid question with the assigned Location");
