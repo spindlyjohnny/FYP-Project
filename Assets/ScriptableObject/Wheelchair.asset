@@ -31,6 +31,7 @@ MonoBehaviour:
     - (Ignore her)
     answer: 0100
     location: Pavement
+    locationE: 0
     response:
     - response:
       - '"Ok let''s go!"'
@@ -54,6 +55,7 @@ MonoBehaviour:
     - (Laugh at her)
     answer: 000100
     location: Pavement
+    locationE: 0
     response:
     - response:
       - '"Hey! Don''t touch that! "'
@@ -83,6 +85,7 @@ MonoBehaviour:
     - '"Sorry, I can''t"'
     answer: 0100
     location: Wheelchair Zone
+    locationE: 5
     response:
     - response:
       - '"Great! Thanks for your help! "'
@@ -106,6 +109,7 @@ MonoBehaviour:
     - (Shrug it off)
     answer: 0100
     location: Train
+    locationE: 2
     response:
     - response:
       - '"I greatly appreciate it!"'
@@ -128,6 +132,7 @@ MonoBehaviour:
     - (Let her do it herself)
     answer: 0100
     location: Inside Bus
+    locationE: 1
     response:
     - response:
       - '"Thank you so much!"'
@@ -151,6 +156,7 @@ MonoBehaviour:
     - '"No, I don''t know how"'
     answer: 0100
     location: Inside Bus
+    locationE: 1
     response:
     - response:
       - '"Thank you!"'

@@ -33,6 +33,7 @@ MonoBehaviour:
     - (Offer to contact an adult)
     answer: 000001
     location: Bus stop
+    locationE: 3
     response:
     - response:
       - '"Eh, why stare ah!" '
@@ -57,6 +58,7 @@ MonoBehaviour:
     - (Pretend not to hear him)
     answer: 0100
     location: Pavement
+    locationE: 0
     response:
     - response:
       - '"Thanks ah, carry to bus stop only"'
@@ -79,6 +81,7 @@ MonoBehaviour:
     - (Turn Away)
     answer: 0100
     location: Pavement
+    locationE: 0
     response:
     - response:
       - '"Yes, my bus is approaching soon"'
@@ -104,6 +107,7 @@ MonoBehaviour:
     - '"I can''t help you"'
     answer: 0100
     location: Train
+    locationE: 2
     response:
     - response:
       - '"Oh okay, let''s go"'
@@ -128,6 +132,7 @@ MonoBehaviour:
     - (Tell him you're unable to)
     answer: 0100
     location: Train
+    locationE: 2
     response:
     - response:
       - '"Thank you, once we find her and alight the train, we will take our leave"'
@@ -152,6 +157,7 @@ MonoBehaviour:
     - (It can't be helped)
     answer: 0100
     location: Inside Bus
+    locationE: 1
     response:
     - response:
       - '"Thank you for your help!"'
@@ -176,6 +182,7 @@ MonoBehaviour:
     - (Ignore him)
     answer: 0100
     location: Inside Bus
+    locationE: 1
     response:
     - response:
       - '(It''s better to ask an adult as I wasn''t sure what to do) '

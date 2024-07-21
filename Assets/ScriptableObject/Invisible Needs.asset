@@ -12,4 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 837e60c421f34a9448d4edad5e66d4cb, type: 3}
   m_Name: Invisible Needs
   m_EditorClassIdentifier: 
-  dialogueQuestions: []
+  dialogueQuestions:
+  - assessDialogue: []
+    assessQuestion: 
+    assessOption: []
+    assessAnswer: 
+    question: 
+    Dialogue: []
+    options: []
+    answer: 
+    location: 
+    locationE: 0
+    response: []
+    outcome: 

@@ -12,4 +12,176 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 837e60c421f34a9448d4edad5e66d4cb, type: 3}
   m_Name: Visually Impaired
   m_EditorClassIdentifier: 
-  dialogueQuestions: []
+  dialogueQuestions:
+  - assessDialogue:
+    - '(A visually impaired lady lightly taps my shoulder) '
+    - (Does she need my help?)
+    assessQuestion: (Does she need my help?)
+    assessOption:
+    - (Asks what she needs )
+    - (Pretend nothing happened)
+    assessAnswer: 0100
+    question: '"Would you be so kind as to assist me?"'
+    Dialogue:
+    - '"Hi, I''m in a bit of a pickle"'
+    - '"It''s my first time taking this route and I can''t see very well"'
+    - '"Would you be so kind as to assist me? "'
+    options:
+    - (Accept)
+    - (Reject)
+    answer: 0100
+    location: Pavement
+    locationE: 0
+    response:
+    - response:
+      - '"Thank you, I only need to ride a few stops"'
+    - response:
+      - '"Then, maybe next time"'
+    outcome: 'Start task: Ride the bus with the commuter'
+  - assessDialogue:
+    - '(A lady was squinting and scanning at the bus route map) '
+    - (Does she need help to locate something?)
+    assessQuestion: (Does she need help to locate something?)
+    assessOption:
+    - (Ask if she needs help )
+    - (Ignore her )
+    assessAnswer: 0100
+    question: 
+    Dialogue:
+    - '"Hello, could you help me with the bus route map?"'
+    - '"I can''t find this bus stop, the map looks too blurry"'
+    options:
+    - (Help her find it )
+    - (Say you do not know either )
+    - (Mislead her)
+    answer: 010000
+    location: Bus stop
+    locationE: 3
+    response:
+    - response:
+      - '"Oh, okay..."'
+    - response:
+      - '"Thanks for your help!"'
+    - response:
+      - '"That does not seem right..."'
+    outcome: Task Complete
+  - assessDialogue:
+    - '(A visually impaired lady calls out to me as I walk near her) '
+    - (What do you think she needs?)
+    assessQuestion: (What do you think she needs?)
+    assessOption:
+    - (Ask if she needs help)
+    - (Turn away)
+    assessAnswer: 0100
+    question: '"The path sounds crowded and I don''t want to bump into others"'
+    Dialogue:
+    - '"Hello, I want to get to the bus stop, could you guide me there?"'
+    - '"The path sounds crowded and I don''t want to bump into others"'
+    options:
+    - '"Sure thing!"'
+    - '"Sorry, I''m busy"'
+    answer: 0100
+    location: Pavement
+    locationE: 0
+    response:
+    - response:
+      - '"Thank you! I think the bus stop is right ahead this path"'
+    - response:
+      - '"Oh, nevermind then"'
+    outcome: 'Start task: Bring Commuter to the Bus Stop'
+  - assessDialogue:
+    - '"Excuse me! I need your help!"'
+    - (She looks distressed, what should I do?)
+    assessQuestion: (She looks distressed, what should I do?)
+    assessOption:
+    - (Grab her cane )
+    - (Politely offer your help)
+    assessAnswer: 0001
+    question: '"Yes, I need help finding a station staff. Could you please help me?"'
+    Dialogue:
+    - '"Yes, I need help finding a station staff. Could you please help me?"'
+    options:
+    - '"Sorry, I can''t find one"'
+    - '"Sure, let''s search together"'
+    answer: 0001
+    location: Train
+    locationE: 2
+    response:
+    - response:
+      - '"Really? I guess it cannot be helped"'
+    - response:
+      - '"Thank you, lead the way!"'
+    outcome: 'Start task: Bring commuter to the transport officer'
+  - assessDialogue:
+    - '(A visually impaired lady lightly taps my shoulder) '
+    - '"Hi, if you do not mind could you do me a favor?"'
+    assessQuestion: '"Hi, if you do not mind could you do me a favor?"'
+    assessOption:
+    - (Agree to help)
+    - (Say you're busy)
+    assessAnswer: 0100
+    question: '(What is the correct way to guide her?) '
+    Dialogue:
+    - '"My station is quite far from here, I want to find a place to sit"'
+    - '(What is the correct way to guide her?) '
+    options:
+    - (Pull her along with you)
+    - (Let her hold your elbow)
+    answer: 0001
+    location: Train
+    locationE: 2
+    response:
+    - response:
+      - '"Oh...Please don''t do that"'
+    - response:
+      - '"Okay, thank you for offering your help!"'
+    outcome: 'Start Task: Find an empty seat for the commuter'
+  - assessDialogue:
+    - '(A visually impaired lady calls out to me as I walk near her) '
+    - (Does she need my help?)
+    assessQuestion: (Continue on your way)
+    assessOption:
+    - (Politely ask what's wrong )
+    - (Continue on your way)
+    assessAnswer: 0100
+    question: '"Hi, I need to find a seat, the bus is too shaky"'
+    Dialogue:
+    - '"Hi, I need to find a seat, the bus is too shaky"'
+    options:
+    - (Offer to help)
+    - (Say you're unable to)
+    answer: 0100
+    location: Inside Bus
+    locationE: 1
+    response:
+    - response:
+      - '"Thanks!"'
+    - response:
+      - '"Oh, nevermind"'
+    outcome: 'Start Task: Find a seat for the commuter'
+  - assessDialogue:
+    - '(The lady looks distressed) '
+    - '(Maybe I should help her) '
+    assessQuestion: '(Maybe I should help her) '
+    assessOption:
+    - (Offer your help)
+    - (Ignore Her)
+    assessAnswer: 0100
+    question: 'Could you help me ask the bus captain if this bus stops at Jurong
+      West? '
+    Dialogue:
+    - '"Oh dear, I flagged down this bus but I forgot to ask the bus driver if this
+      is the correct route"'
+    - '"Could you help me ask the bus captain if this bus stops at Jurong West?"'
+    options:
+    - (Sure thing )
+    - (No, I'm on a rush)
+    answer: 0100
+    location: Inside Bus
+    locationE: 1
+    response:
+    - response:
+      - '"Ok, thanks for you help!"'
+    - response:
+      - '"Oh, nevermind then...(sigh)"'
+    outcome: 'Start Task: Ask the bus driver about the route'

@@ -12,4 +12,176 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 837e60c421f34a9448d4edad5e66d4cb, type: 3}
   m_Name: Hard-of-hearing
   m_EditorClassIdentifier: 
-  dialogueQuestions: []
+  dialogueQuestions:
+  - assessDialogue:
+    - (He looks a bit lost, should I offer my help?)
+    assessQuestion: (He looks a bit lost, should I offer my help?)
+    assessOption:
+    - (Kindly approach and ask )
+    - (Assume he is fine )
+    assessAnswer: 0100
+    question: 'Hi, could I know where is the nearest train station from here? '
+    Dialogue:
+    - '"Hi, could I know where is the nearest train station from here?"'
+    options:
+    - (Shout at him)
+    - (Type on your phone and show him)
+    answer: 0001
+    location: Pavement
+    locationE: 0
+    response:
+    - response:
+      - (He gives look of annoyance)
+    - response:
+      - (I kindly pointed out the directions using the MRT map)
+    outcome: Task Complete
+  - assessDialogue:
+    - (He seems to be on high alert about something, should I help?)
+    assessQuestion: (He seems to be on high alert about something, should I help?)
+    assessOption:
+    - (Approach him )
+    - (Pretend not to notice)
+    assessAnswer: 0100
+    question: '"Oh, I need to look out for the next bus, I can''t seem to notice
+      once it arrives"'
+    Dialogue:
+    - '"Oh, I need to look out for the next bus, I can''t seem to notice once it
+      arrives"'
+    options:
+    - (Use Sign Language )
+    - (Smack him on the shoulder)
+    - (Write down to offer help)
+    answer: 000001
+    location: Pavement
+    locationE: 0
+    response:
+    - response:
+      - '(He shakes his head, he might not understand it) '
+    - response:
+      - '(He flinches in surprise, and turns away) '
+    - response:
+      - (I offer to notify him when it arrives)
+    outcome: Task Complete
+  - assessDialogue:
+    - (He waved at me, does he need my help?)
+    assessQuestion: (He waved at me, does he need my help?)
+    assessOption:
+    - (Politely ask him)
+    - (Turn away)
+    assessAnswer: 0100
+    question: '"Yeah, I got to ride the bus to this place, but last time I got lost
+      as the bus passed the stop too quickly, could you guide me there?"'
+    Dialogue:
+    - '"Yeah, I got to ride the bus to this place, but last time I got lost as the
+      bus passed the stop too quickly, could you guide me there? "'
+    options:
+    - (Reject him)
+    - (Agree to help)
+    answer: 0001
+    location: Pavement
+    locationE: 0
+    response:
+    - response:
+      - '(He looks at you awkwardly) '
+    - response:
+      - '"Okay, we should head there now!"'
+    outcome: 'Start task: Ride the bus with the commuter'
+  - assessDialogue:
+    - '(A man wearing hearing aid looks like he is in distress) (A man wearing hearing
+      aid looks like he is in distress) '
+    - (I should help him)
+    assessQuestion: '(A man wearing hearing aid looks like he is in distress) (A
+      man wearing hearing aid looks like he is in distress) '
+    assessOption:
+    - (Ask what is wrong )
+    - (I rather not)
+    assessAnswer: 0100
+    question: 'Oh, I''m not sure which station I should alight at to go to the market,
+      My friend did tell me before, but I could not hear the directions that well. '
+    Dialogue:
+    - '"Oh, I''m not sure which station I should alight at to go to the market, My
+      friend did tell me before, but I could not hear the directions that well."'
+    options:
+    - '(Write down the directions for him) '
+    - (Say you are busy)
+    answer: 0100
+    location: Train
+    locationE: 2
+    response:
+    - response:
+      - '"Why thank you. I will have to ride this train for a while, let us find
+        a seat first!"'
+    - response:
+      - '"Oh, Okay then"'
+    outcome: 'Start task: Find the commuter''s grandkid and leave at their stop'
+  - assessDialogue:
+    - '(A man wearing hearing aids waves at you) '
+    - (Does he need something?)
+    assessQuestion: (Does he need something?)
+    assessOption:
+    - (Approach him politely )
+    - (Shout at him)
+    assessAnswer: 0100
+    question: '"Hi there, could you tell me what they just said on the intercom?"'
+    Dialogue:
+    - '"Hi there, could you tell me what they just said on the intercom?"'
+    options:
+    - (Inform him)
+    - (Say you can't remember)
+    answer: 0100
+    location: Train
+    locationE: 2
+    response:
+    - response:
+      - '(I wrote down what they said on the intercom and showed it to him) '
+    - response:
+      - '"Oh, nevermind then"'
+    outcome: 'Start task: Find empty seats and leave at their stop'
+  - assessDialogue:
+    - '(A man wearing hearing aid seems to be in distress) '
+    - (Maybe I should help him)
+    assessQuestion: No, I think he's fine
+    assessOption:
+    - (Politely write a note if he needs something )
+    - (No, I think he's fine )
+    assessAnswer: 0100
+    question: '(He writes down that he wants to know what is the name of the stop
+      after the next one) '
+    Dialogue:
+    - '(He writes down that he wants to know what is the name of the stop after the
+      next one) '
+    options:
+    - (Look up the bus route and show it to him )
+    - (Yell at him in response)
+    answer: 0100
+    location: Inside Bus
+    locationE: 1
+    response:
+    - response:
+      - '"Oh I see, thank you!"'
+    - response:
+      - '"No, please don''t do that, I can''t hear well"'
+    outcome: Task Complete
+  - assessDialogue:
+    - '(There is a man wearing hearing aids that looks annoyed) '
+    assessQuestion: '(There is a man wearing hearing aids that looks annoyed) '
+    assessOption:
+    - (Observe what is happening )
+    - (Stare at him)
+    assessAnswer: 0100
+    question: '(In front of him there are two people talking and laughing loudly) '
+    Dialogue:
+    - '(In front of him there are two people talking and laughing loudly) '
+    options:
+    - (I should step in )
+    - (Ignore it)
+    answer: 0100
+    location: Inside Bus
+    locationE: 1
+    response:
+    - response:
+      - '(I should tell them to lower their voice while talking, as the bus should
+        be a conducive environment for others) '
+    - response:
+      - (I didn't approach them)
+    outcome: 'Start Task: Approach the commuters'

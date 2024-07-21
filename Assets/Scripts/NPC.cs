@@ -12,6 +12,7 @@ public class NPC : MonoBehaviour
     public string[] dialogue = new string[0];
     public List<string> dialogueList;
     public string optionA,optionB,optionC,optionD,npcLocation;
+    public LocationEnum locationNpc;
     public TMP_Text dialoguetext,questiontext,explaintext,optionAtext,optionBtext,optionCtext,optionDtext;
     public TMP_Text nametext;
     public float wordspeed;

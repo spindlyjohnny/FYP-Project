@@ -11,13 +11,14 @@ public class Data
 {
     public string[] assessDialogue;
     public string assessQuestion;
-    public string[] assessOption;
+    public string[] assessOption = new string[2];
     public bool[] assessAnswer;
     public string question;
     public string[] Dialogue;
     public string[] options;
     public bool[] answer;
     public string location;
+    public LocationEnum locationE;
     public Response[] response;// the  length of this is the length of the possible options
     public string outcome;
 }
@@ -26,4 +27,16 @@ public class Data
 public class Response
 {
     public string[] response;
+}
+
+[System.Serializable]
+public enum LocationEnum
+{
+    Pavement,
+    BusInterior,
+    Mrt,
+    BusStop,
+    Default,
+    WheelchairZone,
+    Null
 }
