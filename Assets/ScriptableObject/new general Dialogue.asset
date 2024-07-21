@@ -264,7 +264,7 @@ MonoBehaviour:
     options:
     - Help to hold the lift and press the lift buttons for them
     - 'Allow them to board the bus or train first  '
-    - ' Ignore them'
+    - Ignore them
     - Laugh about their disability
     answer: 01010000
     explain: Commuters with physical disabilities have challenges in moving about

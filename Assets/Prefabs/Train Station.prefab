@@ -127,8 +127,8 @@ Transform:
   m_GameObject: {fileID: 8079574988167343021}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.9, y: -0, z: 0}
-  m_LocalScale: {x: 101.9, y: 100, z: 100}
+  m_LocalPosition: {x: 24.840624, y: -0, z: 0.051}
+  m_LocalScale: {x: 107.81, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6480925469716726967}
@@ -157,6 +157,8 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+  NPCSpawnPoints: []
+  hasNPC: 0
 --- !u!65 &3690181963815278713
 BoxCollider:
   m_ObjectHideFlags: 0
