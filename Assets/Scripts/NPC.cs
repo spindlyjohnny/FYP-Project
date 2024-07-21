@@ -196,7 +196,7 @@ public class NPC : MonoBehaviour
         List<int> locationIndexs = new List<int>(0);
         for (int i = 0; i < dialogueData.dialogueQuestions.Length; i++)
         {
-            npcLocation = dialogueData.dialogueQuestions[i].location;
+            //npcLocation = dialogueData.dialogueQuestions[i].location;
             sub = dialogueData.dialogueQuestions[i].location.Substring(0, 2);
             temp = npcLocation.Substring(0, 2);
             print(temp);
