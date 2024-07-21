@@ -84,8 +84,8 @@ MonoBehaviour:
     - '"No problem, I''ll help you"'
     - '"Sorry, I can''t"'
     answer: 0100
-    location: Wheelchair Zone
-    locationE: 5
+    location: Train
+    locationE: 2
     response:
     - response:
       - '"Great! Thanks for your help! "'

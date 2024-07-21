@@ -245,7 +245,7 @@ public class NPC : MonoBehaviour
         {
             levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
         }
-        if (dialogueData.dialogueQuestions[qnindex].assessAnswer.Length == 3 && dialogueData.dialogueQuestions[qnindex].assessAnswer[2] == true)
+        if (dialogueData.dialogueQuestions[qnindex].assessAnswer.Length >= 3 && dialogueData.dialogueQuestions[qnindex].assessAnswer[2] == true)
         {
             levelManager.optionCButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;            
         }

@@ -204,7 +204,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if(NPC) return;
+        if(!canMove || NPC) return;
         if (invincibility) return;
         if (other.gameObject.layer == 8)
         {

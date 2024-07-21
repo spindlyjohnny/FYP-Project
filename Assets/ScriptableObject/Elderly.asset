@@ -32,8 +32,8 @@ MonoBehaviour:
     - (Laugh at him)
     - (Offer to contact an adult)
     answer: 000001
-    location: Bus stop
-    locationE: 3
+    location: Pavement
+    locationE: 0
     response:
     - response:
       - '"Eh, why stare ah!" '

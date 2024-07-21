@@ -53,6 +53,7 @@ public class GeneralQuestion : Collectible
             UpdateCanvas();
             Destroying();
             player.canMove = false;
+            //player.NPC = true;
             questionbox.SetActive(true);
             npcManager.myGeneral = this;
         }
@@ -115,11 +116,11 @@ public class GeneralQuestion : Collectible
         {
             levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
         }
-        if (dialogueData.dialogueQuestions[qnindex].answer[2] == true)
+        if (dialogueData.dialogueQuestions[qnindex].answer.Length >= 3 && dialogueData.dialogueQuestions[qnindex].answer[2] == true)
         {
             levelManager.optionCButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
         }
-        if (dialogueData.dialogueQuestions[qnindex].answer[3] == true)
+        if (dialogueData.dialogueQuestions[qnindex].answer.Length == 4 && dialogueData.dialogueQuestions[qnindex].answer[3] == true)
         {
             levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
         }

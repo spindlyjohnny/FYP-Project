@@ -55,13 +55,13 @@ MonoBehaviour:
     - (Say you do not know either )
     - (Mislead her)
     answer: 010000
-    location: Bus stop
-    locationE: 3
+    location: Pavement
+    locationE: 0
     response:
     - response:
-      - '"Oh, okay..."'
-    - response:
       - '"Thanks for your help!"'
+    - response:
+      - '"Oh, okay..."'
     - response:
       - '"That does not seem right..."'
     outcome: Task Complete
