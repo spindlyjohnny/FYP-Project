@@ -12,9 +12,6 @@ public class Data
     public string assessQuestion;
     public DialogueQoute[] assDialogue;
     public DialOptions[] assDial;
-    public string[] assessDialogue;    
-    public string[] assessOption = new string[2];
-    public bool[] assessAnswer;
 
     public DialogueQoute[] Dialogues;
     public string question;
