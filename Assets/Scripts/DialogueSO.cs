@@ -9,15 +9,19 @@ public class DialogueSO : ScriptableObject
 [System.Serializable]
 public class Data
 {
-    public string[] assessDialogue;
     public string assessQuestion;
+    public DialogueQoute[] assDialogue;
+    public DialOptions[] assDial;
+    public string[] assessDialogue;    
     public string[] assessOption = new string[2];
     public bool[] assessAnswer;
+
+    public DialogueQoute[] Dialogues;
+    public DialOptions[] Dial;
     public string question;
     public string[] Dialogue;
     public string[] options;
     public bool[] answer;
-    public string location;
     public LocationEnum locationE;
     public Response[] response;// the  length of this is the length of the possible options
     public string outcome;
@@ -39,4 +43,18 @@ public enum LocationEnum
     Default,
     WheelchairZone,
     Null
+}
+
+[System.Serializable]
+public class DialogueQoute
+{
+    public string speechLine;
+    public bool npcTalking;
+}
+
+[System.Serializable]
+public class DialOptions
+{
+    public string option;
+    public bool isCorrect;
 }

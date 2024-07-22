@@ -11,7 +11,7 @@ public class NPC : MonoBehaviour
     Player player;
     public string[] dialogue = new string[0];
     public List<string> dialogueList;
-    public string optionA,optionB,optionC,optionD,npcLocation;
+    public string optionA,optionB,optionC,optionD;
     public LocationEnum locationNpc;
     public TMP_Text dialoguetext,questiontext,explaintext,optionAtext,optionBtext,optionCtext,optionDtext;
     public TMP_Text nametext;
@@ -68,7 +68,7 @@ public class NPC : MonoBehaviour
         levelManager.optionCButton.SetActive(true);
         levelManager.optionDButton.SetActive(true);
         if(levelManager.level == LevelManager.Level.Bus) {
-            npcLocation = "Pavement";
+            locationNpc = LocationEnum.Pavement;
             //RaycastHit hit;
             //Physics.Raycast(transform.position, Vector3.down, out hit);
             //if (hit.collider.gameObject.CompareTag("Train")) {
@@ -76,10 +76,10 @@ public class NPC : MonoBehaviour
             //}
         }
         else if(levelManager.level == LevelManager.Level.BusInterior) {
-            npcLocation = "Inside Bus";
+            locationNpc = LocationEnum.BusInterior;
         }
         else if(levelManager.level == LevelManager.Level.MRT) {
-            npcLocation = "Train";
+            locationNpc = LocationEnum.Mrt;
         }
         startpos = transform.localPosition;
     }
@@ -210,11 +210,7 @@ public class NPC : MonoBehaviour
         for (int i = 0; i < dialogueData.dialogueQuestions.Length; i++)
         {
             //npcLocation = dialogueData.dialogueQuestions[i].location;
-            sub = dialogueData.dialogueQuestions[i].location.Substring(0, 2);
-            temp = npcLocation.Substring(0, 2);
-            print(temp);
-            print(sub);
-            if (sub == temp) locationIndexs.Add(i);
+            if (locationNpc == dialogueData.dialogueQuestions[i].locationE) locationIndexs.Add(i);
         }
         /* for later use
         for (int i = 0; i < dialogueData.dialogueQuestions.Length; i++)
