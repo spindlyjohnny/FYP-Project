@@ -257,17 +257,17 @@ public class NPC : MonoBehaviour
         }
         nametext.text = names[Random.Range(0, names.Length)];
         questiontext.text = dialogueData.dialogueQuestions[qnindex].assessQuestion;
-        optionAtext.text = "a)" + dialogueData.dialogueQuestions[qnindex].assessOption[0];
-        optionBtext.text = "b)" + dialogueData.dialogueQuestions[qnindex].assessOption[1];
+        optionAtext.text = "A." + dialogueData.dialogueQuestions[qnindex].assessOption[0];
+        optionBtext.text = "B." + dialogueData.dialogueQuestions[qnindex].assessOption[1];
         levelManager.optionCButton.SetActive(true);
         levelManager.optionDButton.SetActive(true);
-        if (dialogueData.dialogueQuestions[qnindex].assessOption.Length >= 3) optionCtext.text = "c)" + dialogueData.dialogueQuestions[qnindex].assessOption[2];
+        if (dialogueData.dialogueQuestions[qnindex].assessOption.Length >= 3) optionCtext.text = "C." + dialogueData.dialogueQuestions[qnindex].assessOption[2];
         else
         {
             optionCtext.text = "";
             levelManager.optionCButton.SetActive(false);
         }
-        if (dialogueData.dialogueQuestions[qnindex].assessOption.Length >= 4) optionDtext.text = "d)" + dialogueData.dialogueQuestions[qnindex].assessOption[3];
+        if (dialogueData.dialogueQuestions[qnindex].assessOption.Length >= 4) optionDtext.text = "D." + dialogueData.dialogueQuestions[qnindex].assessOption[3];
         else
         {
             optionDtext.text = "";
@@ -315,16 +315,16 @@ public class NPC : MonoBehaviour
         if (dialogueData.dialogueQuestions[qnindex].options.Length >= 3) optionC = this.dialogueData.dialogueQuestions[qnindex].options[2];
         if (dialogueData.dialogueQuestions[qnindex].options.Length >= 4) optionD = this.dialogueData.dialogueQuestions[qnindex].options[3];
         questiontext.text = dialogueData.dialogueQuestions[qnindex].question;
-        optionAtext.text = "a)" + dialogueData.dialogueQuestions[qnindex].options[0];
-        optionBtext.text = "b)" + dialogueData.dialogueQuestions[qnindex].options[1];
+        optionAtext.text = "A." + dialogueData.dialogueQuestions[qnindex].options[0];
+        optionBtext.text = "B." + dialogueData.dialogueQuestions[qnindex].options[1];
         levelManager.optionCButton.SetActive(true);
         levelManager.optionDButton.SetActive(true);
-        if (dialogueData.dialogueQuestions[qnindex].options.Length >= 3) optionCtext.text = "c)" + dialogueData.dialogueQuestions[qnindex].options[2];
+        if (dialogueData.dialogueQuestions[qnindex].options.Length >= 3) optionCtext.text = "C." + dialogueData.dialogueQuestions[qnindex].options[2];
         else {
             optionCtext.text = "";
             levelManager.optionCButton.SetActive(false);
         }
-        if (dialogueData.dialogueQuestions[qnindex].options.Length >= 4) optionDtext.text = "d)" + dialogueData.dialogueQuestions[qnindex].options[3];
+        if (dialogueData.dialogueQuestions[qnindex].options.Length >= 4) optionDtext.text = "D." + dialogueData.dialogueQuestions[qnindex].options[3];
         else {
             optionDtext.text = "";
             levelManager.optionDButton.SetActive(false);
