@@ -6,6 +6,9 @@ public class Interactable : MonoBehaviour
     public Player player;
     protected NPCManagement npcmanager;
     protected LevelManager levelManager;
+    public ObjectPool objectPool;
+    public GameObject[] L1Destinations, L2Destinations, L3Destinations;
+    public GameObject[] destinations;
     //public string location;
     //public bool target = false;
     //float radius;
@@ -15,6 +18,21 @@ public class Interactable : MonoBehaviour
         player = FindObjectOfType<Player>();
         npcmanager = FindObjectOfType<NPCManagement>();
         levelManager = FindObjectOfType<LevelManager>();
+        if(objectPool != null) {
+            switch (LevelManager.levelNum) {
+                case LevelManager.LevelNum.Level1:
+                    destinations = L1Destinations;
+                    break;
+                case LevelManager.LevelNum.Level2:
+                    destinations = L2Destinations;
+                    break;
+                case LevelManager.LevelNum.Level3:
+                    destinations = L3Destinations;
+                    break;
+            }
+            GameObject go = objectPool.SpawnFromPool(destinations[0].name, transform.position);
+            go.transform.SetParent(transform);
+        }
     }
 
     // Update is called once per frame
@@ -64,7 +82,8 @@ public class Interactable : MonoBehaviour
                 player.canMove = false;
                 player.inputtext.SetActive(true);
                 if (GetComponentInParent<RoadTile>()) npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
-            }else if(npcmanager.myNPC == null) {
+            }
+            else if(npcmanager.myNPC == null) {
                 if(levelManager.level == LevelManager.Level.BusInterior) { // dont stop player if in bus 
                     player.inputtext.SetActive(true);
                 } 
