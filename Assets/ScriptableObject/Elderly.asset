@@ -39,9 +39,6 @@ MonoBehaviour:
       npcTalking: 1
     question: '"Hi ah, I''m a bit lost, uncle is a bit old already, I went to the
       market but can''t remember my way back"'
-    Dialogue:
-    - 'Hi ah, I''m a bit lost, uncle is a bit old already, I went to the market but
-      can''t remember my way back '
     Dial:
     - option: (Stare at him)
       isCorrect: 0
@@ -49,11 +46,6 @@ MonoBehaviour:
       isCorrect: 0
     - option: (Offer to contact an adult)
       isCorrect: 1
-    options:
-    - (Stare at him)
-    - (Laugh at him)
-    - (Offer to contact an adult)
-    answer: 000001
     locationE: 0
     response:
     - response:
@@ -64,8 +56,17 @@ MonoBehaviour:
       - (He accepted your help, and the adult managed to contact his relative)
     outcome: 'Task complete '
   - assessQuestion: (It looks like the bags are pulling him down)
-    assDialogue: []
-    assDial: []
+    assDialogue:
+    - speechLine: '(An elderly man is carrying heavy bags of groceries with both
+        arms) '
+      npcTalking: 1
+    - speechLine: (It looks like the bags are pulling him down)
+      npcTalking: 0
+    assDial:
+    - option: (Ask if he needs your help)
+      isCorrect: 1
+    - option: (Walk away)
+      isCorrect: 0
     assessDialogue:
     - '(An elderly man is carrying heavy bags of groceries with both arms) '
     - (It looks like the bags are pulling him down)
@@ -77,17 +78,11 @@ MonoBehaviour:
     - speechLine: '"Sorry, I need help, these shopping bags are too heavy"'
       npcTalking: 1
     question: 'Sorry, I need help, these shopping bags are too heavy '
-    Dialogue:
-    - '"Sorry, I need help, these shopping bags are too heavy"'
     Dial:
     - option: (Offer your help)
+      isCorrect: 1
+    - option: (Pretend not to hear him)
       isCorrect: 0
-    - option: 
-      isCorrect: 0
-    options:
-    - (Offer your help)
-    - (Offer your help)
-    answer: 0100
     locationE: 0
     response:
     - response:
@@ -113,15 +108,15 @@ MonoBehaviour:
     - (Ask what does he need)
     - (Pretend not to see)
     assessAnswer: 0100
-    Dialogues: []
+    Dialogues:
+    - speechLine: (The elderly man looks confused, maybe he needs help)
+      npcTalking: 1
     question: (The elderly man looks confused, maybe he needs help)
-    Dialogue:
-    - (The elderly man looks confused, maybe he needs help)
-    Dial: []
-    options:
-    - (Gently asks if he needs help)
-    - (Turn Away)
-    answer: 0100
+    Dial:
+    - option: (Gently asks if he needs help)
+      isCorrect: 1
+    - option: (Turn Away)
+      isCorrect: 0
     locationE: 0
     response:
     - response:
@@ -130,8 +125,16 @@ MonoBehaviour:
       - (He gave a disappointed look)
     outcome: Start task
   - assessQuestion: (Did something happen?)
-    assDialogue: []
-    assDial: []
+    assDialogue:
+    - speechLine: '(An elderly man is looking frantically around) '
+      npcTalking: 1
+    - speechLine: (Did something happen?)
+      npcTalking: 0
+    assDial:
+    - option: (Gently ask what is wrong)
+      isCorrect: 1
+    - option: (Act oblivious)
+      isCorrect: 0
     assessDialogue:
     - '(An elderly man is looking frantically around) '
     - (Did something happen?)
@@ -139,18 +142,20 @@ MonoBehaviour:
     - Gently ask what is wrong
     - Act oblivious
     assessAnswer: 0100
-    Dialogues: []
+    Dialogues:
+    - speechLine: '"Oh no... " '
+      npcTalking: 1
+    - speechLine: '"I''m in the wrong train route, I can''t remember where I went"'
+      npcTalking: 1
+    - speechLine: '"What should I do?"'
+      npcTalking: 1
     question: 'Oh dear,.. I''m in the wrong train route, I can''t remember where
       I went. What should I do? '
-    Dialogue:
-    - '"Oh no... " '
-    - '"I''m in the wrong train route, I can''t remember where I went"'
-    - '"What should I do?"'
-    Dial: []
-    options:
-    - '"I''ll help you find a Transport Officer" '
-    - '"I can''t help you"'
-    answer: 0100
+    Dial:
+    - option: '"I''ll help you find a Transport Officer" '
+      isCorrect: 1
+    - option: '"I can''t help you"'
+      isCorrect: 0
     locationE: 2
     response:
     - response:
@@ -159,8 +164,17 @@ MonoBehaviour:
       - '"How shoould I find my way home?"'
     outcome: Start task
   - assessQuestion: '(Maybe I should help him) '
-    assDialogue: []
-    assDial: []
+    assDialogue:
+    - speechLine: '(An old man was calling out to someone while walking around the
+        carriage) '
+      npcTalking: 1
+    - speechLine: (Maybe I should help him)
+      npcTalking: 0
+    assDial:
+    - option: (Approach and Ask)
+      isCorrect: 1
+    - option: (No, I don't think I can help)
+      isCorrect: 0
     assessDialogue:
     - '(An old man was calling out to someone while walking around the carriage) '
     - (Maybe I should help him)
@@ -168,17 +182,17 @@ MonoBehaviour:
     - 'Approach and Ask '
     - No, I don't think I can help
     assessAnswer: 0100
-    Dialogues: []
+    Dialogues:
+    - speechLine: '"Please help! my grandchild was wandering in the train and I can''t
+        find her! Please help me look for her!" '
+      npcTalking: 1
     question: 'Please help! my grandchild was wandering in the train and I can''t
       find her! Please help me look for her! '
-    Dialogue:
-    - '"Please help! my grandchild was wandering in the train and I can''t find her!
-      Please help me look for her!" '
-    Dial: []
-    options:
-    - (Help him out)
-    - (Tell him you're unable to)
-    answer: 0100
+    Dial:
+    - option: (Help him out)
+      isCorrect: 1
+    - option: (Tell him you're unable to)
+      isCorrect: 0
     locationE: 2
     response:
     - response:
@@ -187,8 +201,16 @@ MonoBehaviour:
       - '"Oh nevermind, maybe I will find her myself"'
     outcome: Start task:grandkid
   - assessQuestion: '(Maybe I should help him) '
-    assDialogue: []
-    assDial: []
+    assDialogue:
+    - speechLine: '(The elderly man was standing up and looking tired) '
+      npcTalking: 0
+    - speechLine: '(Maybe I should help him) '
+      npcTalking: 1
+    assDial:
+    - option: (Search for a seat for him)
+      isCorrect: 1
+    - option: (Ignore it)
+      isCorrect: 0
     assessDialogue:
     - '(The elderly man was standing up and looking tired) '
     - '(Maybe I should help him) '
@@ -196,17 +218,19 @@ MonoBehaviour:
     - (Search for a seat for him)
     - (Ignore it)
     assessAnswer: 0100
-    Dialogues: []
+    Dialogues:
+    - speechLine: (There is a lady on twin seats who have placed her handbag on the
+        other seat)
+      npcTalking: 0
+    - speechLine: (What should I tell her?)
+      npcTalking: 1
     question: '(There is a lady on twin seats who have placed her handbag on the
       other seat)(What should I tell her?) '
-    Dialogue:
-    - (There is a lady on twin seats who have placed her handbag on the other seat)
-    - (What should I tell her?)
-    Dial: []
-    options:
-    - (Ask her to free up the seat for the elderly man)
-    - (It can't be helped)
-    answer: 0100
+    Dial:
+    - option: (Ask her to free up the seat for the elderly man)
+      isCorrect: 1
+    - option: (It can't be helped)
+      isCorrect: 0
     locationE: 1
     response:
     - response:
@@ -215,8 +239,16 @@ MonoBehaviour:
       - (I just shrugged it off)
     outcome: 'Task Complete '
   - assessQuestion: (He looks tense, what should I do?)
-    assDialogue: []
-    assDial: []
+    assDialogue:
+    - speechLine: '(The elderly man approaches me anxiously) '
+      npcTalking: 1
+    - speechLine: (He looks tense, what should I do?)
+      npcTalking: 0
+    assDial:
+    - option: '(Gently ask what''s wrong) '
+      isCorrect: 1
+    - option: (Shrug him off)
+      isCorrect: 0
     assessDialogue:
     - '(The elderly man approaches me anxiously) '
     - (He looks tense, what should I do?)
@@ -224,17 +256,19 @@ MonoBehaviour:
     - 'Gently ask what''s wrong '
     - Shrug him off
     assessAnswer: 0100
-    Dialogues: []
+    Dialogues:
+    - speechLine: '"I...I forgot which stop my house is, I d-don''t know what to
+        do"'
+      npcTalking: 1
+    - speechLine: (I might not be able to help him, but what should I do?)
+      npcTalking: 0
     question: I...I forgot which stop my house is, I d-don't know what to do(I might
       not be able to help him, but what should I do?)
-    Dialogue:
-    - '"I...I forgot which stop my house is, I d-don''t know what to do"'
-    - (I might not be able to help him, but what should I do?)
-    Dial: []
-    options:
-    - (Notify an adult)
-    - (Ignore him)
-    answer: 0100
+    Dial:
+    - option: (Notify an adult)
+      isCorrect: 1
+    - option: (Ignore him)
+      isCorrect: 0
     locationE: 1
     response:
     - response:

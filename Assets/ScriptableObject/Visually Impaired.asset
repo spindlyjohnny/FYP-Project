@@ -13,24 +13,37 @@ MonoBehaviour:
   m_Name: Visually Impaired
   m_EditorClassIdentifier: 
   dialogueQuestions:
-  - assessDialogue:
+  - assessQuestion: (Does she need my help?)
+    assDialogue:
+    - speechLine: '(A visually impaired lady lightly taps my shoulder) '
+      npcTalking: 0
+    - speechLine: (Does she need my help?)
+      npcTalking: 1
+    assDial:
+    - option: (Asks what she needs)
+      isCorrect: 1
+    - option: (Pretend nothing happened)
+      isCorrect: 0
+    assessDialogue:
     - '(A visually impaired lady lightly taps my shoulder) '
     - (Does she need my help?)
-    assessQuestion: (Does she need my help?)
     assessOption:
     - (Asks what she needs )
     - (Pretend nothing happened)
     assessAnswer: 0100
+    Dialogues:
+    - speechLine: '"Hi, I''m in a bit of a pickle"'
+      npcTalking: 1
+    - speechLine: '"It''s my first time taking this route and I can''t see very well"'
+      npcTalking: 1
+    - speechLine: '"Would you be so kind as to assist me? "'
+      npcTalking: 1
     question: '"Would you be so kind as to assist me?"'
-    Dialogue:
-    - '"Hi, I''m in a bit of a pickle"'
-    - '"It''s my first time taking this route and I can''t see very well"'
-    - '"Would you be so kind as to assist me? "'
-    options:
-    - (Accept)
-    - (Reject)
-    answer: 0100
-    location: Pavement
+    Dial:
+    - option: (Accept)
+      isCorrect: 1
+    - option: (Reject)
+      isCorrect: 0
     locationE: 0
     response:
     - response:
@@ -38,24 +51,37 @@ MonoBehaviour:
     - response:
       - '"Then, maybe next time"'
     outcome: 'Start task: Ride the bus with the commuter'
-  - assessDialogue:
+  - assessQuestion: (Does she need help to locate something?)
+    assDialogue:
+    - speechLine: '(A lady was squinting and scanning at the bus route map) '
+      npcTalking: 1
+    - speechLine: (Does she need help to locate something?)
+      npcTalking: 0
+    assDial:
+    - option: (Ask if she needs help )
+      isCorrect: 1
+    - option: (Ignore her )
+      isCorrect: 0
+    assessDialogue:
     - '(A lady was squinting and scanning at the bus route map) '
     - (Does she need help to locate something?)
-    assessQuestion: (Does she need help to locate something?)
     assessOption:
     - (Ask if she needs help )
     - (Ignore her )
     assessAnswer: 0100
-    question: 
-    Dialogue:
-    - '"Hello, could you help me with the bus route map?"'
-    - '"I can''t find this bus stop, the map looks too blurry"'
-    options:
-    - (Help her find it )
-    - (Say you do not know either )
-    - (Mislead her)
-    answer: 010000
-    location: Pavement
+    Dialogues:
+    - speechLine: '"Hello, could you help me with the bus route map?"'
+      npcTalking: 1
+    - speechLine: '"I can''t find this bus stop, the map looks too blurry"'
+      npcTalking: 1
+    question: '"I can''t find this bus stop, the map looks too blurry"'
+    Dial:
+    - option: (Help her find it )
+      isCorrect: 1
+    - option: (Say you do not know either )
+      isCorrect: 0
+    - option: (Mislead her)
+      isCorrect: 0
     locationE: 0
     response:
     - response:
@@ -65,23 +91,35 @@ MonoBehaviour:
     - response:
       - '"That does not seem right..."'
     outcome: Task Complete
-  - assessDialogue:
+  - assessQuestion: (What do you think she needs?)
+    assDialogue:
+    - speechLine: '(A visually impaired lady calls out to me as I walk near her) '
+      npcTalking: 1
+    - speechLine: (What do you think she needs?)
+      npcTalking: 0
+    assDial:
+    - option: (Ask if she needs help)
+      isCorrect: 1
+    - option: (Turn away)
+      isCorrect: 0
+    assessDialogue:
     - '(A visually impaired lady calls out to me as I walk near her) '
     - (What do you think she needs?)
-    assessQuestion: (What do you think she needs?)
     assessOption:
     - (Ask if she needs help)
     - (Turn away)
     assessAnswer: 0100
+    Dialogues:
+    - speechLine: '"Hello, I want to get to the bus stop, could you guide me there?"'
+      npcTalking: 1
+    - speechLine: '"The path sounds crowded and I don''t want to bump into others"'
+      npcTalking: 1
     question: '"The path sounds crowded and I don''t want to bump into others"'
-    Dialogue:
-    - '"Hello, I want to get to the bus stop, could you guide me there?"'
-    - '"The path sounds crowded and I don''t want to bump into others"'
-    options:
-    - '"Sure thing!"'
-    - '"Sorry, I''m busy"'
-    answer: 0100
-    location: Pavement
+    Dial:
+    - option: '"Sure thing!"'
+      isCorrect: 1
+    - option: '"Sorry, I''m busy"'
+      isCorrect: 0
     locationE: 0
     response:
     - response:
@@ -89,22 +127,34 @@ MonoBehaviour:
     - response:
       - '"Oh, nevermind then"'
     outcome: 'Start task: Bring Commuter to the Bus Stop'
-  - assessDialogue:
+  - assessQuestion: (She looks distressed, what should I do?)
+    assDialogue:
+    - speechLine: '"Excuse me! I need your help!"'
+      npcTalking: 1
+    - speechLine: (She looks distressed, what should I do?)
+      npcTalking: 0
+    assDial:
+    - option: (Grab her cane )
+      isCorrect: 0
+    - option: (Politely offer your help)
+      isCorrect: 1
+    assessDialogue:
     - '"Excuse me! I need your help!"'
     - (She looks distressed, what should I do?)
-    assessQuestion: (She looks distressed, what should I do?)
     assessOption:
     - (Grab her cane )
     - (Politely offer your help)
     assessAnswer: 0001
+    Dialogues:
+    - speechLine: '"Yes, I need help finding a station staff. Could you please help
+        me?"'
+      npcTalking: 1
     question: '"Yes, I need help finding a station staff. Could you please help me?"'
-    Dialogue:
-    - '"Yes, I need help finding a station staff. Could you please help me?"'
-    options:
-    - '"Sorry, I can''t find one"'
-    - '"Sure, let''s search together"'
-    answer: 0001
-    location: Train
+    Dial:
+    - option: '"Sorry, I can''t find one"'
+      isCorrect: 0
+    - option: '"Sure, let''s search together"'
+      isCorrect: 1
     locationE: 2
     response:
     - response:
@@ -112,23 +162,36 @@ MonoBehaviour:
     - response:
       - '"Thank you, lead the way!"'
     outcome: 'Start task: Bring commuter to the transport officer'
-  - assessDialogue:
+  - assessQuestion: '"Hi, if you do not mind could you do me a favor?"'
+    assDialogue:
+    - speechLine: '(A visually impaired lady lightly taps my shoulder) '
+      npcTalking: 1
+    - speechLine: '"Hi, if you do not mind could you do me a favor?"'
+      npcTalking: 1
+    assDial:
+    - option: (Agree to help)
+      isCorrect: 1
+    - option: (Say you're busy)
+      isCorrect: 0
+    assessDialogue:
     - '(A visually impaired lady lightly taps my shoulder) '
     - '"Hi, if you do not mind could you do me a favor?"'
-    assessQuestion: '"Hi, if you do not mind could you do me a favor?"'
     assessOption:
     - (Agree to help)
     - (Say you're busy)
     assessAnswer: 0100
+    Dialogues:
+    - speechLine: '"My station is quite far from here, I want to find a place to
+        sit"'
+      npcTalking: 1
+    - speechLine: '(What is the correct way to guide her?) '
+      npcTalking: 0
     question: '(What is the correct way to guide her?) '
-    Dialogue:
-    - '"My station is quite far from here, I want to find a place to sit"'
-    - '(What is the correct way to guide her?) '
-    options:
-    - (Pull her along with you)
-    - (Let her hold your elbow)
-    answer: 0001
-    location: Train
+    Dial:
+    - option: (Pull her along with you)
+      isCorrect: 0
+    - option: (Let her hold your elbow)
+      isCorrect: 1
     locationE: 2
     response:
     - response:
@@ -136,22 +199,33 @@ MonoBehaviour:
     - response:
       - '"Okay, thank you for offering your help!"'
     outcome: 'Start Task: Find an empty seat for the commuter'
-  - assessDialogue:
+  - assessQuestion: (Continue on your way)
+    assDialogue:
+    - speechLine: '(A visually impaired lady calls out to me as I walk near her) '
+      npcTalking: 0
+    - speechLine: (Does she need my help?)
+      npcTalking: 0
+    assDial:
+    - option: (Politely ask what's wrong)
+      isCorrect: 1
+    - option: (Continue on your way)
+      isCorrect: 0
+    assessDialogue:
     - '(A visually impaired lady calls out to me as I walk near her) '
     - (Does she need my help?)
-    assessQuestion: (Continue on your way)
     assessOption:
     - (Politely ask what's wrong )
     - (Continue on your way)
     assessAnswer: 0100
+    Dialogues:
+    - speechLine: '"Hi, I need to find a seat, the bus is too shaky"'
+      npcTalking: 1
     question: '"Hi, I need to find a seat, the bus is too shaky"'
-    Dialogue:
-    - '"Hi, I need to find a seat, the bus is too shaky"'
-    options:
-    - (Offer to help)
-    - (Say you're unable to)
-    answer: 0100
-    location: Inside Bus
+    Dial:
+    - option: (Offer to help)
+      isCorrect: 1
+    - option: (Say you're unable to)
+      isCorrect: 0
     locationE: 1
     response:
     - response:
@@ -159,25 +233,38 @@ MonoBehaviour:
     - response:
       - '"Oh, nevermind"'
     outcome: 'Start Task: Find a seat for the commuter'
-  - assessDialogue:
+  - assessQuestion: '(Maybe I should help her) '
+    assDialogue:
+    - speechLine: '(The lady looks distressed) '
+      npcTalking: 1
+    - speechLine: '(Maybe I should help her) '
+      npcTalking: 0
+    assDial:
+    - option: (Offer your help)
+      isCorrect: 1
+    - option: (Ignore Her)
+      isCorrect: 0
+    assessDialogue:
     - '(The lady looks distressed) '
     - '(Maybe I should help her) '
-    assessQuestion: '(Maybe I should help her) '
     assessOption:
     - (Offer your help)
     - (Ignore Her)
     assessAnswer: 0100
+    Dialogues:
+    - speechLine: '"Oh dear, I flagged down this bus but I forgot to ask the bus
+        driver if this is the correct route"'
+      npcTalking: 1
+    - speechLine: '"Could you help me ask the bus captain if this bus stops at Jurong
+        West?"'
+      npcTalking: 1
     question: 'Could you help me ask the bus captain if this bus stops at Jurong
       West? '
-    Dialogue:
-    - '"Oh dear, I flagged down this bus but I forgot to ask the bus driver if this
-      is the correct route"'
-    - '"Could you help me ask the bus captain if this bus stops at Jurong West?"'
-    options:
-    - (Sure thing )
-    - (No, I'm on a rush)
-    answer: 0100
-    location: Inside Bus
+    Dial:
+    - option: (Sure thing )
+      isCorrect: 1
+    - option: (No, I'm on a rush)
+      isCorrect: 0
     locationE: 1
     response:
     - response:

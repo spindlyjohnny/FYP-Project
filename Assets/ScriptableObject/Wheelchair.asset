@@ -13,24 +13,36 @@ MonoBehaviour:
   m_Name: Wheelchair
   m_EditorClassIdentifier: 
   dialogueQuestions:
-  - assessDialogue:
+  - assessQuestion: (Does she need my help?)
+    assDialogue:
+    - speechLine: (A girl using a wheelchair, waves at you)
+      npcTalking: 1
+    - speechLine: (Does she need my help?)
+      npcTalking: 0
+    assDial:
+    - option: (Approach her)
+      isCorrect: 1
+    - option: (Turn away)
+      isCorrect: 0
+    assessDialogue:
     - (A girl using a wheelchair, waves at you)
     - (Does she need my help?)
-    assessQuestion: (Does she need my help?)
     assessOption:
     - (Approach her)
     - (Turn away)
     assessAnswer: 0100
+    Dialogues:
+    - speechLine: '"Excuse me, i need a bit of help"'
+      npcTalking: 1
+    - speechLine: '"I need to get to the nearest bus stop, mind helping me?" '
+      npcTalking: 1
     question: '"Excuse me, i need a bit of help. I need to get to the nearest bus
       stop, mind helping me?"'
-    Dialogue:
-    - '"Excuse me, i need a bit of help"'
-    - '"I need to get to the nearest bus stop, mind helping me?" '
-    options:
-    - '"Sure thing, I''ll bring you there"'
-    - (Ignore her)
-    answer: 0100
-    location: Pavement
+    Dial:
+    - option: '"Sure thing, I''ll bring you there"'
+      isCorrect: 1
+    - option: (Ignore her)
+      isCorrect: 0
     locationE: 0
     response:
     - response:
@@ -38,23 +50,34 @@ MonoBehaviour:
     - response:
       - '"Oh, nevermind..."'
     outcome: Start task
-  - assessDialogue:
+  - assessQuestion: (She looks like she is struggling with her wheelchair)
+    assDialogue:
+    - speechLine: '"Oh no..." (She looks like she is struggling with her wheelchair)'
+      npcTalking: 1
+    assDial:
+    - option: (Do you need my help?)
+      isCorrect: 1
+    - option: (Leave her be)
+      isCorrect: 0
+    assessDialogue:
     - Oh no... (She looks like she is struggling with her wheelchair)
-    assessQuestion: (She looks like she is struggling with her wheelchair)
     assessOption:
     - (Do you need my help?)
     - (Leave her be)
     assessAnswer: 0100
+    Dialogues:
+    - speechLine: '"Yes, I have trouble moving my wheelchair "'
+      npcTalking: 1
+    - speechLine: '"I might miss my bus!"'
+      npcTalking: 1
     question: '"Yes, I have trouble moving my wheelchair "'
-    Dialogue:
-    - '"Yes, I have trouble moving my wheelchair "'
-    - '"I might miss my bus!"'
-    options:
-    - (Push the wheelchair for her)
-    - (Offer to help)
-    - (Laugh at her)
-    answer: 000100
-    location: Pavement
+    Dial:
+    - option: (Push roughly the wheelchair for her)
+      isCorrect: 0
+    - option: (Offer to help)
+      isCorrect: 1
+    - option: (Laugh at her)
+      isCorrect: 0
     locationE: 0
     response:
     - response:
@@ -64,27 +87,40 @@ MonoBehaviour:
     - response:
       - (She angrily glares at you)
     outcome: 'Start task: Bring Commuter to Bus Stop'
-  - assessDialogue:
+  - assessQuestion: (She waves at you, with a worried look)
+    assDialogue:
+    - speechLine: '(A girl on a wheelchair looks in distress) '
+      npcTalking: 1
+    - speechLine: (She waves at you, with a worried look)
+      npcTalking: 1
+    assDial:
+    - option: (Approach her)
+      isCorrect: 1
+    - option: (Do nothing)
+      isCorrect: 0
+    assessDialogue:
     - '(A girl on a wheelchair looks in distress) '
     - (She waves at you, with a worried look)
-    assessQuestion: (She waves at you, with a worried look)
     assessOption:
     - (Approach her)
     - (Do nothing)
     assessAnswer: 0100
+    Dialogues:
+    - speechLine: '"Hey, this train is too crowded!"'
+      npcTalking: 1
+    - speechLine: '"And I''m a quite exhausted to move on my own" '
+      npcTalking: 1
+    - speechLine: '"I need to get to the nearest wheelchair zone and leave at my
+        stop, can you assist me?" '
+      npcTalking: 1
     question: '"Hey, this train is too crowded! And I''m a quite exhausted to move
       on my own. I need to get to the nearest wheelchair zone and leave at my stop,
       can you assist me?"'
-    Dialogue:
-    - '"Hey, this train is too crowded!"'
-    - '"And I''m a quite exhausted to move on my own" '
-    - '"I need to get to the nearest wheelchair zone and leave at my stop, can you
-      assist me?" '
-    options:
-    - '"No problem, I''ll help you"'
-    - '"Sorry, I can''t"'
-    answer: 0100
-    location: Train
+    Dial:
+    - option: '"No problem, I''ll help you"'
+      isCorrect: 1
+    - option: '"Sorry, I can''t"'
+      isCorrect: 0
     locationE: 2
     response:
     - response:
@@ -92,23 +128,35 @@ MonoBehaviour:
     - response:
       - '"Oh... then maybe it''s too difficult..."'
     outcome: Start task
-  - assessDialogue:
+  - assessQuestion: (She calls out to you)
+    assDialogue:
+    - speechLine: '"Hey there I need your help!"'
+      npcTalking: 1
+    - speechLine: (She calls out to you)
+      npcTalking: 0
+    assDial:
+    - option: (Ask her what she needs)
+      isCorrect: 1
+    - option: (Assume she's calling someone else)
+      isCorrect: 0
+    assessDialogue:
     - '"Hey there I need your help!"'
     - (She calls out to you)
-    assessQuestion: (She calls out to you)
     assessOption:
     - (Ask her what she needs)
     - (Assume she's calling someone else)
     assessAnswer: 0100
+    Dialogues:
+    - speechLine: '"I need to alight soon, but there''s too many people at the train
+        door!" '
+      npcTalking: 1
     question: '"I need to alight soon, but there''s too many people at the train
       door!"'
-    Dialogue:
-    - '"I need to alight soon, but there''s too many people at the train door!" '
-    options:
-    - (Help her inform passengers to make way.)
-    - (Shrug it off)
-    answer: 0100
-    location: Train
+    Dial:
+    - option: (Help her inform passengers to make way.)
+      isCorrect: 1
+    - option: (Shrug it off)
+      isCorrect: 0
     locationE: 2
     response:
     - response:
@@ -116,22 +164,34 @@ MonoBehaviour:
     - response:
       - (She looks stressed out)
     outcome: 'Task Complete '
-  - assessDialogue:
+  - assessQuestion: (She might need help pressing it, what should I do?)
+    assDialogue:
+    - speechLine: '(The girl using a wheelchair is reaching to the stop button) '
+      npcTalking: 1
+    - speechLine: (She might need help pressing it, what should I do?)
+      npcTalking: 0
+    assDial:
+    - option: (Ask her if she needs your help)
+      isCorrect: 1
+    - option: (Ignore her)
+      isCorrect: 0
+    assessDialogue:
     - '(The girl using a wheelchair is reaching to the stop button) '
     - (She might need help pressing it, what should I do?)
-    assessQuestion: (She might need help pressing it, what should I do?)
     assessOption:
     - (Ask her if she needs your help)
     - (Ignore her)
     assessAnswer: 0100
+    Dialogues:
+    - speechLine: '"Yes, please press the stop button for me, I can''t reach it from
+        here" '
+      npcTalking: 1
     question: '"Please press the stop button for me, I can''t reach it from here" '
-    Dialogue:
-    - '"Yes, please press the stop button for me, I can''t reach it from here" '
-    options:
-    - (Help her press it)
-    - (Let her do it herself)
-    answer: 0100
-    location: Inside Bus
+    Dial:
+    - option: (Help her press it)
+      isCorrect: 1
+    - option: (Let her do it herself)
+      isCorrect: 0
     locationE: 1
     response:
     - response:
@@ -139,23 +199,35 @@ MonoBehaviour:
     - response:
       - (She managed to pressed the button, but strained her arm)
     outcome: 'Task Complete '
-  - assessDialogue:
+  - assessQuestion: (However, a foldable chair is blocking her way)
+    assDialogue:
+    - speechLine: '(A girl using a wheelchair is near the wheelchair zone) '
+      npcTalking: 1
+    - speechLine: (However, a foldable chair is blocking her way)
+      npcTalking: 1
+    assDial:
+    - option: '(Asks if she needs help) '
+      isCorrect: 1
+    - option: (Assume she's okay)
+      isCorrect: 0
+    assessDialogue:
     - '(A girl using a wheelchair is near the wheelchair zone) '
     - (However, a foldable chair is blocking her way)
-    assessQuestion: (However, a foldable chair is blocking her way)
     assessOption:
     - '(Asks if she needs help) '
     - (Assume she's okay)
     assessAnswer: 0100
+    Dialogues:
+    - speechLine: '"Hi there, the foldable seat is blocking me, could you help me
+        adjust it?"'
+      npcTalking: 1
     question: '"Hi there, the foldable seat is blocking me, could you help me adjust
       it?"'
-    Dialogue:
-    - '"Hi there, the foldable seat is blocking me, could you help me adjust it?"'
-    options:
-    - '"Yes, I can help"'
-    - '"No, I don''t know how"'
-    answer: 0100
-    location: Inside Bus
+    Dial:
+    - option: '"Yes, I can help"'
+      isCorrect: 1
+    - option: '"No, I don''t know how"'
+      isCorrect: 0
     locationE: 1
     response:
     - response:
