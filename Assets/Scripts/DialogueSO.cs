@@ -17,11 +17,8 @@ public class Data
     public bool[] assessAnswer;
 
     public DialogueQoute[] Dialogues;
-    public DialOptions[] Dial;
     public string question;
-    public string[] Dialogue;
-    public string[] options;
-    public bool[] answer;
+    public DialOptions[] Dial;
     public LocationEnum locationE;
     public Response[] response;// the  length of this is the length of the possible options
     public string outcome;
