@@ -17,7 +17,7 @@ public class LevelManager : SceneLoader {
     public GameObject[] mrt;
     public int score; 
     public int tileindex;
-    public TMP_Text scoretext, tasksuccesstext;
+    public TMP_Text scoretext, tasksuccesstext,finalScoreText;
     NPCManagement npcmanager;
     //GameObject currenttile;
     int tileshiftfactor;
@@ -109,6 +109,7 @@ public class LevelManager : SceneLoader {
         //print("Tiles:" + numTiles);
         if (gameover) {
             gameoverscreen.SetActive(true);
+            finalScoreText.text = "Score: "+score;
             AudioManager.instance.StopMusic();
         }
         scoretext.text = score.ToString();

@@ -126,17 +126,17 @@ public class GeneralQuestion : Collectible
         }
         questiontext.text = dialogueData.dialogueQuestions[qnindex].question;
         explaintext.text = dialogueData.dialogueQuestions[qnindex].explain;
-        optionAtext.text = "a)" + dialogueData.dialogueQuestions[qnindex].options[0];
-        optionBtext.text = "b)" + dialogueData.dialogueQuestions[qnindex].options[1];
+        optionAtext.text = "A." + dialogueData.dialogueQuestions[qnindex].options[0];
+        optionBtext.text = "B." + dialogueData.dialogueQuestions[qnindex].options[1];
         levelManager.optionCButton.SetActive(true);
         levelManager.optionDButton.SetActive(true);
-        if (dialogueData.dialogueQuestions[qnindex].options.Length >= 3) optionCtext.text = "c)" + dialogueData.dialogueQuestions[qnindex].options[2];
+        if (dialogueData.dialogueQuestions[qnindex].options.Length >= 3) optionCtext.text = "C." + dialogueData.dialogueQuestions[qnindex].options[2];
         else
         {
             optionCtext.text = "";
             levelManager.optionCButton.SetActive(false);
         }
-        if (dialogueData.dialogueQuestions[qnindex].options.Length >= 4) optionDtext.text = "d)" + dialogueData.dialogueQuestions[qnindex].options[3];
+        if (dialogueData.dialogueQuestions[qnindex].options.Length >= 4) optionDtext.text = "D." + dialogueData.dialogueQuestions[qnindex].options[3];
         else
         {
             optionDtext.text = "";

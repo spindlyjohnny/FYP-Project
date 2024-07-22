@@ -14,6 +14,8 @@ public class Tile : MonoBehaviour {
     public Transform[] NPCSpawnPoints;
     [SerializeField] bool hasNPC;
     ObjectPool objectPool;
+    public GameObject[] L1Destinations, L2Destinations, L3Destinations;
+    public GameObject[] destinations;
     // Start is called before the first frame update
     protected virtual void Start() {
         //NPC = GetComponentsInChildren<NPC>(true);
@@ -50,7 +52,8 @@ public class Tile : MonoBehaviour {
             else {
                 objectPool.SpawnFromPool(NPC[0].name, new Vector3(spawnpt.position.x, spawnpt.position.y + NPC[0].GetComponent<NPC>().spawnYOffset, spawnpt.position.z));
             }
-        } else {
+        } 
+        else {
             Transform spawnpt = NPCSpawnPoints[Random.Range(0, NPCSpawnPoints.Length)];
             if (gameObject.CompareTag("Train")) {
                 GameObject go = objectPool.SpawnFromPool(NPC[1].name, new Vector3(spawnpt.position.x, spawnpt.position.y + NPC[1].GetComponent<NPC>().spawnYOffset, spawnpt.position.z));
