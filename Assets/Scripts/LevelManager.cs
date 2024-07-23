@@ -123,11 +123,11 @@ public class LevelManager : SceneLoader {
                 taskfailimg.SetActive(false);
             }
         }
-        if (taskcompletescreen.activeSelf && onceComplete == false)
-        {
-            onceComplete = true;
-            StartCoroutine(DisableTaskScreen());
-        }
+        //if (taskcompletescreen.activeSelf && onceComplete == false)
+        //{
+        //    onceComplete = true;
+        //    StartCoroutine(DisableTaskScreen());
+        //}
         currenttiles = FindObjectsOfType<Tile>();//why is this in update(), why not move to start()?
         if (currenttiles.Length == 1 || level == Level.MRT) {
             tileshiftfactor = 0; // in mrt level, tileshiftfactor is 0 because the size of the train already shifts them properly (i think)(trust bro) 
@@ -141,15 +141,12 @@ public class LevelManager : SceneLoader {
         //    }
         //}
     }
-    public void RestartLevel() {
-        LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Initalize();
-    }
-    IEnumerator DisableTaskScreen() {
-
-        yield return new WaitForSecondsRealtime(1.3f);
+    //public void RestartLevel() {
+    //    LoadScene(SceneManager.GetActiveScene().buildIndex);
+    //    Initalize();
+    //}
+    public void DisableTaskScreen() {
         taskcompletescreen.SetActive(false);
-        onceComplete = false;
     }
     public void Move(int index,Level lvl) { // transition between levels
         // index is the buildIndex of the level that you are going to, lvl is the Level enum value of the level that you are going to
@@ -216,7 +213,7 @@ public class LevelManager : SceneLoader {
         //} 
         tilerng = UnityEngine.Random.Range(0f, 1f);
         //print(tilerng);
-        if (tilerng > .9f && tilerng <= 1f) {
+        if (tilerng > .9999f && tilerng <= 1f) {
             foreach (var i in tiles) {
                 if (i.CompareTag("Transition")) tileindex = Array.IndexOf(tiles, i);
             }

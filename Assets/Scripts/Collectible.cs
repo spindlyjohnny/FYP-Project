@@ -5,7 +5,7 @@ using UnityEngine;
 public class Collectible : Obstacle
 {
     protected Vector3 originalsize;
-    public Vector3 trainsize; // change size of collectible when in train since it's too big otherwise
+    public Vector3 trainsize,bussize; // change size of collectible when in train since it's too big otherwise
     public AudioClip collectsound;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,8 @@ public class Collectible : Obstacle
     protected override void Update() {
         if (myspawner == null) Destroy(gameObject);
         //else Destroy(gameObject, 20f);
-        if (levelManager.level == LevelManager.Level.MRT || levelManager.level == LevelManager.Level.BusInterior) transform.localScale = trainsize; // change size in mrt level
+        if (levelManager.level == LevelManager.Level.MRT) transform.localScale = trainsize; // change size in mrt level
+        else if (levelManager.level == LevelManager.Level.BusInterior) transform.localScale = bussize;
         else transform.localScale = originalsize;
         transform.Rotate(0, 60 * Time.deltaTime, 0);
     }
