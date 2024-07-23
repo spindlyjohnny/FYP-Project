@@ -29,7 +29,7 @@ public class LevelManager : SceneLoader {
     bool onceComplete = false;
     public float tilerng;
     public enum Level { Bus,BusInterior, MRT };
-    public enum LevelNum { Level1 = 1,Level2 = 2,Level3 = 3 }
+    public enum LevelNum { Level1 = 1,Level2 = 2,Level3 = 3, Tutorial=0}
     public Level level;
     public static LevelNum levelNum;
     public Tile[] currenttiles;
