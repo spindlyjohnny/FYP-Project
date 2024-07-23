@@ -34,12 +34,12 @@ public class GeneralQuestion : Collectible
                 type[1]="Wheelchair";
                 break;
             case LevelManager.LevelNum.Level2:
-                type[0] = "Elderly";
-                type[1] = "Wheelchair";
+                type[0] = "Visual";
+                type[1] = "Hearing";
                 break;
             case LevelManager.LevelNum.Level3:
-                type[0] = "Elderly";
-                type[1] = "Wheelchair";
+                type[0] = "Autism";
+                type[1] = "Invisible";
                 break;
         }
     }

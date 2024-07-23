@@ -43,7 +43,7 @@ public class LevelManager : SceneLoader {
     //int numTiles;
     // Start is called before the first frame update
     private void Awake() {
-        if (PlayerPrefs.GetInt("bool") == 1)
+        if (PlayerPrefs.HasKey("Level Num"))
         {
             score = PlayerPrefs.GetInt("score");
             levelNum = (LevelNum)PlayerPrefs.GetInt("Level Num");
@@ -51,7 +51,6 @@ public class LevelManager : SceneLoader {
         }
         else
         {
-            PlayerPrefs.SetInt("bool",1);
             PlayerPrefs.SetInt("score", 0);
             PlayerPrefs.SetInt("Level", (int)level);
             PlayerPrefs.SetInt("Level Num", (int)levelNum);

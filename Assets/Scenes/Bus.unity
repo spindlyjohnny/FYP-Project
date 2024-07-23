@@ -1281,38 +1281,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1135452520}
-    - target: {fileID: 1365487415287131078, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 77cd16a96a68c584bba5d3560cefff6e, type: 2}
     - target: {fileID: 2737777695695530235, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
       propertyPath: avatar
       value: 
       objectReference: {fileID: 413933762}
-    - target: {fileID: 2737777695695530235, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
-      propertyPath: hitColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2737777695695530235, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
-      propertyPath: hitColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2737777695695530235, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
-      propertyPath: hitColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2737777695695530235, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
-      propertyPath: hitColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2737777695695530235, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
-      propertyPath: originalColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4182528912839714712, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.182
-      objectReference: {fileID: 0}
     - target: {fileID: 5078023411361928020, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
       propertyPath: m_Name
       value: Student_Boy
@@ -1356,10 +1328,6 @@ PrefabInstance:
     - target: {fileID: 5562811747765062126, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9159901366738769326, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
-      propertyPath: m_Parameters.colorGradient.m_ColorSpace
-      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

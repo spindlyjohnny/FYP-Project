@@ -3,7 +3,17 @@ guid: 1abc6195c517f4f4fad02542458a5ebf
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IMPORTTHISSHIT_lambert2
+    second: {fileID: 2100000, guid: dad34b6d58e64ea409a11d33ea52c117, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: characted_textures
+    second: {fileID: 2100000, guid: dad34b6d58e64ea409a11d33ea52c117, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
