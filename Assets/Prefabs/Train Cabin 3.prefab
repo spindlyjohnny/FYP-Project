@@ -130,6 +130,15 @@ MonoBehaviour:
   NPCSpawnPoints:
   - {fileID: 3581443513878911630}
   hasNPC: 1
+  L1Destinations:
+  - {fileID: 5163428082410644499}
+  - {fileID: 6534397166347595294}
+  L2Destinations: []
+  L3Destinations: []
+  destinations: []
+  destinationSpawnPoints:
+  - {fileID: 2961895182919175056}
+  - {fileID: 3924269867566510413}
 --- !u!65 &2987306732886675486
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -216,6 +225,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2961895182919175056}
+  - {fileID: 3924269867566510413}
   m_Father: {fileID: 1185185799482330226}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4841092430542422835
@@ -316,6 +326,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  objectPool: {fileID: 0}
+  trainsize: {x: 1, y: 1, z: 1}
 --- !u!1 &5576530783826361240
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,6 +359,75 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1185185799482330226}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6534397166347595294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3924269867566510413}
+  - component: {fileID: 1093284760898730007}
+  - component: {fileID: 842063386278972497}
+  m_Layer: 0
+  m_Name: NPC Destination (3)
+  m_TagString: Transition
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3924269867566510413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6534397166347595294}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16.514, y: -1.4297992, z: 2.11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5057973073522167725}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1093284760898730007
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6534397166347595294}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.43348098, z: 0.7344589}
+  m_Center: {x: 0, y: 0.2061292, z: -0.1843071}
+--- !u!114 &842063386278972497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6534397166347595294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d3528dbe6bb4214099170baf896142d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  objectPool: {fileID: 0}
+  trainsize: {x: 1, y: 1, z: 1}
 --- !u!1001 &954649963085683781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -776,6 +857,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2351a5c3b2218e6438a08e0f980d9962, type: 3}
       propertyPath: m_Name
       value: Train Cabin 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6442118957330226166, guid: 2351a5c3b2218e6438a08e0f980d9962, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0015
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

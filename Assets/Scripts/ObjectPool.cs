@@ -14,7 +14,7 @@ public class ObjectPool : MonoBehaviour {
         List<Pool> pools = new();
         if (GetComponent<LevelManager>()) {
             if (GetComponent<LevelManager>().level != LevelManager.Level.MRT) {
-                switch (LevelManager.levelNum) {
+                switch (LevelManager.levelNum) { // pools in this case contain tiles
                     case LevelManager.LevelNum.Level1:
                         pools = L1pools;
                         break;
@@ -31,7 +31,7 @@ public class ObjectPool : MonoBehaviour {
             }
         } 
         else {
-            switch (LevelManager.levelNum) {
+            switch (LevelManager.levelNum) { // pools in this case contain NPCs and this block runs on Tiles
                 case LevelManager.LevelNum.Level1:
                     pools = L1pools;
                     break;

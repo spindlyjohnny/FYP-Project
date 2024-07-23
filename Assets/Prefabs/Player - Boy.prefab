@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: F
+  m_text: Press F
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d80de294849ecbb44a5d30309524e7b3, type: 2}
   m_sharedMaterial: {fileID: -7212741504066234177, guid: d80de294849ecbb44a5d30309524e7b3, type: 2}
