@@ -332,7 +332,7 @@ public class NPC : MonoBehaviour
         dialogue = new string[dialogueData.dialogueQuestions[qnindex].Dialogues.Length];
         for (int i = 0; i < dialogueData.dialogueQuestions[qnindex].Dialogues.Length; i++)
         {
-            dialogue[i] = dialogueData.dialogueQuestions[qnindex].Dialogues[1].speechLine;
+            dialogue[i] = dialogueData.dialogueQuestions[qnindex].Dialogues[i].speechLine;
         }
         questiontext.text = dialogueData.dialogueQuestions[qnindex].question;
         optionAtext.text = "A." + dialogueData.dialogueQuestions[qnindex].Dial[0].option;
