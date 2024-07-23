@@ -17,7 +17,6 @@ public class Player : MonoBehaviour
     public GameObject inputtext;
     public bool invincibility = false;
     public float originalInvincibleTime,maxInvincibleTime;
-    float direction=3;
     [SerializeField]float invincibilitytime;
     Tile tile;
     public Image avatar;
@@ -121,11 +120,17 @@ public class Player : MonoBehaviour
     {
         anim.SetBool("CanMove", canMove);
         if (!canMove) return;
-        movement = new Vector3(0, 0,levelManager.level == LevelManager.Level.BusInterior ? Input.GetAxisRaw("Vertical") : 1);      
-        if((Input.GetAxisRaw("Vertical")==1 || Input.GetAxisRaw("Vertical") == -1)&& levelManager.level == LevelManager.Level.BusInterior)
+        if (levelManager.level == LevelManager.Level.BusInterior) {
+            movement = new Vector3(0, 0, Input.GetButton("Fire1") ? 1 : Input.GetButton("Fire2") ? -1 : 0);
+        } 
+        else {
+            movement = new Vector3(0, 0, 1);
+        }
+        if((Input.GetButton("Fire1") || Input.GetButton("Fire2")) && levelManager.level == LevelManager.Level.BusInterior)
         {
             anim.SetBool("CanMove", true);
-        } else if(Input.GetAxisRaw("Vertical") == 0&& levelManager.level == LevelManager.Level.BusInterior)
+        } 
+        else if(movement.z == 0 && levelManager.level == LevelManager.Level.BusInterior)
         {
             anim.SetBool("CanMove", false);
         }
@@ -143,43 +148,14 @@ public class Player : MonoBehaviour
             }
         }
         if(levelManager.level != LevelManager.Level.BusInterior) {
-            if (Input.GetAxisRaw("Horizontal") < 0 && direction != Input.GetAxisRaw("Horizontal") & animating == false) { // need to figure out how to prevent this from happening when holding down button
-                                                                                                                          // taken from unreal endless runner lololol
-                print("change direction");
-                print(direction);
+            if (Input.GetButtonDown("Fire1") & animating == false) {
                 newlane = Mathf.Clamp(lane - 1, 0, 2);
-                /*
-                Vector3 lerpPosition = new Vector3(transform.position.x, transform.position.y, tile.lanes[newlane].z);
-                //print(lerpPosition);
-                float distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
-                while (distanceBetween > 0.01f)
-                {
-                    transform.position = Vector3.Lerp(transform.position, lerpPosition, movespeed * Time.deltaTime);
-                    distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
-                }
-                transform.position = lerpPosition;*/
                 StartCoroutine(LaneMoving());
-                //transform.position = tile.lanes[tile.newlane]\
-            } else if (Input.GetAxisRaw("Horizontal") > 0 && direction != Input.GetAxisRaw("Horizontal") & animating == false) {
-                print("yes");
-
+            } else if (Input.GetButtonDown("Fire2") & animating == false) {
                 newlane = Mathf.Clamp(lane + 1, 0, 2);
-                print(newlane);
-                /*
-                Vector3 lerpPosition = new Vector3(transform.position.x, transform.position.y, tile.lanes[newlane].z);
-                //print(lerpPosition);
-                float distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
-                while (distanceBetween > 0.01f)
-                {
-                    transform.position = Vector3.Lerp(transform.position, lerpPosition, movespeed * Time.deltaTime);
-                    distanceBetween = Vector3.Magnitude(transform.position - lerpPosition);
-                }
-                transform.position = lerpPosition;*/
                 StartCoroutine(LaneMoving());
-
             }
         }
-        direction = Input.GetAxisRaw("Horizontal");
     }
 
     IEnumerator LaneMoving()
