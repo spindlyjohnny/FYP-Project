@@ -16,7 +16,7 @@ PlayerSettings:
   productName: FYP Project
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  m_SplashScreenBackgroundColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  m_SplashScreenBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 0
   m_SplashScreenOverlayOpacity: 1
@@ -40,7 +40,7 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos:
-  - logo: {fileID: 21300000, guid: baedddda22c9acd408be17c5be50206f, type: 3}
+  - logo: {fileID: 21300000, guid: ac5f2bb5238b5d04a88662e34d637b70, type: 3}
     duration: 4
   - logo: {fileID: 21300000, guid: f8f57f0871060674d88980e08aff6155, type: 3}
     duration: 4
