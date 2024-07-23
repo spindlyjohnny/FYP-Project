@@ -325,6 +325,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Final question
       objectReference: {fileID: 0}
+    - target: {fileID: 6869450295672130183, guid: e7ba02e69cbce944cb7d54a8c54d4f1f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8253882685793750139, guid: e7ba02e69cbce944cb7d54a8c54d4f1f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -421,6 +425,10 @@ PrefabInstance:
     - target: {fileID: 8064431277538921078, guid: 83e4d15618ed8e244b067ee1d3ed1b03, type: 3}
       propertyPath: m_Name
       value: Question
+      objectReference: {fileID: 0}
+    - target: {fileID: 8064431277538921078, guid: 83e4d15618ed8e244b067ee1d3ed1b03, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

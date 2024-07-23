@@ -7,8 +7,9 @@ public class Interactable : MonoBehaviour
     protected NPCManagement npcmanager;
     protected LevelManager levelManager;
     public ObjectPool objectPool;
-    public GameObject[] L1Destinations, L2Destinations, L3Destinations;
-    public GameObject[] destinations;
+    [SerializeField]Vector3 trainsize;
+    //public GameObject[] L1Destinations, L2Destinations, L3Destinations;
+    //public GameObject[] destinations;
     //public string location;
     //public bool target = false;
     //float radius;
@@ -18,21 +19,7 @@ public class Interactable : MonoBehaviour
         player = FindObjectOfType<Player>();
         npcmanager = FindObjectOfType<NPCManagement>();
         levelManager = FindObjectOfType<LevelManager>();
-        if(objectPool != null) {
-            switch (LevelManager.levelNum) {
-                case LevelManager.LevelNum.Level1:
-                    destinations = L1Destinations;
-                    break;
-                case LevelManager.LevelNum.Level2:
-                    destinations = L2Destinations;
-                    break;
-                case LevelManager.LevelNum.Level3:
-                    destinations = L3Destinations;
-                    break;
-            }
-            GameObject go = objectPool.SpawnFromPool(destinations[0].name, transform.position);
-            go.transform.SetParent(transform);
-        }
+        if (levelManager.level == LevelManager.Level.MRT) transform.localScale = trainsize;
     }
 
     // Update is called once per frame

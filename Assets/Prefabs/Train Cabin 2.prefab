@@ -11,14 +11,13 @@ GameObject:
   - component: {fileID: 8801975158565023216}
   - component: {fileID: 2423947291728318648}
   - component: {fileID: 5834789382141184709}
-  - component: {fileID: 823439227530574141}
   m_Layer: 0
   m_Name: NPC Destination (2)
   m_TagString: Transition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8801975158565023216
 Transform:
   m_ObjectHideFlags: 0
@@ -69,31 +68,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  objectPool: {fileID: 823439227530574141}
-  L1Destinations: []
-  L2Destinations: []
-  L3Destinations: []
-  destinations: []
---- !u!114 &823439227530574141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1726514101911523332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 484087b422f17164ab967967f6e3645c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeObject: []
-  L1pools:
-  - tag: Girl
-    prefab: {fileID: 1664254170484364548, guid: d7dfd674ca001a245a1debcfb0920b56, type: 3}
-    size: 1
-  L2pools: []
-  L3pools: []
-  MRTPools: []
+  objectPool: {fileID: 0}
+  trainsize: {x: 0.005682541, y: 0.005682541, z: 0.005682541}
 --- !u!1 &2223306550889680453
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,14 +128,13 @@ GameObject:
   - component: {fileID: 95576057065316327}
   - component: {fileID: 4428869025057538723}
   - component: {fileID: 6838993102314947040}
-  - component: {fileID: 7803105844009212398}
   m_Layer: 0
   m_Name: NPC Destination (2)
   m_TagString: Transition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &95576057065316327
 Transform:
   m_ObjectHideFlags: 0
@@ -210,31 +185,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  objectPool: {fileID: 7803105844009212398}
-  L1Destinations: []
-  L2Destinations: []
-  L3Destinations: []
-  destinations: []
---- !u!114 &7803105844009212398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4133393514637579312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 484087b422f17164ab967967f6e3645c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeObject: []
-  L1pools:
-  - tag: MRT Officer
-    prefab: {fileID: 3333446233246816842, guid: 6d6093f90521057408a16ca1751b7b05, type: 3}
-    size: 1
-  L2pools: []
-  L3pools: []
-  MRTPools: []
+  objectPool: {fileID: 0}
+  trainsize: {x: 0.007390145, y: 0.007390145, z: 0.007390145}
 --- !u!1 &4144685130981831604
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,7 +325,6 @@ GameObject:
   - component: {fileID: 7249498319990982745}
   - component: {fileID: 8819381316846652440}
   - component: {fileID: 2506910737213403286}
-  - component: {fileID: -289128726581411152}
   m_Layer: 0
   m_Name: Train Cabin 2
   m_TagString: Train
@@ -489,6 +440,15 @@ MonoBehaviour:
   - {x: 0, y: 0, z: -0.319}
   NPCSpawnPoints: []
   hasNPC: 0
+  L1Destinations:
+  - {fileID: 4133393514637579312}
+  - {fileID: 1726514101911523332}
+  L2Destinations: []
+  L3Destinations: []
+  destinations: []
+  destinationSpawnPoints:
+  - {fileID: 95576057065316327}
+  - {fileID: 8801975158565023216}
 --- !u!65 &2506910737213403286
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -510,23 +470,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0019043732, y: 0.0036847952, z: 0.012762745}
   m_Center: {x: 0.047857277, y: 0.001171194, z: 0.0016487169}
---- !u!114 &-289128726581411152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7611240421450239496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 484087b422f17164ab967967f6e3645c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeObject: []
-  L1pools: []
-  L2pools: []
-  L3pools: []
-  MRTPools: []
 --- !u!1 &8092174219389227315
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,10 +542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   objectPool: {fileID: 0}
-  L1Destinations: []
-  L2Destinations: []
-  L3Destinations: []
-  destinations: []
+  trainsize: {x: 0, y: 0, z: 0}
   moveNPC: {fileID: 4144685130981831604}
   NPClocation: {fileID: 494507762831708596}
   NPCGroup:
@@ -714,7 +654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3333446233246816842, guid: 6d6093f90521057408a16ca1751b7b05, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -793,6 +733,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0b65fce7d744da54e9e2088ac318a805, type: 3}
       propertyPath: m_Name
       value: Train Cabin 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3073427641903394571, guid: 0b65fce7d744da54e9e2088ac318a805, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0015
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1114,7 +1058,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1664254170484364548, guid: d7dfd674ca001a245a1debcfb0920b56, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2041061871059898302, guid: d7dfd674ca001a245a1debcfb0920b56, type: 3}
       propertyPath: m_LocalScale.x
