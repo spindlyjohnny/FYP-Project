@@ -27,6 +27,21 @@ public class GeneralQuestion : Collectible
         player = FindObjectOfType<Player>();
         SettingString();
         tasksuccess = Task.Default;
+        switch (LevelManager.levelNum)
+        {
+            case LevelManager.LevelNum.Level1:
+                type[0]="Elderly";
+                type[1]="Wheelchair";
+                break;
+            case LevelManager.LevelNum.Level2:
+                type[0] = "Elderly";
+                type[1] = "Wheelchair";
+                break;
+            case LevelManager.LevelNum.Level3:
+                type[0] = "Elderly";
+                type[1] = "Wheelchair";
+                break;
+        }
     }
 
     void SettingString()
