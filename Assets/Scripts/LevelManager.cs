@@ -29,7 +29,7 @@ public class LevelManager : SceneLoader {
     bool onceComplete = false;
     public float tilerng;
     public enum Level { Bus,BusInterior, MRT };
-    public enum LevelNum { Level1 = 1,Level2 = 2,Level3 = 3, Tutorial=0}
+    public enum LevelNum { Level1 = 1,Level2 = 2,Level3 = 3}
     public Level level;
     public static LevelNum levelNum;
     public Tile[] currenttiles;
@@ -45,15 +45,18 @@ public class LevelManager : SceneLoader {
     private void Awake() {
         if (PlayerPrefs.HasKey("Level Num"))
         {
+            print("yes");
             score = PlayerPrefs.GetInt("score");
             levelNum = (LevelNum)PlayerPrefs.GetInt("Level Num");
             //level = (Level)PlayerPrefs.GetInt("Level");
         }
         else
         {
+            print("yes");
             PlayerPrefs.SetInt("score", 0);
             PlayerPrefs.SetInt("Level", (int)level);
             PlayerPrefs.SetInt("Level Num", (int)levelNum);
+            levelNum = (LevelNum)1;
         }
         //levelNum = LevelNum.Level1;
     }
@@ -104,7 +107,7 @@ public class LevelManager : SceneLoader {
 
     // Update is called once per frame
     void Update() {
-        print("Level Num: " + levelNum);
+        print("Level Num: " + (int)levelNum);
         //print("Tiles:" + numTiles);
         if (gameover) {
             gameoverscreen.SetActive(true);
