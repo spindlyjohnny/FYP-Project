@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 977313361482899867}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.17, y: 0, z: -12.97}
+  m_LocalPosition: {x: -3.17, y: 0.133, z: -12.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -394,6 +394,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  objectPool: {fileID: 0}
+  trainsize: {x: 0, y: 0, z: 0}
 --- !u!1 &6667400026238610499
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,6 +594,11 @@ MonoBehaviour:
   - {x: 0, y: 0, z: -0.6}
   NPCSpawnPoints: []
   hasNPC: 0
+  L1Destinations: []
+  L2Destinations: []
+  L3Destinations: []
+  destinations: []
+  destinationSpawnPoints: []
   bus: {fileID: 6392394581985633441}
   campos: {fileID: 869228552405954623}
   station: {fileID: 0}
