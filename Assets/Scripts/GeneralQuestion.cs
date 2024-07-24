@@ -77,8 +77,15 @@ public class GeneralQuestion : Collectible
     {
         if (myspawner == null) Destroy(gameObject);
         //else Destroy(gameObject, 20f);
-        if (levelManager.level == LevelManager.Level.MRT || levelManager.level == LevelManager.Level.BusInterior) transform.localScale = trainsize; // change size in mrt level
-        else transform.localScale = originalsize;
+        if (levelManager.level == LevelManager.Level.MRT) {
+            transform.localScale = trainsize; // change size in mrt level
+        } 
+        else if (levelManager.level == LevelManager.Level.BusInterior) {
+            transform.localScale = bussize;
+        } 
+        else {
+            transform.localScale = originalsize;
+        }
     }
 
     void Destroying()
