@@ -64,7 +64,7 @@ public class Tile : MonoBehaviour {
         }
         Transform spawnpt = NPCSpawnPoints[Random.Range(0, NPCSpawnPoints.Length)];
         int NPCIndex = (rng > .5f && rng < 1) ? 0 : 1;
-        GameObject go = objectPool.SpawnFromPool(NPC[NPCIndex].name, new Vector3(spawnpt.position.x, spawnpt.position.y + NPC[NPCIndex].GetComponent<NPC>().spawnYOffset, spawnpt.position.z));
+        GameObject go = objectPool.SpawnFromPool(NPC[NPCIndex].name, new Vector3(spawnpt.position.x, spawnpt.position.y , spawnpt.position.z));
         if (gameObject.CompareTag("Train")) go.transform.localScale = new Vector3(.8f,.8f,.8f);
         //if (rng > .5f && rng < 1) {
         //    if (gameObject.CompareTag("Train")) {
