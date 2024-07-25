@@ -231,6 +231,9 @@ MonoBehaviour:
   - tag: Autism NPC
     prefab: {fileID: 7665079195801556620, guid: ddc339b32c0998643bc686bdd64f6b1e, type: 3}
     size: 1
+  - tag: Intellectual Disability NPC
+    prefab: {fileID: 6165041437090717006, guid: 2cd75555dda2eca4b95fc248b50c0b84, type: 3}
+    size: 1
   MRTPools: []
 --- !u!1 &3313323237601284838
 GameObject:
