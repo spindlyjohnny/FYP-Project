@@ -204,6 +204,7 @@ public class NPC : MonoBehaviour
     public void FollowPlayer()
     {
         if (!followplayer) return;
+        GetComponentInChildren<Image>().gameObject.SetActive(false);
         /*if (levelManager.level == LevelManager.Level.Bus) player.GetComponent<Rigidbody>().isKinematic = true;
         else*/ //Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
         transform.position = player.npcPosition.position;
