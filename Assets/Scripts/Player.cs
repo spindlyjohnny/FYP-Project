@@ -185,7 +185,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.layer == 8)
         {
             print("yes");
-            StartCoroutine(HitReaction());
+            StartCoroutine(HitReaction(other));
             energy -= 10;
         }
     }
@@ -209,7 +209,7 @@ public class Player : MonoBehaviour
 
     }
 
-    IEnumerator HitReaction()
+    IEnumerator HitReaction(Collision col)
     {
         foreach (MeshRenderer mesh in meshes)
         {
@@ -221,7 +221,10 @@ public class Player : MonoBehaviour
         }
         AudioManager.instance.PlaySFX(hitsfx);
         canMove = false;
+        Vector3 dir = transform.position - col.transform.position;
+        GetComponent<Rigidbody>().AddForce(dir.normalized * 3, ForceMode.Impulse);
         yield return new WaitForSeconds(0.5f);
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
         foreach (MeshRenderer mesh in meshes)
         {
             foreach (Material mat in mesh.materials) mat.color = originalColor;
