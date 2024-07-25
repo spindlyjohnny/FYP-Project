@@ -20,7 +20,7 @@ public class RoadTile : Tile
     }
 
     // Update is called once per frame
-    protected override void Update() {
+    void Update() {
         for (int i = 0; i < lanes.Length; i++) { // position at which player snaps to changes as they move
             lanes[i] = new Vector3(levelManager.player.transform.position.x, lanes[i].y, lanes[i].z);
         }

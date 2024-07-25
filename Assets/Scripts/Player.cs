@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Movement();
-        print(energy);
+        //print(energy);
         //distTravelled = transform.position - startPos;
         //print("Distance"+Mathf.FloorToInt(distTravelled.magnitude));
         //print("Time:"+Time.timeSinceLevelLoad);

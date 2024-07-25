@@ -17,6 +17,7 @@ public class Tile : MonoBehaviour {
     [SerializeField]GameObject[] L1Destinations, L2Destinations, L3Destinations;
     [SerializeField]GameObject[] destinations;
     [SerializeField]Transform[] destinationSpawnPoints;
+    int NPCIndex;
     // Start is called before the first frame update
     protected virtual void Start() {
         //NPC = GetComponentsInChildren<NPC>(true);
@@ -63,71 +64,16 @@ public class Tile : MonoBehaviour {
                 break;
         }
         Transform spawnpt = NPCSpawnPoints[Random.Range(0, NPCSpawnPoints.Length)];
-        int NPCIndex = (rng > .5f && rng < 1) ? 0 : 1;
-        GameObject go = objectPool.SpawnFromPool(NPC[NPCIndex].name, new Vector3(spawnpt.position.x, spawnpt.position.y , spawnpt.position.z));
-        if (gameObject.CompareTag("Train")) go.transform.localScale = new Vector3(.8f,.8f,.8f);
-        //if (rng > .5f && rng < 1) {
-        //    if (gameObject.CompareTag("Train")) {
-        //        if(NPC.Length > 0) {
-        //            if(NPCSpawnPoints.Length > 0) {
-        //                Transform spawnpt = NPCSpawnPoints[Random.Range(0, NPCSpawnPoints.Length)];
-        //                GameObject go = objectPool.SpawnFromPool(NPC[0].name, new Vector3(spawnpt.position.x, spawnpt.position.y + NPC[0].GetComponent<NPC>().spawnYOffset, spawnpt.position.z));
-        //                go.transform.localScale = new Vector3(.8f, .8f, .8f);
-        //            }
-        //        }
-        //        if(destinations.Length > 0) {
-        //            Instantiate(destinations[Random.Range(0, destinations.Length)], destinationSpawnPoints[Random.Range(0, destinationSpawnPoints.Length)].position, Quaternion.identity);
-        //        }
-        //    } 
-        //    else {
-        //        if(destinations.Length > 0)objectPool.SpawnFromPool(NPC[0].name, new Vector3(spawnpt.position.x, spawnpt.position.y + NPC[0].GetComponent<NPC>().spawnYOffset, spawnpt.position.z));
-        //    }
-        //} 
-        //else {
-        //    if (gameObject.CompareTag("Train")) {
-        //        if (NPC.Length > 0) {
-        //            if(NPCSpawnPoints.Length > 0) {
-        //                Transform spawnpt = NPCSpawnPoints[Random.Range(0, NPCSpawnPoints.Length)];
-        //                GameObject go = objectPool.SpawnFromPool(NPC[1].name, new Vector3(spawnpt.position.x, spawnpt.position.y + NPC[1].GetComponent<NPC>().spawnYOffset, spawnpt.position.z));
-        //                go.transform.localScale = new Vector3(.8f, .8f, .8f);
-        //            }
-        //        }
-        //        if (destinations.Length > 0) Instantiate(destinations[Random.Range(0, destinations.Length)], destinationSpawnPoints[Random.Range(0, destinationSpawnPoints.Length)].position, Quaternion.identity);
-        //    } 
-        //    else {
-        //        if(destinations.Length > 0)objectPool.SpawnFromPool(NPC[1].name, new Vector3(spawnpt.position.x, spawnpt.position.y + NPC[1].GetComponent<NPC>().spawnYOffset, spawnpt.position.z));
-        //    }
-        //}
+        if(LevelManager.levelNum != LevelManager.LevelNum.Level3) {
+            NPCIndex = (rng > .5f && rng <= 1) ? 0 : 1;
+        } 
+        else {
+            NPCIndex = (rng > .33f && rng <= .66f) ? 0 : (rng > .66f && rng <= 1) ? 1 : 2;
+        }
+        GameObject go = objectPool.SpawnFromPool(NPC[NPCIndex].name, new Vector3(spawnpt.position.x, spawnpt.position.y, spawnpt.position.z));
+        if (gameObject.CompareTag("Train")) go.transform.localScale = new Vector3(.8f, .8f, .8f);
     }
-
     // Update is called once per frame
-    protected virtual void Update() {
-       
-        //if(NPC.Length == 1) {
-        //    if (NPC[0] == null) return;
-        //    if (rng > 0.5f && rng <= 1) NPC[0].SetActive(true);
-        //    else NPC[0].SetActive(false);
-        //}
-        
-        //if (NPC.Length > 1) {
-        //    if (NPC[0] == null || NPC[1] == null) return;
-        //    if (rng > 0.5f && rng <= 1) { // 50% chance of npc 0
-        //        NPC[0].SetActive(true);
-        //        NPC[1].SetActive(false);
-        //    } else if (rng <= 0.5f && rng > 0) { // 50% chance of NPC 1
-        //        NPC[0].SetActive(false);
-        //        NPC[1].SetActive(true);
-        //        //foreach (var i in NPC) {
-        //        //    if(i != null)i.gameObject.SetActive(true);
-        //        //    //if (!i.followplayer) i.transform.localPosition = i.startpos;
-        //        //}
-        //    }
-        //}
-
-        //for(int i = 0; i < lanes.Length; i++) { // position at which player snaps to changes as they move
-        //    lanes[i] = new Vector3(levelManager.player.transform.position.x, lanes[i].y, lanes[i].z);
-        //}
-    }
     protected void OnTriggerEnter(Collider other) {
         if (once == true) return;
         //spawn tiles at designated area by either calling the manager or spawning the tiles itself
