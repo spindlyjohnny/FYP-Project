@@ -13,15 +13,177 @@ MonoBehaviour:
   m_Name: Invisible Needs
   m_EditorClassIdentifier: 
   dialogueQuestions:
-  - assessDialogue: []
-    assessQuestion: 
-    assessOption: []
-    assessAnswer: 
-    question: 
-    Dialogue: []
-    options: []
-    answer: 
-    location: 
+  - assessQuestion: (I need to do something)
+    assDialogue:
+    - speechLine: '"Owh...Ow"'
+      npcTalking: 1
+    - speechLine: '(The man looks like he''s in pain) '
+      npcTalking: 1
+    - speechLine: (I need to do something)
+      npcTalking: 0
+    assDial:
+    - option: (Ask if he's okay)
+      isCorrect: 1
+    - option: (Ignore him)
+      isCorrect: 0
+    Dialogues:
+    - speechLine: '"I am having a hard time breathing, I think I am going to faint..." '
+      npcTalking: 1
+    question: '"I am having a hard time breathing, I think I am going to faint..."'
+    Dial:
+    - option: '(Ask the nearest adult for help) '
+      isCorrect: 1
+    - option: (Walk away)
+      isCorrect: 0
     locationE: 0
-    response: []
-    outcome: 
+    response:
+    - response:
+      - '(I called an adult for help, and they called emergency services to help
+        the man) '
+    - response:
+      - (I walked away, leaving it to someone else....)
+    outcome: Task Complete
+  - assessQuestion: (Maybe he needs some assistance)
+    assDialogue:
+    - speechLine: '(A man looks lost while standing at the bus stop) '
+      npcTalking: 1
+    - speechLine: (Maybe he needs some assistance)
+      npcTalking: 0
+    assDial:
+    - option: (Approach him)
+      isCorrect: 1
+    - option: (Stare at him)
+      isCorrect: 0
+    Dialogues:
+    - speechLine: '"Hi, I want to go to the nearest clinic."'
+      npcTalking: 1
+    question: '"Hi, I want to go to the nearest clinic."'
+    Dial:
+    - option: '(Find and tell him the directions) '
+      isCorrect: 1
+    - option: (Sorry, I'm not sure)
+      isCorrect: 0
+    locationE: 0
+    response:
+    - response:
+      - '"Oh, do tell me if the bus arrives soon. I''m unfamiliar with the route"'
+      - '"Thank you for the help."'
+    - response:
+      - '"Oh, maybe I''ll figure it out..."'
+    outcome: 'Start task: Ride the bus with the commuter'
+  - assessQuestion: '(A man looks weak while standing in the train) '
+    assDialogue:
+    - speechLine: '(A man looks weak while standing in the train) '
+      npcTalking: 0
+    assDial:
+    - option: (Ask if he needs help)
+      isCorrect: 0
+    - option: (Ignore him)
+      isCorrect: 1
+    Dialogues:
+    - speechLine: '"Huff..I am feeling quite tired, I was standing up for really
+        long"'
+      npcTalking: 1
+    question: '"Huff..I am feeling quite tired, I was standing up for really long"'
+    Dial:
+    - option: '"I will help you find a seat"'
+      isCorrect: 1
+    - option: (Assume he is okay)
+      isCorrect: 0
+    locationE: 2
+    response:
+    - response:
+      - '"That will be great. Thank you"'
+    - response:
+      - '"Oh... I hope I can get home soon"'
+    outcome: 'Start Task: Find an empty seat for the commuter'
+  - assessQuestion: (I think he's feeling unwell)
+    assDialogue:
+    - speechLine: '(The man looks distressed and slightly tilting his head) '
+      npcTalking: 1
+    - speechLine: (I think he's feeling unwell)
+      npcTalking: 0
+    assDial:
+    - option: (Ask if he is okay)
+      isCorrect: 1
+    - option: (Assume he is fine)
+      isCorrect: 0
+    Dialogues:
+    - speechLine: '"Ugh... I am feeling slightly giddy right now..."'
+      npcTalking: 1
+    question: '"Ugh... I am feeling slightly giddy right now..."'
+    Dial:
+    - option: '"I''ll help you to notify the nearest station staff"'
+      isCorrect: 1
+    - option: '"Just try to hang in there"'
+      isCorrect: 0
+    locationE: 2
+    response:
+    - response:
+      - '"I think it will be best to ask for their help. Thank you"'
+    - response:
+      - '"Ugghh"'
+    outcome: 'Start task: Bring commuter to the station staff'
+  - assessQuestion: (Should I do something to help him?)
+    assDialogue:
+    - speechLine: '(A man wearing a lanyard saying "May I have a seat please?" is
+        standing on the bus) '
+      npcTalking: 1
+    - speechLine: (Should I do something to help him?)
+      npcTalking: 0
+    assDial:
+    - option: (Offer to help him search for a seat)
+      isCorrect: 1
+    - option: (Pretend not to notice)
+      isCorrect: 0
+    Dialogues:
+    - speechLine: '"Sure thing, thanks for helping me!"'
+      npcTalking: 1
+    - speechLine: '(When I want someone to give their seat for him, how should I
+        act?) '
+      npcTalking: 0
+    question: '(When I want someone to give their seat for him, how should I act?) '
+    Dial:
+    - option: (Politely ask them to give their seat)
+      isCorrect: 1
+    - option: (Shout at them)
+      isCorrect: 0
+    locationE: 1
+    response:
+    - response:
+      - '(It is important to be nice when approaching others for help ) '
+    - response:
+      - (Shouting at others is very rude)
+    outcome: 'Start task: Find a seat for the commuter'
+  - assessQuestion: (Maybe I should ask what he needs)
+    assDialogue:
+    - speechLine: '(A man looks like he is in distress while riding the bus) '
+      npcTalking: 1
+    - speechLine: (Maybe I should ask what he needs)
+      npcTalking: 0
+    assDial:
+    - option: (Ask what is wrong)
+      isCorrect: 1
+    - option: (Nah, He's fine on his own)
+      isCorrect: 0
+    Dialogues:
+    - speechLine: '"Urgh, the noise level in the bus is too high right now, I am
+        starting to feel agitated."'
+      npcTalking: 0
+    - speechLine: (When I turn around, next to the man was a group of students loudly
+        laughing and talking, what should I do?)
+      npcTalking: 0
+    question: (When I turn around, next to the man was a group of students loudly
+      laughing and talking, what should I do?)
+    Dial:
+    - option: (Tell the students to keep it down)
+      isCorrect: 1
+    - option: (Ignore the situation)
+      isCorrect: 0
+    locationE: 1
+    response:
+    - response:
+      - '"Thanks for your help, I feel much calmer now"'
+    - response:
+      - '"Unfortunately, the situation did not improve"'
+    outcome: Task Complete

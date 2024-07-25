@@ -12,4 +12,147 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 837e60c421f34a9448d4edad5e66d4cb, type: 3}
   m_Name: Autism
   m_EditorClassIdentifier: 
-  dialogueQuestions: []
+  dialogueQuestions:
+  - assessQuestion: (Should I step in?)
+    assDialogue:
+    - speechLine: '(She is looking in all directions and seems anxious) '
+      npcTalking: 1
+    - speechLine: (Should I step in?)
+      npcTalking: 0
+    assDial:
+    - option: 'Ask if something is wrong '
+      isCorrect: 1
+    - option: No, I think she's fine
+      isCorrect: 0
+    Dialogues:
+    - speechLine: '"Oh no! I got distracted and went to the wrong route, I''m lost!"'
+      npcTalking: 1
+    question: '"Oh no! I got distracted and went to the wrong route, I''m lost!"'
+    Dial:
+    - option: (Calm her down and offer your help )
+      isCorrect: 1
+    - option: (Look at her weirdly)
+      isCorrect: 0
+    locationE: 0
+    response:
+    - response:
+      - '"Okay...Let me think"'
+      - '"I just need to take this bus, and alight here, maybe you can notify me
+        when I reach my stop?"'
+    - response:
+      - '(She gave a bothered look) '
+    outcome: 'Start task: Ride the bus with the commuter'
+  - assessQuestion: (What is she doing?)
+    assDialogue:
+    - speechLine: '(She is rocking back and forth) '
+      npcTalking: 1
+    - speechLine: (What is she doing?)
+      npcTalking: 0
+    assDial:
+    - option: (She is stimming)
+      isCorrect: 1
+    - option: (She's acting strange)
+      isCorrect: 0
+    Dialogues:
+    - speechLine: '(She might be stimming to cope with emotions, what should I do?) '
+      npcTalking: 0
+    question: (She might be stimming to cope with emotions, what should I do?)
+    Dial:
+    - option: (Give a weird look)
+      isCorrect: 0
+    - option: (Leave her be)
+      isCorrect: 1
+    locationE: 0
+    response:
+    - response:
+      - '(She gave a sad look) '
+    - response:
+      - (I should be respectful of a person's mannerisms)
+    outcome: Task Complete
+  - assessQuestion: (I think she is panicking)
+    assDialogue:
+    - speechLine: '(A lady was frantically waving her arms) '
+      npcTalking: 1
+    - speechLine: (I think she is panicking)
+      npcTalking: 0
+    assDial:
+    - option: (Ask what is wrong)
+      isCorrect: 1
+    - option: (Ignore her)
+      isCorrect: 0
+    Dialogues:
+    - speechLine: '"Oh no! I do not know what train this is! Is it the Circle Line?
+        I''m at the wrong one!"'
+      npcTalking: 1
+    question: '"Oh no! I do not know what train this is! Is it the Circle Line? I''m
+      at the wrong one!"'
+    Dial:
+    - option: '"Don''t worry, maybe the station staff can help you"'
+      isCorrect: 1
+    - option: '"Sorry, I cannot help you"'
+      isCorrect: 0
+    locationE: 2
+    response:
+    - response:
+      - '"Okay, I need to take a deep breath..."'
+      - '"Let''s go find a station staff"'
+    - response:
+      - '"W-what? Oh dear...."'
+    outcome: 'Start task: Bring commuter to the station staff'
+  - assessQuestion: (She might be in distress)
+    assDialogue:
+    - speechLine: '(A lady was looking around in all directions) '
+      npcTalking: 1
+    - speechLine: (She might be in distress)
+      npcTalking: 0
+    assDial:
+    - option: (Ask if she is okay)
+      isCorrect: 1
+    - option: (Walk Away)
+      isCorrect: 0
+    Dialogues:
+    - speechLine: '"Oh, I need help! This area is too crowded and it''s making me
+        feel uneasy... "'
+      npcTalking: 1
+    - speechLine: '"Could you please help me to find a less packed area with a seat?"'
+      npcTalking: 1
+    question: '"Could you please help me to find a less packed area with a seat?"'
+    Dial:
+    - option: '"Sure thing"'
+      isCorrect: 1
+    - option: '"Sorry, I am busy"'
+      isCorrect: 0
+    locationE: 2
+    response:
+    - response:
+      - '"Okay, Lead the way!"'
+    - response:
+      - '"Oh, nevermind..."'
+    outcome: 'Start task: Find an empty seat for the commuter'
+  - assessQuestion: (What is she doing?)
+    assDialogue:
+    - speechLine: '(A lady is humming a song to herself) '
+      npcTalking: 1
+    - speechLine: (What is she doing?)
+      npcTalking: 0
+    assDial:
+    - option: (She is stimming)
+      isCorrect: 1
+    - option: (She is causing a disturbance)
+      isCorrect: 0
+    Dialogues:
+    - speechLine: '"Maybe it is her own way to relieve stress, what should I do?"'
+      npcTalking: 1
+    question: '"Maybe it is her own way to relieve stress, what should I do?"'
+    Dial:
+    - option: (Leave her be)
+      isCorrect: 1
+    - option: (Stare at her)
+      isCorrect: 0
+    locationE: 1
+    response:
+    - response:
+      - '(I should not judge others for behaving differently) '
+    - response:
+      - (She gave an embarrassed look)
+    outcome: Task Complete

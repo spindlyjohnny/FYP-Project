@@ -12,4 +12,157 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 837e60c421f34a9448d4edad5e66d4cb, type: 3}
   m_Name: Intellectual
   m_EditorClassIdentifier: 
-  dialogueQuestions: []
+  dialogueQuestions:
+  - assessQuestion: (Is he lost?)
+    assDialogue:
+    - speechLine: '(A boy was looking around frantically) '
+      npcTalking: 1
+    - speechLine: (Is he lost?)
+      npcTalking: 0
+    assDial:
+    - option: (Ask him what is wrong)
+      isCorrect: 1
+    - option: (Ignore him)
+      isCorrect: 0
+    Dialogues:
+    - speechLine: '"Um, my m-mom told me to go to this p-place, b-but I can''t understand
+        her d-directions"'
+      npcTalking: 1
+    question: '"Um, my m-mom told me to go to this p-place, b-but I can''t understand
+      her d-directions"'
+    Dial:
+    - option: '"Let me help you!"'
+      isCorrect: 1
+    - option: '"Sorry, I can''t help you"'
+      isCorrect: 0
+    locationE: 0
+    response:
+    - response:
+      - '(I tell him that he needs to go to the nearest hawker centre, the fastest
+        way is by bus) '
+      - '"Ok, I n-need help to get t-there though, I''m not f-familiar with this
+        p-place"'
+    - response:
+      - '"Oh, but how will I find it myself?"'
+    outcome: 'Start task: Ride the bus with the commuter'
+  - assessQuestion: (Is he looking for something?)
+    assDialogue:
+    - speechLine: '(He was staring closely at the passing buses) '
+      npcTalking: 1
+    - speechLine: (Is he looking for something?)
+      npcTalking: 0
+    assDial:
+    - option: (Ask what is he doing)
+      isCorrect: 1
+    - option: (Leave him alone)
+      isCorrect: 0
+    Dialogues:
+    - speechLine: '"Oh, I can''t r-really remember which bus am I supposed to take
+        to my new school...Could you tell me which bus number could take me to Bedok?"'
+      npcTalking: 1
+    question: '"Oh, I can''t r-really remember which bus am I supposed to take to
+      my new school...Could you tell me which bus number could take me to Bedok?"'
+    Dial:
+    - option: '"No problem! "'
+      isCorrect: 1
+    - option: '''Sorry, I''m in a rush"'
+      isCorrect: 0
+    locationE: 0
+    response:
+    - response:
+      - '(I pointed out the destination on the bus route map to show which bus number
+        takes him there) '
+      - '"I see, I''ll ruh-remember that. Thank y-you for your help!"'
+    - response:
+      - '"Oh, n-nevermind"'
+    outcome: Task Complete
+  - assessQuestion: (Does he need my help?)
+    assDialogue:
+    - speechLine: '(A young boy timidly approaches me) '
+      npcTalking: 1
+    - speechLine: (Does he need my help?)
+      npcTalking: 0
+    assDial:
+    - option: (Politely ask if he needs your help)
+      isCorrect: 1
+    - option: (Ignore him)
+      isCorrect: 0
+    Dialogues:
+    - speechLine: '"Um yes, I did not understand what was said on the intercom just
+        now. What did it say?"'
+      npcTalking: 1
+    question: '"Um yes, I did not understand what was said on the intercom just now.
+      What did it say?"'
+    Dial:
+    - option: (Use shorter and simpler sentences to explain)
+      isCorrect: 1
+    - option: (Laugh at him)
+      isCorrect: 0
+    locationE: 2
+    response:
+    - response:
+      - '"Ohh, I see now. Thank you so much!"'
+    - response:
+      - (He walked away embarrassed)
+    outcome: 'Task Complete '
+  - assessQuestion: (Maybe I should help)
+    assDialogue:
+    - speechLine: '(A boy is anxiously looking in all directions) '
+      npcTalking: 1
+    - speechLine: (Maybe I should help)
+      npcTalking: 0
+    assDial:
+    - option: '"Ask if he needs your help"'
+      isCorrect: 1
+    - option: '"Turn away"'
+      isCorrect: 1
+    Dialogues:
+    - speechLine: '"Ah y-yeah, I think I got on the wrong bus, I accidentally mixed
+        up the name of the place I was supposed to go"'
+      npcTalking: 1
+    - speechLine: '"Could you tell me how do I get to Jurong West from here?"'
+      npcTalking: 1
+    question: '"Could you tell me how do I get to Jurong West from here?"'
+    Dial:
+    - option: '"Patiently tell him the directions"'
+      isCorrect: 1
+    - option: '"Tell him you are not sure either"'
+      isCorrect: 0
+    locationE: 1
+    response:
+    - response:
+      - '"Ohh..Okay I will alight at the next bus stop with an MRT station,Thank
+        you!"'
+    - response:
+      - '"Oh..maybe I need to call someone..."'
+    outcome: Task Complete
+  - assessQuestion: 
+    assDialogue:
+    - speechLine: '"Hey! Excuse me!"'
+      npcTalking: 1
+    - speechLine: '(A boy waves to me while calling out) '
+      npcTalking: 1
+    - speechLine: (I think he needs my help)
+      npcTalking: 0
+    assDial:
+    - option: (Ask what does he need)
+      isCorrect: 1
+    - option: (Pretend not to notice)
+      isCorrect: 0
+    Dialogues:
+    - speechLine: '"Do you know how to get to the nearest bus interchange?"'
+      npcTalking: 1
+    question: Do you know how to get to the nearest bus interchange?
+    Dial:
+    - option: '"We should ask the Bus Captain for help"'
+      isCorrect: 1
+    - option: '"No, I do not know"'
+      isCorrect: 0
+    locationE: 1
+    response:
+    - response:
+      - '"Ok, but I d-do not know how to pronounce the name of the interchange correctly,
+        maybe you can help me say it"'
+    - response:
+      - '"Oh.. Okay then"'
+    outcome: 'Start task: Ask the bus captain about the route'
