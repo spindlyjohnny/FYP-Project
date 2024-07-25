@@ -10,6 +10,7 @@ public class NPC : MonoBehaviour
     CameraController cam;
     Player player;
     public string[] dialogue = new string[0];
+    public bool[] npcTalking = new bool[3];
     public List<string> dialogueList;
     public string optionA, optionB, optionC, optionD;
     public LocationEnum locationNpc;
@@ -31,7 +32,6 @@ public class NPC : MonoBehaviour
     public Coroutine dialogueco;
     [SerializeField] AudioClip dialoguesound, correctsound;
     public RoadTile street;
-    public Answer[] answer = new Answer[51];
     public string sub;
     public string temp;
     public int character = 2;
@@ -180,6 +180,16 @@ public class NPC : MonoBehaviour
     }
     public IEnumerator Dialogue()
     {
+        if (npcTalking[currentline])
+        {
+            avatar.gameObject.SetActive(true);
+            player.avatar.gameObject.SetActive(false);
+        }
+        else
+        {
+            avatar.gameObject.SetActive(false);
+            player.avatar.gameObject.SetActive(true);
+        }
         for (int i = 0; i < 5; i++)
         {
             AudioManager.instance.PlaySFX(dialoguesound);
@@ -213,6 +223,11 @@ public class NPC : MonoBehaviour
 
     public void Response(int index)
     {
+        npcTalking = new bool[dialogueData.dialogueQuestions[qnindex].response[index].response.Length];
+        for (int i = 0; i < dialogueData.dialogueQuestions[qnindex].response[index].response.Length; i++)
+        {
+            npcTalking[i] = true;
+        }
         dialogue = new string[dialogueData.dialogueQuestions[qnindex].response[index].response.Length];
         for (int i = 0; i < dialogueData.dialogueQuestions[qnindex].response[index].response.Length; i++)
         {
@@ -265,7 +280,11 @@ public class NPC : MonoBehaviour
         {
             levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
         }
-
+        npcTalking = new bool[dialogueData.dialogueQuestions[qnindex].assDialogue.Length];
+        for (int i = 0; i < dialogueData.dialogueQuestions[qnindex].assDialogue.Length; i++)
+        {
+            npcTalking[i] = dialogueData.dialogueQuestions[qnindex].assDialogue[i].npcTalking;
+        }
         dialogue = new string[dialogueData.dialogueQuestions[qnindex].assDialogue.Length];
         for (int i = 0; i < dialogueData.dialogueQuestions[qnindex].assDialogue.Length; i++)
         {
@@ -328,7 +347,11 @@ public class NPC : MonoBehaviour
                 levelManager.optionDButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.CorrectOption;
             }
         }
-
+        npcTalking = new bool[dialogueData.dialogueQuestions[qnindex].Dialogues.Length];
+        for (int i = 0; i < dialogueData.dialogueQuestions[qnindex].Dialogues.Length; i++)
+        {
+            npcTalking[i] = dialogueData.dialogueQuestions[qnindex].Dialogues[i].npcTalking;
+        }
         dialogue = new string[dialogueData.dialogueQuestions[qnindex].Dialogues.Length];
         for (int i = 0; i < dialogueData.dialogueQuestions[qnindex].Dialogues.Length; i++)
         {

@@ -3,7 +3,12 @@ guid: a56070180db9ff64d8f791cc3c1752f5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: NEW_RIG_lambert2
+    second: {fileID: 2100000, guid: 991b5fa9e7a48d049a9ed8d82a118aa8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

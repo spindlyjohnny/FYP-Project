@@ -30,16 +30,20 @@ public class GeneralQuestion : Collectible
         switch (LevelManager.levelNum)
         {
             case LevelManager.LevelNum.Level1:
+                type = new string[2];
                 type[0]="Elderly";
                 type[1]="Wheelchair";
                 break;
             case LevelManager.LevelNum.Level2:
+                type = new string[2];
                 type[0] = "Visual";
                 type[1] = "Hearing";
                 break;
             case LevelManager.LevelNum.Level3:
+                type = new string[3];
                 type[0] = "Autism";
                 type[1] = "Invisible";
+                type[2] = "Intellectual";
                 break;
         }
     }

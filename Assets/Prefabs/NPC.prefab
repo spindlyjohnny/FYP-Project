@@ -87,8 +87,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.99885577, y: 2.0865107, z: 1.7346293}
-  m_Center: {x: -0.0005727809, y: 0.54325545, z: 0.052930836}
+  m_Size: {x: 0.99885577, y: 2.16787, z: 1.7346293}
+  m_Center: {x: -0.000572798, y: 1.0823648, z: 0.05293085}
 --- !u!65 &5194266150530353860
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -108,8 +108,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.9766244, y: 0.75440496, z: 2.1015368}
-  m_Center: {x: -1.0092291, y: 0.037574176, z: -0.017391881}
+  m_Size: {x: 1.9766244, y: 0.9230043, z: 2.1015368}
+  m_Center: {x: -1.0092291, y: 0.24292779, z: -0.017391881}
 --- !u!114 &1863821231898360523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,6 +125,7 @@ MonoBehaviour:
   dialoguebox: {fileID: 0}
   questionbox: {fileID: 0}
   dialogue: []
+  npcTalking: 000000
   dialogueList: []
   optionA: 
   optionB: 
@@ -152,13 +153,6 @@ MonoBehaviour:
   dialoguesound: {fileID: 8300000, guid: e1fff525f80061c4cbfb2b7343f60fdb, type: 3}
   correctsound: {fileID: 8300000, guid: 95465fb1e58813e4b91097a1d15aa71c, type: 3}
   street: {fileID: 0}
-  answer:
-  - element: 03000000
-  - element: 01000000
-  - element: 01000000
-  - element: 01000000
-  - element: 01000000
-  - element: 01000000
   sub: 
   temp: 
   character: 2
