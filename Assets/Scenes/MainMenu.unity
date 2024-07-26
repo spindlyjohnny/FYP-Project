@@ -7438,11 +7438,11 @@ RectTransform:
   - {fileID: 1214729516}
   - {fileID: 1335275086}
   - {fileID: 1314111261}
+  - {fileID: 1657571349}
   - {fileID: 1169964507}
   - {fileID: 716731031}
   - {fileID: 405169251}
   - {fileID: 1222775010}
-  - {fileID: 1657571349}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

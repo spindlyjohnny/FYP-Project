@@ -26,6 +26,7 @@ public class SceneLoader : MonoBehaviour {
     }
     public void SetLevel(int levelNum) {
         LevelManager.levelNum = (LevelManager.LevelNum)levelNum;
+        PlayerPrefs.SetInt("Level Num", levelNum);
     }
     private void Start()
     {

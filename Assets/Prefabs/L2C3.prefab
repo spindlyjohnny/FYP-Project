@@ -65,6 +65,11 @@ MonoBehaviour:
   - {fileID: 4893859116333317781}
   - {fileID: 7338788398007324736}
   hasNPC: 1
+  L1Destinations: []
+  L2Destinations: []
+  L3Destinations: []
+  destinations: []
+  destinationSpawnPoints: []
 --- !u!65 &2145253665364564709
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -246,7 +251,7 @@ Transform:
   m_GameObject: {fileID: 3339806468318761973}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00284, y: 0, z: -0.01405}
+  m_LocalPosition: {x: 0.00284, y: 0.00149, z: -0.01405}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -357,7 +362,7 @@ Transform:
   m_GameObject: {fileID: 4019782629729773795}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0216, y: 0, z: 0.0134}
+  m_LocalPosition: {x: 0.0216, y: 0.0013, z: 0.0134}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
