@@ -223,7 +223,7 @@ public class Player : MonoBehaviour
         AudioManager.instance.PlaySFX(hitsfx);
         canMove = false;
         Vector3 dir = transform.position - col.transform.position;
-        GetComponent<Rigidbody>().AddForce(dir.normalized * 3, ForceMode.Force);
+        GetComponent<Rigidbody>().AddForce(dir.normalized * 3, ForceMode.Impulse);
         yield return new WaitForSeconds(0.5f);
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         foreach (MeshRenderer mesh in meshes)

@@ -36,7 +36,7 @@ public class Obstacle : MonoBehaviour
             dir = new Vector3(-1, 0, 0);
         }
         Sensors();
-        if (!myspawner.gameObject.activeInHierarchy) Destroy(gameObject);
+        if (!myspawner.gameObject.activeSelf) Destroy(gameObject);
         
         //else Destroy(gameObject, 15f);
     }
@@ -68,7 +68,7 @@ public class Obstacle : MonoBehaviour
                 
                 dir = new Vector3(-temp.x,0,temp.z).normalized;
             }
-            if (temp.sqrMagnitude > .5) {
+            if (temp.sqrMagnitude > .5f) {
                 dir = -Vector3.right;
                 fronthit = false;
             }
