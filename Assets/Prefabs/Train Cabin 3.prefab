@@ -35,7 +35,8 @@ Transform:
   m_LocalScale: {x: 350, y: 350, z: 350}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5057973073522167725}
+  - {fileID: 3924269867566510413}
+  - {fileID: 2961895182919175056}
   - {fileID: 8126865042445511877}
   - {fileID: 7182047449027108898}
   - {fileID: 2251241738693709455}
@@ -198,39 +199,6 @@ MonoBehaviour:
     prefab: {fileID: 6165041437090717006, guid: 2cd75555dda2eca4b95fc248b50c0b84, type: 3}
     size: 1
   MRTPools: []
---- !u!1 &734344319774812687
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5057973073522167725}
-  m_Layer: 0
-  m_Name: Wheelchair Zones (1)
-  m_TagString: Train
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5057973073522167725
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 734344319774812687}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.050228577, y: 0.008553712, z: -0.002142857}
-  m_LocalScale: {x: 0.0056825406, y: 0.0056825406, z: 0.0056825406}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2961895182919175056}
-  - {fileID: 3924269867566510413}
-  m_Father: {fileID: 1185185799482330226}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4841092430542422835
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2961895182919175056
 Transform:
   m_ObjectHideFlags: 0
@@ -289,11 +257,11 @@ Transform:
   m_GameObject: {fileID: 5163428082410644499}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5383568, y: -1.4297992, z: -0.2699661}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.03580426, y: 0.00042882003, z: -0.0036769505}
+  m_LocalScale: {x: 0.0056825406, y: 0.0056825406, z: 0.0056825406}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5057973073522167725}
+  m_Father: {fileID: 1185185799482330226}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6416430897669842601
 BoxCollider:
@@ -379,7 +347,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3924269867566510413
 Transform:
   m_ObjectHideFlags: 0
@@ -389,11 +357,11 @@ Transform:
   m_GameObject: {fileID: 6534397166347595294}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16.514, y: -1.4297992, z: 2.11}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.0436129, y: 0.00042882003, z: 0.009847303}
+  m_LocalScale: {x: 0.0056825406, y: 0.0056825406, z: 0.0056825406}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5057973073522167725}
+  m_Father: {fileID: 1185185799482330226}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1093284760898730007
 BoxCollider:

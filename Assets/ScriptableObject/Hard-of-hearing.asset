@@ -22,12 +22,6 @@ MonoBehaviour:
       isCorrect: 1
     - option: (Assume he is fine)
       isCorrect: 0
-    assessDialogue:
-    - (He looks a bit lost, should I offer my help?)
-    assessOption:
-    - (Kindly approach and ask )
-    - (Assume he is fine )
-    assessAnswer: 0100
     Dialogues:
     - speechLine: '"Hi, could I know where is the nearest train station from here?"'
       npcTalking: 1
@@ -53,12 +47,6 @@ MonoBehaviour:
       isCorrect: 1
     - option: (Pretend not to notice)
       isCorrect: 0
-    assessDialogue:
-    - (He seems to be on high alert about something, should I help?)
-    assessOption:
-    - (Approach him )
-    - (Pretend not to notice)
-    assessAnswer: 0100
     Dialogues:
     - speechLine: '"Oh, I need to look out for the next bus, I can''t seem to notice
         once it arrives"'
@@ -90,12 +78,6 @@ MonoBehaviour:
       isCorrect: 1
     - option: (Turn away)
       isCorrect: 0
-    assessDialogue:
-    - (He waved at me, does he need my help?)
-    assessOption:
-    - (Politely ask him)
-    - (Turn away)
-    assessAnswer: 0100
     Dialogues:
     - speechLine: '"Yeah, I got to ride the bus to this place, but last time I got
         lost as the bus passed the stop too quickly, could you guide me there? "'
@@ -127,13 +109,6 @@ MonoBehaviour:
       isCorrect: 0
     - option: (I should help him)
       isCorrect: 1
-    assessDialogue:
-    - (A man wearing hearing aid looks like he is in distress)
-    - (I should help him)
-    assessOption:
-    - (Ask what is wrong )
-    - (I rather not)
-    assessAnswer: 0100
     Dialogues:
     - speechLine: '"Oh, I''m not sure which station I should alight at to go to the
         market, My friend did tell me before, but I could not hear the directions
@@ -165,13 +140,6 @@ MonoBehaviour:
       isCorrect: 1
     - option: (Shout at him)
       isCorrect: 0
-    assessDialogue:
-    - '(A man wearing hearing aids waves at you) '
-    - (Does he need something?)
-    assessOption:
-    - (Approach him politely )
-    - (Shout at him)
-    assessAnswer: 0100
     Dialogues:
     - speechLine: '"Hi there, could you tell me what they just said on the intercom?"'
       npcTalking: 1
@@ -187,7 +155,7 @@ MonoBehaviour:
       - '(I wrote down what they said on the intercom and showed it to him) '
     - response:
       - '"Oh, nevermind then"'
-    outcome: 'Start task: Find empty seats and leave at their stop'
+    outcome: Task Complete
   - assessQuestion: No, I think he's fine
     assDialogue:
     - speechLine: '(A man wearing hearing aid seems to be in distress) '
@@ -199,13 +167,6 @@ MonoBehaviour:
       isCorrect: 1
     - option: (No, I think he's fine )
       isCorrect: 0
-    assessDialogue:
-    - '(A man wearing hearing aid seems to be in distress) '
-    - (Maybe I should help him)
-    assessOption:
-    - (Politely write a note if he needs something )
-    - (No, I think he's fine )
-    assessAnswer: 0100
     Dialogues:
     - speechLine: '(He writes down that he wants to know what is the name of the
         stop after the next one) '
@@ -233,12 +194,6 @@ MonoBehaviour:
       isCorrect: 1
     - option: (Stare at him)
       isCorrect: 0
-    assessDialogue:
-    - '(There is a man wearing hearing aids that looks annoyed) '
-    assessOption:
-    - (Observe what is happening )
-    - (Stare at him)
-    assessAnswer: 0100
     Dialogues:
     - speechLine: '(In front of him there are two people talking and laughing loudly) '
       npcTalking: 1

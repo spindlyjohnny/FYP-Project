@@ -166,7 +166,6 @@ public class LevelManager : SceneLoader {
             if (amount == 1) {
                 x = numberOfTiles;
             }
-            //tileindex = 5;
             RandomTile();
             mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
             objectPool.Remove();

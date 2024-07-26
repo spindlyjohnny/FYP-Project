@@ -31,6 +31,75 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3824377054519168446}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &531741562582215978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2550467791992612746}
+  - component: {fileID: 3361131737512748034}
+  - component: {fileID: 5977509638864153531}
+  m_Layer: 0
+  m_Name: NPC Destination (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2550467791992612746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531741562582215978}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0126, y: 0.0015, z: 0.0041}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3824377054519168446}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3361131737512748034
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531741562582215978}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.004204705, y: 0.003570392, z: 0.004054591}
+  m_Center: {x: 0.011059342, y: 0.0006341966, z: 0.0026305253}
+--- !u!114 &5977509638864153531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531741562582215978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d3528dbe6bb4214099170baf896142d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  objectPool: {fileID: 0}
+  trainsize: {x: 1, y: 1, z: 1}
 --- !u!1 &1024922055495714950
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,6 +175,8 @@ Transform:
   - {fileID: 2529188307483893207}
   - {fileID: 6896145958462120777}
   - {fileID: 4457023279771335368}
+  - {fileID: 8292052138672330062}
+  - {fileID: 2550467791992612746}
   - {fileID: 4903043192238526274}
   - {fileID: 1629634311207100913}
   - {fileID: 998729684708135245}
@@ -197,8 +268,12 @@ MonoBehaviour:
   L1Destinations: []
   L2Destinations:
   - {fileID: 3491891186830079555}
+  - {fileID: 5040561600364390495}
+  - {fileID: 531741562582215978}
   L3Destinations:
   - {fileID: 3491891186830079555}
+  - {fileID: 5040561600364390495}
+  - {fileID: 531741562582215978}
   destinations: []
   destinationSpawnPoints:
   - {fileID: 4903043192238526274}
@@ -283,6 +358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4457023279771335368}
   - component: {fileID: 8850978628648307515}
+  - component: {fileID: 1586632477090418879}
   m_Layer: 0
   m_Name: NPC Destination
   m_TagString: Untagged
@@ -326,6 +402,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.004204705, y: 0.003570392, z: 0.004054591}
   m_Center: {x: 0.011059342, y: 0.0006341966, z: 0.0026305253}
+--- !u!114 &1586632477090418879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3491891186830079555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d3528dbe6bb4214099170baf896142d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  objectPool: {fileID: 0}
+  trainsize: {x: 1, y: 1, z: 1}
 --- !u!1 &4476017615516518612
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,6 +448,75 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3824377054519168446}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5040561600364390495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8292052138672330062}
+  - component: {fileID: 8097110844735392365}
+  - component: {fileID: 6835177072896523429}
+  m_Layer: 0
+  m_Name: NPC Destination (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8292052138672330062
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5040561600364390495}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0119, y: 0.0014, z: -0.00637}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3824377054519168446}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8097110844735392365
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5040561600364390495}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.004204705, y: 0.003570392, z: 0.004054591}
+  m_Center: {x: 0.011059342, y: 0.0006341966, z: 0.0026305253}
+--- !u!114 &6835177072896523429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5040561600364390495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d3528dbe6bb4214099170baf896142d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  objectPool: {fileID: 0}
+  trainsize: {x: 1, y: 1, z: 1}
 --- !u!1001 &1315895203227753265
 PrefabInstance:
   m_ObjectHideFlags: 0

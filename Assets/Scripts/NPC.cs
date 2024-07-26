@@ -40,7 +40,6 @@ public class NPC : MonoBehaviour
     int qnindex;
     public int indexDialogue = 0;
     [SerializeField] TextAsset nameFile;
-    public float spawnYOffset;
     // Start is called before the first frame update
     void Start()
     {
@@ -183,11 +182,15 @@ public class NPC : MonoBehaviour
         if (npcTalking[currentline])
         {
             avatar.gameObject.SetActive(true);
+            dialoguebox.transform.Find("NPC Name Boks").gameObject.SetActive(true);
             player.avatar.gameObject.SetActive(false);
+            dialoguebox.transform.Find("Player Name Boks").gameObject.SetActive(false);
         }
         else
         {
             avatar.gameObject.SetActive(false);
+            dialoguebox.transform.Find("NPC Name Boks").gameObject.SetActive(false);
+            dialoguebox.transform.Find("Player Name Boks").gameObject.SetActive(true);
             player.avatar.gameObject.SetActive(true);
         }
         for (int i = 0; i < 5; i++)
@@ -204,7 +207,6 @@ public class NPC : MonoBehaviour
     public void FollowPlayer()
     {
         if (!followplayer) return;
-        GetComponentInChildren<Image>().gameObject.SetActive(false);
         /*if (levelManager.level == LevelManager.Level.Bus) player.GetComponent<Rigidbody>().isKinematic = true;
         else*/ //Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
         transform.position = player.npcPosition.position;
@@ -212,6 +214,7 @@ public class NPC : MonoBehaviour
         if (once == false)
         {
             once = true;
+            GetComponentInChildren<Image>().gameObject.SetActive(false);
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
         }
         /*
