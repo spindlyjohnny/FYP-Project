@@ -33,9 +33,9 @@ public class Obstacle : MonoBehaviour
         rb.velocity = (5 * dir);
         if(dir== new Vector3(0, 0, 0))
         {
-            dir = new Vector3(-1, 0, 0);
+            dir = new Vector3(-1, 0, 0);//-1 in the x-axis is going forward
         }
-        Sensors();
+        Sensors();//this is the sensor
         if (!myspawner.gameObject.activeSelf) Destroy(gameObject);
         
         //else Destroy(gameObject, 15f);
@@ -50,7 +50,7 @@ public class Obstacle : MonoBehaviour
         if(Physics.Raycast(front.position,front.forward,out hit, 1f)) {
             fronthit = true;
             float difference = 0.2f;
-            if (Mathf.Abs(hit.collider.transform.position.z - inital.z) < difference & lerp == false)
+            if (Mathf.Abs(hit.collider.transform.position.z - inital.z) < difference & lerp == false)//if you are not lerping and the distance between the hit and and z is less than 0.2f
             {
                 
                 valueToLerp= difference - (hit.collider.transform.position.z - inital.z);
@@ -63,12 +63,12 @@ public class Obstacle : MonoBehaviour
             {
                 temp = (transform.position - hit.transform.position);
             }            
-            
+            //honestly no idea how this works but the direction is the diference between the player and the object with -x and z
             if (temp.sqrMagnitude <= .5f) {
                 
                 dir = new Vector3(-temp.x,0,temp.z).normalized;
             }
-            if (temp.sqrMagnitude > .5f) {
+            if (temp.sqrMagnitude > .5f) {//if the target is the more than the root of 0.5f away from the player just continue as norma;l 
                 dir = -Vector3.right;
                 fronthit = false;
             }
@@ -85,10 +85,12 @@ public class Obstacle : MonoBehaviour
             {
                 temp = (transform.position - hit.transform.position);
             }
-            if (temp.sqrMagnitude <= .5f) {
+            if (temp.sqrMagnitude <= .5f)
+            {//honestly no idea how this works but the direction is the diference between the player and the object with -x and z
                 dir = new Vector3(-temp.x, 0, temp.z).normalized;
             }
-            if (temp.sqrMagnitude > .5f) {
+            if (temp.sqrMagnitude > .5f)
+            {//if the target is the more than the root of 0.5f away from the player just continue as norma;l 
                 dir = -Vector3.right;
                 righthit = false;
             }
@@ -104,10 +106,12 @@ public class Obstacle : MonoBehaviour
             {
                 temp = (transform.position - hit.transform.position);
             }
-            if (temp.sqrMagnitude <= .5f) {
+            if (temp.sqrMagnitude <= .5f)
+            {//honestly no idea how this works but the direction is the diference between the player and the object with -x and z
                 dir = new Vector3(-temp.x, 0, temp.z).normalized;
             }
-            if (temp.sqrMagnitude > .5f) {
+            if (temp.sqrMagnitude > .5f)
+            {//if the target is the more than the root of 0.5f away from the player just continue as norma;l 
                 dir = -Vector3.right;
                 lefthit = false;
             }
@@ -120,21 +124,22 @@ public class Obstacle : MonoBehaviour
         bool[] hits = { fronthit, lefthit, righthit };
         //print(dir);
         int truths = 0;
-        foreach(var i in hits) {
+        foreach(var i in hits) {//just to calculate how many target there are to its front and sides
             if (i) truths += 1;
         }
         if(truths > 1) {
             dir = Vector3.right;
         }
         if (dir.x==-1 &lerp== true && elapsedFromMoved>=duration)
-        {
+        {//this is the lerping to the side so that the obstacle could move to the side but honestly this work only against one object and not that viable in the game,'
+         //because right normally if the the object infront of it is somewhat has the same z value the thing will go haywire
             
-            if (timeElapsed < lerpDuration02 )
+            if (timeElapsed < lerpDuration02 )//lerping i gues
             {
                 valueToLerp = Mathf.Lerp(transform.position.z, inital.z, timeElapsed / lerpDuration02);
                 timeElapsed += Time.deltaTime;
             }
-            else
+            else//stop lerping
             {
                 valueToLerp = inital.z;
                 timeElapsed = 0;
@@ -142,10 +147,10 @@ public class Obstacle : MonoBehaviour
                 lerp = false;
             }
             
-            transform.position = new Vector3(transform.position.x, transform.position.y, valueToLerp);
+            transform.position = new Vector3(transform.position.x, transform.position.y, valueToLerp);//move to the destined location once done
             
         }
-        if((transform.position.z>inital.z+2 )||( transform.position.z > inital.z + 2))
+        if((transform.position.z>inital.z+2 )||( transform.position.z > inital.z + 2))//ensure that the player move at the right direction
         {
             dir = -Vector3.right;
             transform.position = new Vector3(transform.position.x - 0.5f, transform.position.y, inital.z);

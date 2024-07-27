@@ -61,6 +61,10 @@ public class LevelManager : SceneLoader {
         //levelNum = LevelNum.Level1;
     }
     void Start() {
+        if (!PlayerPrefs.HasKey("Tutorial"))
+        {
+            PlayerPrefs.SetInt("Tutorial", 0);//0 is  false and 1 is true            
+        }
         //numTiles = 0;
         objectPool = GetComponent<ObjectPool>();
         if (AudioManager.instance.CheckClip() != AudioManager.instance.levelmusic || !AudioManager.instance.IsPlaying()) {

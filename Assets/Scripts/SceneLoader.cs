@@ -6,7 +6,7 @@ using TMPro;
 
 public class SceneLoader : MonoBehaviour {
     public static bool Return = false;
-    public GameObject levelSelect,fpsCounter;
+    public GameObject levelSelect,fpsCounter,tutorialPanel;
     public virtual void LoadScene(int scene,bool async = false) { // load scene from levelmanager
         if (async) SceneManager.LoadSceneAsync(scene);
         else SceneManager.LoadScene(scene);
@@ -30,6 +30,14 @@ public class SceneLoader : MonoBehaviour {
     }
     private void Start()
     {
+        if (!PlayerPrefs.HasKey("Tutorial"))
+        {
+            PlayerPrefs.SetInt("Tutorial", 0);//0 is  false and 1 is true            
+        }
+        if (PlayerPrefs.GetInt("Tutorial") == 1)
+        {
+            tutorialPanel.SetActive(false);
+        }
         PlayerPrefs.SetInt("bool", 0);
         if (Return == false) return;
         Return = true;
