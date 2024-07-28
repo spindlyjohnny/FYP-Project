@@ -9,6 +9,7 @@ public class NPC : MonoBehaviour
     public GameObject dialoguebox, questionbox;
     CameraController cam;
     Player player;
+    TutorialUI tutorial;
     public string[] dialogue = new string[0];
     public bool[] npcTalking = new bool[3];
     public List<string> dialogueList;
@@ -45,6 +46,7 @@ public class NPC : MonoBehaviour
     {
         //setting the references
         npcmanager = FindObjectOfType<NPCManagement>();
+        tutorial = FindObjectOfType<TutorialUI>();
         levelManager = FindObjectOfType<LevelManager>();
         cam = FindObjectOfType<CameraController>();
         player = FindObjectOfType<Player>();
@@ -90,10 +92,9 @@ public class NPC : MonoBehaviour
     void Update()
     {
         FollowPlayer();
-        //if (tasksuccess == Task.Fail) npcmanager.myNPC = null;
-        //if (hasdestination) {
+        if (TutorialUI.state != TutorialUI.TutorialState.fifthInstruction) return;
+        if (Mathf.Abs(transform.position.z - player.transform.position.z) >= 0.5f) return;
 
-        //}
     }
     public void Transitioninator()
     {

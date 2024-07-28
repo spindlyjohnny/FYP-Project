@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Rough_colour_scheme
-    second: {fileID: 2642196430508620480, guid: cce6f79f5204ca946a4d1c8d8a8b84e1, type: 3}
+    second: {fileID: 2100000, guid: 8c371a660c42ed94990f0646b2814997, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

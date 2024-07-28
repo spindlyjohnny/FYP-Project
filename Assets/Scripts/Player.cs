@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public float movespeed;
     public bool canMove,NPC;
     LevelManager levelManager;
+    TutorialUI tutorial;
     public float energy,maxenergy;
     //public float energygain,maxEnergyGain;
     public MeshRenderer[] meshes;
@@ -43,6 +44,7 @@ public class Player : MonoBehaviour
             PlayerPrefs.SetFloat("Invincibility Time", 5f);
             energy = PlayerPrefs.GetFloat("energy");
         }
+        
     }
     void Start()
     {
@@ -54,6 +56,10 @@ public class Player : MonoBehaviour
         //npcmanager = FindObjectOfType<NPCManagement>();
         meshes = GetComponentsInChildren<MeshRenderer>();
         skin = GetComponentsInChildren<SkinnedMeshRenderer>();
+        if (FindObjectOfType<TutorialUI>())
+        {
+            tutorial = FindObjectOfType<TutorialUI>();
+        }
         foreach (MeshRenderer mesh in meshes) {
             foreach(Material mat in mesh.materials)originalColor=mat.color;
         }
@@ -75,6 +81,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (tutorial.stop) return;
         Movement();
         //print(energy);
         //distTravelled = transform.position - startPos;
@@ -117,7 +124,7 @@ public class Player : MonoBehaviour
         if (energy > maxenergy) energy = maxenergy;
     }
 
-    void Movement()
+    public void Movement()
     {
         anim.SetBool("CanMove", canMove);
         if (!canMove) return;

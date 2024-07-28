@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Tile : MonoBehaviour {
+    public bool stopSpawningNpc=false;
     public Transform spawnpt;
     public GameObject[] NPC;
+    public GameObject spawnedNpc;
     protected LevelManager levelManager;
     protected NPCManagement npcmanager;
     //public Vector3 spawnoffset;
@@ -71,8 +73,9 @@ public class Tile : MonoBehaviour {
         else {
             NPCIndex = (rng > .33f && rng <= .66f) ? 0 : (rng > .66f && rng <= 1) ? 1 : 2;
         }
-        GameObject go = objectPool.SpawnFromPool(NPC[NPCIndex].name, new Vector3(spawnpt.position.x, spawnpt.position.y, spawnpt.position.z));
-        if (gameObject.CompareTag("Train")) go.transform.localScale = new Vector3(.8f, .8f, .8f);
+        spawnedNpc = objectPool.SpawnFromPool(NPC[NPCIndex].name, new Vector3(spawnpt.position.x, spawnpt.position.y, spawnpt.position.z));
+        if (stopSpawningNpc==true) spawnedNpc.SetActive(false);
+        if (gameObject.CompareTag("Train")) spawnedNpc.transform.localScale = new Vector3(.8f, .8f, .8f);
     }
     // Update is called once per frame
     protected void OnTriggerEnter(Collider other) {

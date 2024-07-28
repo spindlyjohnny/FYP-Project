@@ -408,6 +408,68 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &400156581
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 400156583}
+  - component: {fileID: 400156582}
+  m_Layer: 0
+  m_Name: Tutorial Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &400156582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400156581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1754f4e9fdbb98145968a332ef9a6732, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 1578503512}
+  stop: 0
+  text: {fileID: 1578503511}
+  tutorialTexts:
+  - 'Use your left and right mouse buttons to shift between the lanes '
+  - Dodge the passing people by switching lanes. Right/Left click to continue
+  - Keep in mind of your energy bar, if it runs out, it is game over! Right/Left
+    click to continue
+  - Quiz Cubes will pop up questions that will reward you with boosts if answered
+    correctly. Some questions can have multiple wrong answers. Right click to continue
+  - 'Press F or go infront of the commuter to interact with commuters to help them
+    out. '
+  - 'If you choose to help the commuters, some will require your help in answering
+    questions or taking action. Complete them successfully to be rewarded energy
+    and additional boosts '
+  - 'IN Bus SETTING: Press the red button near the rear door  to alight the bus '
+  - 'IN Train SETTING:When you encounter 3 people blocking the lane, press F to say
+    Excuse Me '
+--- !u!4 &400156583
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400156581}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 607.37445, y: 289.35812, z: -23.807207}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &645441186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1240,6 +1302,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1578503511 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3167855697729258414, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+  m_PrefabInstance: {fileID: 1923099090}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1578503512 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4711292477037350693, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+  m_PrefabInstance: {fileID: 1923099090}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1774274333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2067,4 +2145,5 @@ SceneRoots:
   - {fileID: 1893494757}
   - {fileID: 62994675}
   - {fileID: 263927466}
+  - {fileID: 400156583}
   - {fileID: 645441186}

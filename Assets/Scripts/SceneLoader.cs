@@ -28,16 +28,26 @@ public class SceneLoader : MonoBehaviour {
         LevelManager.levelNum = (LevelManager.LevelNum)levelNum;
         PlayerPrefs.SetInt("Level Num", levelNum);
     }
+
+    public void StopTutorial()
+    {
+        PlayerPrefs.SetInt("Tutorial", 1);
+        print(PlayerPrefs.GetInt("Tutorial"));
+        PlayerPrefs.Save();
+    }
     private void Start()
     {
+        tutorialPanel.SetActive(true);
         if (!PlayerPrefs.HasKey("Tutorial"))
         {
-            PlayerPrefs.SetInt("Tutorial", 0);//0 is  false and 1 is true            
+            PlayerPrefs.SetInt("Tutorial", 0);//0 is  false and 1 is true
+            
         }
         if (PlayerPrefs.GetInt("Tutorial") == 1)
         {
             tutorialPanel.SetActive(false);
         }
+        print(PlayerPrefs.GetInt("Tutorial"));
         PlayerPrefs.SetInt("bool", 0);
         if (Return == false) return;
         Return = true;

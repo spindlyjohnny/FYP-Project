@@ -8,6 +8,7 @@ public class Obstacle : MonoBehaviour
     public Vector3 spawnoffset;
     public Vector3 dir;
     protected LevelManager levelManager;
+    Player player; 
     public Transform front, right, left;
     Vector3 inital;
     Rigidbody rb;

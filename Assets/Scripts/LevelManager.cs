@@ -5,9 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using System;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Linq;
+
 public class LevelManager : SceneLoader {
     public bool gameover;
     public GameObject gameoverscreen, taskcompletescreen, loadingscreen, dialoguescreen;
@@ -16,7 +14,7 @@ public class LevelManager : SceneLoader {
     [SerializeField] GameObject[] bustiles,level1Bus,level2Bus,level3Bus;
     public GameObject[] mrt;
     public int score; 
-    public int tileindex;
+    public int tileindex,tileAmount;
     public TMP_Text scoretext, tasksuccesstext,finalScoreText;
     NPCManagement npcmanager;
     //GameObject currenttile;
@@ -171,9 +169,16 @@ public class LevelManager : SceneLoader {
                 x = numberOfTiles;
             }
             RandomTile();
+            TutorialTile();
+            print("spawn once");
             mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
             objectPool.Remove();
-            objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(size * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
+            GameObject temp=objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(size * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
+            if (temp.GetComponent<Tile>().spawnedNpc !=null)
+            {
+                temp.GetComponent<Tile>().spawnedNpc.SetActive(true);
+            }            
+            Activate(temp.GetComponent<Tile>());
             //numTiles += 1;
             if (amount == 1) numberOfTiles += 1;
         }
@@ -247,6 +252,24 @@ public class LevelManager : SceneLoader {
             System.Random random = new System.Random();
             tileindex = legalindexes[random.Next(0, legalindexes.Count)]; // gets random index
         }
+    }
+    void TutorialTile()
+    {
+        tileAmount += 1;
+        if (level != Level.Bus) return;
+        if (!PlayerPrefs.HasKey("Tutorial")) return;     
+        if (PlayerPrefs.GetInt("Tutorial") == 1) return;
+        if (tileAmount <= 2)
+        {
+            tileindex = 5;
+        }        
+    }
+    void Activate(Tile tile)
+    {
+        if (!PlayerPrefs.HasKey("Tutorial")) return;
+        if (PlayerPrefs.GetInt("Tutorial") == 1) return;
+        if (tileAmount >= 3) return;
+        tile.stopSpawningNpc = true;
     }
 
 }
