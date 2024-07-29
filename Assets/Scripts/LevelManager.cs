@@ -170,6 +170,7 @@ public class LevelManager : SceneLoader {
             }
             RandomTile();
             TutorialTile();
+            tileindex = 5;
             print("spawn once");
             mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
             objectPool.Remove();

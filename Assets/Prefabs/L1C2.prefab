@@ -298,7 +298,7 @@ Transform:
   m_GameObject: {fileID: 7621181523352037822}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.674335, y: 0, z: -0.1793575}
+  m_LocalPosition: {x: -0.674335, y: 0.14286742, z: -0.1593575}
   m_LocalScale: {x: 106.2, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -323,9 +323,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d60584f40661c04591e11f9f0cd89ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stopSpawningNpc: 0
   spawnpt: {fileID: 1992654472321062658}
   NPC:
   - {fileID: 0}
+  spawnedNpc: {fileID: 0}
   lanes:
   - {x: 0, y: 0, z: 0.6}
   - {x: 0, y: 0, z: 0}
