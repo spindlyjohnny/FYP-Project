@@ -169,7 +169,7 @@ public class NPC : MonoBehaviour
     public void EndDialogue()
     {
         dialoguebox.SetActive(false);
-        player.canMove = true;
+        //player.canMove = true;
         player.NPC = false;
         levelManager.dialoguescreen.SetActive(false);
     }

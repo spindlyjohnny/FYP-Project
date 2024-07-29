@@ -128,11 +128,6 @@ public class LevelManager : SceneLoader {
                 taskfailimg.SetActive(false);
             }
         }
-        //if (taskcompletescreen.activeSelf && onceComplete == false)
-        //{
-        //    onceComplete = true;
-        //    StartCoroutine(DisableTaskScreen());
-        //}
         currenttiles = FindObjectsOfType<Tile>();//why is this in update(), why not move to start()?
         if (currenttiles.Length == 1 || level == Level.MRT) {
             tileshiftfactor = 0; // in mrt level, tileshiftfactor is 0 because the size of the train already shifts them properly (i think)(trust bro) 
@@ -151,6 +146,7 @@ public class LevelManager : SceneLoader {
     //    Initalize();
     //}
     public void DisableTaskScreen() {
+        if(npcmanager.myGeneral == null)player.canMove = true;
         taskcompletescreen.SetActive(false);
     }
     public void Move(int index,Level lvl) { // transition between levels

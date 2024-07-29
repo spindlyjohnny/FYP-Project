@@ -161,7 +161,7 @@ public class NPCQuestion : MonoBehaviour
                 if (go.name == "Explanation" || go.name == "Close Button") go.SetActive(false);
                 else go.SetActive(true);
             }
-
+            npcmanager.myGeneral = null;
         }
     }
 
