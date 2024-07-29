@@ -19,6 +19,8 @@ public class Obstacle : MonoBehaviour
     bool lerp = false;
     float valueToLerp;
     bool hitPlayer=false;
+    //public int lane = 1, newlane;
+    //Tile tile;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,11 +38,38 @@ public class Obstacle : MonoBehaviour
         {
             dir = -Vector3.right;//-1 in the x-axis is going forward
         }
-        Sensors();//this is the sensor
+        //Sensors();//this is the sensor
+        //Feelers();
         if (!myspawner.gameObject.activeSelf) Destroy(gameObject);
-        
+        //RaycastHit hit; // for detecting tile to access lane variables
+        //Physics.Raycast(transform.position, Vector3.down, out hit);
+        //if (hit.collider) {
+        //    if (hit.collider.GetComponent<Tile>()) {
+        //        tile = hit.collider.GetComponent<Tile>();
+        //    }
+        //}
         //else Destroy(gameObject, 15f);
     }
+    //void Feelers() {
+    //    RaycastHit hit, rightHit, leftHit;
+    //    Physics.Raycast(front.position, front.forward, out hit, 1f);
+    //    if (hit.collider != null) {
+    //        if ((transform.position - hit.collider.transform.position).sqrMagnitude < .2f) {
+    //            Physics.Raycast(left.position, left.forward, out leftHit, Mathf.Infinity);
+    //            Physics.Raycast(right.position, right.forward, out rightHit, Mathf.Infinity);
+    //            if(leftHit.collider != null && rightHit.collider != null) {
+    //                if ((transform.position - leftHit.collider.transform.position).sqrMagnitude < (transform.position - rightHit.collider.transform.position).sqrMagnitude) {
+    //                    newlane = Mathf.Clamp(lane - 1, 0, 2);
+    //                    StartCoroutine(LaneMoving());
+    //                } 
+    //                else if ((transform.position - leftHit.collider.transform.position).sqrMagnitude > (transform.position - rightHit.collider.transform.position).sqrMagnitude) {
+    //                    newlane = Mathf.Clamp(lane + 1, 0, 2);
+    //                    StartCoroutine(LaneMoving());
+    //                }
+    //            }
+    //        }
+    //    }
+    //}
     void Sensors() {
         RaycastHit hit;
         Vector3 temp;
@@ -142,4 +171,21 @@ public class Obstacle : MonoBehaviour
             transform.position = new Vector3(transform.position.x - 0.5f, transform.position.y, inital.z);
         }
     }
+    //IEnumerator LaneMoving() {
+    //    //animating = true;
+    //    float elapsedTime = 0;
+    //    float duration = 0.2f;
+
+    //    while (elapsedTime < duration) {
+    //        float t = elapsedTime / duration;
+    //        float lerpValue = Mathf.Lerp(tile.lanes[lane].z, tile.lanes[newlane].z, t);
+    //        transform.position = new Vector3(transform.position.x, transform.position.y, lerpValue);
+    //        elapsedTime += Time.deltaTime;
+    //        yield return null;
+    //    }
+
+    //    lane = newlane;
+    //    transform.position = new Vector3(transform.position.x, transform.position.y, tile.lanes[newlane].z); ;
+    //    //animating = false;
+    //}
 }
