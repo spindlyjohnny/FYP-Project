@@ -170,14 +170,17 @@ public class LevelManager : SceneLoader {
             }
             RandomTile();
             TutorialTile();
-            tileindex = 5;
             print("spawn once");
             mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
             objectPool.Remove();
             GameObject temp=objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(size * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
-            if (temp.GetComponent<Tile>().spawnedNpc !=null)
+            if (temp.GetComponent<Tile>())
             {
-                temp.GetComponent<Tile>().spawnedNpc.SetActive(true);
+                if (temp.GetComponent<Tile>().spawnedNpc != null)
+                {
+                    temp.GetComponent<Tile>().spawnedNpc.SetActive(true);
+                }
+               
             }            
             Activate(temp.GetComponent<Tile>());
             //numTiles += 1;
