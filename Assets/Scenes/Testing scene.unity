@@ -213,7 +213,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &440333296
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -445,18 +445,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 411163040540336585, guid: 7fd2089fd616b2e449104035046c91db, type: 3}
-      propertyPath: m_Size.z
-      value: 0.012183857
-      objectReference: {fileID: 0}
-    - target: {fileID: 411163040540336585, guid: 7fd2089fd616b2e449104035046c91db, type: 3}
-      propertyPath: m_Center.x
-      value: 0.000029217741
-      objectReference: {fileID: 0}
-    - target: {fileID: 411163040540336585, guid: 7fd2089fd616b2e449104035046c91db, type: 3}
-      propertyPath: m_Center.z
-      value: 0.10290383
-      objectReference: {fileID: 0}
     - target: {fileID: 2247656668238877882, guid: 7fd2089fd616b2e449104035046c91db, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.529955
@@ -496,14 +484,6 @@ PrefabInstance:
     - target: {fileID: 2247656668238877882, guid: 7fd2089fd616b2e449104035046c91db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5852475378462696866, guid: 7fd2089fd616b2e449104035046c91db, type: 3}
-      propertyPath: m_Size.z
-      value: 0.010487842
-      objectReference: {fileID: 0}
-    - target: {fileID: 5852475378462696866, guid: 7fd2089fd616b2e449104035046c91db, type: 3}
-      propertyPath: m_Center.z
-      value: 0.058398694
       objectReference: {fileID: 0}
     - target: {fileID: 8069987741948419533, guid: 7fd2089fd616b2e449104035046c91db, type: 3}
       propertyPath: m_Name

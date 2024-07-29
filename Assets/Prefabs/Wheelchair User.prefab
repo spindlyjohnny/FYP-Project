@@ -87,8 +87,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.4939431, y: 1.9122561, z: 1.7346293}
-  m_Center: {x: 0.24697028, y: 0.9859639, z: 0.05293085}
+  m_Size: {x: 0.88164, y: 1.38985, z: 0.9881092}
+  m_Center: {x: -0.059182137, y: 0.7247611, z: -0.014180982}
 --- !u!65 &5194266150530353860
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -160,7 +160,6 @@ MonoBehaviour:
   dialogueSprite: {fileID: 21300000, guid: 82fb5dc5d75acaa40af8ad8576a8c4b0, type: 3}
   indexDialogue: 0
   nameFile: {fileID: 4900000, guid: b76ef913fe1927d4ebc818638bfb1fe4, type: 3}
-  spawnYOffset: 0
 --- !u!1 &6964791801456276691
 GameObject:
   m_ObjectHideFlags: 0

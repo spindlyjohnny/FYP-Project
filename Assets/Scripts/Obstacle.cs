@@ -62,10 +62,13 @@ public class Obstacle : MonoBehaviour
             if (hit.collider) hits++;
             Debug.DrawLine(rays[i].position, hit.point,Color.red);
             //print(hit.collider.name);
-            if (hit.collider == null && hits > 0/*&& (transform.position - hit.collider.transform.position).sqrMagnitude < .2f*/) {
+            if (hit.collider == null && hits > 0 && hits < 3/*&& (transform.position - hit.collider.transform.position).sqrMagnitude < .2f*/) {
                 print(rays[i]);
                 dir = rays[i].forward;
-            } 
+            }
+            else if (hits >= 3) {
+                dir = -front.forward;
+            }
             else if(hits == 0) {
                 dir = front.forward;
             }
