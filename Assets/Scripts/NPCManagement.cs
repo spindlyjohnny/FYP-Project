@@ -8,6 +8,7 @@ public class NPCManagement : MonoBehaviour
     public GeneralQuestion myGeneral;
     LevelManager levelManager;
     Player player;
+    public int correctAmount=1;
     // Start is called before the first frame update
     void Start()
     {

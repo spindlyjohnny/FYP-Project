@@ -10,8 +10,9 @@ public class GeneralDIalogueSO : ScriptableObject
 public class GeneralData
 {
     public string question;
+    public bool isMutli;
     public string type;
-    public string[] options;
+    public string[] options;    
     public bool[] answer;
     public string explain;
 }

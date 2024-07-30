@@ -168,5 +168,18 @@ public class GeneralQuestion : Collectible
             optionDtext.text = "";
             levelManager.optionDButton.SetActive(false);
         }
+        int correctAmount = 1;
+        if (dialogueData.dialogueQuestions[qnindex].isMutli == true) 
+        {
+            correctAmount = 0;
+            foreach (bool answer in dialogueData.dialogueQuestions[qnindex].answer)
+            {
+                if (answer == true)
+                {
+                    correctAmount += 1;
+                }
+            }
+        }
+
     }
 }

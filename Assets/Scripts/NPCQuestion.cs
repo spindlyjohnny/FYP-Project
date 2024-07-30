@@ -11,7 +11,7 @@ public class NPCQuestion : MonoBehaviour
     LevelManager levelManager;
     Player player;
     public AudioClip correctsound, wrongsound;
-    public int indexQuestion;
+    public int indexQuestion,correctAmount=1;
     // Start is called before the first frame update
     void Start() {
         npcmanager = FindObjectOfType<NPCManagement>();
@@ -33,6 +33,11 @@ public class NPCQuestion : MonoBehaviour
             }
             else if (option == Options.CorrectOption)
             {
+                correctAmount -= 1;
+                if (correctAmount > 0)
+                {
+                    return;
+                }
                 Explain();
                 levelManager.taskcompletescreen.SetActive(true);
                 levelManager.upgradeText.SetActive(true);
