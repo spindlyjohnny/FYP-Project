@@ -19,6 +19,7 @@ public class Obstacle : MonoBehaviour
     bool lerp = false;
     float valueToLerp;
     bool hitPlayer=false;
+    [SerializeField] int hits = 0;
     //public int lane = 1, newlane;
     //Tile tile;
     // Start is called before the first frame update
@@ -56,17 +57,20 @@ public class Obstacle : MonoBehaviour
    void Sensors() {
         Transform[] rays = { front, left, right };
         RaycastHit hit;
-        int hits = 0;
         for(int i = 0; i < rays.Length; i++) {
             Physics.Raycast(rays[i].position, rays[i].forward, out hit, 1f,LayerMask.GetMask("NPC Obstacle","Player"/*,"Obstacle"*/,"NPC"));
-            if (hit.collider) hits++;
-            Debug.DrawLine(rays[i].position, hit.point,Color.red);
+            if (hit.collider) {
+                print(hit.collider.name);
+                Debug.DrawLine(rays[i].position, hit.point, Color.red);
+                hits++;
+            }
             //print(hit.collider.name);
             if (hit.collider == null && hits > 0 && hits < 3/*&& (transform.position - hit.collider.transform.position).sqrMagnitude < .2f*/) {
                 print(rays[i]);
                 dir = rays[i].forward;
-            }
-            else if (hits >= 3) {
+            } else if (hits >= 3) {
+                print("back");
+                //hits = 0;
                 dir = -front.forward;
             }
             else if(hits == 0) {
