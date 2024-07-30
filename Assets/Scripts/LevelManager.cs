@@ -225,12 +225,12 @@ public class LevelManager : SceneLoader {
         //} 
         tilerng = UnityEngine.Random.Range(0f, 1f);
         //print(tilerng);
-        if (tilerng > .9999f && tilerng <= 1f) {
+        if (tilerng > .85f && tilerng <= 1f) {
             foreach (var i in tiles) {
                 if (i.CompareTag("Transition")) tileindex = Array.IndexOf(tiles, i);
             }
         } 
-        else if (tilerng <= .25f && tilerng > 0) { // 50% chance of getting a road tile
+        else if (tilerng <= .25f && tilerng > 0) { // 25% chance of getting a road tile
             foreach (var i in tiles) {
                 if (i.GetComponent<RoadTile>()) tileindex = Array.IndexOf(tiles, i); // get index of road tile in tiles array
             }
