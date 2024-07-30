@@ -487,7 +487,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &551116411
 Transform:
   m_ObjectHideFlags: 0
@@ -591,14 +591,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5132336144096967003, guid: 8d6271973f8b3d940804a8a700fde8fb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5374082183466899821, guid: 8d6271973f8b3d940804a8a700fde8fb, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5435824419628698284, guid: 8d6271973f8b3d940804a8a700fde8fb, type: 3}
+      propertyPath: L1Destinations.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435824419628698284, guid: 8d6271973f8b3d940804a8a700fde8fb, type: 3}
+      propertyPath: L2Destinations.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435824419628698284, guid: 8d6271973f8b3d940804a8a700fde8fb, type: 3}
+      propertyPath: L3Destinations.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435824419628698284, guid: 8d6271973f8b3d940804a8a700fde8fb, type: 3}
       propertyPath: NPCSpawnPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5435824419628698284, guid: 8d6271973f8b3d940804a8a700fde8fb, type: 3}
+      propertyPath: L1Destinations.Array.data[0]
+      value: 
+      objectReference: {fileID: 645441187}
+    - target: {fileID: 5435824419628698284, guid: 8d6271973f8b3d940804a8a700fde8fb, type: 3}
+      propertyPath: L2Destinations.Array.data[0]
+      value: 
+      objectReference: {fileID: 551116410}
+    - target: {fileID: 5435824419628698284, guid: 8d6271973f8b3d940804a8a700fde8fb, type: 3}
+      propertyPath: L2Destinations.Array.data[1]
+      value: 
+      objectReference: {fileID: 1620148918}
+    - target: {fileID: 5435824419628698284, guid: 8d6271973f8b3d940804a8a700fde8fb, type: 3}
+      propertyPath: L3Destinations.Array.data[0]
+      value: 
+      objectReference: {fileID: 551116410}
+    - target: {fileID: 5435824419628698284, guid: 8d6271973f8b3d940804a8a700fde8fb, type: 3}
+      propertyPath: L3Destinations.Array.data[1]
+      value: 
+      objectReference: {fileID: 1620148918}
     - target: {fileID: 5435824419628698284, guid: 8d6271973f8b3d940804a8a700fde8fb, type: 3}
       propertyPath: NPCSpawnPoints.Array.data[0]
       value: 
@@ -635,6 +671,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1145470114}
   m_SourcePrefab: {fileID: 100100000, guid: 8d6271973f8b3d940804a8a700fde8fb, type: 3}
+--- !u!1 &645441187 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5132336144096967003, guid: 8d6271973f8b3d940804a8a700fde8fb, type: 3}
+  m_PrefabInstance: {fileID: 645441186}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &791782299 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7065858282864023968, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
@@ -1410,7 +1451,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1620148919
 Transform:
   m_ObjectHideFlags: 0

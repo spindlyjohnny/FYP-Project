@@ -18,7 +18,7 @@ public class Tile : MonoBehaviour {
     ObjectPool objectPool;
     [SerializeField]GameObject[] L1Destinations, L2Destinations, L3Destinations;
     [SerializeField]GameObject[] destinations;
-    [SerializeField]Transform[] destinationSpawnPoints;
+    //[SerializeField]Transform[] destinationSpawnPoints;
     int NPCIndex;
     // Start is called before the first frame update
     protected virtual void Start() {
@@ -34,25 +34,23 @@ public class Tile : MonoBehaviour {
             lanes[0].z = 1.3f;
             lanes[1].z = 0;
             lanes[2].z = -1.3f;
-        } 
-        else {
-            switch (LevelManager.levelNum) {
-                case LevelManager.LevelNum.Level1:
-                    destinations = L1Destinations;
-                    break;
-                case LevelManager.LevelNum.Level2:
-                    destinations = L2Destinations;
-                    break;
-                case LevelManager.LevelNum.Level3:
-                    destinations = L3Destinations;
-                    break;
-            }
-            if (destinations.Length > 0 /*&& destinationSpawnPoints.Length > 0*/) {
-                destinations[Random.Range(0, destinations.Length)].SetActive(true);
-                //GameObject g = Instantiate(destinations[Random.Range(0, destinations.Length)], destinationSpawnPoints[Random.Range(0, destinationSpawnPoints.Length)].position, Quaternion.identity);
-                //g.SetActive(true);
-                //g.transform.SetParent(transform);
-            }
+        }
+        switch (LevelManager.levelNum) {
+            case LevelManager.LevelNum.Level1:
+                destinations = L1Destinations;
+                break;
+            case LevelManager.LevelNum.Level2:
+                destinations = L2Destinations;
+                break;
+            case LevelManager.LevelNum.Level3:
+                destinations = L3Destinations;
+                break;
+        }
+        if (destinations.Length > 0 /*&& destinationSpawnPoints.Length > 0*/) {
+            destinations[Random.Range(0, destinations.Length)].SetActive(true);
+            //GameObject g = Instantiate(destinations[Random.Range(0, destinations.Length)], destinationSpawnPoints[Random.Range(0, destinationSpawnPoints.Length)].position, Quaternion.identity);
+            //g.SetActive(true);
+            //g.transform.SetParent(transform);
         }
         if (!hasNPC) return;
         switch (LevelManager.levelNum) {
