@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
     //[HideInInspector]public Vector3 distTravelled;
     //NPCManagement npcmanager;
     bool animating = false;
+    public Material[] invincibleMats;
+    public Material[] originalMats;
     //Rigidbody rb;
     // Start is called before the first frame update
     private void Awake() {
@@ -61,12 +63,13 @@ public class Player : MonoBehaviour
             tutorial = FindObjectOfType<TutorialUI>();
         }
         foreach (MeshRenderer mesh in meshes) {
-            foreach(Material mat in mesh.materials)originalColor=mat.color;
-        }
-        foreach (SkinnedMeshRenderer mesh in skin)
-        {
             foreach (Material mat in mesh.materials) originalColor = mat.color;
         }
+        foreach (SkinnedMeshRenderer mesh in skin) {
+            foreach (Material mat in mesh.materials) originalColor = mat.color;
+        }
+
+
         //startPos = transform.position;
         //rb = GetComponent<Rigidbody>();
         //if(levelManager.level == LevelManager.Level.Bus) {
@@ -98,15 +101,19 @@ public class Player : MonoBehaviour
             //GetComponent<Rigidbody>().isKinematic = false;
             Physics.IgnoreLayerCollision(gameObject.layer, 8, false); // obstacle layer
             Physics.IgnoreLayerCollision(gameObject.layer, 7, false); // npc layer
-            for (int i = 0; i < 5; i++) {
-                foreach (MeshRenderer mesh in meshes) {
-                    foreach (Material mat in mesh.materials) mat.color = originalColor;
-                }
-                foreach (SkinnedMeshRenderer mesh in skin)
-                {
-                    foreach (Material mat in mesh.materials) mat.color = originalColor;
-                }
+            skin[0].material = originalMats[^1];
+            for (int i = 0; i < meshes.Length; i++) {
+                meshes[i].material = originalMats[i];
             }
+            //for (int i = 0; i < 5; i++) {
+            //    foreach (MeshRenderer mesh in meshes) {
+            //        foreach (Material mat in mesh.materials) mat.color = originalColor;
+            //    }
+            //    foreach (SkinnedMeshRenderer mesh in skin)
+            //    {
+            //        foreach (Material mat in mesh.materials) mat.color = originalColor;
+            //    }
+            //}
         }
         levelManager.energyslider.value = energy;
         if (canMove) {
@@ -203,18 +210,10 @@ public class Player : MonoBehaviour
         invincibilitytime = originalInvincibleTime;
         Physics.IgnoreLayerCollision(gameObject.layer, 8, true);
         Physics.IgnoreLayerCollision(gameObject.layer, 7, true);
-        //GetComponent<Rigidbody>().isKinematic = true;
-        for (int i = 0; i < 5; i++) {
-            foreach (MeshRenderer mesh in meshes) {
-                foreach (Material mat in mesh.materials) mat.color = Color.red;
-            }
+        for(int i = 0; i < meshes.Length; i++) {
+            meshes[i].material = invincibleMats[i];
         }
-        foreach (SkinnedMeshRenderer mesh in skin) {
-            foreach (Material mat in mesh.materials) mat.color = Color.red;
-        }
-        //trailRenderer.emitting = true;
-        //movespeed *= 2;
-
+        skin[0].material = invincibleMats[^1];
     }
 
     IEnumerator HitReaction(Collision col)
@@ -243,16 +242,4 @@ public class Player : MonoBehaviour
         }
         canMove = true;
     }
-
-    //private void OnTriggerEnter(Collider other) {
-    //    if (other.GetComponent<Collectible>()) {
-    //        if (other.CompareTag("Energy")) {
-    //            energy += energygain;
-    //            if (energy > maxenergy) energy = maxenergy;
-    //        } 
-    //        else {
-    //            // question.
-    //        }
-    //    }
-    //}
 }
