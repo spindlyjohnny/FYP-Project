@@ -23,7 +23,7 @@ public class LevelManager : SceneLoader {
     public TMP_Text nametext;
     public GameObject optionAButton, optionBButton, optionCButton, optionDButton;
     public GameObject dialoguebox, questionbox;
-    int numberOfTiles = 5;
+    int numberOfTiles = 6;
     bool onceComplete = false;
     public float tilerng;
     public enum Level { Bus,BusInterior, MRT };
