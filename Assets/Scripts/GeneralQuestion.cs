@@ -180,6 +180,8 @@ public class GeneralQuestion : Collectible
                 }
             }
         }
+        npcManager.correctAmount = correctAmount;
+
 
     }
 }

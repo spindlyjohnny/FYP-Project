@@ -9,9 +9,10 @@ public class NPCQuestion : MonoBehaviour
     public Options option;
     NPCManagement npcmanager;
     LevelManager levelManager;
+    public GameObject[] buttons = new GameObject[4];
     Player player;
     public AudioClip correctsound, wrongsound;
-    public int indexQuestion,correctAmount=1;
+    public int indexQuestion;
     // Start is called before the first frame update
     void Start() {
         npcmanager = FindObjectOfType<NPCManagement>();
@@ -33,10 +34,15 @@ public class NPCQuestion : MonoBehaviour
             }
             else if (option == Options.CorrectOption)
             {
-                correctAmount -= 1;
-                if (correctAmount > 0)
+                npcmanager.correctAmount -= 1;
+                if (npcmanager.correctAmount > 0)
                 {
+                    this.gameObject.SetActive(false);
                     return;
+                }
+                foreach(GameObject button in buttons)
+                {
+                    button.SetActive(true);
                 }
                 Explain();
                 levelManager.taskcompletescreen.SetActive(true);
