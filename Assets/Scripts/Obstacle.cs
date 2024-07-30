@@ -19,6 +19,7 @@ public class Obstacle : MonoBehaviour
     bool lerp = false;
     float valueToLerp;
     bool hitPlayer=false;
+    //[SerializeField] int hits = 0;
     //public int lane = 1, newlane;
     //Tile tile;
     // Start is called before the first frame update
@@ -44,172 +45,101 @@ public class Obstacle : MonoBehaviour
         //if (!myspawner.gameObject.activeSelf) Destroy(gameObject);
         
         
-        //RaycastHit hit; // for detecting tile to access lane variables
-        //Physics.Raycast(transform.position, Vector3.down, out hit);
-        //if (hit.collider) {
-        //    if (hit.collider.GetComponent<Tile>()) {
-        //        tile = hit.collider.GetComponent<Tile>();
-        //    }
-        //}
-        //else Destroy(gameObject, 15f);
     }
-   void Sensors() {
+    //void Sensors() {
+    //     Transform[] rays = { front, left, right };
+    //     RaycastHit hit;
+    //     int hits = 0;
+    //     for (int i = 0; i < rays.Length; i++) {
+    //         Physics.Raycast(rays[i].position, rays[i].forward, out hit, 1f,LayerMask.GetMask("NPC Obstacle","Player"/*,"Obstacle"*/,"NPC"));
+    //         if (hit.collider) {
+    //             print(hit.collider.name);
+    //             Debug.DrawLine(rays[i].position, hit.point, Color.red);
+    //             //dir = transform.position - hit.collider.transform.position;
+    //             hits++;
+    //             print(hits);
+    //         }
+    //         //print(hit.collider.name);
+    //         if (hit.collider == null && hits > 0 && hits < 3/*&& (transform.position - hit.collider.transform.position).sqrMagnitude < .2f*/) {
+    //             // runs when 1 or 2 objects are detected
+    //             print(rays[i]);
+    //             dir = rays[i].forward;
+    //         } 
+    //         else if (hits >= 3) {
+    //             print("back");
+    //             //hits = 0;
+    //             dir = -front.forward;
+    //         } 
+    //         else if(hits == 0) {
+    //             dir = front.forward;
+    //         }
+    //         //else {
+    //         //    dir = new Vector3(-1, 0, 0);
+    //         //}
+    //     }
+    //}
+    //void Sensors() {
+    //    Transform[] rays = { front, left, right };
+    //    RaycastHit hit;
+    //    int hits = 0;
+    //    Vector3 avoidDir = Vector3.zero;
+
+    //    for (int i = 0; i < rays.Length; i++) {
+    //        if (Physics.Raycast(rays[i].position, rays[i].forward, out hit, 1f, LayerMask.GetMask("NPC Obstacle", "Player", "NPC"))) {
+    //            print(hit.collider.name);
+    //            Debug.DrawLine(rays[i].position, hit.point, Color.red);
+    //            hits++;
+    //            avoidDir += -rays[i].forward; // Accumulate avoidance direction
+    //        } else {
+    //            Debug.DrawRay(rays[i].position, rays[i].forward * 1f, Color.green);
+    //        }
+    //    }
+
+    //    print("Total hits: " + hits);
+
+    //    if (hits > 0) {
+    //        if (hits >= 3) {
+    //            print("back");
+    //            dir = -front.forward;
+    //        } else {
+    //            print("avoid");
+    //            dir = (avoidDir / hits).normalized; // Average avoidance direction
+    //        }
+    //    } else {
+    //        dir = front.forward;
+    //    }
+    //}
+    void Sensors() {
         Transform[] rays = { front, left, right };
         RaycastHit hit;
         int hits = 0;
-        for(int i = 0; i < rays.Length; i++) {
-            Physics.Raycast(rays[i].position, rays[i].forward, out hit, 1f,LayerMask.GetMask("NPC Obstacle","Player"/*,"Obstacle"*/,"NPC"));
-            if (hit.collider) hits++;
-            Debug.DrawLine(rays[i].position, hit.point,Color.red);
-            //print(hit.collider.name);
-            if (hit.collider == null && hits > 0 && hits < 3/*&& (transform.position - hit.collider.transform.position).sqrMagnitude < .2f*/) {
-                print(rays[i]);
-                dir = rays[i].forward;
+        Vector3 avoidDir = Vector3.zero;
+
+        for (int i = 0; i < rays.Length; i++) {
+            bool isHit = Physics.Raycast(rays[i].position, rays[i].forward, out hit, 1f, LayerMask.GetMask("NPC Obstacle", "Player", "NPC"));
+
+            if (isHit) {
+                print(hit.collider.name);
+                Debug.DrawLine(rays[i].position, hit.point, Color.red);
+                hits++;
+                avoidDir += (rays[i].position - hit.point).normalized; // Accumulate avoidance direction
+            } else {
+                Debug.DrawRay(rays[i].position, rays[i].forward * 1f, Color.green);
             }
-            else if (hits >= 3) {
-                dir = -front.forward;
-            }
-            else if(hits == 0) {
-                dir = front.forward;
-            }
-            //else {
-            //    dir = new Vector3(-1, 0, 0);
-            //}
         }
-   }
-    //void Feelers() {
-    //    RaycastHit fronthit, righthit, lefthit;
-    //    Physics.Raycast(front.position, front.forward, out fronthit, 1f, LayerMask.GetMask("Player", "NPC Obstacle", "Obstacle", "NPC"));
-    //    Physics.Raycast(left.position, left.forward, out lefthit, 1f, LayerMask.GetMask("Player", "NPC Obstacle", "Obstacle", "NPC"));
-    //    Physics.Raycast(right.position, right.forward, out righthit, 1f, LayerMask.GetMask("Player", "NPC Obstacle", "Obstacle", "NPC"));
-    //    if(fronthit.collider != null) {
-    //        if((transform.position - fronthit.collider.transform.position).sqrMagnitude < .2f) {
-    //            if(righthit.collider == null) {
-    //                dir = new Vector3();
-    //            }
-    //        }
-    //    }
-    //    else if(righthit.collider != null) {
-    //        if ((transform.position - righthit.collider.transform.position).sqrMagnitude < .2f) {
 
-    //        }
-    //    }
-    //    else if(lefthit.collider != null) {
-    //        if ((transform.position - lefthit.collider.transform.position).sqrMagnitude < .2f) {
+        if (hits > 0 && hits < 3) {
+            // Avoid the detected obstacles
+            print("Avoiding obstacles");
+            dir = (avoidDir / hits).normalized; // Average avoidance direction
+        } else if (hits >= 3) {
+            print("Back");
+            dir = -front.forward;
+        } else {
+            dir = front.forward;
+        }
 
-    //        }
-    //    }
-    //}
-    //void Sensors() {
-    //    RaycastHit hit;
-    //    Vector3 temp;
-    //    bool fronthit = false, lefthit = false, righthit = false;
+        print("Total hits: " + hits);
+    }
 
-    //    // casts rays in 3 directions. if any ray detects an object, move away from object until there is nothing blocking.
-    //    // current problem is that ai doesnt know what to do if more than 1 ray detects an object. unsure of how to do this efficiently.
-    //    if (Physics.Raycast(front.position, front.forward, out hit, 1f)) {
-    //        print("front");
-    //        fronthit = true;
-    //        float difference = 0.2f;
-    //        if (Mathf.Abs(hit.collider.transform.position.z - transform.position.z/*inital.z*/) < difference & lerp == false)//if you are not lerping and the distance between the hit and and z is less than 0.2f
-    //        {
-
-    //            valueToLerp = difference - (hit.collider.transform.position.z - transform.position.z/*inital.z*/);
-    //            lerp = true;
-    //            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z/*inital.z*/+ valueToLerp);
-
-    //            temp = (transform.position - hit.transform.position); // direction pointing away from object
-    //        } else {
-    //            temp = (transform.position - hit.transform.position);
-    //        }
-    //        //honestly no idea how this works but the direction is the diference between the player and the object with -x and z
-    //        if (temp.sqrMagnitude <= .5f) {
-
-    //            dir = new Vector3(-temp.x, 0, temp.z).normalized; // global -x is local forward, global z is local x
-    //        }
-    //        if (temp.sqrMagnitude > .5f) {//if the target is the more than the root of 0.5f away from the player just continue as norma;l 
-    //            dir = -Vector3.right;
-    //            fronthit = false;
-    //        }
-    //        Debug.DrawLine(front.position, hit.point, Color.red);
-    //    }
-    //    if (Physics.Raycast(right.position, right.forward, out hit, 1f)) {
-    //        print("Right");
-    //        righthit = true;
-    //        temp = (transform.position - hit.transform.position);
-    //        if (temp.sqrMagnitude <= .5f) {//honestly no idea how this works but the direction is the diference between the player and the object with -x and z
-    //            dir = new Vector3(-temp.x, 0, temp.z).normalized;
-    //        }
-    //        if (temp.sqrMagnitude > .5f) {//if the target is the more than the root of 0.5f away from the player just continue as norma;l 
-    //            dir = -Vector3.right;
-    //            righthit = false;
-    //        }
-    //        Debug.DrawLine(right.position, hit.point, Color.red);
-    //    }
-    //    if (Physics.Raycast(left.position, left.forward, out hit, 1f)) {
-    //        print("Left");
-    //        lefthit = true;
-    //        temp = (transform.position - hit.transform.position);
-    //        if (temp.sqrMagnitude <= .5f) {//honestly no idea how this works but the direction is the diference between the player and the object with -x and z
-    //            dir = new Vector3(-temp.x, 0, temp.z).normalized;
-    //        }
-    //        if (temp.sqrMagnitude > .5f) {//if the target is the more than the root of 0.5f away from the player just continue as norma;l 
-    //            dir = -Vector3.right;
-    //            lefthit = false;
-    //        }
-    //        Debug.DrawLine(left.position, hit.point, Color.red);
-    //    }
-    //    if (lerp == true) {
-    //        elapsedFromMoved += Time.deltaTime; // how much time has passed since started moving;
-    //    }
-    //    bool[] hits = { fronthit, lefthit, righthit };
-    //    //print(dir);
-    //    int truths = 0;
-    //    foreach (var i in hits) {//just to calculate how many target there are to its front and sides
-    //        if (i) truths += 1;
-    //    }
-    //    if (truths > 1) {
-    //        dir = Vector3.right; // move backward if more than 1 ray detects object
-    //    }
-    //    if (dir.x == -1 & lerp == true && elapsedFromMoved >= duration) {//this is the lerping to the side so that the obstacle could move to the side but honestly this work only against one object and not that viable in the game,'
-    //                                                                     //because right normally if the the object infront of it is somewhat has the same z value the thing will go haywire
-
-    //        if (timeElapsed < lerpDuration02)//lerping i gues
-    //        {
-    //            valueToLerp = Mathf.Lerp(transform.position.z, inital.z, timeElapsed / lerpDuration02);
-    //            timeElapsed += Time.deltaTime;
-    //        } else//stop lerping
-    //          {
-    //            valueToLerp = inital.z;
-    //            timeElapsed = 0;
-    //            elapsedFromMoved = 0;
-    //            lerp = false;
-    //        }
-
-    //        transform.position = new Vector3(transform.position.x, transform.position.y, valueToLerp);//move to the destined location once done
-
-    //    }
-    //    if ((transform.position.z > inital.z + 2)/*||( transform.position.z > inital.z + 2)*/)//ensure that the player move at the right direction
-    //    {
-    //        dir = -Vector3.right;
-    //        transform.position = new Vector3(transform.position.x - 0.5f, transform.position.y, inital.z);
-    //    }
-    //}
-    //IEnumerator LaneMoving() {
-    //    //animating = true;
-    //    float elapsedTime = 0;
-    //    float duration = 0.2f;
-
-    //    while (elapsedTime < duration) {
-    //        float t = elapsedTime / duration;
-    //        float lerpValue = Mathf.Lerp(tile.lanes[lane].z, tile.lanes[newlane].z, t);
-    //        transform.position = new Vector3(transform.position.x, transform.position.y, lerpValue);
-    //        elapsedTime += Time.deltaTime;
-    //        yield return null;
-    //    }
-
-    //    lane = newlane;
-    //    transform.position = new Vector3(transform.position.x, transform.position.y, tile.lanes[newlane].z); ;
-    //    //animating = false;
-    //}
 }
