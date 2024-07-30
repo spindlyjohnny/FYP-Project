@@ -38,7 +38,7 @@ public class LevelManager : SceneLoader {
     ObjectPool objectPool;
     public Image npcAvatar;
     public GameObject[] level1NPC, level2NPC, level3NPC;
-    //int numTiles;
+    public int tilesSpawned;
     // Start is called before the first frame update
     private void Awake() {
         if (PlayerPrefs.HasKey("Level Num"))
@@ -63,7 +63,7 @@ public class LevelManager : SceneLoader {
         {
             PlayerPrefs.SetInt("Tutorial", 0);//0 is  false and 1 is true            
         }
-        //numTiles = 0;
+        tilesSpawned = 0;
         objectPool = GetComponent<ObjectPool>();
         if (AudioManager.instance.CheckClip() != AudioManager.instance.levelmusic || !AudioManager.instance.IsPlaying()) {
             // CheckClip() is for when player starts level from level select. the other condition is when level is restarted either from pause screen or game over screen.
@@ -169,7 +169,7 @@ public class LevelManager : SceneLoader {
             mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
             objectPool.Remove();
             GameObject temp=objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(size * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
-          
+            tilesSpawned++;
             if (temp!= null)
             {
                 if (temp.GetComponent<Tile>().spawnedNpc != null)
@@ -225,7 +225,7 @@ public class LevelManager : SceneLoader {
         //} 
         tilerng = UnityEngine.Random.Range(0f, 1f);
         //print(tilerng);
-        if (tilerng > .85f && tilerng <= 1f) {
+        if (tilerng > .85f && tilerng <= 1f && tilesSpawned >= 15) {
             foreach (var i in tiles) {
                 if (i.CompareTag("Transition")) tileindex = Array.IndexOf(tiles, i);
             }
