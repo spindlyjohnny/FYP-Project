@@ -2265,15 +2265,17 @@ MonoBehaviour:
   - Keep in mind of your energy bar, if it runs out, it is game over! Right/Left
     click to continue
   - Quiz Cubes will pop up questions that will reward you with boosts if answered
-    correctly. Some questions can have multiple wrong answers. Right click to continue
-  - 'Press F or go infront of the commuter to interact with commuters to help them
-    out. '
-  - 'If you choose to help the commuters, some will require your help in answering
+    correctly. Some questions can have multiple wrong answers. Right/Left click to
+    continue
+  - Press F or go infront of the commuter to interact with commuters to help them
+    out. Right/Left click to continue
+  - If you choose to help the commuters, some will require your help in answering
     questions or taking action. Complete them successfully to be rewarded energy
-    and additional boosts '
-  - 'IN Bus SETTING: Press the red button near the rear door  to alight the bus '
-  - 'IN Train SETTING:When you encounter 3 people blocking the lane, press F to say
-    Excuse Me '
+    and additional boosts. Right/Left click to continue
+  - 'IN Bus SETTING: Press the red button near the rear door  to alight the bus.
+    Right/Left click to continue'
+  - IN Train SETTING:When you encounter 3 people blocking the lane, press F to say
+    Excuse Me. Right/Left click to continue
 --- !u!114 &866934024 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5842826474719329640, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
@@ -2679,7 +2681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d60584f40661c04591e11f9f0cd89ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopSpawningNpc: 0
+  stopSpawningNpc: 1
   spawnpt: {fileID: 1898340730}
   NPC:
   - {fileID: 6165041437090717006, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
@@ -2697,7 +2699,6 @@ MonoBehaviour:
   L2Destinations: []
   L3Destinations: []
   destinations: []
-  destinationSpawnPoints: []
 --- !u!4 &1004865145
 Transform:
   m_ObjectHideFlags: 0
@@ -5086,6 +5087,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5998532056930939395, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6063980683864536156, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
       propertyPath: m_margin.z
       value: -77.22728
@@ -5141,6 +5146,10 @@ PrefabInstance:
     - target: {fileID: 7720399667744455033, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7759460587803401740, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7826034709876510912, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
       propertyPath: option
@@ -5222,6 +5231,10 @@ PrefabInstance:
       propertyPath: buttons.Array.data[3]
       value: 
       objectReference: {fileID: 7196524405884246909}
+    - target: {fileID: 8101347798349286086, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8211078447903311741, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
       propertyPath: m_IsActive
       value: 0

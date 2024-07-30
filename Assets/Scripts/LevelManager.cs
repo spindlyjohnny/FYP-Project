@@ -23,7 +23,7 @@ public class LevelManager : SceneLoader {
     public TMP_Text nametext;
     public GameObject optionAButton, optionBButton, optionCButton, optionDButton;
     public GameObject dialoguebox, questionbox;
-    int numberOfTiles = 6;
+    int numberOfTiles = 5;
     bool onceComplete = false;
     public float tilerng;
     public enum Level { Bus,BusInterior, MRT };
@@ -169,15 +169,16 @@ public class LevelManager : SceneLoader {
             mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
             objectPool.Remove();
             GameObject temp=objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(size * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
-            if (temp.GetComponent<Tile>())
+          
+            if (temp!= null)
             {
                 if (temp.GetComponent<Tile>().spawnedNpc != null)
                 {
                     temp.GetComponent<Tile>().spawnedNpc.SetActive(true);
                 }
-               
+               Activate(temp.GetComponent<Tile>());
             }            
-            Activate(temp.GetComponent<Tile>());
+            
             //numTiles += 1;
             if (amount == 1) numberOfTiles += 1;
         }

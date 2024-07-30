@@ -11,8 +11,10 @@ public class TutorialUI : MonoBehaviour
     public TextMeshProUGUI text;
     [TextArea(3,10)]
     public string[] tutorialTexts;
+    int two=0;
     Player player;
     LevelManager manager;
+    PauseScreen pause;
     public enum TutorialState
     {
         defaultInstruction=0,
@@ -31,6 +33,7 @@ public class TutorialUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        pause = FindObjectOfType<PauseScreen>();
         player = FindObjectOfType<Player>();
         manager = FindObjectOfType<LevelManager>();
         if (!PlayerPrefs.HasKey("Tutorial"))
@@ -47,9 +50,9 @@ public class TutorialUI : MonoBehaviour
         {
             StartCoroutine(SeventhTutorial());
         }
-        if (manager.level == LevelManager.Level.BusInterior && state == (TutorialState)8)
+        if (manager.level == LevelManager.Level.BusInterior && state == (TutorialState)7)
         {
-            StartCoroutine(SeventhTutorial());
+            StartCoroutine(EightTutorial());
         }
     }
     IEnumerator FirstTutorial()
@@ -63,7 +66,7 @@ public class TutorialUI : MonoBehaviour
         text.text = tutorialTexts[0];
         while (true)
         {
-            if(Input.GetButton("Fire1")|| Input.GetButton("Fire2"))
+            if(Input.GetButtonDown("Fire1")|| Input.GetButtonDown("Fire2"))
             {
                 player.Movement();//this is to ensure that the player moves which is to show that the movement works
                 break;
@@ -79,52 +82,35 @@ public class TutorialUI : MonoBehaviour
 
     IEnumerator LoopingTutorial()
     {
+        print("next");
         yield return new WaitForSeconds(2);
+        print("next");
         stop = true;
         state = (TutorialState)2;
         Time.timeScale = 0;
         panel.SetActive(true);
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < 5; i++)
         {
             state = (TutorialState)(i+2);
             text.text = tutorialTexts[i+1];//the end index will be 3
+            yield return new WaitForSecondsRealtime(0.5f);
+            
             while (true)
             {
+                
+                print("tutoriaLING");
                 if (Input.GetButton("Fire1") || Input.GetButton("Fire2"))
-                {                
+                {
+                    
                     break;
                 }
                 yield return null;
             }
             
         }
-        state = (TutorialState)5;
-        panel.SetActive(false);
-        Time.timeScale = 1;
-        stop = false;
-    }
-
-    public IEnumerator FifthAndSixthTutorial()
-    {
-        stop = true;
-        Time.timeScale = 0;
-        panel.SetActive(true);
-        for (int i = 4; i < 6; i++)
-        {
-            state = (TutorialState)(i+1);
-            text.text = tutorialTexts[i];
-            while (true)
-            {
-                if (Input.GetButton("Fire1") || Input.GetButton("Fire2"))
-                {
-                    break;
-                }
-                yield return null;
-            }
-
-        }
-        panel.SetActive(false);
+        print("end");
         state = (TutorialState)7;
+        panel.SetActive(false);
         Time.timeScale = 1;
         stop = false;
     }
@@ -138,16 +124,23 @@ public class TutorialUI : MonoBehaviour
         text.text = tutorialTexts[6];
         while (true)
         {
-            if (Input.GetButton("Fire1") || Input.GetButton("Fire2"))
+            if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Fire2"))
             {
                 break;
             }
             yield return null;
         }
         panel.SetActive(false);
-        state = (TutorialState)8;
+        state = (TutorialState)7;
         Time.timeScale = 1;
         stop = false;
+        two += 1;
+        if (two >= 2)
+        {
+            PlayerPrefs.SetInt("Tutorial", 1);
+            pause.BackToMainMenu();
+
+        }
     }
 
     IEnumerator EightTutorial()
@@ -159,17 +152,23 @@ public class TutorialUI : MonoBehaviour
         text.text = tutorialTexts[7];
         while (true)
         {
-            if (Input.GetButton("Fire1") || Input.GetButton("Fire2"))
+            if (Input.GetButtonDown("Fire1") || Input.GetButtonDown("Fire2"))
             {
                 break;
             }
             yield return null;
         }
         panel.SetActive(false);
-        state = (TutorialState)9;
+        state = (TutorialState)7;
         Time.timeScale = 1;
         stop = false;
-        PlayerPrefs.SetInt("Tutorial", 1);
+        two += 1;
+        if (two >= 2)
+        {
+            PlayerPrefs.SetInt("Tutorial", 1);
+            pause.BackToMainMenu();
+        }
+        
     }
 
     // Update is called once per frame
