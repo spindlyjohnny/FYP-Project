@@ -229,7 +229,7 @@ public class LevelManager : SceneLoader {
                 if (i.CompareTag("Transition")) tileindex = Array.IndexOf(tiles, i);
             }
         } 
-        else if (tilerng <= .5f && tilerng > 0) { // 50% chance of getting a road tile
+        else if (tilerng <= .25f && tilerng > 0) { // 50% chance of getting a road tile
             foreach (var i in tiles) {
                 if (i.GetComponent<RoadTile>()) tileindex = Array.IndexOf(tiles, i); // get index of road tile in tiles array
             }

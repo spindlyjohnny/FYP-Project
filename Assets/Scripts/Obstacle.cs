@@ -47,36 +47,33 @@ public class Obstacle : MonoBehaviour
         
     }
     //void Sensors() {
-    //     Transform[] rays = { front, left, right };
-    //     RaycastHit hit;
-    //     int hits = 0;
-    //     for (int i = 0; i < rays.Length; i++) {
-    //         Physics.Raycast(rays[i].position, rays[i].forward, out hit, 1f,LayerMask.GetMask("NPC Obstacle","Player"/*,"Obstacle"*/,"NPC"));
-    //         if (hit.collider) {
-    //             print(hit.collider.name);
-    //             Debug.DrawLine(rays[i].position, hit.point, Color.red);
-    //             //dir = transform.position - hit.collider.transform.position;
-    //             hits++;
-    //             print(hits);
-    //         }
-    //         //print(hit.collider.name);
-    //         if (hit.collider == null && hits > 0 && hits < 3/*&& (transform.position - hit.collider.transform.position).sqrMagnitude < .2f*/) {
-    //             // runs when 1 or 2 objects are detected
-    //             print(rays[i]);
-    //             dir = rays[i].forward;
-    //         } 
-    //         else if (hits >= 3) {
-    //             print("back");
-    //             //hits = 0;
-    //             dir = -front.forward;
-    //         } 
-    //         else if(hits == 0) {
-    //             dir = front.forward;
-    //         }
-    //         //else {
-    //         //    dir = new Vector3(-1, 0, 0);
-    //         //}
-    //     }
+    //    Transform[] rays = { front, left, right };
+    //    RaycastHit hit;
+    //    int hits = 0;
+    //    for (int i = 0; i < rays.Length; i++) {
+    //        Physics.Raycast(rays[i].position, rays[i].forward, out hit, 1f, LayerMask.GetMask("NPC Obstacle", "Player"/*,"Obstacle"*/, "NPC"));
+    //        if (hit.collider) {
+    //            print(hit.collider.name);
+    //            Debug.DrawLine(rays[i].position, hit.point, Color.red);
+    //            dir = transform.position - hit.collider.transform.position;
+    //            hits++;
+    //            print(hits);
+    //        }
+    //        print(hit.collider.name);
+    //        if (hit.collider == null && hits > 0 && hits < 3/*&& (transform.position - hit.collider.transform.position).sqrMagnitude < .2f*/) {
+    //            runs when 1 or 2 objects are detected
+    //            print(rays[i]);
+    //            dir = rays[i].forward;
+    //        } else if (hits >= 3) {
+    //            print("back");
+    //            hits = 0;
+    //            dir = -front.forward;
+    //        } else if (hits == 0) {
+    //            dir = front.forward;
+    //        } else {
+    //            dir = new Vector3(-1, 0, 0);
+    //        }
+    //    }
     //}
     //void Sensors() {
     //    Transform[] rays = { front, left, right };

@@ -27,7 +27,13 @@ public class ObstacleSpawn : MonoBehaviour
     }
     void SpawnObstacle()
     {
-        myobstacle = Instantiate(obstacles[Random.Range(0, obstacles.Length)], transform.position + new Vector3(Randomness(), 0, 0), transform.rotation);
+        float rng = Random.Range(0f, 1f);
+        if(rng > 0 && rng <= .3f) {
+            myobstacle = Instantiate(obstacles[0], transform.position + new Vector3(Randomness(), 0, 0), transform.rotation);
+        }
+        else if(rng > .3f && rng <= 1f) {
+            myobstacle = Instantiate(obstacles[1], transform.position + new Vector3(Randomness(), 0, 0), transform.rotation);
+        }
         myobstacle.GetComponent<Obstacle>().myspawner = this;
         myobstacle.transform.position += myobstacle.GetComponent<Obstacle>().spawnoffset;
         if (myobstacle.GetComponent<Collectible>() == null) myobstacle.transform.rotation = Quaternion.Euler(0, -90, 0);
