@@ -144,7 +144,7 @@ MonoBehaviour:
   player: {fileID: 0}
   upgradeText: {fileID: 0}
   boost: {fileID: 0}
-  taskfailimg: {fileID: 0}
+  taskCompleteImg: {fileID: 0}
   npcAvatar: {fileID: 0}
   level1NPC:
   - {fileID: 6165041437090717006, guid: 7fd496348fe4c3b48a82dda133f4dfd5, type: 3}
@@ -157,6 +157,11 @@ MonoBehaviour:
   - {fileID: 3150791528455194462, guid: 194c72ab4554f824fabee7d3f9112f4b, type: 3}
   - {fileID: 6165041437090717006, guid: 2cd75555dda2eca4b95fc248b50c0b84, type: 3}
   tilesSpawned: 0
+  taskCompletionPanelSprites:
+  - {fileID: 21300000, guid: ecb26faeb7992cb428425011a007d1cb, type: 3}
+  - {fileID: 21300000, guid: fad9e5748ebf68445ba8ae3e22e94ce2, type: 3}
+  - {fileID: 21300000, guid: 3c646d5318656af4db38b887235fcc97, type: 3}
+  - {fileID: 21300000, guid: 42c2e6f289dc5054c86996bbb75d51fc, type: 3}
 --- !u!114 &1150282314607055674
 MonoBehaviour:
   m_ObjectHideFlags: 0

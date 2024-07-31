@@ -34,11 +34,13 @@ public class LevelManager : SceneLoader {
     CameraController cam;
     public Sprite[] loadingimgs;
     [HideInInspector]public Player player;
-    public GameObject upgradeText,boost,taskfailimg;
+    public GameObject upgradeText, boost;
+    public Image taskCompleteImg;
     ObjectPool objectPool;
-    public Image npcAvatar;
+    public Image npcAvatar,pauseImg;
     public GameObject[] level1NPC, level2NPC, level3NPC;
     public int tilesSpawned;
+    public Sprite[] taskCompletionPanelSprites;
     // Start is called before the first frame update
     private void Awake() {
         if (PlayerPrefs.HasKey("Level Num"))
@@ -105,6 +107,8 @@ public class LevelManager : SceneLoader {
         else {
             cam.lookOffset = cam.interioroffset;
         }
+        taskCompletionPanelSprites[0] = player.loseSprite;
+        pauseImg.sprite = player.pauseSprite;
     }
 
     // Update is called once per frame
@@ -121,11 +125,11 @@ public class LevelManager : SceneLoader {
         if (npcmanager.myNPC != null) {
             if (npcmanager.myNPC.tasksuccess == NPC.Task.Fail) {
                 tasksuccesstext.text = "Task failed!";
-                taskfailimg.SetActive(true);
+                //taskCompleteImg.SetActive(true);
             } 
             else if (npcmanager.myNPC.tasksuccess == NPC.Task.Success) {
                 tasksuccesstext.text = "Task success!";
-                taskfailimg.SetActive(false);
+                //taskCompleteImg.SetActive(false);
             }
         }
         currenttiles = FindObjectsOfType<Tile>();//why is this in update(), why not move to start()?

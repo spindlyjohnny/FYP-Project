@@ -25,11 +25,12 @@ public class NPCQuestion : MonoBehaviour
         {
             if (option == Options.WrongOption)
             {
-                levelManager.upgradeText.SetActive(false);
+                levelManager.boost.SetActive(false);
                 Explain();
                 levelManager.tasksuccesstext.text = "Wrong!";
                 levelManager.taskcompletescreen.SetActive(true);
-                levelManager.taskfailimg.SetActive(true);
+                levelManager.taskCompleteImg.sprite = levelManager.taskCompletionPanelSprites[0];
+                levelManager.taskCompleteImg.gameObject.SetActive(true);
                 AudioManager.instance.PlaySFX(wrongsound);
             }
             else if (option == Options.CorrectOption)
@@ -46,13 +47,16 @@ public class NPCQuestion : MonoBehaviour
                 }
                 Explain();
                 levelManager.taskcompletescreen.SetActive(true);
-                levelManager.upgradeText.SetActive(true);
+
+                //levelManager.upgradeText.SetActive(true);
                 levelManager.boost.GetComponentInChildren<TMP_Text>().text = "Timed Boost: Invincibility";
                 levelManager.boost.SetActive(true);
-                foreach(var i in levelManager.boost.GetComponentsInChildren<Image>())i.enabled = false;
+                levelManager.taskCompleteImg.sprite = levelManager.taskCompletionPanelSprites[2];
+                levelManager.taskCompleteImg.gameObject.SetActive(true);
+                //foreach (var i in levelManager.boost.GetComponentsInChildren<Image>()) i.enabled = false;
                 player.Invincibility();
                 //if (player.originalInvincibleTime < player.maxInvincibleTime)player.originalInvincibleTime += 10;
-                levelManager.taskfailimg.SetActive(false);
+                //levelManager.taskCompleteImg.SetActive(false);
                 levelManager.tasksuccesstext.text = "Correct!";
                 //levelManager.questionbox.SetActive(false);
                 AudioManager.instance.PlaySFX(correctsound);
@@ -65,7 +69,7 @@ public class NPCQuestion : MonoBehaviour
 
         if (option == Options.WrongOption) {
             //Explain();
-            levelManager.upgradeText.SetActive(false);
+            //levelManager.upgradeText.SetActive(false);
             npcmanager.myNPC.questionbox.SetActive(false);
             if(npcmanager.myNPC.indexDialogue == 1)
             {
@@ -81,6 +85,9 @@ public class NPCQuestion : MonoBehaviour
             // NPC responds to player's choice here
             npcmanager.myNPC.EndDialogue();
             levelManager.taskcompletescreen.SetActive(true);
+            levelManager.taskCompleteImg.sprite = levelManager.taskCompletionPanelSprites[0];
+            levelManager.boost.SetActive(false);
+            levelManager.taskCompleteImg.gameObject.SetActive(true);
             npcmanager.myNPC.tasksuccess = NPC.Task.Fail;
             AudioManager.instance.PlaySFX(wrongsound);
         } 
@@ -101,6 +108,8 @@ public class NPCQuestion : MonoBehaviour
             npcmanager.myNPC.dialoguebox.SetActive(true);
             levelManager.dialoguescreen.SetActive(true);
             npcmanager.myNPC.StartDialogue();
+            levelManager.taskCompleteImg.sprite = levelManager.taskCompletionPanelSprites[1];
+            levelManager.taskCompleteImg.gameObject.SetActive(true);
             AudioManager.instance.PlaySFX(correctsound);/*
             if (npcmanager.myNPC.hasdestination) {
                 npcmanager.myNPC.followplayer = true;

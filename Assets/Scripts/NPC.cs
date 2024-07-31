@@ -107,11 +107,10 @@ public class NPC : MonoBehaviour
         levelManager.taskcompletescreen.SetActive(true);
         player.inputtext.SetActive(false);
 
-        levelManager.upgradeText.SetActive(true);
+        //levelManager.upgradeText.SetActive(true);
         levelManager.boost.SetActive(true);
         levelManager.boost.GetComponentInChildren<TMP_Text>().text = "max increased";
-        foreach (var i in levelManager.boost.GetComponentsInChildren<Image>()) i.enabled = true;
-        //levelManager.boost.GetComponentInChildren<Image>().enabled = true;
+        levelManager.taskCompleteImg.sprite = levelManager.taskCompletionPanelSprites[3];
         player.maxenergy *= 1.5f;
         player.energy += player.maxenergy * .2f;
         //if (player.energygain < player.maxEnergyGain) {
