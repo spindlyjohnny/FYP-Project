@@ -157,7 +157,7 @@ MonoBehaviour:
   temp: 
   character: 2
   avatar: {fileID: 0}
-  dialogueSprite: {fileID: 21300000, guid: 45e07c4d99b12df46a1ca120b39dac19, type: 3}
+  dialogueSprite: {fileID: 21300000, guid: c9f80adee111a0240b2e7f937b879d17, type: 3}
   indexDialogue: 0
   nameFile: {fileID: 4900000, guid: 7aeddbc9f09412943b845e7b94326548, type: 3}
 --- !u!1 &6964791801456276691

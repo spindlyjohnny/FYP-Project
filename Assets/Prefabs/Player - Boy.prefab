@@ -985,7 +985,7 @@ MonoBehaviour:
   maxInvincibleTime: 5
   invincibilitytime: 0
   avatar: {fileID: 0}
-  dialogueSprite: {fileID: 21300000, guid: c96b9095690335443acd0fa8b193e7f1, type: 3}
+  dialogueSprite: {fileID: 21300000, guid: bdaae2e8ed5a2e44395fb9ae1ac828ed, type: 3}
   loseSprite: {fileID: 21300000, guid: 5165c1d38651e4346acdc2dce1042807, type: 3}
   pauseSprite: {fileID: 21300000, guid: 3ea0571682b70e34aa74055f072c141b, type: 3}
   anim: {fileID: 654269173881653805}
