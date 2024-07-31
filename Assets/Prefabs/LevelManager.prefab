@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelSelect: {fileID: 0}
   fpsCounter: {fileID: 0}
+  tutorialPanel: {fileID: 0}
   gameover: 0
   gameoverscreen: {fileID: 0}
   taskcompletescreen: {fileID: 0}
@@ -60,6 +61,7 @@ MonoBehaviour:
   - {fileID: 377410254696918908, guid: ef59d2ce6bb989c4291eead70d12b4bf, type: 3}
   - {fileID: 5619750261169252043, guid: eb2ed2fd2da14c444943bb0a147f543d, type: 3}
   - {fileID: 6660389373174502101, guid: b1ebd68865e670d4a9f7f2e06be1161d, type: 3}
+  - {fileID: 8079574988167343021, guid: 973f63143bbd50148aff2985c02598ac, type: 3}
   - {fileID: 8069987741948419533, guid: 7fd2089fd616b2e449104035046c91db, type: 3}
   - {fileID: 8644082906898212650, guid: 0f7617d5e084433438f28059016bca83, type: 3}
   - {fileID: 8079574988167343021, guid: 973f63143bbd50148aff2985c02598ac, type: 3}
@@ -69,6 +71,7 @@ MonoBehaviour:
   - {fileID: 377410254696918908, guid: ef59d2ce6bb989c4291eead70d12b4bf, type: 3}
   - {fileID: 5619750261169252043, guid: eb2ed2fd2da14c444943bb0a147f543d, type: 3}
   - {fileID: 6660389373174502101, guid: b1ebd68865e670d4a9f7f2e06be1161d, type: 3}
+  - {fileID: 6660389373174502101, guid: 3f97b21ac6a12c3408eb5d9595b62eeb, type: 3}
   - {fileID: 8069987741948419533, guid: 7fd2089fd616b2e449104035046c91db, type: 3}
   - {fileID: 8644082906898212650, guid: 0f7617d5e084433438f28059016bca83, type: 3}
   - {fileID: 8079574988167343021, guid: 973f63143bbd50148aff2985c02598ac, type: 3}
@@ -78,6 +81,7 @@ MonoBehaviour:
   - {fileID: 377410254696918908, guid: ef59d2ce6bb989c4291eead70d12b4bf, type: 3}
   - {fileID: 5619750261169252043, guid: eb2ed2fd2da14c444943bb0a147f543d, type: 3}
   - {fileID: 6660389373174502101, guid: b1ebd68865e670d4a9f7f2e06be1161d, type: 3}
+  - {fileID: 6660389373174502101, guid: 3f97b21ac6a12c3408eb5d9595b62eeb, type: 3}
   - {fileID: 8069987741948419533, guid: 7fd2089fd616b2e449104035046c91db, type: 3}
   - {fileID: 8644082906898212650, guid: 0f7617d5e084433438f28059016bca83, type: 3}
   - {fileID: 8079574988167343021, guid: 973f63143bbd50148aff2985c02598ac, type: 3}
@@ -87,6 +91,7 @@ MonoBehaviour:
   - {fileID: 377410254696918908, guid: 7e1cbc1b1f88b9d4389a17b7e240fbea, type: 3}
   - {fileID: 5619750261169252043, guid: 99142692c694a3d48b97ed9be8f31912, type: 3}
   - {fileID: 6660389373174502101, guid: 137ccc1f56dc3b44c8c1df645b094b62, type: 3}
+  - {fileID: 6660389373174502101, guid: 3aeba52357b243247bfb8e9cb5521bac, type: 3}
   - {fileID: 8069987741948419533, guid: 34624e40535b2d24e835f08c8de821a4, type: 3}
   - {fileID: 8644082906898212650, guid: b70d7f2aac02d064e9c26d8ef501b73d, type: 3}
   - {fileID: 8079574988167343021, guid: 973f63143bbd50148aff2985c02598ac, type: 3}
@@ -96,6 +101,7 @@ MonoBehaviour:
   - {fileID: 377410254696918908, guid: 33e1129f5a208f64eb7968ca1cf25827, type: 3}
   - {fileID: 5619750261169252043, guid: f32f814558bbc884aacd4d43d8df8cee, type: 3}
   - {fileID: 6660389373174502101, guid: aff5f102106731547a7c5de2c84c6a32, type: 3}
+  - {fileID: 6660389373174502101, guid: 40271c09855b516458aeded5f1357726, type: 3}
   - {fileID: 8069987741948419533, guid: addeb34d2f7725147bf27d54f6ac6804, type: 3}
   - {fileID: 8644082906898212650, guid: 184f6433fae48fd4eb2fcf06c3f960c7, type: 3}
   - {fileID: 8079574988167343021, guid: 973f63143bbd50148aff2985c02598ac, type: 3}
@@ -110,6 +116,7 @@ MonoBehaviour:
   - {fileID: 3002043870293167261, guid: 202f51f9772206d4bb9a282c0679b3ad, type: 3}
   score: 0
   tileindex: 0
+  tileAmount: 0
   scoretext: {fileID: 0}
   tasksuccesstext: {fileID: 0}
   finalScoreText: {fileID: 0}
@@ -148,6 +155,7 @@ MonoBehaviour:
   - {fileID: 7665079195801556620, guid: ddc339b32c0998643bc686bdd64f6b1e, type: 3}
   - {fileID: 3150791528455194462, guid: 194c72ab4554f824fabee7d3f9112f4b, type: 3}
   - {fileID: 6165041437090717006, guid: 2cd75555dda2eca4b95fc248b50c0b84, type: 3}
+  tilesSpawned: 0
 --- !u!114 &1150282314607055674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +185,9 @@ MonoBehaviour:
   - tag: L1C5
     prefab: {fileID: 6660389373174502101, guid: b1ebd68865e670d4a9f7f2e06be1161d, type: 3}
     size: 10
+  - tag: L1C6
+    prefab: {fileID: 6660389373174502101, guid: 3f97b21ac6a12c3408eb5d9595b62eeb, type: 3}
+    size: 10
   - tag: L1 Street Holder
     prefab: {fileID: 8644082906898212650, guid: 0f7617d5e084433438f28059016bca83, type: 3}
     size: 10
@@ -202,6 +213,9 @@ MonoBehaviour:
   - tag: L2C5
     prefab: {fileID: 6660389373174502101, guid: 137ccc1f56dc3b44c8c1df645b094b62, type: 3}
     size: 10
+  - tag: L2C6
+    prefab: {fileID: 6660389373174502101, guid: 3aeba52357b243247bfb8e9cb5521bac, type: 3}
+    size: 10
   - tag: L2 Street Holder
     prefab: {fileID: 8644082906898212650, guid: b70d7f2aac02d064e9c26d8ef501b73d, type: 3}
     size: 10
@@ -226,6 +240,9 @@ MonoBehaviour:
     size: 10
   - tag: L3C5
     prefab: {fileID: 6660389373174502101, guid: aff5f102106731547a7c5de2c84c6a32, type: 3}
+    size: 10
+  - tag: L3C6
+    prefab: {fileID: 6660389373174502101, guid: 40271c09855b516458aeded5f1357726, type: 3}
     size: 10
   - tag: L3 Street Holder
     prefab: {fileID: 8644082906898212650, guid: 184f6433fae48fd4eb2fcf06c3f960c7, type: 3}
