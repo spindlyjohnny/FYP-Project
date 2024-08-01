@@ -43,13 +43,13 @@ public enum LocationEnum
 [System.Serializable]
 public enum OutcomeLocation
 {
-    taskCompletion,
-    busStop,
-    WheelchairZone,
-    stationStaff,
-    grandKid,
-    emptySeat,
-    busCaptain
+    taskCompletion = 0,
+    busStop = 1,
+    WheelchairZone = 2,
+    stationStaff = 3,
+    grandKid = 4,
+    emptySeat = 5,
+    busCaptain = 6
 }
 
 [System.Serializable]

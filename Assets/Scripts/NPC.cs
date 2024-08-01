@@ -38,7 +38,7 @@ public class NPC : MonoBehaviour
     public int character = 2;
     public Image avatar;
     public Sprite dialogueSprite;
-    int qnindex;
+    public int qnindex;
     public int indexDialogue = 0;
     [SerializeField] TextAsset nameFile;
     // Start is called before the first frame update
