@@ -19,6 +19,7 @@ public class Data
     public LocationEnum locationE;
     public Response[] response;// the  length of this is the length of the possible options
     public string outcome;
+    public OutcomeLocation outcomeLocation;
 }
 
 [System.Serializable]
@@ -37,6 +38,18 @@ public enum LocationEnum
     Default,
     WheelchairZone,
     Null
+}
+
+[System.Serializable]
+public enum OutcomeLocation
+{
+    taskCompletion,
+    busStop,
+    WheelchairZone,
+    stationStaff,
+    grandKid,
+    emptySeat,
+    busCaptain
 }
 
 [System.Serializable]

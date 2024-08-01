@@ -317,9 +317,7 @@ public class NPC : MonoBehaviour
     public void UpdateCanvas()
     {
         hasdestination = false;
-        string subOutcome = dialogueData.dialogueQuestions[qnindex].outcome.Substring(0, 6);
-        string tempOutcome = "Start task".Substring(0, 6);
-        if (subOutcome == tempOutcome)
+        if(dialogueData.dialogueQuestions[qnindex].outcomeLocation != OutcomeLocation.taskCompletion)
         {
             hasdestination = true;
         }
