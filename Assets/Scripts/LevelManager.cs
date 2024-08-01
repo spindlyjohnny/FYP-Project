@@ -39,7 +39,7 @@ public class LevelManager : SceneLoader {
     public GameObject upgradeText, boost;
     public Image taskCompleteImg;
     ObjectPool objectPool;
-    public Image npcAvatar,pauseImg;
+    public Image npcAvatar,pauseImg,failImg;
     public GameObject[] level1NPC, level2NPC, level3NPC;
     public int tilesSpawned;
     public Sprite[] taskCompletionPanelSprites;
@@ -111,6 +111,7 @@ public class LevelManager : SceneLoader {
         }
         taskCompletionPanelSprites[0] = player.loseSprite;
         pauseImg.sprite = player.pauseSprite;
+        failImg.sprite = player.loseSprite;
     }
 
     // Update is called once per frame
@@ -229,7 +230,7 @@ public class LevelManager : SceneLoader {
         //} 
         tilerng = UnityEngine.Random.Range(0f, 1f);
         //print(tilerng);
-        if (tilerng > .85f && tilerng <= 1f /*&& tilesSpawned >= 15*/) {
+        if (tilerng > .85f && tilerng <= 1f && tilesSpawned >= 15) {
             foreach (var i in tiles) {
                 if (i.CompareTag("Transition")) tileindex = Array.IndexOf(tiles, i);
             }
