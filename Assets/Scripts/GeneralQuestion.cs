@@ -66,7 +66,7 @@ public class GeneralQuestion : Collectible
     private void OnTriggerEnter(Collider other)
     {
         if (once == false) return;
-        if (other.GetComponent<Player>())
+        if (other.GetComponent<Player>() && !player.NPC)
         {
             once = false;
             UpdateCanvas();

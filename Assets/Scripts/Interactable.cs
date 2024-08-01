@@ -31,15 +31,18 @@ public class Interactable : MonoBehaviour
         if (gameObject.CompareTag("Transition") && Input.GetKeyDown(KeyCode.F)) {
             if (npcmanager.myNPC != null) { // bus to bus interior, mrt to bus
                 npcmanager.myNPC.Transitioninator();
-            }
-            if(npcmanager.myNPC == null){ // for when player is in bus interior or if they are touching train station
+            } 
+            else {
                 if (levelManager.level == LevelManager.Level.BusInterior) {
                     StartCoroutine(levelManager.Move(1, LevelManager.Level.Bus)); // go from bus interior to bus
-                }
+                } 
                 else if (levelManager.level == LevelManager.Level.Bus) {
                     StartCoroutine(levelManager.Move(3, LevelManager.Level.MRT)); // go from bus to mrt
                 }
             }
+            //if(npcmanager.myNPC == null){ // for when player is in bus interior or if they are touching train station
+                
+            //}
         }
     }
     protected virtual void OnTriggerEnter(Collider other) {

@@ -462,6 +462,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7807404653850590376, guid: 7a8be08671576de4781cb68c4897d969, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -4142481489190813837, guid: 7a8be08671576de4781cb68c4897d969, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -473,6 +477,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7a8be08671576de4781cb68c4897d969, type: 3}
       propertyPath: m_Name
       value: L1 Street V2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8854207822279903613, guid: 7a8be08671576de4781cb68c4897d969, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
