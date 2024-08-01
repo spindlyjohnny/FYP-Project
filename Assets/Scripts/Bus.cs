@@ -24,9 +24,10 @@ public class Bus : Obstacle
     public IEnumerator BusTransitioninator() {
         yield return new WaitForSeconds(2f); // bus waits for a bit before moving off-screen
         moving = true;
-        FindObjectOfType<LevelManager>().loadingscreen.SetActive(true); // activate loading screen
-        FindObjectOfType<LevelManager>().loadingscreen.GetComponent<Image>().sprite = FindObjectOfType<LevelManager>().loadingimgs[Random.Range(0, FindObjectOfType<LevelManager>().loadingimgs.Length)]; // set loading screen sprite
-        yield return new WaitForSeconds(2.5f);
-        FindObjectOfType<LevelManager>().Move(2,LevelManager.Level.BusInterior);
+        FindObjectOfType<LevelManager>().loadingScreen.gameObject.SetActive(true); // activate loading screen
+        //FindObjectOfType<LevelManager>().loadingScreen.Play();
+        //FindObjectOfType<LevelManager>().loadingscreen.GetComponent<Image>().sprite = FindObjectOfType<LevelManager>().loadingimgs[Random.Range(0, FindObjectOfType<LevelManager>().loadingimgs.Length)]; // set loading screen sprite
+        //yield return new WaitForSeconds(2.5f);
+        StartCoroutine(FindObjectOfType<LevelManager>().Move(2,LevelManager.Level.BusInterior));
     }
 }

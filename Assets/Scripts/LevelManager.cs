@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEngine.Video;
 
 public class LevelManager : SceneLoader {
     public bool gameover;
-    public GameObject gameoverscreen, taskcompletescreen, loadingscreen, dialoguescreen;
+    public GameObject gameoverscreen, taskcompletescreen/*, loadingscreen*/, dialoguescreen;
+    public VideoPlayer loadingScreen;
     public Slider energyslider;
     public GameObject[] tiles;
     [SerializeField] GameObject[] bustiles,level1Bus,level2Bus,level3Bus;
@@ -114,7 +116,7 @@ public class LevelManager : SceneLoader {
     // Update is called once per frame
     void Update() {
         print("Level Num: " + (int)levelNum);
-        //print("Tiles:" + numTiles);
+        print(loadingScreen.isPlaying);
         if (gameover) {
             gameoverscreen.SetActive(true);
             finalScoreText.text = "Score: "+score;
@@ -139,11 +141,6 @@ public class LevelManager : SceneLoader {
         else if (level == Level.Bus) {
             tileshiftfactor = 26; //  tileshiftfactor spawns tiles 21 units ahead because when player enters trigger, there are 3 tiles in front. each tile is 7 units long on the x-axis
         }
-        //if (Mathf.FloorToInt(player.distTravelled.magnitude) % 50 == 0 && player.distTravelled.magnitude > 0) {
-        //    foreach (var i in tiles) {
-        //        if (i.CompareTag("Transition")) tileindex = Array.IndexOf(tiles, i);
-        //    }
-        //}
     }
     //public void RestartLevel() {
     //    LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -153,14 +150,16 @@ public class LevelManager : SceneLoader {
         if(npcmanager.myGeneral == null)player.canMove = true;
         taskcompletescreen.SetActive(false);
     }
-    public void Move(int index,Level lvl) { // transition between levels
+    public IEnumerator Move(int index,Level lvl) { // transition between levels
         // index is the buildIndex of the level that you are going to, lvl is the Level enum value of the level that you are going to
         level = lvl;
+        loadingScreen.gameObject.SetActive(true);
+        loadingScreen.Play();
+        yield return new WaitForSeconds((float)loadingScreen.length);
         LoadScene(index,true);
         SaveData();
         PlayerPrefs.Save();
-        loadingscreen.SetActive(true);
-        loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];
+        //loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];
     }
     public void Spawn(int amount,float size) {
         for (int x = 0; x < amount; x++) { // spawn amount tiles at a time

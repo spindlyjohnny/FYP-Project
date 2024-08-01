@@ -131,8 +131,8 @@ public class NPC : MonoBehaviour
         }
         else if (level == LevelManager.Level.MRT)
         { // called by interactable.cs go from mrt to bus
-            yield return new WaitForSeconds(1f);
-            levelManager.Move(1, LevelManager.Level.Bus);
+            yield return new WaitForSeconds((float)levelManager.loadingScreen.length);
+            StartCoroutine(levelManager.Move(1, LevelManager.Level.Bus));
         } /*else if (level == LevelManager.Level.BusInterior) {// called by interactable.cs
             levelManager.Move(3, LevelManager.Level.MRT);
         }*/

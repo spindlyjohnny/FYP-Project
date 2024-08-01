@@ -2947,6 +2947,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062498230}
   m_Mesh: {fileID: 5615485946433131959, guid: d1bccc18ef1137b40beae9e3e8fb0d42, type: 3}
+--- !u!328 &1070986917 stripped
+VideoPlayer:
+  m_CorrespondingSourceObject: {fileID: 5984350595880415289, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+  m_PrefabInstance: {fileID: 7196524405884246908}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1083527467
 GameObject:
   m_ObjectHideFlags: 0
@@ -4793,6 +4798,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1482969499}
     - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: loadingScreen
+      value: 
+      objectReference: {fileID: 1070986917}
+    - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: loadingscreen
       value: 
       objectReference: {fileID: 1554615338}
@@ -5212,7 +5221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7395306055530950757, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.5
+      value: -0.5000305
       objectReference: {fileID: 0}
     - target: {fileID: 7494718080129197302, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
       propertyPath: m_AnchoredPosition.x

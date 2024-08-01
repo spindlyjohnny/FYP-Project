@@ -34,10 +34,10 @@ public class Interactable : MonoBehaviour
             }
             if(npcmanager.myNPC == null){ // for when player is in bus interior or if they are touching train station
                 if (levelManager.level == LevelManager.Level.BusInterior) {
-                    levelManager.Move(1, LevelManager.Level.Bus); // go from bus interior to bus
+                    StartCoroutine(levelManager.Move(1, LevelManager.Level.Bus)); // go from bus interior to bus
                 }
                 else if (levelManager.level == LevelManager.Level.Bus) {
-                    levelManager.Move(3, LevelManager.Level.MRT); // go from bus to mrt
+                    StartCoroutine(levelManager.Move(3, LevelManager.Level.MRT)); // go from bus to mrt
                 }
             }
         }
