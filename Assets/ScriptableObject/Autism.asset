@@ -42,6 +42,7 @@ MonoBehaviour:
     - response:
       - '(She gave a bothered look) '
     outcome: 'Start task: Ride the bus with the commuter'
+    outcomeLocation: 1
   - assessQuestion: (What is she doing?)
     assDialogue:
     - speechLine: '(She is rocking back and forth) '
@@ -69,6 +70,7 @@ MonoBehaviour:
     - response:
       - (I should be respectful of a person's mannerisms)
     outcome: Task Complete
+    outcomeLocation: 0
   - assessQuestion: (I think she is panicking)
     assDialogue:
     - speechLine: '(A lady was frantically waving her arms) '
@@ -99,6 +101,7 @@ MonoBehaviour:
     - response:
       - '"W-what? Oh dear...."'
     outcome: 'Start task: Bring commuter to the station staff'
+    outcomeLocation: 3
   - assessQuestion: (She might be in distress)
     assDialogue:
     - speechLine: '(A lady was looking around in all directions) '
@@ -129,6 +132,7 @@ MonoBehaviour:
     - response:
       - '"Oh, nevermind..."'
     outcome: 'Start task: Find an empty seat for the commuter'
+    outcomeLocation: 5
   - assessQuestion: (What is she doing?)
     assDialogue:
     - speechLine: '(A lady is humming a song to herself) '
@@ -156,3 +160,4 @@ MonoBehaviour:
     - response:
       - (She gave an embarrassed look)
     outcome: Task Complete
+    outcomeLocation: 0

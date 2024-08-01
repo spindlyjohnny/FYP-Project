@@ -45,6 +45,7 @@ MonoBehaviour:
     - response:
       - '"Oh, but how will I find it myself?"'
     outcome: 'Start task: Ride the bus with the commuter'
+    outcomeLocation: 1
   - assessQuestion: (Is he looking for something?)
     assDialogue:
     - speechLine: '(He was staring closely at the passing buses) '
@@ -76,6 +77,7 @@ MonoBehaviour:
     - response:
       - '"Oh, n-nevermind"'
     outcome: Task Complete
+    outcomeLocation: 0
   - assessQuestion: (Does he need my help?)
     assDialogue:
     - speechLine: '(A young boy timidly approaches me) '
@@ -105,6 +107,7 @@ MonoBehaviour:
     - response:
       - (He walked away embarrassed)
     outcome: 'Task Complete '
+    outcomeLocation: 0
   - assessQuestion: (Maybe I should help)
     assDialogue:
     - speechLine: '(A boy is anxiously looking in all directions) '
@@ -136,7 +139,8 @@ MonoBehaviour:
     - response:
       - '"Oh..maybe I need to call someone..."'
     outcome: Task Complete
-  - assessQuestion: 
+    outcomeLocation: 0
+  - assessQuestion: (I think he needs my help)
     assDialogue:
     - speechLine: '"Hey! Excuse me!"'
       npcTalking: 1
@@ -166,3 +170,4 @@ MonoBehaviour:
     - response:
       - '"Oh.. Okay then"'
     outcome: 'Start task: Ask the bus captain about the route'
+    outcomeLocation: 6
