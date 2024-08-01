@@ -8,6 +8,7 @@ public class Interactable : MonoBehaviour
     protected LevelManager levelManager;
     public ObjectPool objectPool;
     [SerializeField]Vector3 trainsize;
+    [SerializeField] int location;
     //public GameObject[] L1Destinations, L2Destinations, L3Destinations;
     //public GameObject[] destinations;
     //public string location;
@@ -47,12 +48,12 @@ public class Interactable : MonoBehaviour
     }
     protected virtual void OnTriggerEnter(Collider other) {
         if (other.GetComponent<Player>() && gameObject.CompareTag("Transition")) {
-            if (npcmanager.myNPC != null) { // stop player no matter what if have NPC
+            if (npcmanager.myNPC != null && (int)npcmanager.myNPC.dialogueData.dialogueQuestions[npcmanager.myNPC.qnindex].outcomeLocation == location) { // stop player no matter what if have NPC
                 player.canMove = false;
                 player.inputtext.SetActive(true);
                 if (GetComponentInParent<RoadTile>()) npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
             }
-            else if(npcmanager.myNPC == null) {
+            else /*if(npcmanager.myNPC == null)*/ {
                 if(levelManager.level == LevelManager.Level.BusInterior) { // dont stop player if in bus 
                     player.inputtext.SetActive(true);
                 } 
