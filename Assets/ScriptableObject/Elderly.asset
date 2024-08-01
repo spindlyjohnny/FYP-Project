@@ -26,13 +26,6 @@ MonoBehaviour:
       isCorrect: 1
     - option: (Leave him be)
       isCorrect: 0
-    assessDialogue:
-    - '"Erm, where ah, where... "'
-    - (He's murmuring to himself while looking around, i think he might be lost)
-    assessOption:
-    - Ask him if he needs your help
-    - Leave him be
-    assessAnswer: 0100
     Dialogues:
     - speechLine: '"Hi ah, I''m a bit lost, uncle is a bit old already, I went to
         the market but can''t remember my way back"'
@@ -55,6 +48,7 @@ MonoBehaviour:
     - response:
       - (He accepted your help, and the adult managed to contact his relative)
     outcome: 'Task complete '
+    outcomeLocation: 0
   - assessQuestion: (It looks like the bags are pulling him down)
     assDialogue:
     - speechLine: '(An elderly man is carrying heavy bags of groceries with both
@@ -67,13 +61,6 @@ MonoBehaviour:
       isCorrect: 1
     - option: (Walk away)
       isCorrect: 0
-    assessDialogue:
-    - '(An elderly man is carrying heavy bags of groceries with both arms) '
-    - (It looks like the bags are pulling him down)
-    assessOption:
-    - (Ask if he needs your help )
-    - (Walk away)
-    assessAnswer: 0100
     Dialogues:
     - speechLine: '"Sorry, I need help, these shopping bags are too heavy"'
       npcTalking: 1
@@ -90,6 +77,7 @@ MonoBehaviour:
     - response:
       - (He shakes his head in dismay)
     outcome: Start task
+    outcomeLocation: 1
   - assessQuestion: '(An elderly man was looking troubled and paces about) '
     assDialogue:
     - speechLine: '(An elderly man was looking troubled and paces about) '
@@ -101,13 +89,6 @@ MonoBehaviour:
       isCorrect: 1
     - option: (Pretend not to see)
       isCorrect: 0
-    assessDialogue:
-    - '(An elderly man was looking troubled and paces about) '
-    - (He gestures at you)
-    assessOption:
-    - (Ask what does he need)
-    - (Pretend not to see)
-    assessAnswer: 0100
     Dialogues:
     - speechLine: (The elderly man looks confused, maybe he needs help)
       npcTalking: 1
@@ -124,6 +105,7 @@ MonoBehaviour:
     - response:
       - (He gave a disappointed look)
     outcome: Start task
+    outcomeLocation: 1
   - assessQuestion: (Did something happen?)
     assDialogue:
     - speechLine: '(An elderly man is looking frantically around) '
@@ -135,13 +117,6 @@ MonoBehaviour:
       isCorrect: 1
     - option: (Act oblivious)
       isCorrect: 0
-    assessDialogue:
-    - '(An elderly man is looking frantically around) '
-    - (Did something happen?)
-    assessOption:
-    - Gently ask what is wrong
-    - Act oblivious
-    assessAnswer: 0100
     Dialogues:
     - speechLine: '"Oh no... " '
       npcTalking: 1
@@ -163,6 +138,7 @@ MonoBehaviour:
     - response:
       - '"How shoould I find my way home?"'
     outcome: Start task
+    outcomeLocation: 3
   - assessQuestion: '(Maybe I should help him) '
     assDialogue:
     - speechLine: '(An old man was calling out to someone while walking around the
@@ -175,13 +151,6 @@ MonoBehaviour:
       isCorrect: 1
     - option: (No, I don't think I can help)
       isCorrect: 0
-    assessDialogue:
-    - '(An old man was calling out to someone while walking around the carriage) '
-    - (Maybe I should help him)
-    assessOption:
-    - 'Approach and Ask '
-    - No, I don't think I can help
-    assessAnswer: 0100
     Dialogues:
     - speechLine: '"Please help! my grandchild was wandering in the train and I can''t
         find her! Please help me look for her!" '
@@ -200,6 +169,7 @@ MonoBehaviour:
     - response:
       - '"Oh nevermind, maybe I will find her myself"'
     outcome: Start task:grandkid
+    outcomeLocation: 4
   - assessQuestion: '(Maybe I should help him) '
     assDialogue:
     - speechLine: '(The elderly man was standing up and looking tired) '
@@ -211,13 +181,6 @@ MonoBehaviour:
       isCorrect: 1
     - option: (Ignore it)
       isCorrect: 0
-    assessDialogue:
-    - '(The elderly man was standing up and looking tired) '
-    - '(Maybe I should help him) '
-    assessOption:
-    - (Search for a seat for him)
-    - (Ignore it)
-    assessAnswer: 0100
     Dialogues:
     - speechLine: (There is a lady on twin seats who have placed her handbag on the
         other seat)
@@ -238,6 +201,7 @@ MonoBehaviour:
     - response:
       - (I just shrugged it off)
     outcome: 'Task Complete '
+    outcomeLocation: 0
   - assessQuestion: (He looks tense, what should I do?)
     assDialogue:
     - speechLine: '(The elderly man approaches me anxiously) '
@@ -249,13 +213,6 @@ MonoBehaviour:
       isCorrect: 1
     - option: (Shrug him off)
       isCorrect: 0
-    assessDialogue:
-    - '(The elderly man approaches me anxiously) '
-    - (He looks tense, what should I do?)
-    assessOption:
-    - 'Gently ask what''s wrong '
-    - Shrug him off
-    assessAnswer: 0100
     Dialogues:
     - speechLine: '"I...I forgot which stop my house is, I d-don''t know what to
         do"'
@@ -276,3 +233,4 @@ MonoBehaviour:
     - response:
       - (In the end, I could not help him)
     outcome: 'Task Complete '
+    outcomeLocation: 0

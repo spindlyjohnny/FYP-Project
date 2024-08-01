@@ -43,6 +43,7 @@ MonoBehaviour:
     - response:
       - (I walked away, leaving it to someone else....)
     outcome: Task Complete
+    outcomeLocation: 0
   - assessQuestion: (Maybe he needs some assistance)
     assDialogue:
     - speechLine: '(A man looks lost while standing at the bus stop) '
@@ -71,6 +72,7 @@ MonoBehaviour:
     - response:
       - '"Oh, maybe I''ll figure it out..."'
     outcome: 'Start task: Ride the bus with the commuter'
+    outcomeLocation: 1
   - assessQuestion: '(A man looks weak while standing in the train) '
     assDialogue:
     - speechLine: '(A man looks weak while standing in the train) '
@@ -97,6 +99,7 @@ MonoBehaviour:
     - response:
       - '"Oh... I hope I can get home soon"'
     outcome: 'Start Task: Find an empty seat for the commuter'
+    outcomeLocation: 5
   - assessQuestion: (I think he's feeling unwell)
     assDialogue:
     - speechLine: '(The man looks distressed and slightly tilting his head) '
@@ -124,6 +127,7 @@ MonoBehaviour:
     - response:
       - '"Ugghh"'
     outcome: 'Start task: Bring commuter to the station staff'
+    outcomeLocation: 3
   - assessQuestion: (Should I do something to help him?)
     assDialogue:
     - speechLine: '(A man wearing a lanyard saying "May I have a seat please?" is
@@ -155,6 +159,7 @@ MonoBehaviour:
     - response:
       - (Shouting at others is very rude)
     outcome: 'Start task: Find a seat for the commuter'
+    outcomeLocation: 5
   - assessQuestion: (Maybe I should ask what he needs)
     assDialogue:
     - speechLine: '(A man looks like he is in distress while riding the bus) '
@@ -187,3 +192,4 @@ MonoBehaviour:
     - response:
       - '"Unfortunately, the situation did not improve"'
     outcome: Task Complete
+    outcomeLocation: 0

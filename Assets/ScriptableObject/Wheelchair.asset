@@ -24,13 +24,6 @@ MonoBehaviour:
       isCorrect: 1
     - option: (Turn away)
       isCorrect: 0
-    assessDialogue:
-    - (A girl using a wheelchair, waves at you)
-    - (Does she need my help?)
-    assessOption:
-    - (Approach her)
-    - (Turn away)
-    assessAnswer: 0100
     Dialogues:
     - speechLine: '"Excuse me, i need a bit of help"'
       npcTalking: 1
@@ -50,6 +43,7 @@ MonoBehaviour:
     - response:
       - '"Oh, nevermind..."'
     outcome: Start task
+    outcomeLocation: 1
   - assessQuestion: (She looks like she is struggling with her wheelchair)
     assDialogue:
     - speechLine: '"Oh no..." (She looks like she is struggling with her wheelchair)'
@@ -59,12 +53,6 @@ MonoBehaviour:
       isCorrect: 1
     - option: (Leave her be)
       isCorrect: 0
-    assessDialogue:
-    - Oh no... (She looks like she is struggling with her wheelchair)
-    assessOption:
-    - (Do you need my help?)
-    - (Leave her be)
-    assessAnswer: 0100
     Dialogues:
     - speechLine: '"Yes, I have trouble moving my wheelchair "'
       npcTalking: 1
@@ -87,6 +75,7 @@ MonoBehaviour:
     - response:
       - (She angrily glares at you)
     outcome: 'Start task: Bring Commuter to Bus Stop'
+    outcomeLocation: 1
   - assessQuestion: (She waves at you, with a worried look)
     assDialogue:
     - speechLine: '(A girl on a wheelchair looks in distress) '
@@ -98,13 +87,6 @@ MonoBehaviour:
       isCorrect: 1
     - option: (Do nothing)
       isCorrect: 0
-    assessDialogue:
-    - '(A girl on a wheelchair looks in distress) '
-    - (She waves at you, with a worried look)
-    assessOption:
-    - (Approach her)
-    - (Do nothing)
-    assessAnswer: 0100
     Dialogues:
     - speechLine: '"Hey, this train is too crowded!"'
       npcTalking: 1
@@ -128,6 +110,7 @@ MonoBehaviour:
     - response:
       - '"Oh... then maybe it''s too difficult..."'
     outcome: Start task
+    outcomeLocation: 2
   - assessQuestion: (She calls out to you)
     assDialogue:
     - speechLine: '"Hey there I need your help!"'
@@ -139,13 +122,6 @@ MonoBehaviour:
       isCorrect: 1
     - option: (Assume she's calling someone else)
       isCorrect: 0
-    assessDialogue:
-    - '"Hey there I need your help!"'
-    - (She calls out to you)
-    assessOption:
-    - (Ask her what she needs)
-    - (Assume she's calling someone else)
-    assessAnswer: 0100
     Dialogues:
     - speechLine: '"I need to alight soon, but there''s too many people at the train
         door!" '
@@ -164,6 +140,7 @@ MonoBehaviour:
     - response:
       - (She looks stressed out)
     outcome: 'Task Complete '
+    outcomeLocation: 0
   - assessQuestion: (She might need help pressing it, what should I do?)
     assDialogue:
     - speechLine: '(The girl using a wheelchair is reaching to the stop button) '
@@ -175,13 +152,6 @@ MonoBehaviour:
       isCorrect: 1
     - option: (Ignore her)
       isCorrect: 0
-    assessDialogue:
-    - '(The girl using a wheelchair is reaching to the stop button) '
-    - (She might need help pressing it, what should I do?)
-    assessOption:
-    - (Ask her if she needs your help)
-    - (Ignore her)
-    assessAnswer: 0100
     Dialogues:
     - speechLine: '"Yes, please press the stop button for me, I can''t reach it from
         here" '
@@ -199,6 +169,7 @@ MonoBehaviour:
     - response:
       - (She managed to pressed the button, but strained her arm)
     outcome: 'Task Complete '
+    outcomeLocation: 0
   - assessQuestion: (However, a foldable chair is blocking her way)
     assDialogue:
     - speechLine: '(A girl using a wheelchair is near the wheelchair zone) '
@@ -210,13 +181,6 @@ MonoBehaviour:
       isCorrect: 1
     - option: (Assume she's okay)
       isCorrect: 0
-    assessDialogue:
-    - '(A girl using a wheelchair is near the wheelchair zone) '
-    - (However, a foldable chair is blocking her way)
-    assessOption:
-    - '(Asks if she needs help) '
-    - (Assume she's okay)
-    assessAnswer: 0100
     Dialogues:
     - speechLine: '"Hi there, the foldable seat is blocking me, could you help me
         adjust it?"'
@@ -235,3 +199,4 @@ MonoBehaviour:
     - response:
       - '"Oh okay..."'
     outcome: 'Task Complete '
+    outcomeLocation: 0
