@@ -30,7 +30,7 @@ public class Interactable : MonoBehaviour
     }
     private void OnTriggerStay(Collider other) {
         if (gameObject.CompareTag("Transition") && Input.GetKeyDown(KeyCode.F)) {
-            if (npcmanager.myNPC != null) { // bus to bus interior, mrt to bus
+            if (npcmanager.myNPC != null && (int)npcmanager.myNPC.dialogueData.dialogueQuestions[npcmanager.myNPC.qnindex].outcomeLocation == location) { // bus to bus interior, mrt to bus
                 npcmanager.myNPC.Transitioninator();
             } 
             else {
@@ -48,6 +48,10 @@ public class Interactable : MonoBehaviour
     }
     protected virtual void OnTriggerEnter(Collider other) {
         if (other.GetComponent<Player>() && gameObject.CompareTag("Transition")) {
+            if (gameObject.name.Contains("Train Station")) { // stop player if touching mrt station even if no NPC
+                player.canMove = false;
+                player.inputtext.SetActive(true);
+            }
             if (npcmanager.myNPC != null && (int)npcmanager.myNPC.dialogueData.dialogueQuestions[npcmanager.myNPC.qnindex].outcomeLocation == location) { // stop player no matter what if have NPC
                 player.canMove = false;
                 player.inputtext.SetActive(true);
@@ -57,10 +61,7 @@ public class Interactable : MonoBehaviour
                 if(levelManager.level == LevelManager.Level.BusInterior) { // dont stop player if in bus 
                     player.inputtext.SetActive(true);
                 } 
-                else if(gameObject.name.Contains("Train Station")){ // stop player if touching mrt station even if no NPC
-                    player.canMove = false;
-                    player.inputtext.SetActive(true);
-                }
+                
             }
         }
     }

@@ -34,7 +34,7 @@ public class LevelManager : SceneLoader {
     public static LevelNum levelNum;
     public Tile[] currenttiles;
     CameraController cam;
-    public Sprite[] loadingimgs;
+    //public Sprite[] loadingimgs;
     [HideInInspector]public Player player;
     public GameObject upgradeText, boost;
     public Image taskCompleteImg;
@@ -229,7 +229,7 @@ public class LevelManager : SceneLoader {
         //} 
         tilerng = UnityEngine.Random.Range(0f, 1f);
         //print(tilerng);
-        if (tilerng > .85f && tilerng <= 1f && tilesSpawned >= 15) {
+        if (tilerng > .85f && tilerng <= 1f /*&& tilesSpawned >= 15*/) {
             foreach (var i in tiles) {
                 if (i.CompareTag("Transition")) tileindex = Array.IndexOf(tiles, i);
             }
