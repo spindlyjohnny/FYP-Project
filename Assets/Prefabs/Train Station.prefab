@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 3690181963815278713}
   - component: {fileID: 1858782209796667825}
   - component: {fileID: 4627188216328665069}
+  - component: {fileID: 7256958542974531341}
   m_Layer: 0
   m_Name: Train Station
   m_TagString: Transition
@@ -184,8 +185,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.03808114, y: 0.023202555, z: 0.2673358}
-  m_Center: {x: 0.046971977, y: 0.008523873, z: 0.0015734148}
+  m_Size: {x: 0.038081143, y: 0.023202555, z: 0.06267194}
+  m_Center: {x: 0.046971988, y: 0.008523873, z: -0.100757994}
 --- !u!65 &1858782209796667825
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -205,8 +206,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.10397326, y: 0.001180479, z: 0.26501846}
-  m_Center: {x: 0.009222995, y: 7.4505804e-11, z: 0.000000009536743}
+  m_Size: {x: 0.09807368, y: 0.001180479, z: 0.042466387}
+  m_Center: {x: 0.012172821, y: 7.4505804e-11, z: -0.094234}
 --- !u!114 &4627188216328665069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +223,28 @@ MonoBehaviour:
   player: {fileID: 0}
   objectPool: {fileID: 0}
   trainsize: {x: 0, y: 0, z: 0}
+  location: 0
+--- !u!65 &7256958542974531341
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8079574988167343021}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.06013893, y: 0.05698541, z: 0.2876191}
+  m_Center: {x: 0.08745181, y: 0.03848407, z: -0.09492105}
 --- !u!1 &8156655123028968769
 GameObject:
   m_ObjectHideFlags: 0

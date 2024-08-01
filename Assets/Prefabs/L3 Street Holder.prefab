@@ -939,6 +939,7 @@ MonoBehaviour:
   player: {fileID: 0}
   objectPool: {fileID: 0}
   trainsize: {x: 0, y: 0, z: 0}
+  location: 1
 --- !u!1 &6194927181362884026
 GameObject:
   m_ObjectHideFlags: 0
