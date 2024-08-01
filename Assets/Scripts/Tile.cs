@@ -73,7 +73,8 @@ public class Tile : MonoBehaviour {
         }
         spawnedNpc = objectPool.SpawnFromPool(NPC[NPCIndex].name, new Vector3(spawnpt.position.x, spawnpt.position.y, spawnpt.position.z));
         if (stopSpawningNpc==true) spawnedNpc.SetActive(false);
-        if (gameObject.CompareTag("Train")) spawnedNpc.transform.localScale = new Vector3(.8f, .8f, .8f);
+        if (gameObject.CompareTag("Train") & spawnedNpc != null) spawnedNpc.transform.localScale = new Vector3(.8f, .8f, .8f);
+
     }
     // Update is called once per frame
     protected void OnTriggerEnter(Collider other) {

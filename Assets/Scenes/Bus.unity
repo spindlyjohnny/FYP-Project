@@ -2321,21 +2321,18 @@ MonoBehaviour:
   text: {fileID: 1213200224}
   tutorialTexts:
   - 'Use your left and right mouse buttons to shift between the lanes '
-  - Dodge the passing people by switching lanes. Right/Left click to continue
-  - Keep in mind of your energy bar, if it runs out, it is game over! Right/Left
-    click to continue
+  - 'Dodge the passing people by switching lanes. '
+  - Keep in mind of your energy bar, if it runs out, it is game over!
   - Quiz Cubes will pop up questions that will reward you with boosts if answered
-    correctly. Some questions can have multiple wrong answers. Right/Left click to
-    continue
-  - Press F or go infront of the commuter to interact with commuters to help them
-    out. Right/Left click to continue
-  - If you choose to help the commuters, some will require your help in answering
+    correctly. Some questions can have multiple wrong answers.
+  - 'Press F or go infront of the commuter to interact with commuters to help them
+    out. '
+  - 'If you choose to help the commuters, some will require your help in answering
     questions or taking action. Complete them successfully to be rewarded energy
-    and additional boosts. Right/Left click to continue
-  - 'IN Bus SETTING: Press the red button near the rear door  to alight the bus.
-    Right/Left click to continue'
+    and additional boosts. '
+  - 'IN Bus SETTING: Press the red button near the rear door  to alight the bus. '
   - IN Train SETTING:When you encounter 3 people blocking the lane, press F to say
-    Excuse Me. Right/Left click to continue
+    Excuse Me.
 --- !u!114 &866934024 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5842826474719329640, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}

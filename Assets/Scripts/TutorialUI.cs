@@ -11,7 +11,7 @@ public class TutorialUI : MonoBehaviour
     public TextMeshProUGUI text;
     [TextArea(3,10)]
     public string[] tutorialTexts;
-    int two=0;
+    static int two=0;
     Player player;
     LevelManager manager;
     PauseScreen pause;
@@ -39,18 +39,20 @@ public class TutorialUI : MonoBehaviour
         if (!PlayerPrefs.HasKey("Tutorial"))
         {
             PlayerPrefs.SetInt("Tutorial", 0);
+            two = 0; 
         }
         if (PlayerPrefs.GetInt("Tutorial") == 1) return;
         if(state==TutorialState.defaultInstruction && manager.level == LevelManager.Level.Bus)
         {
+            two = 0;
             state = (TutorialState)1;
             StartCoroutine(FirstTutorial());  
         }
-        if( manager.level == LevelManager.Level.MRT && state == (TutorialState)7)
+        if( manager.level == LevelManager.Level.BusInterior && state == (TutorialState)7)
         {
             StartCoroutine(SeventhTutorial());
         }
-        if (manager.level == LevelManager.Level.BusInterior && state == (TutorialState)7)
+        if (manager.level == LevelManager.Level.MRT && state == (TutorialState)7)
         {
             StartCoroutine(EightTutorial());
         }

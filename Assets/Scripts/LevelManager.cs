@@ -264,7 +264,7 @@ public class LevelManager : SceneLoader {
         if (PlayerPrefs.GetInt("Tutorial") == 1) return;
         if (tileAmount <= 2)
         {
-            tileindex = 5;
+            tileindex = 6;
         }        
     }
     void Activate(Tile tile)
