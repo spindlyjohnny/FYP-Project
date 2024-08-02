@@ -334,6 +334,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: L1 Waterway V2
       objectReference: {fileID: 0}
+    - target: {fileID: 4742484692980127373, guid: 9bba3759dc225844ebfa817838440803, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

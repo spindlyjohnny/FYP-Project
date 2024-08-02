@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5977509638864153531}
   m_Layer: 0
   m_Name: NPC Destination (2)
-  m_TagString: Untagged
+  m_TagString: Transition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 1586632477090418879}
   m_Layer: 0
   m_Name: NPC Destination
-  m_TagString: Untagged
+  m_TagString: Transition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -461,7 +461,7 @@ GameObject:
   - component: {fileID: 6835177072896523429}
   m_Layer: 0
   m_Name: NPC Destination (1)
-  m_TagString: Untagged
+  m_TagString: Transition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
