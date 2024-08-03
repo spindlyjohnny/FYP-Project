@@ -135,7 +135,7 @@ public class LevelManager : SceneLoader {
         }
         currenttiles = FindObjectsOfType<Tile>();//why is this in update(), why not move to start()?
         if (currenttiles.Length == 1 || level == Level.MRT) {
-            tileshiftfactor = 0; // in mrt level, tileshiftfactor is 0 because the size of the train already shifts them properly (i think)(trust bro) 
+            tileshiftfactor = 0; // in mrt level, tileshiftfactor is 0 because the size of the train already shifts them properly (i think)(trust bro) (me no trust)
         } 
         else if (level == Level.Bus) {
             tileshiftfactor = 26; //  tileshiftfactor spawns tiles 21 units ahead because when player enters trigger, there are 3 tiles in front. each tile is 7 units long on the x-axis
@@ -168,6 +168,7 @@ public class LevelManager : SceneLoader {
             }
             RandomTile();
             TutorialTile();
+            tileindex = 8;
             mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
             objectPool.Remove();
             GameObject temp=objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(size * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
