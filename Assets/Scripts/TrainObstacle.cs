@@ -8,6 +8,7 @@ public class TrainObstacle : Interactable
     public Transform NPClocation;
     public GameObject[] NPCGroup;
     [SerializeField] GameObject[] NPCs;
+    public GameObject excuseMeText;
     // Start is called before the first frame update
     protected override void Start() {
         base.Start();
@@ -20,12 +21,14 @@ public class TrainObstacle : Interactable
     protected override void OnTriggerEnter(Collider other) {
         if (other.GetComponent<Player>()) {
             player.inputtext.SetActive(true);
+            excuseMeText.SetActive(true);
         }
     }
     private void OnTriggerStay(Collider other) {
         if (other.GetComponent<Player>() && Input.GetKeyDown(KeyCode.F)) {
             MoveNPC();
             player.inputtext.SetActive(false);
+            excuseMeText.SetActive(false);
         }
     }
     public void SetNPCs() {
@@ -34,6 +37,7 @@ public class TrainObstacle : Interactable
             NPCGroup[i].transform.localScale *= 20;
             NPCGroup[i].transform.SetParent(transform);
             moveNPC = NPCGroup[1];
+            foreach(var x in NPCGroup[i].GetComponentsInChildren<Animator>())x.enabled = false;
         }
     }
     protected override void Update() {

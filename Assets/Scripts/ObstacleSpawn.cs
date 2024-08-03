@@ -11,7 +11,7 @@ public class ObstacleSpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (gameObject.tag == "Headphone") {
+        if (gameObject.CompareTag("Headphone")) {
             StartCoroutine(SpawnHeadphone());
         } 
         else {
@@ -29,7 +29,7 @@ public class ObstacleSpawn : MonoBehaviour
     {
         float rng = Random.Range(0f, 1f);
         if(obstacles.Length > 1) {
-            if (rng > 0 && rng <= .25f) {
+            if (rng > 0 && rng <= .15f) {
                 myobstacle = Instantiate(obstacles[0], transform.position + new Vector3(Randomness(), 0, 0), transform.rotation);
             } 
             else if (rng > .3f && rng <= .7f) {
@@ -39,9 +39,11 @@ public class ObstacleSpawn : MonoBehaviour
         else {
             myobstacle = Instantiate(obstacles[0], transform.position + new Vector3(Randomness(), 0, 0), transform.rotation);
         }
-        myobstacle.GetComponent<Obstacle>().myspawner = this;
-        myobstacle.transform.position += myobstacle.GetComponent<Obstacle>().spawnoffset;
-        if (myobstacle.GetComponent<Collectible>() == null) myobstacle.transform.rotation = Quaternion.Euler(0, -90, 0);
+        if(myobstacle != null) {
+            myobstacle.GetComponent<Obstacle>().myspawner = this;
+            myobstacle.transform.position += myobstacle.GetComponent<Obstacle>().spawnoffset;
+            if (myobstacle.GetComponent<Collectible>() == null) myobstacle.transform.rotation = Quaternion.Euler(0, -90, 0);
+        }
     }
     IEnumerator SpawnHeadphone() {
         while (enemiesspawned <= spawnamt - 1) {

@@ -102,8 +102,6 @@ public class LevelManager : SceneLoader {
             for (int i = 0; i < tiles.Length; i++) {
                 tiles[i] = mrt[i];
             }
-            //tileindex = 0; // in bus level, tileindex is randomised for the purposes of tile randomisation. but in train level this not necessary as all tiles are the same. so tileindex does not matter and is just set to 0.
-            //Spawn(8,26.5f);
             Spawn(8,30f);
         } 
         else {
@@ -117,7 +115,7 @@ public class LevelManager : SceneLoader {
     // Update is called once per frame
     void Update() {
         print("Level Num: " + (int)levelNum);
-        print(loadingScreen.isPlaying);
+        //print(loadingScreen.isPlaying);
         if (gameover) {
             gameoverscreen.SetActive(true);
             finalScoreText.text = "Score: "+score;
@@ -170,7 +168,6 @@ public class LevelManager : SceneLoader {
             }
             RandomTile();
             TutorialTile();
-            //tileindex = 4;
             mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
             objectPool.Remove();
             GameObject temp=objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(size * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
