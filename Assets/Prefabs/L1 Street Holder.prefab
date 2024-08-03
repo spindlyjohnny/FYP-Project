@@ -467,6 +467,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: -4765865282019245975, guid: 7a8be08671576de4781cb68c4897d969, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: -4142481489190813837, guid: 7a8be08671576de4781cb68c4897d969, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -478,6 +482,18 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7a8be08671576de4781cb68c4897d969, type: 3}
       propertyPath: m_Name
       value: L1 Street V2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4060507175133224815, guid: 7a8be08671576de4781cb68c4897d969, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655281472407142141, guid: 7a8be08671576de4781cb68c4897d969, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133524759096203989, guid: 7a8be08671576de4781cb68c4897d969, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8854207822279903613, guid: 7a8be08671576de4781cb68c4897d969, type: 3}
       propertyPath: m_Layer

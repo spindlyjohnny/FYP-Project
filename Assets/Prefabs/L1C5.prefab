@@ -425,6 +425,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3248754205777404520}
     m_Modifications:
+    - target: {fileID: -9120199421524946743, guid: 594774acc07ebe9488341df8be72c47d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 594774acc07ebe9488341df8be72c47d, type: 3}
       propertyPath: m_LocalScale.x
       value: 100.000015
@@ -484,6 +488,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 594774acc07ebe9488341df8be72c47d, type: 3}
       propertyPath: m_Name
       value: Level 1 Chunk 5 V3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5649167421739078986, guid: 594774acc07ebe9488341df8be72c47d, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

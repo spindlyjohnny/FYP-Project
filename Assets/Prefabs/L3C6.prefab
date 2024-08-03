@@ -480,6 +480,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7304922721397797846, guid: df9d099c5ec7bdb42b60dacf3108e32d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -672300295181884299, guid: df9d099c5ec7bdb42b60dacf3108e32d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: df9d099c5ec7bdb42b60dacf3108e32d, type: 3}
       propertyPath: m_Name
       value: Level 3 Chunk 6 V2

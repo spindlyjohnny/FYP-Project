@@ -484,6 +484,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level 3 Chunk 2 V2
       objectReference: {fileID: 0}
+    - target: {fileID: 4215704286109693816, guid: 91d7aa27be4183d47bed91a7231ffc10, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687946466151289962, guid: 91d7aa27be4183d47bed91a7231ffc10, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

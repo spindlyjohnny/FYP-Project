@@ -481,9 +481,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1595815464188846089, guid: d9242648bfc4da24da5bc20608134f05, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d9242648bfc4da24da5bc20608134f05, type: 3}
       propertyPath: m_Name
       value: Level 1 Chunk 2 V3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2464757453574197809, guid: d9242648bfc4da24da5bc20608134f05, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

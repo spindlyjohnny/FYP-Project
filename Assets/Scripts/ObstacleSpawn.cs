@@ -29,7 +29,7 @@ public class ObstacleSpawn : MonoBehaviour
     {
         float rng = Random.Range(0f, 1f);
         if(obstacles.Length > 1) {
-            if (rng > 0 && rng <= .15f) {
+            if (rng > 0 && rng <= .12f) {
                 myobstacle = Instantiate(obstacles[0], transform.position + new Vector3(Randomness(), 0, 0), transform.rotation);
             } 
             else if (rng > .3f && rng <= .7f) {

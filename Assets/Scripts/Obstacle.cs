@@ -19,6 +19,7 @@ public class Obstacle : MonoBehaviour
     bool lerp = false;
     float valueToLerp;
     bool hitPlayer=false;
+    //[SerializeField] Collider trigger;
     //[SerializeField] int hits = 0;
     //public int lane = 1, newlane;
     //Tile tile;
@@ -35,108 +36,58 @@ public class Obstacle : MonoBehaviour
     protected virtual void Update()
     {
         rb.velocity = (5 * dir);
-        //if(dir == Vector3.zero)
-        //{
-        //    dir = -Vector3.right;//-1 in the x-axis is going forward
-        //}
-        //Sensors();//this is the sensor
-        //Feelers();
-        Sensors();
+        //Sensors();
         //if (!myspawner.gameObject.activeSelf) Destroy(gameObject);
         
         
     }
+    private void OnTriggerEnter(Collider other) {
+        //RaycastHit hit;
+        if (other) {
+            var direction = other.transform.position - transform.position;
+            if (Physics.Raycast(transform.position, direction, 1f, LayerMask.GetMask("NPC Obstacle", "Player"/*,"Obstacle"*/, "NPC"))) {
+                dir = transform.position - other.transform.position;
+            }
+
+        }
+    }
+    private void OnTriggerExit(Collider other) {
+        //List<string> layers = new List<string> { "NPC Obstacle","Player","NPC"};
+        if (other/*&& layers.Contains(other.gameObject.layer.ToString())*/) {
+            Sensors();
+        }
+    }
     //void Sensors() {
     //    Transform[] rays = { front, left, right };
     //    RaycastHit hit;
-    //    int hits = 0;
-    //    for (int i = 0; i < rays.Length; i++) {
-    //        Physics.Raycast(rays[i].position, rays[i].forward, out hit, 1f, LayerMask.GetMask("NPC Obstacle", "Player"/*,"Obstacle"*/, "NPC"));
-    //        if (hit.collider) {
-    //            print(hit.collider.name);
-    //            Debug.DrawLine(rays[i].position, hit.point, Color.red);
-    //            dir = transform.position - hit.collider.transform.position;
-    //            hits++;
-    //            print(hits);
-    //        }
-    //        print(hit.collider.name);
-    //        if (hit.collider == null && hits > 0 && hits < 3/*&& (transform.position - hit.collider.transform.position).sqrMagnitude < .2f*/) {
-    //            runs when 1 or 2 objects are detected
-    //            print(rays[i]);
-    //            dir = rays[i].forward;
-    //        } else if (hits >= 3) {
-    //            print("back");
-    //            hits = 0;
-    //            dir = -front.forward;
-    //        } else if (hits == 0) {
-    //            dir = front.forward;
-    //        } else {
-    //            dir = new Vector3(-1, 0, 0);
-    //        }
-    //    }
-    //}
-    //void Sensors() {
-    //    Transform[] rays = { front, left, right };
-    //    RaycastHit hit;
-    //    int hits = 0;
-    //    Vector3 avoidDir = Vector3.zero;
 
-    //    for (int i = 0; i < rays.Length; i++) {
-    //        if (Physics.Raycast(rays[i].position, rays[i].forward, out hit, 1f, LayerMask.GetMask("NPC Obstacle", "Player", "NPC"))) {
-    //            print(hit.collider.name);
-    //            Debug.DrawLine(rays[i].position, hit.point, Color.red);
-    //            hits++;
-    //            avoidDir += -rays[i].forward; // Accumulate avoidance direction
-    //        } else {
-    //            Debug.DrawRay(rays[i].position, rays[i].forward * 1f, Color.green);
-    //        }
-    //    }
-
-    //    print("Total hits: " + hits);
-
-    //    if (hits > 0) {
-    //        if (hits >= 3) {
-    //            print("back");
-    //            dir = -front.forward;
-    //        } else {
-    //            print("avoid");
-    //            dir = (avoidDir / hits).normalized; // Average avoidance direction
-    //        }
-    //    } else {
+    //    // First, check the forward direction
+    //    if (!Physics.Raycast(front.position, front.forward, out hit, 1f, LayerMask.GetMask("NPC Obstacle", "Player", "NPC"))) {
+    //        // If forward is clear, move in that direction
     //        dir = front.forward;
+    //        return;
     //    }
+
+    //    // If forward is blocked, check other directions
+    //    for (int i = 0; i < rays.Length; i++) {
+    //        if (!Physics.Raycast(rays[i].position, rays[i].forward, out hit, 1f, LayerMask.GetMask("NPC Obstacle", "Player", "NPC"))) {
+    //            // Move in the direction of the first clear path
+    //            dir = rays[i].forward;
+    //            return;
+    //        }
+    //    }
+
+    //    // If all directions are blocked, move backwards
+    //    dir = -front.forward;
     //}
     void Sensors() {
         Transform[] rays = { front, left, right };
         RaycastHit hit;
-        int hits = 0;
-        Vector3 avoidDir = Vector3.zero;
-
         for (int i = 0; i < rays.Length; i++) {
-            bool isHit = Physics.Raycast(rays[i].position, rays[i].forward, out hit, 1f, LayerMask.GetMask("NPC Obstacle", "Player", "NPC"));
-
-            if (isHit) {
-                print(hit.collider.name);
-                Debug.DrawLine(rays[i].position, hit.point, Color.red);
-                hits++;
-                avoidDir += (rays[i].position - hit.point).normalized; // Accumulate avoidance direction
-            } else {
-                Debug.DrawRay(rays[i].position, rays[i].forward * 1f, Color.green);
+            Physics.Raycast(rays[i].position, rays[i].forward, out hit, 1f, LayerMask.GetMask("NPC Obstacle", "Player"/*,"Obstacle"*/, "NPC"));
+            if (hit.collider == null) {
+                dir = rays[i].forward;//transform.position - hit.collider.transform.position;
             }
         }
-
-        if (hits > 0 && hits < 3) {
-            // Avoid the detected obstacles
-            print("Avoiding obstacles");
-            dir = (avoidDir / hits).normalized; // Average avoidance direction
-        } else if (hits >= 3) {
-            print("Back");
-            dir = -front.forward;
-        } else {
-            dir = front.forward;
-        }
-
-        print("Total hits: " + hits);
     }
-
 }

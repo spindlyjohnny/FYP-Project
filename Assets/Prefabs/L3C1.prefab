@@ -186,8 +186,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.00068772177, y: 0.0063278233, z: 0.040482882}
-  m_Center: {x: -0.06240875, y: 0.00475846, z: -0.00036140918}
+  m_Size: {x: 0.0006877185, y: 0.0063278233, z: 0.045916874}
+  m_Center: {x: -0.06240875, y: 0.00475846, z: -0.0030784057}
 --- !u!65 &7758708576641920969
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -207,8 +207,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.12241932, y: 0.001180479, z: 0.040786095}
-  m_Center: {x: -0.0000000018626451, y: -1.200533e-10, z: 1.1641532e-10}
+  m_Size: {x: 0.12241932, y: 0.001180479, z: 0.049783215}
+  m_Center: {x: 0, y: -1.11758706e-10, z: -0.0044985795}
 --- !u!114 &-5898660447248647626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,9 +480,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7645940719559444971, guid: e0009925d32fe594aa9cd29cc0ff8de5, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e0009925d32fe594aa9cd29cc0ff8de5, type: 3}
       propertyPath: m_Name
       value: Level 3 Chunk 1 V2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8109363820334911081, guid: e0009925d32fe594aa9cd29cc0ff8de5, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

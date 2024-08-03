@@ -330,13 +330,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8000153565868365600, guid: 5de0c92489d3c3949be923615f80d982, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: -5783353642228123019, guid: 5de0c92489d3c3949be923615f80d982, type: 3}
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: -3037092650567377720, guid: 5de0c92489d3c3949be923615f80d982, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 361555710632013725, guid: 5de0c92489d3c3949be923615f80d982, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5de0c92489d3c3949be923615f80d982, type: 3}
       propertyPath: m_Name
       value: L2 Waterway V2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363857978135780310, guid: 5de0c92489d3c3949be923615f80d982, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
