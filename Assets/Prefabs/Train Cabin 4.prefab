@@ -101,6 +101,7 @@ MonoBehaviour:
   player: {fileID: 0}
   objectPool: {fileID: 0}
   trainsize: {x: 0.002857143, y: 0.002857143, z: 0.002857143}
+  location: 3
 --- !u!1 &3002043870293167261
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,6 +585,7 @@ MonoBehaviour:
   player: {fileID: 0}
   objectPool: {fileID: 0}
   trainsize: {x: 0, y: 0, z: 0}
+  location: 0
   moveNPC: {fileID: 3313323237601284838}
   NPClocation: {fileID: 1517554191014338758}
   NPCGroup:
@@ -695,6 +697,7 @@ MonoBehaviour:
   player: {fileID: 0}
   objectPool: {fileID: 0}
   trainsize: {x: 0.002857143, y: 0.002857143, z: 0.002857143}
+  location: 3
 --- !u!1 &8163749548725760133
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,6 +799,7 @@ MonoBehaviour:
   player: {fileID: 0}
   objectPool: {fileID: 0}
   trainsize: {x: 0.002857143, y: 0.002857143, z: 0.002857143}
+  location: 3
 --- !u!1 &8495765524090893082
 GameObject:
   m_ObjectHideFlags: 0

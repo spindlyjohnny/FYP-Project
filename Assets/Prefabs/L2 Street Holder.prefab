@@ -105,7 +105,7 @@ Transform:
   m_GameObject: {fileID: 5811547000731415411}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.96, y: 0, z: -8.1}
+  m_LocalPosition: {x: 3.96, y: 0, z: -7.354288}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -147,6 +147,7 @@ MonoBehaviour:
   player: {fileID: 0}
   objectPool: {fileID: 0}
   trainsize: {x: 0, y: 0, z: 0}
+  location: 1
 --- !u!1 &6667400026238610499
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,7 +174,7 @@ Transform:
   m_GameObject: {fileID: 6667400026238610499}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.36, y: 0.17, z: -7.89}
+  m_LocalPosition: {x: 2.36, y: 0.17, z: -7.144287}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -406,6 +407,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8558889584365811109}
     m_Modifications:
+    - target: {fileID: -8828023681802767268, guid: f60e1c163f944b349bde26fac60c652a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.015758375
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f60e1c163f944b349bde26fac60c652a, type: 3}
       propertyPath: m_LocalScale.x
       value: 100
@@ -470,13 +475,65 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5949774985443609613, guid: f60e1c163f944b349bde26fac60c652a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.021
+      objectReference: {fileID: 0}
+    - target: {fileID: -1311397939766466054, guid: f60e1c163f944b349bde26fac60c652a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.011277365
+      objectReference: {fileID: 0}
     - target: {fileID: -1047048002221264352, guid: f60e1c163f944b349bde26fac60c652a, type: 3}
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: -16439947937125608, guid: f60e1c163f944b349bde26fac60c652a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.02074613
+      objectReference: {fileID: 0}
+    - target: {fileID: 72502068667176174, guid: f60e1c163f944b349bde26fac60c652a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.030942814
+      objectReference: {fileID: 0}
+    - target: {fileID: 701621682369880620, guid: f60e1c163f944b349bde26fac60c652a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.010900779
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f60e1c163f944b349bde26fac60c652a, type: 3}
       propertyPath: m_Name
       value: L2 Street V2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901528245907651080, guid: f60e1c163f944b349bde26fac60c652a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.015758375
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813817876490308003, guid: f60e1c163f944b349bde26fac60c652a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.020690264
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712969060093571725, guid: f60e1c163f944b349bde26fac60c652a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.020279115
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097914788012400428, guid: f60e1c163f944b349bde26fac60c652a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.02098308
+      objectReference: {fileID: 0}
+    - target: {fileID: 7086435124055662502, guid: f60e1c163f944b349bde26fac60c652a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.03528728
+      objectReference: {fileID: 0}
+    - target: {fileID: 7950270124530987661, guid: f60e1c163f944b349bde26fac60c652a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.030883955
+      objectReference: {fileID: 0}
+    - target: {fileID: 7966543405600968665, guid: f60e1c163f944b349bde26fac60c652a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.021002725
+      objectReference: {fileID: 0}
+    - target: {fileID: 9173976037373042095, guid: f60e1c163f944b349bde26fac60c652a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.010695433
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

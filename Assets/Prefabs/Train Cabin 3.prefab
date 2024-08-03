@@ -298,6 +298,7 @@ MonoBehaviour:
   player: {fileID: 0}
   objectPool: {fileID: 0}
   trainsize: {x: 1, y: 1, z: 1}
+  location: 2
 --- !u!1 &5576530783826361240
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,6 +399,7 @@ MonoBehaviour:
   player: {fileID: 0}
   objectPool: {fileID: 0}
   trainsize: {x: 1, y: 1, z: 1}
+  location: 2
 --- !u!1001 &954649963085683781
 PrefabInstance:
   m_ObjectHideFlags: 0

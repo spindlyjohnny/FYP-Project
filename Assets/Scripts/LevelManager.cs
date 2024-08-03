@@ -34,12 +34,12 @@ public class LevelManager : SceneLoader {
     public static LevelNum levelNum;
     public Tile[] currenttiles;
     CameraController cam;
-    public Sprite[] loadingimgs;
+    //public Sprite[] loadingimgs;
     [HideInInspector]public Player player;
     public GameObject upgradeText, boost;
     public Image taskCompleteImg;
     ObjectPool objectPool;
-    public Image npcAvatar,pauseImg;
+    public Image npcAvatar,pauseImg,failImg;
     public GameObject[] level1NPC, level2NPC, level3NPC;
     public int tilesSpawned;
     public Sprite[] taskCompletionPanelSprites;
@@ -111,6 +111,7 @@ public class LevelManager : SceneLoader {
         }
         taskCompletionPanelSprites[0] = player.loseSprite;
         pauseImg.sprite = player.pauseSprite;
+        failImg.sprite = player.loseSprite;
     }
 
     // Update is called once per frame

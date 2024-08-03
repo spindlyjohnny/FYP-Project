@@ -44,11 +44,11 @@ GameObject:
   - component: {fileID: 5977509638864153531}
   m_Layer: 0
   m_Name: NPC Destination (2)
-  m_TagString: Untagged
+  m_TagString: Transition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2550467791992612746
 Transform:
   m_ObjectHideFlags: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
   player: {fileID: 0}
   objectPool: {fileID: 0}
   trainsize: {x: 1, y: 1, z: 1}
+  location: 5
 --- !u!1 &1024922055495714950
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,11 +360,11 @@ GameObject:
   - component: {fileID: 1586632477090418879}
   m_Layer: 0
   m_Name: NPC Destination
-  m_TagString: Untagged
+  m_TagString: Transition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4457023279771335368
 Transform:
   m_ObjectHideFlags: 0
@@ -415,6 +416,7 @@ MonoBehaviour:
   player: {fileID: 0}
   objectPool: {fileID: 0}
   trainsize: {x: 1, y: 1, z: 1}
+  location: 5
 --- !u!1 &4476017615516518612
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,11 +461,11 @@ GameObject:
   - component: {fileID: 6835177072896523429}
   m_Layer: 0
   m_Name: NPC Destination (1)
-  m_TagString: Untagged
+  m_TagString: Transition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8292052138672330062
 Transform:
   m_ObjectHideFlags: 0
@@ -515,6 +517,7 @@ MonoBehaviour:
   player: {fileID: 0}
   objectPool: {fileID: 0}
   trainsize: {x: 1, y: 1, z: 1}
+  location: 5
 --- !u!1001 &1315895203227753265
 PrefabInstance:
   m_ObjectHideFlags: 0

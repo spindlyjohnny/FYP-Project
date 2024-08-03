@@ -50,6 +50,7 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
+        //StartCoroutine(TempInvincible());
         canMove = true;
         levelManager = FindObjectOfType<LevelManager>();
         invincibilitytime = originalInvincibleTime;
@@ -130,7 +131,10 @@ public class Player : MonoBehaviour
         }
         if (energy > maxenergy) energy = maxenergy;
     }
-
+    //IEnumerator TempInvincible() {
+    //    yield return new WaitForSeconds(.2f);
+    //    canMove = true;
+    //}
     public void Movement()
     {
         anim.SetBool("CanMove", canMove);
