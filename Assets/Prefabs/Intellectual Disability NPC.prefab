@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 3400988405361731566}
   - component: {fileID: 5194266150530353860}
   - component: {fileID: 1863821231898360523}
+  - component: {fileID: 310955974864881084}
   m_Layer: 7
   m_Name: Intellectual Disability NPC
   m_TagString: Untagged
@@ -145,6 +146,7 @@ MonoBehaviour:
   followplayer: 0
   once: 0
   npcmanager: {fileID: 0}
+  names: {fileID: 11400000, guid: 25483c98ee02e124eb5cf31a8a4a0839, type: 2}
   dialogueData: {fileID: 11400000, guid: 45d77f3b6975868469cb5d3698a7ab35, type: 2}
   movespeed: 5
   startpos: {x: 0, y: 0, z: 0}
@@ -160,7 +162,21 @@ MonoBehaviour:
   dialogueSprite: {fileID: 21300000, guid: c9f80adee111a0240b2e7f937b879d17, type: 3}
   qnindex: 0
   indexDialogue: 0
-  nameFile: {fileID: 4900000, guid: 7aeddbc9f09412943b845e7b94326548, type: 3}
+  nameFile: 
+--- !u!114 &310955974864881084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6165041437090717006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf159501d2f414d4a848d9adcea82c94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  file: male-first-names.txt
+  names: []
 --- !u!1 &6964791801456276691
 GameObject:
   m_ObjectHideFlags: 0

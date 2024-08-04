@@ -22,7 +22,8 @@ public class NPC : MonoBehaviour
     //bool spoken;
     public bool followplayer, once = false;
     public NPCManagement npcmanager;
-    string[] names;
+    //string[] names;
+    public Names names;
     public DialogueSO dialogueData;
     public float movespeed;
     LevelManager levelManager;
@@ -40,7 +41,7 @@ public class NPC : MonoBehaviour
     public Sprite dialogueSprite;
     public int qnindex;
     public int indexDialogue = 0;
-    [SerializeField] TextAsset nameFile;
+    [SerializeField] string nameFile;
     // Start is called before the first frame update
     void Start()
     {
@@ -62,7 +63,7 @@ public class NPC : MonoBehaviour
         optionDtext = levelManager.optionDtext;
         dialoguebox = levelManager.dialoguebox;
         questionbox = levelManager.questionbox;
-        names = File.ReadAllLines("Assets/Misc/" + nameFile.name + ".txt");
+        names = GetComponent<Names>();
         avatar = levelManager.npcAvatar;
         //avatar.sprite = dialogueSprite;
         //turning the visibility on
@@ -294,7 +295,7 @@ public class NPC : MonoBehaviour
         {
             dialogue[i] = dialogueData.dialogueQuestions[qnindex].assDialogue[i].speechLine;
         }
-        nametext.text = names[Random.Range(0, names.Length)];
+        nametext.text = names.names[Random.Range(0,names.names.Length)];
         questiontext.text = dialogueData.dialogueQuestions[qnindex].assessQuestion;
         optionAtext.text = "A." + dialogueData.dialogueQuestions[qnindex].assDial[0].option;
         optionBtext.text = "B." + dialogueData.dialogueQuestions[qnindex].assDial[1].option;

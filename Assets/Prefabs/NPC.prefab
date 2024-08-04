@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 3400988405361731566}
   - component: {fileID: 5194266150530353860}
   - component: {fileID: 1863821231898360523}
+  - component: {fileID: -6223791222925084184}
   m_Layer: 7
   m_Name: NPC
   m_TagString: Untagged
@@ -291,6 +292,7 @@ MonoBehaviour:
   followplayer: 0
   once: 0
   npcmanager: {fileID: 0}
+  names: {fileID: 11400000, guid: 25483c98ee02e124eb5cf31a8a4a0839, type: 2}
   dialogueData: {fileID: 11400000, guid: 51d69ec1e16df9a42a674bec9ba614e0, type: 2}
   movespeed: 5
   startpos: {x: 0, y: 0, z: 0}
@@ -304,8 +306,23 @@ MonoBehaviour:
   character: 2
   avatar: {fileID: 0}
   dialogueSprite: {fileID: 21300000, guid: 655c6b7ef6c8da74eace47a1a12ec807, type: 3}
+  qnindex: 0
   indexDialogue: 0
-  nameFile: {fileID: 4900000, guid: 7aeddbc9f09412943b845e7b94326548, type: 3}
+  nameFile: 
+--- !u!114 &-6223791222925084184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6165041437090717006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf159501d2f414d4a848d9adcea82c94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  file: male-first-names.txt
+  names: []
 --- !u!1001 &1540353149922749426
 PrefabInstance:
   m_ObjectHideFlags: 0

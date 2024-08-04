@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3467798499969452202}
   - component: {fileID: 7626220009568814612}
   - component: {fileID: 5296606561819084952}
+  - component: {fileID: -6342228240002287594}
   m_Layer: 7
   m_Name: Hearing Impaired NPC
   m_TagString: Untagged
@@ -114,6 +115,7 @@ MonoBehaviour:
   followplayer: 0
   once: 0
   npcmanager: {fileID: 0}
+  names: {fileID: 11400000, guid: 25483c98ee02e124eb5cf31a8a4a0839, type: 2}
   dialogueData: {fileID: 11400000, guid: 6a094a9afa692b5428395edddfe8974f, type: 2}
   movespeed: 5
   startpos: {x: 0, y: 0, z: 0}
@@ -127,8 +129,23 @@ MonoBehaviour:
   character: 2
   avatar: {fileID: 0}
   dialogueSprite: {fileID: 21300000, guid: 074ef01ef134a6d408ba6ede63262ffa, type: 3}
+  qnindex: 0
   indexDialogue: 0
-  nameFile: {fileID: 4900000, guid: 7aeddbc9f09412943b845e7b94326548, type: 3}
+  nameFile: 
+--- !u!114 &-6342228240002287594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791650631843702452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf159501d2f414d4a848d9adcea82c94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  file: male-first-names.txt
+  names: []
 --- !u!1 &3972752604114049829
 GameObject:
   m_ObjectHideFlags: 0
