@@ -151,10 +151,11 @@ public class LevelManager : SceneLoader {
     }
     public IEnumerator Move(int index,Level lvl) { // transition between levels
         // index is the buildIndex of the level that you are going to, lvl is the Level enum value of the level that you are going to
+        print("video");
         level = lvl;
         loadingScreen.gameObject.SetActive(true);
         loadingScreen.PlayVideo();
-        yield return new WaitForSeconds((float)loadingScreen.videoPlayer.length);
+        yield return new WaitForSeconds(3);
         LoadScene(index,true);
         SaveData();
         PlayerPrefs.Save();
