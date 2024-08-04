@@ -29,40 +29,62 @@ public class Interactable : MonoBehaviour
         
     }
     private void OnTriggerStay(Collider other) {
-        if (gameObject.CompareTag("Transition") && Input.GetKeyDown(KeyCode.F)) {
-            if (npcmanager.myNPC != null && (int)npcmanager.myNPC.dialogueData.dialogueQuestions[npcmanager.myNPC.qnindex].outcomeLocation == location) { // bus to bus interior, mrt to bus
-                npcmanager.myNPC.Transitioninator();
-            } 
-            else {
-                if (levelManager.level == LevelManager.Level.BusInterior) {
-                    StartCoroutine(levelManager.Move(1, LevelManager.Level.Bus)); // go from bus interior to bus
+        if (other.GetComponent<Player>() && Input.GetKeyDown(KeyCode.F)) {
+            if (gameObject.CompareTag("Transition")) {
+                if (npcmanager.myNPC != null && (int)npcmanager.myNPC.dialogueData.dialogueQuestions[npcmanager.myNPC.qnindex].outcomeLocation == location) { // bus to bus interior, mrt to bus
+                    npcmanager.myNPC.Transitioninator();
                 } 
-                else if (levelManager.level == LevelManager.Level.Bus) {
-                    StartCoroutine(levelManager.Move(3, LevelManager.Level.MRT)); // go from bus to mrt
+                else {
+                    if (levelManager.level == LevelManager.Level.Bus) {
+                        StartCoroutine(levelManager.Move(3, LevelManager.Level.MRT)); // go from bus to mrt
+                    }
+                    if (levelManager.level == LevelManager.Level.BusInterior) {
+                        StartCoroutine(levelManager.Move(1, LevelManager.Level.Bus)); // go from bus interior to bus
+                    }
+                }
+            } 
+            else { // for inside bus when you have to bring NPC somewhere but no transition happens
+                if (npcmanager.myNPC != null && (int)npcmanager.myNPC.dialogueData.dialogueQuestions[npcmanager.myNPC.qnindex].outcomeLocation == location) { // bus to bus interior, mrt to bus
+                    print("gyatt");
+                    levelManager.taskCompleteImg.sprite = levelManager.taskCompletionPanelSprites[1];
+                    levelManager.taskcompletescreen.SetActive(true);
+                    npcmanager.myNPC.tasksuccess = NPC.Task.Success;
+                    player.inputtext.SetActive(false);
+                    gameObject.SetActive(false);
+                    //AudioManager.instance.PlaySFX(correctsound);
                 }
             }
-            //if(npcmanager.myNPC == null){ // for when player is in bus interior or if they are touching train station
-                
-            //}
         }
     }
     protected virtual void OnTriggerEnter(Collider other) {
-        if (other.GetComponent<Player>() && gameObject.CompareTag("Transition")) {
-            if (gameObject.name.Contains("Train Station")) { // stop player if touching mrt station even if no NPC
-                player.canMove = false;
-                player.inputtext.SetActive(true);
-            }
-            if (npcmanager.myNPC != null && (int)npcmanager.myNPC.dialogueData.dialogueQuestions[npcmanager.myNPC.qnindex].outcomeLocation == location) { // stop player no matter what if have NPC
-                player.canMove = false;
-                player.inputtext.SetActive(true);
-                if (GetComponentInParent<RoadTile>()) npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
-            }
-            else /*if(npcmanager.myNPC == null)*/ {
-                if(levelManager.level == LevelManager.Level.BusInterior && FindObjectOfType<NPC>() == null) { // dont stop player if in bus 
+        if (other.GetComponent<Player>()) {
+            if (gameObject.CompareTag("Transition")) {
+                if (gameObject.name.Contains("Train Station")) { // stop player if touching mrt station even if no NPC
+                    player.canMove = false;
                     player.inputtext.SetActive(true);
+                }
+                if (npcmanager.myNPC != null && (int)npcmanager.myNPC.dialogueData.dialogueQuestions[npcmanager.myNPC.qnindex].outcomeLocation == location) { // stop player no matter what if have NPC
+                    player.canMove = false;
+                    player.inputtext.SetActive(true);
+                    if (GetComponentInParent<RoadTile>()) npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
                 } 
-                
+                else /*if(npcmanager.myNPC == null)*/
+                    {
+                    if (levelManager.level == LevelManager.Level.BusInterior) { // dont stop player if in bus 
+                        player.inputtext.SetActive(true);
+                        GetComponentInChildren<Canvas>().transform.GetChild(0).gameObject.SetActive(true);
+                    }
+
+                }
+            } 
+            else {
+                if (levelManager.level == LevelManager.Level.BusInterior && npcmanager.myNPC != null && (int)npcmanager.myNPC.dialogueData.dialogueQuestions[npcmanager.myNPC.qnindex].outcomeLocation == location) { // stop player no matter what if have NPC
+                    //player.canMove = false;
+                    player.inputtext.SetActive(true);
+                    //if (GetComponentInParent<RoadTile>()) npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
+                }
             }
+           
         }
     }
     protected void OnTriggerExit(Collider other) {
@@ -70,6 +92,9 @@ public class Interactable : MonoBehaviour
         {
             player.inputtext.SetActive(false);
             player.canMove = true;
+            if(levelManager.level == LevelManager.Level.BusInterior && gameObject.CompareTag("Transition")) {
+                GetComponentInChildren<Canvas>().transform.GetChild(0).gameObject.SetActive(false);
+            }
         }
     }
 }

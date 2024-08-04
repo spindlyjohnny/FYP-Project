@@ -21,7 +21,7 @@ public class NPCManagement : MonoBehaviour
     void Update()
     {
         if (myNPC != null) {
-            if (myNPC.tasksuccess == NPC.Task.Fail || (myNPC.tasksuccess == NPC.Task.Success && !myNPC.hasdestination)) {
+            if (myNPC.tasksuccess == NPC.Task.Fail || (myNPC.tasksuccess == NPC.Task.Success)) {
                 //myNPC.gameObject.SetActive(false);
                 Destroy(myNPC.gameObject, .1f);
             }

@@ -47,10 +47,12 @@ public class Tile : MonoBehaviour {
                 break;
         }
         if (destinations.Length > 0 /*&& destinationSpawnPoints.Length > 0*/) {
-            destinations[Random.Range(0, destinations.Length)].SetActive(true);
-            //GameObject g = Instantiate(destinations[Random.Range(0, destinations.Length)], destinationSpawnPoints[Random.Range(0, destinationSpawnPoints.Length)].position, Quaternion.identity);
-            //g.SetActive(true);
-            //g.transform.SetParent(transform);
+            if(levelManager.level == LevelManager.Level.BusInterior) {
+                foreach (var i in destinations) i.SetActive(true);
+            } 
+            else {
+                destinations[Random.Range(0, destinations.Length)].SetActive(true);
+            }
         }
         if (!hasNPC) return;
         switch (LevelManager.levelNum) {
