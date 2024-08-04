@@ -86,6 +86,7 @@ public class Obstacle : MonoBehaviour
         for (int i = 0; i < rays.Length; i++) {
             Physics.Raycast(rays[i].position, rays[i].forward, out hit, 1f, LayerMask.GetMask("NPC Obstacle", "Player"/*,"Obstacle"*/, "NPC"));
             if (hit.collider == null) {
+                print("hit");
                 dir = rays[i].forward;//transform.position - hit.collider.transform.position;
             }
         }
