@@ -5528,10 +5528,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1135452520}
     - target: {fileID: 2737777695695530235, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
-      propertyPath: anim
-      value: 
-      objectReference: {fileID: 8004116751846742634}
-    - target: {fileID: 2737777695695530235, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
       propertyPath: avatar
       value: 
       objectReference: {fileID: 413933762}
@@ -5584,11 +5580,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
---- !u!95 &8004116751846742634 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 654269173881653805, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
-  m_PrefabInstance: {fileID: 8004116751846742633}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
