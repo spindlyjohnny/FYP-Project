@@ -14,6 +14,7 @@ public class NPCManagement : MonoBehaviour
     {
         levelManager = FindObjectOfType<LevelManager>();
         player = FindObjectOfType<Player>();
+        myNPC = null;
     }
 
     // Update is called once per frame

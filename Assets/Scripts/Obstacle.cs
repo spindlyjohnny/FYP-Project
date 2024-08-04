@@ -36,27 +36,27 @@ public class Obstacle : MonoBehaviour
     protected virtual void Update()
     {
         rb.velocity = (5 * dir);
-        //Sensors();
+        Sensors();
         //if (!myspawner.gameObject.activeSelf) Destroy(gameObject);
         
         
     }
-    private void OnTriggerEnter(Collider other) {
-        //RaycastHit hit;
-        if (other) {
-            var direction = other.transform.position - transform.position;
-            if (Physics.Raycast(transform.position, direction, 1f, LayerMask.GetMask("NPC Obstacle", "Player"/*,"Obstacle"*/, "NPC"))) {
-                dir = transform.position - other.transform.position;
-            }
+    //private void OnTriggerEnter(Collider other) {
+    //    //RaycastHit hit;
+    //    if (other) {
+    //        var direction = other.transform.position - transform.position;
+    //        if (Physics.Raycast(transform.position, direction, 1f, LayerMask.GetMask("NPC Obstacle", "Player"/*,"Obstacle"*/, "NPC"))) {
+    //            dir = transform.position - other.transform.position;
+    //        }
 
-        }
-    }
-    private void OnTriggerExit(Collider other) {
-        //List<string> layers = new List<string> { "NPC Obstacle","Player","NPC"};
-        if (other/*&& layers.Contains(other.gameObject.layer.ToString())*/) {
-            Sensors();
-        }
-    }
+    //    }
+    //}
+    //private void OnTriggerExit(Collider other) {
+    //    //List<string> layers = new List<string> { "NPC Obstacle","Player","NPC"};
+    //    if (other/*&& layers.Contains(other.gameObject.layer.ToString())*/) {
+    //        Sensors();
+    //    }
+    //}
     //void Sensors() {
     //    Transform[] rays = { front, left, right };
     //    RaycastHit hit;
@@ -83,12 +83,45 @@ public class Obstacle : MonoBehaviour
     void Sensors() {
         Transform[] rays = { front, left, right };
         RaycastHit hit;
+        int hits = 0;
+        Vector3 avoidDir = Vector3.zero;
+
         for (int i = 0; i < rays.Length; i++) {
-            Physics.Raycast(rays[i].position, rays[i].forward, out hit, 1f, LayerMask.GetMask("NPC Obstacle", "Player"/*,"Obstacle"*/, "NPC"));
-            if (hit.collider == null) {
-                print("hit");
-                dir = rays[i].forward;//transform.position - hit.collider.transform.position;
+            bool isHit = Physics.Raycast(rays[i].position, rays[i].forward, out hit, 1f, LayerMask.GetMask("NPC Obstacle", "Player", "NPC"));
+
+            if (isHit) {
+                print(hit.collider.name);
+                Debug.DrawLine(rays[i].position, hit.point, Color.red);
+                hits++;
+                avoidDir += (rays[i].position - hit.point).normalized; // Accumulate avoidance direction
+            } else {
+                Debug.DrawRay(rays[i].position, rays[i].forward * 1f, Color.green);
             }
         }
+
+        if (hits > 0 && hits < 3) {
+            // Avoid the detected obstacles
+            print("Avoiding obstacles");
+            dir = (avoidDir / hits).normalized; // Average avoidance direction
+        } else if (hits >= 3) {
+            print("Back");
+            dir = -front.forward;
+        } else {
+            dir = front.forward;
+        }
+
+        print("Total hits: " + hits);
     }
+
+    //void Sensors() {
+    //    Transform[] rays = { front, left, right };
+    //    RaycastHit hit;
+    //    for (int i = 0; i < rays.Length; i++) {
+    //        Physics.Raycast(rays[i].position, rays[i].forward, out hit, 1f, LayerMask.GetMask("NPC Obstacle", "Player"/*,"Obstacle"*/, "NPC"));
+    //        if (hit.collider == null) {
+    //            print("hit");
+    //            dir = rays[i].forward;//transform.position - hit.collider.transform.position;
+    //        }
+    //    }
+    //}
 }
