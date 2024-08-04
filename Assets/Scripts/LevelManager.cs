@@ -10,7 +10,7 @@ using UnityEngine.Video;
 public class LevelManager : SceneLoader {
     public bool gameover;
     public GameObject gameoverscreen, taskcompletescreen/*, loadingscreen*/, dialoguescreen;
-    public Video loadingScreen;
+    public VideoPlayer loadingScreen;
     public Slider energyslider;
     public GameObject[] tiles;
     [SerializeField] GameObject[] bustiles,level1Bus,level2Bus,level3Bus;
@@ -153,8 +153,8 @@ public class LevelManager : SceneLoader {
         // index is the buildIndex of the level that you are going to, lvl is the Level enum value of the level that you are going to
         level = lvl;
         loadingScreen.gameObject.SetActive(true);
-        loadingScreen.PlayVideo();
-        yield return new WaitForSeconds((float)loadingScreen.videoPlayer.length);
+        loadingScreen.Play();
+        yield return new WaitForSeconds((float)loadingScreen.length);
         LoadScene(index,true);
         SaveData();
         PlayerPrefs.Save();

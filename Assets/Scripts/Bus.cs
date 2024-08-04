@@ -27,7 +27,7 @@ public class Bus : Obstacle
         FindObjectOfType<LevelManager>().loadingScreen.gameObject.SetActive(true); // activate loading screen
         //FindObjectOfType<LevelManager>().loadingScreen.Play();
         //FindObjectOfType<LevelManager>().loadingscreen.GetComponent<Image>().sprite = FindObjectOfType<LevelManager>().loadingimgs[Random.Range(0, FindObjectOfType<LevelManager>().loadingimgs.Length)]; // set loading screen sprite
-        yield return new WaitForSeconds(2.5f);
+        //yield return new WaitForSeconds(2.5f);
         StartCoroutine(FindObjectOfType<LevelManager>().Move(2,LevelManager.Level.BusInterior));
     }
 }
