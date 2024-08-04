@@ -58,7 +58,7 @@ public class Interactable : MonoBehaviour
                 if (GetComponentInParent<RoadTile>()) npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
             }
             else /*if(npcmanager.myNPC == null)*/ {
-                if(levelManager.level == LevelManager.Level.BusInterior) { // dont stop player if in bus 
+                if(levelManager.level == LevelManager.Level.BusInterior && FindObjectOfType<NPC>() == null) { // dont stop player if in bus 
                     player.inputtext.SetActive(true);
                 } 
                 
