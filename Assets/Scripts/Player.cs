@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     Vector3 movement;
-    public float movespeed;
+    public float movespeed, maxspeed;
     public bool canMove,NPC;
     LevelManager levelManager;
     TutorialUI tutorial;
@@ -119,6 +119,7 @@ public class Player : MonoBehaviour
         levelManager.energyslider.value = energy;
         if (canMove) {
             movespeed += .1f * Time.deltaTime;
+            if (movespeed >= maxspeed) movespeed = maxspeed;
             transform.Translate(movespeed * Time.deltaTime * movement, Space.Self);
             if (movement.z > 0) {
                 levelManager.score++;

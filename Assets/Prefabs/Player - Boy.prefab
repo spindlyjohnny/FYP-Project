@@ -1076,7 +1076,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc8b828751cd594695fa274440a371f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movespeed: 5
+  movespeed: 3
+  maxspeed: 7
   canMove: 0
   NPC: 0
   energy: 0
