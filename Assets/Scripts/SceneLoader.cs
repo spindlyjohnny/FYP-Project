@@ -45,7 +45,7 @@ public class SceneLoader : MonoBehaviour {
         }
         if (PlayerPrefs.GetInt("Tutorial") == 1)
         {
-            tutorialPanel.SetActive(false);
+            //tutorialPanel.SetActive(false);
         }
         print(PlayerPrefs.GetInt("Tutorial"));
         PlayerPrefs.SetInt("bool", 0);
