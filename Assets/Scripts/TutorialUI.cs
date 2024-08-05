@@ -140,8 +140,6 @@ public class TutorialUI : MonoBehaviour
         if (two >= 2)
         {
             PlayerPrefs.SetInt("Tutorial", 1);
-            pause.BackToMainMenu();
-
         }
     }
 
@@ -168,7 +166,6 @@ public class TutorialUI : MonoBehaviour
         if (two >= 2)
         {
             PlayerPrefs.SetInt("Tutorial", 1);
-            pause.BackToMainMenu();
         }
         
     }
