@@ -7,14 +7,12 @@ public class NPCManagement : MonoBehaviour
     public NPC myNPC;
     public GeneralQuestion myGeneral;
     LevelManager levelManager;
-    NPCQuestion nPCQuestion;
     Player player;
     public int correctAmount=1;
     // Start is called before the first frame update
     void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
-        nPCQuestion = FindObjectOfType<NPCQuestion>();
         player = FindObjectOfType<Player>();
         myNPC = null;
     }
@@ -40,7 +38,7 @@ public class NPCManagement : MonoBehaviour
                 myNPC.dialogueco = StartCoroutine(myNPC.Dialogue());
             } else {
                 myNPC.dialoguetext.text = myNPC.dialogue[myNPC.currentline];
-                if (myNPC.indexDialogue == 2)
+                if (myNPC.indexDialogue == 2)//this is npc second correct outcome 
                 {
                     myNPC.EndDialogue();
                     if (myNPC.hasdestination)
@@ -60,12 +58,11 @@ public class NPCManagement : MonoBehaviour
                     }
                     return;
                 }
-                else if (myNPC.indexDialogue == 3)
+                else if (myNPC.indexDialogue == 3)//this is npc second wrong outcome 
                 {
                     myNPC.EndDialogue();
                     myNPC.tasksuccess = NPC.Task.Fail;
                     levelManager.taskcompletescreen.SetActive(true);
-                    myNPC.questionbox.SetActive(true);
                     return;
                 }
                 if (!myNPC.questionbox.activeSelf) myNPC.questionbox.SetActive(true);
@@ -103,7 +100,6 @@ public class NPCManagement : MonoBehaviour
                     myNPC.EndDialogue();
                     myNPC.tasksuccess = NPC.Task.Fail;
                     levelManager.taskcompletescreen.SetActive(true);
-                    nPCQuestion.Explain();
                     return;
                 }
                 myNPC.questionbox.SetActive(true);//need to change this probably

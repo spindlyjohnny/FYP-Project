@@ -9,7 +9,7 @@ using UnityEngine.Video;
 
 public class LevelManager : SceneLoader {
     public bool gameover;
-    public GameObject gameoverscreen, taskcompletescreen/*, loadingscreen*/, dialoguescreen;
+    public GameObject gameoverscreen, taskcompletescreenResponse, taskcompletescreen,/*, loadingscreen*/ dialoguescreen;
     public Video loadingScreen;
     public Slider energyslider;
     public GameObject[] tiles;
@@ -17,7 +17,7 @@ public class LevelManager : SceneLoader {
     public GameObject[] mrt;
     public int score; 
     public int tileindex,tileAmount;
-    public TMP_Text scoretext, tasksuccesstext,finalScoreText;
+    public TMP_Text scoretext, tasksuccessResponsetext,tasksuccesstext,finalScoreText;
     NPCManagement npcmanager;
     //GameObject currenttile;
     int tileshiftfactor;
@@ -37,7 +37,7 @@ public class LevelManager : SceneLoader {
     //public Sprite[] loadingimgs;
     [HideInInspector]public Player player;
     public GameObject upgradeText, boost;
-    public Image taskCompleteImg;
+    public Image taskCompleteImgResponse, taskCompleteImg;
     ObjectPool objectPool;
     public Image npcAvatar,pauseImg,failImg;
     public GameObject[] level1NPC, level2NPC, level3NPC;
@@ -125,10 +125,12 @@ public class LevelManager : SceneLoader {
         ShowFPS(FPS.GetCurrentFPS().ToString());
         if (npcmanager.myNPC != null) {
             if (npcmanager.myNPC.tasksuccess == NPC.Task.Fail) {
+                tasksuccessResponsetext.text = "Task failed!";
                 tasksuccesstext.text = "Task failed!";
                 //taskCompleteImg.SetActive(true);
             } 
             else if (npcmanager.myNPC.tasksuccess == NPC.Task.Success) {
+                tasksuccessResponsetext.text = "Task success!";
                 tasksuccesstext.text = "Task success!";
                 //taskCompleteImg.SetActive(false);
             }
@@ -147,8 +149,9 @@ public class LevelManager : SceneLoader {
     //}
     public void DisableTaskScreen() {
         if(npcmanager.myGeneral == null)player.canMove = true;
+        taskcompletescreenResponse.SetActive(false);
         taskcompletescreen.SetActive(false);
-        print("YES");
+        Time.timeScale=1;
     }
     public IEnumerator Move(int index,Level lvl) { // transition between levels
         // index is the buildIndex of the level that you are going to, lvl is the Level enum value of the level that you are going to

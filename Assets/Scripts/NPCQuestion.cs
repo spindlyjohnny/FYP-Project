@@ -25,15 +25,15 @@ public class NPCQuestion : MonoBehaviour
         {
             if (option == Options.WrongOption)
             {
-                levelManager.boost.SetActive(false);
+                levelManager.boost.SetActive(false);//this is general question wrong outcome
                 Explain();
-                levelManager.tasksuccesstext.text = "Wrong!";
-                levelManager.taskcompletescreen.SetActive(true);
-                levelManager.taskCompleteImg.sprite = levelManager.taskCompletionPanelSprites[0];
-                levelManager.taskCompleteImg.gameObject.SetActive(true);
+                levelManager.tasksuccessResponsetext.text = "Wrong!";
+                levelManager.taskcompletescreenResponse.SetActive(true);
+                levelManager.taskCompleteImgResponse.sprite = levelManager.taskCompletionPanelSprites[0];
+                levelManager.taskCompleteImgResponse.gameObject.SetActive(true);
                 AudioManager.instance.PlaySFX(wrongsound);
             }
-            else if (option == Options.CorrectOption)
+            else if (option == Options.CorrectOption) //this is general question correctz outcome
             {
                 npcmanager.correctAmount -= 1;
                 if (npcmanager.correctAmount > 0)
@@ -46,18 +46,18 @@ public class NPCQuestion : MonoBehaviour
                     button.SetActive(true);
                 }
                 Explain();
-                levelManager.taskcompletescreen.SetActive(true);
+                levelManager.taskcompletescreenResponse.SetActive(true);
 
                 //levelManager.upgradeText.SetActive(true);
                 levelManager.boost.GetComponentInChildren<TMP_Text>().text = "Timed Boost: Invincibility";
                 levelManager.boost.SetActive(true);
-                levelManager.taskCompleteImg.sprite = levelManager.taskCompletionPanelSprites[2];
-                levelManager.taskCompleteImg.gameObject.SetActive(true);
+                levelManager.taskCompleteImgResponse.sprite = levelManager.taskCompletionPanelSprites[2];
+                levelManager.taskCompleteImgResponse.gameObject.SetActive(true);
                 //foreach (var i in levelManager.boost.GetComponentsInChildren<Image>()) i.enabled = false;
                 player.Invincibility();
                 //if (player.originalInvincibleTime < player.maxInvincibleTime)player.originalInvincibleTime += 10;
                 //levelManager.taskCompleteImg.SetActive(false);
-                levelManager.tasksuccesstext.text = "Correct!";
+                levelManager.tasksuccessResponsetext.text = "Correct!";
                 //levelManager.questionbox.SetActive(false);
                 AudioManager.instance.PlaySFX(correctsound);
                
@@ -71,9 +71,9 @@ public class NPCQuestion : MonoBehaviour
             //Explain();
             //levelManager.upgradeText.SetActive(false);
             npcmanager.myNPC.questionbox.SetActive(false);
-            if(npcmanager.myNPC.indexDialogue == 1)
+            if(npcmanager.myNPC.indexDialogue == 1)//this is npc second wrong outcome 
             {
-                Explain();
+               
                 npcmanager.myNPC.indexDialogue += 2;
                 AudioManager.instance.PlaySFX(wrongsound);
                 npcmanager.myNPC.Response(indexQuestion);
@@ -81,8 +81,7 @@ public class NPCQuestion : MonoBehaviour
                 levelManager.dialoguescreen.SetActive(true);
                 npcmanager.myNPC.StartDialogue();
                 return;
-            }
-            Explain();
+            }//after this is npc first wrong outcome
             // NPC responds to player's choice here
             npcmanager.myNPC.EndDialogue();
             levelManager.taskcompletescreen.SetActive(true);
@@ -105,7 +104,7 @@ public class NPCQuestion : MonoBehaviour
                 npcmanager.myNPC.StartDialogue();
                 return;
             }
-            
+            //this is npc second correct outcome
             npcmanager.myNPC.indexDialogue += 1;
             npcmanager.myNPC.Response(indexQuestion);
             npcmanager.myNPC.dialoguebox.SetActive(true);
