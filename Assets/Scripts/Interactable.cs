@@ -9,6 +9,7 @@ public class Interactable : MonoBehaviour
     public ObjectPool objectPool;
     [SerializeField]Vector3 trainsize;
     [SerializeField] int location;
+    bool touchingPlayer;
     //public GameObject[] L1Destinations, L2Destinations, L3Destinations;
     //public GameObject[] destinations;
     //public string location;
@@ -21,20 +22,17 @@ public class Interactable : MonoBehaviour
         npcmanager = FindObjectOfType<NPCManagement>();
         levelManager = FindObjectOfType<LevelManager>();
         if (levelManager.level == LevelManager.Level.MRT) transform.localScale = trainsize;
+        touchingPlayer = false;
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
-        
-    }
-    private void OnTriggerStay(Collider other) {
-        if (other.GetComponent<Player>() && Input.GetKeyDown(KeyCode.F)) {
+        if(touchingPlayer && Input.GetKeyDown(KeyCode.F)) {
             if (gameObject.CompareTag("Transition")) {
                 if (npcmanager.myNPC != null && (int)npcmanager.myNPC.dialogueData.dialogueQuestions[npcmanager.myNPC.qnindex].outcomeLocation == location) { // bus to bus interior, mrt to bus
                     npcmanager.myNPC.Transitioninator();
-                } 
-                else {
+                } else {
                     if (levelManager.level == LevelManager.Level.Bus) {
                         StartCoroutine(levelManager.Move(3, LevelManager.Level.MRT)); // go from bus to mrt
                     }
@@ -42,10 +40,8 @@ public class Interactable : MonoBehaviour
                         StartCoroutine(levelManager.Move(1, LevelManager.Level.Bus)); // go from bus interior to bus
                     }
                 }
-            } 
-            else { // for inside bus when you have to bring NPC somewhere but no transition happens
+            } else { // for inside bus when you have to bring NPC somewhere but no transition happens
                 if (npcmanager.myNPC != null && (int)npcmanager.myNPC.dialogueData.dialogueQuestions[npcmanager.myNPC.qnindex].outcomeLocation == location) { // bus to bus interior, mrt to bus
-                    print("gyatt");
                     levelManager.taskCompleteImg.sprite = levelManager.taskCompletionPanelSprites[1];
                     levelManager.taskcompletescreen.SetActive(true);
                     npcmanager.myNPC.tasksuccess = NPC.Task.Success;
@@ -56,8 +52,14 @@ public class Interactable : MonoBehaviour
             }
         }
     }
+    //private void OnTriggerStay(Collider other) {
+    //    if (other.GetComponent<Player>()) {
+
+    //    }
+    //}
     protected virtual void OnTriggerEnter(Collider other) {
         if (other.GetComponent<Player>()) {
+            touchingPlayer = true;
             if (gameObject.CompareTag("Transition")) {
                 if (gameObject.name.Contains("Train Station")) { // stop player if touching mrt station even if no NPC
                     player.canMove = false;
@@ -90,6 +92,7 @@ public class Interactable : MonoBehaviour
     protected void OnTriggerExit(Collider other) {
         if (other.GetComponent<Player>()) 
         {
+            touchingPlayer = false;
             player.inputtext.SetActive(false);
             player.canMove = true;
             if(levelManager.level == LevelManager.Level.BusInterior && gameObject.CompareTag("Transition")) {
