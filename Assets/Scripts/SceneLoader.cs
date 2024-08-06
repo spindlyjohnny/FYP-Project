@@ -8,8 +8,9 @@ using UnityEngine.UI;
 public class SceneLoader : MonoBehaviour {
     public static bool Return = false;
     public GameObject levelSelect,fpsCounter,tutorialPanel;
-    [SerializeField] Image img;
+    [SerializeField] Image img,tutimg;
     [SerializeField] Sprite[] checkbox;
+    [SerializeField] GameObject tutpanel;
     public virtual void LoadScene(int scene,bool async = false) { // load scene from levelmanager
         if (async) SceneManager.LoadSceneAsync(scene);
         else SceneManager.LoadScene(scene);
@@ -41,6 +42,7 @@ public class SceneLoader : MonoBehaviour {
     private void Start()
     {
         tutorialPanel.SetActive(true);
+        img.sprite = checkbox[PlayerPrefs.GetInt("FPS")];
         if (!PlayerPrefs.HasKey("Tutorial"))
         {
             PlayerPrefs.SetInt("Tutorial", 0);//0 is  false and 1 is true
@@ -76,6 +78,17 @@ public class SceneLoader : MonoBehaviour {
         else {
             img.sprite = checkbox[0];
             PlayerPrefs.SetInt("FPS", 0);
+        }
+    }
+    public void HideTutorial() {
+        if (tutimg.sprite == checkbox[0]) {
+            tutimg.sprite = checkbox[1];
+            tutpanel.SetActive(false);
+        } 
+        else {
+            tutimg.sprite = checkbox[0];
+            tutpanel.SetActive(true);
+           
         }
     }
 }
