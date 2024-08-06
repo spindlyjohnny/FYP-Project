@@ -140,7 +140,7 @@ public class Player : MonoBehaviour
     {
         anim.SetBool("CanMove", canMove);
         if (!canMove) return;
-        if (levelManager.level == LevelManager.Level.BusInterior) {
+        if (levelManager.level == LevelManager.Level.BusInterior && !levelManager.pausing) {
             movement = new Vector3(0, 0, Input.GetButton("Fire1") ? 1 : Input.GetButton("Fire2") ? -1 : 0);
         } 
         else {
@@ -167,11 +167,12 @@ public class Player : MonoBehaviour
                 tile = hit.collider.GetComponent<Tile>();
             }
         }
-        if(levelManager.level != LevelManager.Level.BusInterior) {
+        if(levelManager.level != LevelManager.Level.BusInterior && !levelManager.pausing) {
             if (Input.GetButtonDown("Fire1") & animating == false) {
                 newlane = Mathf.Clamp(lane - 1, 0, 2);
                 StartCoroutine(LaneMoving());
-            } else if (Input.GetButtonDown("Fire2") & animating == false) {
+            } 
+            else if (Input.GetButtonDown("Fire2") & animating == false) {
                 newlane = Mathf.Clamp(lane + 1, 0, 2);
                 StartCoroutine(LaneMoving());
             }

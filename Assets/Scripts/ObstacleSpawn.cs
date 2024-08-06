@@ -29,10 +29,10 @@ public class ObstacleSpawn : MonoBehaviour
     {
         float rng = Random.Range(0f, 1f);
         if(obstacles.Length > 1) {
-            if (rng > 0 && rng <= .12f) {
+            if (rng > 0 && rng <= .12f) { // jogger
                 myobstacle = Instantiate(obstacles[0], transform.position + new Vector3(Randomness(), 0, 0), transform.rotation);
             } 
-            else if (rng > .3f && rng <= .5f) {
+            else if (rng > .3f && rng <= .5f) { // qn cube
                 myobstacle = Instantiate(obstacles[1], transform.position + new Vector3(Randomness(), 0, 0), transform.rotation);
             }
         } 

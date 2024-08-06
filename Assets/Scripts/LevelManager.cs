@@ -43,6 +43,7 @@ public class LevelManager : SceneLoader {
     public GameObject[] level1NPC, level2NPC, level3NPC;
     public int tilesSpawned;
     public Sprite[] taskCompletionPanelSprites;
+    public bool pausing;
     // Start is called before the first frame update
     private void Awake() {
         if (PlayerPrefs.HasKey("Level Num"))
@@ -110,6 +111,7 @@ public class LevelManager : SceneLoader {
         taskCompletionPanelSprites[0] = player.loseSprite;
         pauseImg.sprite = player.pauseSprite;
         failImg.sprite = player.loseSprite;
+        pausing = false;
     }
 
     // Update is called once per frame
@@ -189,6 +191,12 @@ public class LevelManager : SceneLoader {
             //numTiles += 1;
             if (amount == 1) numberOfTiles += 1;
         }
+    }
+    public void Pausing() {
+        pausing = true;
+    }
+    public void UnPausing() {
+        pausing = false;
     }
     void SaveData()
     {

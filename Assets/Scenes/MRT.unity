@@ -1215,6 +1215,38 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 4.000061
       objectReference: {fileID: 0}
+    - target: {fileID: 1453158260672246360, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 31155237}
+    - target: {fileID: 1453158260672246360, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 31155237}
+    - target: {fileID: 1453158260672246360, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Pausing
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453158260672246360, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UnPausing
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453158260672246360, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453158260672246360, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LevelManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453158260672246360, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1453158260672246360, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1617712887782893230, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 3.9999695
