@@ -20,6 +20,7 @@ public class Tile : MonoBehaviour {
     [SerializeField]GameObject[] destinations;
     //[SerializeField]Transform[] destinationSpawnPoints;
     int NPCIndex;
+    public bool randomNPCs;
     // Start is called before the first frame update
     protected virtual void Start() {
         //NPC = GetComponentsInChildren<NPC>(true);
@@ -47,12 +48,18 @@ public class Tile : MonoBehaviour {
                 break;
         }
         if (destinations.Length > 0 /*&& destinationSpawnPoints.Length > 0*/) {
-            if(levelManager.level == LevelManager.Level.BusInterior) {
-                foreach (var i in destinations) i.SetActive(true);
+            if (randomNPCs) {
+                destinations[Random.Range(0, destinations.Length)].SetActive(true);
             } 
             else {
-                destinations[Random.Range(0, destinations.Length)].SetActive(true);
+                foreach (var i in destinations) i.SetActive(true);
             }
+            //if(levelManager.level == LevelManager.Level.BusInterior) {
+            //    foreach (var i in destinations) i.SetActive(true);
+            //} 
+            //else {
+            //    destinations[Random.Range(0, destinations.Length)].SetActive(true);
+            //}
         }
         if (!hasNPC) return;
         switch (LevelManager.levelNum) {

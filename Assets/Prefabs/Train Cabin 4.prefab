@@ -385,6 +385,7 @@ MonoBehaviour:
   - {fileID: 2719419330683678333}
   - {fileID: 7964969494629306982}
   destinations: []
+  randomNPCs: 1
 --- !u!65 &5060462927611113993
 BoxCollider:
   m_ObjectHideFlags: 0
