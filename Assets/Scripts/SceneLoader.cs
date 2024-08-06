@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour {
     public static bool Return = false;
     public GameObject levelSelect,fpsCounter,tutorialPanel;
+    [SerializeField] Image img;
+    [SerializeField] Sprite[] checkbox;
     public virtual void LoadScene(int scene,bool async = false) { // load scene from levelmanager
         if (async) SceneManager.LoadSceneAsync(scene);
         else SceneManager.LoadScene(scene);
@@ -54,9 +57,25 @@ public class SceneLoader : MonoBehaviour {
         levelSelect.SetActive(true);
     }
     private void Update() {
-        ShowFPS(FPS.GetCurrentFPS().ToString());
+        FPSCounter(FPS.GetCurrentFPS().ToString());
     }
-    protected void ShowFPS(string fps) {
-        fpsCounter.GetComponent<TMP_Text>().text = "FPS:" + fps;
+    protected void FPSCounter(string fps) {
+        if (PlayerPrefs.GetInt("FPS") == 1) {
+            fpsCounter.GetComponent<TMP_Text>().text = "FPS:" + fps;
+        } 
+        else {
+            fpsCounter.GetComponent<TMP_Text>().text = "";
+        }
+    }
+
+    public void ShowFPS() {
+        if (img.sprite == checkbox[0]) {
+            img.sprite = checkbox[1];
+            PlayerPrefs.SetInt("FPS", 1);
+        } 
+        else {
+            img.sprite = checkbox[0];
+            PlayerPrefs.SetInt("FPS", 0);
+        }
     }
 }

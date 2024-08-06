@@ -124,7 +124,7 @@ public class LevelManager : SceneLoader {
             AudioManager.instance.StopMusic();
         }
         scoretext.text = score.ToString();
-        ShowFPS(FPS.GetCurrentFPS().ToString());
+        FPSCounter(FPS.GetCurrentFPS().ToString());
         if (npcmanager.myNPC != null) {
             if (npcmanager.myNPC.tasksuccess == NPC.Task.Fail) {
                 tasksuccessResponsetext.text = "Task failed!";
