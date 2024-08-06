@@ -9,7 +9,7 @@ using UnityEngine.Video;
 
 public class LevelManager : SceneLoader {
     public bool gameover;
-    public GameObject gameoverscreen, taskcompletescreenResponse, taskcompletescreen,/*, loadingscreen*/ dialoguescreen;
+    public GameObject gameoverscreen, taskcompletescreenResponse, taskcompletescreen,/*, loadingscreen*/ dialoguescreen,guidebox;
     public Video loadingScreen;
     public Slider energyslider;
     public GameObject[] tiles;
@@ -17,7 +17,7 @@ public class LevelManager : SceneLoader {
     public GameObject[] mrt;
     public int score; 
     public int tileindex,tileAmount;
-    public TMP_Text scoretext, tasksuccessResponsetext,tasksuccesstext,finalScoreText;
+    public TMP_Text scoretext, tasksuccessResponsetext,tasksuccesstext,finalScoreText, guideText;
     NPCManagement npcmanager;
     //GameObject currenttile;
     int tileshiftfactor;

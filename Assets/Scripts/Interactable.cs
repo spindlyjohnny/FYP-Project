@@ -50,6 +50,8 @@ public class Interactable : MonoBehaviour
                     //AudioManager.instance.PlaySFX(correctsound);
                 }
             }
+            levelManager.guidebox.SetActive(false);
+
         }
     }
     //private void OnTriggerStay(Collider other) {
