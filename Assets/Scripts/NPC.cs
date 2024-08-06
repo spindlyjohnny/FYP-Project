@@ -180,30 +180,33 @@ public class NPC : MonoBehaviour
     {
         if (dialogueData.dialogueQuestions[qnindex].outcomeLocation == OutcomeLocation.busStop)
         {
-
-        }else if(dialogueData.dialogueQuestions[qnindex].outcomeLocation== OutcomeLocation.emptySeat)
+            levelManager.guideText.text = "Ride the bus with the commuter";
+        }
+        else if(dialogueData.dialogueQuestions[qnindex].outcomeLocation== OutcomeLocation.emptySeat)
         {
-
-        }else if(dialogueData.dialogueQuestions[qnindex].outcomeLocation == OutcomeLocation.busCaptain)
+            levelManager.guideText.text = "Find empty seats and leave at their stop";
+        }
+        else if(dialogueData.dialogueQuestions[qnindex].outcomeLocation == OutcomeLocation.busCaptain)
         {
-
+            levelManager.guideText.text = "Find empty seats and leave at their stop";
         }
         else if (dialogueData.dialogueQuestions[qnindex].outcomeLocation == OutcomeLocation.grandKid)
         {
-
+            levelManager.guideText.text ="Find the commuter's grandkid and leave at their stop";
         }
         else if (dialogueData.dialogueQuestions[qnindex].outcomeLocation == OutcomeLocation.stationStaff)
         {
-
+            levelManager.guideText.text = "Bring commuter to the station staff";
         }
         else if (dialogueData.dialogueQuestions[qnindex].outcomeLocation == OutcomeLocation.taskCompletion)
         {
             return;
         }
-        else if (dialogueData.dialogueQuestions[qnindex].outcomeLocation == OutcomeLocation.busCaptain)
+        else if (dialogueData.dialogueQuestions[qnindex].outcomeLocation == OutcomeLocation.WheelchairZone)
         {
-
+            levelManager.guideText.text = "Bring commuter to wheelchair zone and leave at their stop";
         }
+        levelManager.guidebox.SetActive(true);
     }
 
     public void Stop()
