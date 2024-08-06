@@ -101,7 +101,7 @@ public class Player : MonoBehaviour
             //trailRenderer.emitting = false;
             //GetComponent<Rigidbody>().isKinematic = false;
             Physics.IgnoreLayerCollision(gameObject.layer, 8, false); // obstacle layer
-            Physics.IgnoreLayerCollision(gameObject.layer, 7, false); // npc layer
+            //Physics.IgnoreLayerCollision(gameObject.layer, 7, false); // npc layer
             skin[0].material = originalMats[^1];
             for (int i = 0; i < meshes.Length; i++) {
                 meshes[i].material = originalMats[i];
@@ -205,7 +205,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.layer == 8)
         {
             print("yes");
-            StartCoroutine(HitReaction(other));
+            StartCoroutine(HitReaction());
             energy -= 10;
         }
     }
@@ -214,14 +214,14 @@ public class Player : MonoBehaviour
         invincibility = true;
         invincibilitytime = originalInvincibleTime;
         Physics.IgnoreLayerCollision(gameObject.layer, 8, true);
-        Physics.IgnoreLayerCollision(gameObject.layer, 7, true);
+        //Physics.IgnoreLayerCollision(gameObject.layer, 7, true);
         for(int i = 0; i < meshes.Length; i++) {
             meshes[i].material = invincibleMats[i];
         }
         skin[0].material = invincibleMats[^1];
     }
 
-    IEnumerator HitReaction(Collision col)
+    IEnumerator HitReaction()
     {
         foreach (MeshRenderer mesh in meshes)
         {
@@ -233,8 +233,8 @@ public class Player : MonoBehaviour
         }
         AudioManager.instance.PlaySFX(hitsfx);
         canMove = false;
-        Vector3 dir = transform.position - col.transform.position;
-        GetComponent<Rigidbody>().AddForce(dir.normalized * 3, ForceMode.Impulse);
+        //Vector3 dir = transform.position - col.transform.position;
+        GetComponent<Rigidbody>().AddForce(-transform.forward * 3, ForceMode.Impulse);
         yield return new WaitForSeconds(0.5f);
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         foreach (MeshRenderer mesh in meshes)

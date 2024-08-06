@@ -164,6 +164,7 @@ public class NPC : MonoBehaviour
         currentline = 0;
         npcmanager.myNPC = GetComponent<NPC>();
         dialogueco = StartCoroutine(Dialogue());
+        //Time.timeScale = 0;
     }
 
     public void EndDialogue()
@@ -172,6 +173,7 @@ public class NPC : MonoBehaviour
         player.canMove = true;
         player.NPC = false;
         levelManager.dialoguescreen.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void Stop()
@@ -180,6 +182,7 @@ public class NPC : MonoBehaviour
     }
     public IEnumerator Dialogue()
     {
+        Time.timeScale = 0;
         if (npcTalking[currentline])
         {
             avatar.gameObject.SetActive(true);
@@ -197,12 +200,12 @@ public class NPC : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             AudioManager.instance.PlaySFX(dialoguesound);
-            yield return new WaitForSeconds(wordspeed);
+            yield return new WaitForSecondsRealtime(wordspeed);
         }
         foreach (char chr in dialogue[currentline])
         { // types out dialogue character by character
             dialoguetext.text += chr;
-            yield return new WaitForSeconds(wordspeed);
+            yield return new WaitForSecondsRealtime(wordspeed);
         }
     }
     public void FollowPlayer()

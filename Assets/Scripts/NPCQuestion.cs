@@ -91,6 +91,7 @@ public class NPCQuestion : MonoBehaviour
             levelManager.taskCompleteImg.gameObject.SetActive(true);
             npcmanager.myNPC.tasksuccess = NPC.Task.Fail;
             AudioManager.instance.PlaySFX(wrongsound);
+            Time.timeScale = 1;
         } 
         else if (option == Options.CorrectOption) {
            
@@ -112,7 +113,8 @@ public class NPCQuestion : MonoBehaviour
             npcmanager.myNPC.StartDialogue();
             levelManager.taskCompleteImg.sprite = levelManager.taskCompletionPanelSprites[1];
             levelManager.taskCompleteImg.gameObject.SetActive(true);
-            AudioManager.instance.PlaySFX(correctsound);/*
+            AudioManager.instance.PlaySFX(correctsound);
+            Time.timeScale = 1;/*
             if (npcmanager.myNPC.hasdestination) {
                 npcmanager.myNPC.followplayer = true;
             } 
@@ -126,7 +128,7 @@ public class NPCQuestion : MonoBehaviour
                 //    upgraded = true;
                 //}
             }*/
-            
+
         }
 
 

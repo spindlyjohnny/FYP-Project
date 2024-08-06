@@ -75,6 +75,7 @@ public class GeneralQuestion : Collectible
             //player.NPC = true;
             questionbox.SetActive(true);
             npcManager.myGeneral = this;
+            Time.timeScale = 0;
         }
     }
     override protected void Update()
