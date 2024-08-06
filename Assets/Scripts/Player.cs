@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
     LevelManager levelManager;
     TutorialUI tutorial;
     public float energy,maxenergy;
-    //public float energygain,maxEnergyGain;
     public MeshRenderer[] meshes;
     public SkinnedMeshRenderer[] skin;
     public Color originalColor,hitColor;
@@ -18,20 +17,17 @@ public class Player : MonoBehaviour
     public GameObject inputtext;
     public bool invincibility = false;
     public float originalInvincibleTime,maxInvincibleTime;
-    [SerializeField]float invincibilitytime;
+    [SerializeField] float invincibilitytime, hitTime;
     Tile tile;
     public Image avatar;
     public Sprite dialogueSprite,loseSprite,pauseSprite; // these vars exist cuz there's 2 playable charas
     public Animator anim;
     public int lane=1, newlane;
     public Transform npcPosition;
-    //Vector3 startPos;
-    //[HideInInspector]public Vector3 distTravelled;
-    //NPCManagement npcmanager;
     bool animating = false;
     public Material[] invincibleMats;
     public Material[] originalMats;
-    //Rigidbody rb;
+    bool hit;
     // Start is called before the first frame update
     private void Awake() {
         if (PlayerPrefs.GetInt("bool") == 1) {
@@ -69,52 +65,24 @@ public class Player : MonoBehaviour
         foreach (SkinnedMeshRenderer mesh in skin) {
             foreach (Material mat in mesh.materials) originalColor = mat.color;
         }
-
-
-        //startPos = transform.position;
-        //rb = GetComponent<Rigidbody>();
-        //if(levelManager.level == LevelManager.Level.Bus) {
-        //    GetComponent<Collider>().isTrigger = true;
-        //} 
-        //else {
-        //    GetComponent<Collider>().isTrigger = false;
-        //}
-        //Physics.IgnoreLayerCollision(gameObject.layer, 8, false);
-        //Physics.IgnoreLayerCollision(gameObject.layer, 7, false);
+        hit = false;
     }
     // Update is called once per frame
     void Update()
     {
         if (tutorial.stop) return;
         Movement();
-        //print(energy);
-        //distTravelled = transform.position - startPos;
-        //print("Distance"+Mathf.FloorToInt(distTravelled.magnitude));
-        //print("Time:"+Time.timeSinceLevelLoad);
         if (invincibility) {
             invincibilitytime -= Time.deltaTime;
         }
         if(invincibilitytime <= 0) {
             invincibility = false;
             invincibilitytime = originalInvincibleTime;
-            //movespeed /= 2;
-            //trailRenderer.emitting = false;
-            //GetComponent<Rigidbody>().isKinematic = false;
             Physics.IgnoreLayerCollision(gameObject.layer, 8, false); // obstacle layer
-            //Physics.IgnoreLayerCollision(gameObject.layer, 7, false); // npc layer
             skin[0].material = originalMats[^1];
             for (int i = 0; i < meshes.Length; i++) {
                 meshes[i].material = originalMats[i];
             }
-            //for (int i = 0; i < 5; i++) {
-            //    foreach (MeshRenderer mesh in meshes) {
-            //        foreach (Material mat in mesh.materials) mat.color = originalColor;
-            //    }
-            //    foreach (SkinnedMeshRenderer mesh in skin)
-            //    {
-            //        foreach (Material mat in mesh.materials) mat.color = originalColor;
-            //    }
-            //}
         }
         levelManager.energyslider.value = energy;
         if (canMove) {
@@ -131,6 +99,34 @@ public class Player : MonoBehaviour
             levelManager.gameover = true;
         }
         if (energy > maxenergy) energy = maxenergy;
+
+        if (hit) {
+            float timer = 10f;
+            for (int i = 0; i < meshes.Length; i++) {
+                meshes[i].material.color = Color.Lerp(originalColor, hitColor, Mathf.PingPong(Time.time * timer, 1));
+            }
+            skin[0].material.color = Color.Lerp(originalColor, hitColor, Mathf.PingPong(Time.time * timer, 1));
+            AudioManager.instance.PlaySFX(hitsfx);
+            //canMove = false;
+            //GetComponent<Rigidbody>().AddForce(-transform.forward * 3f, ForceMode.Force);
+            //GetComponent<Rigidbody>().isKinematic = true;
+            //GetComponent<Collider>().isTrigger = true;
+            //Physics.IgnoreLayerCollision(gameObject.layer, 8, true);
+            hitTime -= Time.deltaTime;
+        }
+        if(hitTime <= 0) {
+            hit = false;
+            hitTime = 1.5f;
+            //GetComponent<Rigidbody>().velocity = Vector3.zero;
+            //GetComponent<Rigidbody>().isKinematic = false;
+            //Physics.IgnoreLayerCollision(gameObject.layer, 8, false);
+            //GetComponent<Collider>().isTrigger = false;
+            for (int i = 0; i < meshes.Length; i++) {
+                meshes[i].material.color = originalColor;
+            }
+            skin[0].material.color = originalColor;
+            //canMove = true;
+        }
     }
     //IEnumerator TempInvincible() {
     //    yield return new WaitForSeconds(.2f);
@@ -206,8 +202,9 @@ public class Player : MonoBehaviour
         if (other.gameObject.layer == 8)
         {
             print("yes");
-            StartCoroutine(HitReaction());
-            energy -= 10;
+            hit = true;
+            other.collider.isTrigger = true;
+            energy -= energy * .1f;
         }
     }
     public void Invincibility()
@@ -224,28 +221,20 @@ public class Player : MonoBehaviour
 
     IEnumerator HitReaction()
     {
-        foreach (MeshRenderer mesh in meshes)
-        {
-            foreach (Material mat in mesh.materials) mat.color = hitColor;
+        float timer = 10f;
+        for (int i = 0; i < meshes.Length; i++) {
+            meshes[i].material.color = Color.Lerp(originalColor, hitColor, Mathf.PingPong(Time.time * timer,1));
         }
-        foreach (SkinnedMeshRenderer mesh in skin)
-        {
-            foreach (Material mat in mesh.materials) mat.color = Color.red;
-        }
+        skin[0].material.color = Color.Lerp(originalColor, hitColor, Mathf.PingPong(Time.time * timer,1));
         AudioManager.instance.PlaySFX(hitsfx);
         canMove = false;
-        //Vector3 dir = transform.position - col.transform.position;
         GetComponent<Rigidbody>().AddForce(-transform.forward * 3, ForceMode.Impulse);
         yield return new WaitForSeconds(0.5f);
         GetComponent<Rigidbody>().velocity = Vector3.zero;
-        foreach (MeshRenderer mesh in meshes)
-        {
-            foreach (Material mat in mesh.materials) mat.color = originalColor;
+        for (int i = 0; i < meshes.Length; i++) {
+            meshes[i].material.color = originalColor;
         }
-        foreach (SkinnedMeshRenderer mesh in skin)
-        {
-            foreach (Material mat in mesh.materials) mat.color = originalColor;
-        }
+        skin[0].material.color = originalColor;
         canMove = true;
     }
 }

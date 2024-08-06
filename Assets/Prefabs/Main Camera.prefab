@@ -110,7 +110,7 @@ MonoBehaviour:
   originalposition: {fileID: 0}
   smoothing: 3
   lookOffset: 5
-  defaultoffset: 4
+  defaultoffset: 5
   interioroffset: 3
   targetposition: {x: 0, y: 0, z: 0}
   NPC: 0
