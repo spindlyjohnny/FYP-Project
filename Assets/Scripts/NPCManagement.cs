@@ -82,6 +82,7 @@ public class NPCManagement : MonoBehaviour
                     if (myNPC.hasdestination)
                     {
                         myNPC.followplayer = true;
+                        myNPC.Guide();
                     }
                     else
                     {

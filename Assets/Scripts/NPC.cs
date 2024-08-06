@@ -174,7 +174,36 @@ public class NPC : MonoBehaviour
         player.canMove = true;
         player.NPC = false;
         levelManager.dialoguescreen.SetActive(false);
-        Time.timeScale = 1;
+    }
+
+    public void Guide()
+    {
+        if (dialogueData.dialogueQuestions[qnindex].outcomeLocation == OutcomeLocation.busStop)
+        {
+
+        }else if(dialogueData.dialogueQuestions[qnindex].outcomeLocation== OutcomeLocation.emptySeat)
+        {
+
+        }else if(dialogueData.dialogueQuestions[qnindex].outcomeLocation == OutcomeLocation.busCaptain)
+        {
+
+        }
+        else if (dialogueData.dialogueQuestions[qnindex].outcomeLocation == OutcomeLocation.grandKid)
+        {
+
+        }
+        else if (dialogueData.dialogueQuestions[qnindex].outcomeLocation == OutcomeLocation.stationStaff)
+        {
+
+        }
+        else if (dialogueData.dialogueQuestions[qnindex].outcomeLocation == OutcomeLocation.taskCompletion)
+        {
+            return;
+        }
+        else if (dialogueData.dialogueQuestions[qnindex].outcomeLocation == OutcomeLocation.busCaptain)
+        {
+
+        }
     }
 
     public void Stop()
