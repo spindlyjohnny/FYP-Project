@@ -7,12 +7,14 @@ public class NPCManagement : MonoBehaviour
     public NPC myNPC;
     public GeneralQuestion myGeneral;
     LevelManager levelManager;
+    NPCQuestion nPCQuestion;
     Player player;
     public int correctAmount=1;
     // Start is called before the first frame update
     void Start()
     {
         levelManager = FindObjectOfType<LevelManager>();
+        nPCQuestion = FindObjectOfType<NPCQuestion>();
         player = FindObjectOfType<Player>();
         myNPC = null;
     }
@@ -33,7 +35,7 @@ public class NPCManagement : MonoBehaviour
         if(myNPC.dialoguetext.text.Length < myNPC.dialogue[myNPC.currentline].Length) {
             myNPC.Stop();
             if (myNPC.currentline < myNPC.dialogue.Length - 1) { //check if there's more dialogue to type out
-                myNPC.currentline += 1; // go to next line
+                myNPC.currentline += 1; // go to next line(just print out the whole line instead)
                 myNPC.dialoguetext.text = ""; // reset text
                 myNPC.dialogueco = StartCoroutine(myNPC.Dialogue());
             } else {
@@ -63,6 +65,7 @@ public class NPCManagement : MonoBehaviour
                     myNPC.EndDialogue();
                     myNPC.tasksuccess = NPC.Task.Fail;
                     levelManager.taskcompletescreen.SetActive(true);
+                    myNPC.questionbox.SetActive(true);
                     return;
                 }
                 if (!myNPC.questionbox.activeSelf) myNPC.questionbox.SetActive(true);
@@ -100,6 +103,7 @@ public class NPCManagement : MonoBehaviour
                     myNPC.EndDialogue();
                     myNPC.tasksuccess = NPC.Task.Fail;
                     levelManager.taskcompletescreen.SetActive(true);
+                    nPCQuestion.Explain();
                     return;
                 }
                 myNPC.questionbox.SetActive(true);//need to change this probably

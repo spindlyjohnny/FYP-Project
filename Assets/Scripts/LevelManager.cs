@@ -148,6 +148,7 @@ public class LevelManager : SceneLoader {
     public void DisableTaskScreen() {
         if(npcmanager.myGeneral == null)player.canMove = true;
         taskcompletescreen.SetActive(false);
+        print("YES");
     }
     public IEnumerator Move(int index,Level lvl) { // transition between levels
         // index is the buildIndex of the level that you are going to, lvl is the Level enum value of the level that you are going to
