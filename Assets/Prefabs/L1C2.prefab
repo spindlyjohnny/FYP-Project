@@ -340,6 +340,7 @@ MonoBehaviour:
   L2Destinations: []
   L3Destinations: []
   destinations: []
+  randomNPCs: 0
 --- !u!65 &4935924930495361121
 BoxCollider:
   m_ObjectHideFlags: 0

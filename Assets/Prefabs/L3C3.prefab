@@ -71,6 +71,7 @@ MonoBehaviour:
   L2Destinations: []
   L3Destinations: []
   destinations: []
+  randomNPCs: 0
 --- !u!65 &2145253665364564709
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -177,7 +178,7 @@ Transform:
   m_GameObject: {fileID: 2389244654893439546}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0016399999, z: -0.0004}
+  m_LocalPosition: {x: 0, y: 0.0016399999, z: 0.0012499995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -255,7 +256,7 @@ Transform:
   m_GameObject: {fileID: 3339806468318761973}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0005, y: 0.0013, z: -0.0146}
+  m_LocalPosition: {x: -0.0258, y: 0.0013, z: -0.01227}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -287,7 +288,7 @@ Transform:
   m_GameObject: {fileID: 3697104840406993266}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.00164, z: -0.01425}
+  m_LocalPosition: {x: 0, y: 0.00164, z: -0.0126}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -367,7 +368,7 @@ Transform:
   m_GameObject: {fileID: 7163057425049023644}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0016399999, z: 0.01325}
+  m_LocalPosition: {x: 0, y: 0.0016399999, z: 0.0149}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

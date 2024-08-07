@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 209752997549781646}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0217, y: 0.0013, z: 0.0141}
+  m_LocalPosition: {x: 0.0217, y: 0.0013, z: 0.0116}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 4760362189913098180}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00443, y: 0.00149, z: -0.01216}
+  m_LocalPosition: {x: 0.0474, y: 0.00149, z: -0.0165}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -88,7 +88,7 @@ Transform:
   m_GameObject: {fileID: 5164549019288032395}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.00162, z: 0.00128}
+  m_LocalPosition: {x: 0, y: 0.00162, z: -0.0026599993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -181,6 +181,7 @@ MonoBehaviour:
   L2Destinations: []
   L3Destinations: []
   destinations: []
+  randomNPCs: 0
 --- !u!65 &4385185415256110507
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -284,7 +285,7 @@ Transform:
   m_GameObject: {fileID: 5923406077668075194}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.00162, z: -0.01226}
+  m_LocalPosition: {x: 0, y: 0.00162, z: -0.0162}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -395,7 +396,7 @@ Transform:
   m_GameObject: {fileID: 7783304603252035679}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.00162, z: 0.0152}
+  m_LocalPosition: {x: 0, y: 0.00162, z: 0.011260001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
