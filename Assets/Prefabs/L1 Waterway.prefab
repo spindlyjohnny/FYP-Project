@@ -193,6 +193,7 @@ MonoBehaviour:
   L2Destinations: []
   L3Destinations: []
   destinations: []
+  randomNPCs: 0
 --- !u!65 &5706700370318645208
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -337,6 +338,10 @@ PrefabInstance:
     - target: {fileID: -729371530063134761, guid: 9bba3759dc225844ebfa817838440803, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -469772151620456096, guid: 9bba3759dc225844ebfa817838440803, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.02972
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9bba3759dc225844ebfa817838440803, type: 3}
       propertyPath: m_Name
