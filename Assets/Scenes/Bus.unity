@@ -363,6 +363,22 @@ Transform:
   - {fileID: 2036067376}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &82579417 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1339639326926904091, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+  m_PrefabInstance: {fileID: 7196524405884246908}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &82579418 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7873684002142854880, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+  m_PrefabInstance: {fileID: 7196524405884246908}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &106113619 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4135950215972991090, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
@@ -4821,6 +4837,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: guidebox
+      value: 
+      objectReference: {fileID: 82579418}
+    - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: nametext
       value: 
       objectReference: {fileID: 488252768}
@@ -4828,6 +4848,10 @@ PrefabInstance:
       propertyPath: pauseImg
       value: 
       objectReference: {fileID: 1265674442}
+    - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: guideText
+      value: 
+      objectReference: {fileID: 82579417}
     - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: npcAvatar
       value: 
