@@ -654,6 +654,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: -5783353642228123019, guid: 5de0c92489d3c3949be923615f80d982, type: 3}
+      propertyPath: m_TagString
+      value: Knock
+      objectReference: {fileID: 0}
     - target: {fileID: -5222737212453242808, guid: 5de0c92489d3c3949be923615f80d982, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0282

@@ -32,14 +32,15 @@ public class ObstacleSpawn : MonoBehaviour
             if (rng > 0 && rng <= .12f) { // jogger
                 myobstacle = Instantiate(obstacles[0], transform.position + new Vector3(Randomness(), 0, 0), transform.rotation);
             } 
-            else if (rng > .3f && rng <= .5f) { // qn cube
+            else if (rng > .35f && rng <= .5f) { // qn cube
                 myobstacle = Instantiate(obstacles[1], transform.position + new Vector3(Randomness(), 0, 0), transform.rotation);
             }
         } 
         else {
-            if(rng > .3f && rng <= .5f)myobstacle = Instantiate(obstacles[0], transform.position + new Vector3(Randomness(), 0, 0), transform.rotation);
+            // qn cube
+            if(rng > .35f && rng <= .5f)myobstacle = Instantiate(obstacles[0], transform.position + new Vector3(Randomness(), 0, 0), transform.rotation);
         }
-        if(myobstacle != null) {
+        if(myobstacle != null) { // myobstacle would be null if rng falls out of range
             myobstacle.GetComponent<Obstacle>().myspawner = this;
             myobstacle.transform.position += myobstacle.GetComponent<Obstacle>().spawnoffset;
             if (myobstacle.GetComponent<Collectible>() == null) myobstacle.transform.rotation = Quaternion.Euler(0, -90, 0);

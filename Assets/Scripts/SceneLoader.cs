@@ -43,6 +43,8 @@ public class SceneLoader : MonoBehaviour {
     {
         tutorialPanel.SetActive(true);
         img.sprite = checkbox[PlayerPrefs.GetInt("FPS")];
+        tutimg.sprite = checkbox[PlayerPrefs.GetInt("Show Tutorial",0)];
+        tutpanel.SetActive(PlayerPrefs.GetInt("Show Tutorial", 0) == 1 ? false : true);
         if (!PlayerPrefs.HasKey("Tutorial"))
         {
             PlayerPrefs.SetInt("Tutorial", 0);//0 is  false and 1 is true
@@ -84,11 +86,12 @@ public class SceneLoader : MonoBehaviour {
         if (tutimg.sprite == checkbox[0]) {
             tutimg.sprite = checkbox[1];
             tutpanel.SetActive(false);
+            PlayerPrefs.SetInt("Show Tutorial", 1);
         } 
         else {
             tutimg.sprite = checkbox[0];
             tutpanel.SetActive(true);
-           
+            PlayerPrefs.SetInt("Show Tutorial", 0);
         }
     }
 }
