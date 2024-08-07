@@ -36,7 +36,7 @@ public class Obstacle : MonoBehaviour
     protected virtual void Update()
     {
         rb.velocity = (5 * dir);
-        Sensors();
+        //Sensors();
         //if (!myspawner.gameObject.activeSelf) Destroy(gameObject);
         
         
