@@ -9,7 +9,7 @@ using UnityEngine.Video;
 
 public class LevelManager : SceneLoader {
     public bool gameover;
-    public GameObject gameoverscreen, taskcompletescreenResponse, taskcompletescreen,/*, loadingscreen*/ dialoguescreen,guidebox;
+    public GameObject gameoverscreen, taskcompletescreenResponse, taskcompletescreen, fadeIn, dialoguescreen,guidebox;
     public Video loadingScreen;
     public Slider energyslider;
     public GameObject[] tiles;
@@ -70,6 +70,7 @@ public class LevelManager : SceneLoader {
         }
         tilesSpawned = 0;
         objectPool = GetComponent<ObjectPool>();
+        FadeIn();
         if (AudioManager.instance.CheckClip() != AudioManager.instance.levelmusic || !AudioManager.instance.IsPlaying()) {
             // CheckClip() is for when player starts level from level select. the other condition is when level is restarted either from pause screen or game over screen.
             StartCoroutine(AudioManager.instance.SwitchMusic(AudioManager.instance.levelmusic));
@@ -116,8 +117,6 @@ public class LevelManager : SceneLoader {
 
     // Update is called once per frame
     void Update() {
-        print("Level Num: " + (int)levelNum);
-        //print(loadingScreen.isPlaying);
         if (gameover) {
             gameoverscreen.SetActive(true);
             finalScoreText.text = "Score: "+score;
@@ -286,7 +285,11 @@ public class LevelManager : SceneLoader {
         if (tileAmount >= 3) return;
         tile.stopSpawningNpc = true;
     }
-
+    void FadeIn() {
+        Image img = fadeIn.GetComponent<Image>();
+        img.CrossFadeAlpha(0, .3f, false);
+        Destroy(fadeIn, .3f);
+    }
 }
 /*
 public static class SaveSystem {
