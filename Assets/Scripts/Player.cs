@@ -46,7 +46,6 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
-        //StartCoroutine(TempInvincible());
         canMove = true;
         levelManager = FindObjectOfType<LevelManager>();
         invincibilitytime = originalInvincibleTime;
@@ -99,14 +98,13 @@ public class Player : MonoBehaviour
             levelManager.gameover = true;
         }
         if (energy > maxenergy) energy = maxenergy;
-
         if (hit) {
             float timer = 10f;
             for (int i = 0; i < meshes.Length; i++) {
                 meshes[i].material.color = Color.Lerp(originalColor, hitColor, Mathf.PingPong(Time.time * timer, 1));
             }
             skin[0].material.color = Color.Lerp(originalColor, hitColor, Mathf.PingPong(Time.time * timer, 1));
-            AudioManager.instance.PlaySFX(hitsfx);
+            //GetComponent<Rigidbody>().velocity = Vector3.zero;
             //canMove = false;
             //GetComponent<Rigidbody>().AddForce(-transform.forward * 3f, ForceMode.Force);
             //GetComponent<Rigidbody>().isKinematic = true;
@@ -117,7 +115,7 @@ public class Player : MonoBehaviour
         if(hitTime <= 0) {
             hit = false;
             hitTime = 1.5f;
-            //GetComponent<Rigidbody>().velocity = Vector3.zero;
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
             //GetComponent<Rigidbody>().isKinematic = false;
             //Physics.IgnoreLayerCollision(gameObject.layer, 8, false);
             //GetComponent<Collider>().isTrigger = false;
@@ -140,7 +138,7 @@ public class Player : MonoBehaviour
             movement = new Vector3(0, 0, Input.GetButton("Fire1") ? 1 : Input.GetButton("Fire2") ? -1 : 0);
         } 
         else {
-            movement = new Vector3(0, 0, 1);
+            movement = new Vector3(0, 0, hit? .5f : 1);
         }
         if((Input.GetButton("Fire1") || Input.GetButton("Fire2")) && levelManager.level == LevelManager.Level.BusInterior)
         {
@@ -154,16 +152,20 @@ public class Player : MonoBehaviour
         {
             anim.SetBool("CanMove", canMove);
         }
-        RaycastHit hit; // for detecting tile to access lane variables
-        Physics.Raycast(transform.position, Vector3.down, out hit);
-        if (hit.collider)
+        RaycastHit tilehit; // for detecting tile to access lane variables
+        Physics.Raycast(transform.position, Vector3.down, out tilehit);
+        if (tilehit.collider)
         {
-            if (hit.collider.GetComponent<Tile>())
+            if (tilehit.collider.GetComponent<Tile>())
             {
-                tile = hit.collider.GetComponent<Tile>();
+                tile = tilehit.collider.GetComponent<Tile>();
             }
         }
         if(levelManager.level != LevelManager.Level.BusInterior && !levelManager.pausing) {
+            RaycastHit left, right;
+            Physics.Raycast(transform.position, transform.right, out right, .67f);
+            Physics.Raycast(transform.position, -transform.right, out left, .67f);
+            if (left.collider != null || right.collider != null) return;
             if (Input.GetButtonDown("Fire1") & animating == false) {
                 newlane = Mathf.Clamp(lane - 1, 0, 2);
                 StartCoroutine(LaneMoving());
@@ -183,6 +185,7 @@ public class Player : MonoBehaviour
 
         while (elapsedTime<duration)
         {
+
             float t = elapsedTime / duration;
             float lerpValue = Mathf.Lerp(tile.lanes[lane].z, tile.lanes[newlane].z, t);
             transform.position = new Vector3(transform.position.x,transform.position.y,lerpValue);
@@ -201,9 +204,12 @@ public class Player : MonoBehaviour
         if (invincibility) return;
         if (other.gameObject.layer == 8)
         {
-            print("yes");
             hit = true;
-            other.collider.isTrigger = true;
+            if (other.gameObject.CompareTag("Knock")) {
+                GetComponent<Rigidbody>().AddForce(-transform.forward * 3, ForceMode.Impulse);
+            }
+            else other.collider.isTrigger = true;
+            AudioManager.instance.PlaySFX(hitsfx);
             energy -= energy * .1f;
         }
     }
@@ -219,22 +225,22 @@ public class Player : MonoBehaviour
         skin[0].material = invincibleMats[^1];
     }
 
-    IEnumerator HitReaction()
-    {
-        float timer = 10f;
-        for (int i = 0; i < meshes.Length; i++) {
-            meshes[i].material.color = Color.Lerp(originalColor, hitColor, Mathf.PingPong(Time.time * timer,1));
-        }
-        skin[0].material.color = Color.Lerp(originalColor, hitColor, Mathf.PingPong(Time.time * timer,1));
-        AudioManager.instance.PlaySFX(hitsfx);
-        canMove = false;
-        GetComponent<Rigidbody>().AddForce(-transform.forward * 3, ForceMode.Impulse);
-        yield return new WaitForSeconds(0.5f);
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
-        for (int i = 0; i < meshes.Length; i++) {
-            meshes[i].material.color = originalColor;
-        }
-        skin[0].material.color = originalColor;
-        canMove = true;
-    }
+    //IEnumerator HitReaction()
+    //{
+    //    float timer = 10f;
+    //    for (int i = 0; i < meshes.Length; i++) {
+    //        meshes[i].material.color = Color.Lerp(originalColor, hitColor, Mathf.PingPong(Time.time * timer,1));
+    //    }
+    //    skin[0].material.color = Color.Lerp(originalColor, hitColor, Mathf.PingPong(Time.time * timer,1));
+    //    AudioManager.instance.PlaySFX(hitsfx);
+    //    canMove = false;
+    //    GetComponent<Rigidbody>().AddForce(-transform.forward * 3, ForceMode.Impulse);
+    //    yield return new WaitForSeconds(0.5f);
+    //    GetComponent<Rigidbody>().velocity = Vector3.zero;
+    //    for (int i = 0; i < meshes.Length; i++) {
+    //        meshes[i].material.color = originalColor;
+    //    }
+    //    skin[0].material.color = originalColor;
+    //    canMove = true;
+    //}
 }
