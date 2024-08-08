@@ -30,6 +30,7 @@ public class Interactable : MonoBehaviour
     {
         if(touchingPlayer && Input.GetKeyDown(KeyCode.F)) {
             if (gameObject.CompareTag("Transition")) {
+                levelManager.guidebox.SetActive(false);
                 if (npcmanager.myNPC != null && (int)npcmanager.myNPC.dialogueData.dialogueQuestions[npcmanager.myNPC.qnindex].outcomeLocation == location) { // bus to bus interior, mrt to bus
                     npcmanager.myNPC.Transitioninator();
                 } else {
@@ -50,7 +51,7 @@ public class Interactable : MonoBehaviour
                     //AudioManager.instance.PlaySFX(correctsound);
                 }
             }
-            levelManager.guidebox.SetActive(false);
+            
 
         }
     }

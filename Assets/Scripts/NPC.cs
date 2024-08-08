@@ -188,7 +188,7 @@ public class NPC : MonoBehaviour
         }
         else if(dialogueData.dialogueQuestions[qnindex].outcomeLocation == OutcomeLocation.busCaptain)
         {
-            levelManager.guideText.text = "Find empty seats and leave at their stop";
+            levelManager.guideText.text = "Ask the Bus Captain about the route";
         }
         else if (dialogueData.dialogueQuestions[qnindex].outcomeLocation == OutcomeLocation.grandKid)
         {
