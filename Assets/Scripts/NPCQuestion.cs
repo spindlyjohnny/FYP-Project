@@ -96,13 +96,13 @@ public class NPCQuestion : MonoBehaviour
            
             //Explain();
             npcmanager.myNPC.questionbox.SetActive(false);
-            if (npcmanager.myNPC.indexDialogue < 1)
+            if (npcmanager.myNPC.indexDialogue < 1)//this is correct answer for the first time
             {
                 npcmanager.myNPC.indexDialogue += 1;
                 npcmanager.myNPC.UpdateCanvas();
                 levelManager.dialoguescreen.SetActive(true);
                 npcmanager.myNPC.StartDialogue();
-                Time.timeScale = 1;
+                Time.timeScale = 1;//can we just comment this
                 return;
             }
             //this is npc second correct outcome
