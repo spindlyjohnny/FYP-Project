@@ -113,24 +113,8 @@ public class GeneralQuestion : Collectible
 
     void UpdateCanvas()//this function is to be called when the player collide with the questionaire
     {
-        List<int> typeIndexs = new List<int>(0);
-        for(int e=0; e < dialogueData.dialogueQuestions.Length; e++)
-        {
-            for (int i = 0; i < type.Length; i++)
-            {
-                string sub = type[i].Substring(0, 3);
-                string temp = dialogueData.dialogueQuestions[e].type.Substring(0, 3);
-                if (sub == temp)
-                {
-                    typeIndexs.Add(e);
-                    print(temp);
-                }
 
-            }
-        }
-        int index = Random.Range(0, typeIndexs.Count);
-        print(typeIndexs.Count);
-        int qnindex = typeIndexs[index];//random index for a question that is related to the current type
+        int qnindex = player.RandomIndexForGeneralQuestion();//random index for a question that is related to the current type
         levelManager.optionAButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
         levelManager.optionBButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
         levelManager.optionCButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
@@ -153,17 +137,17 @@ public class GeneralQuestion : Collectible
         }
         questiontext.text = dialogueData.dialogueQuestions[qnindex].question;
         explaintext.text = dialogueData.dialogueQuestions[qnindex].explain;
-        optionAtext.text = "A." + dialogueData.dialogueQuestions[qnindex].options[0];
-        optionBtext.text = "B." + dialogueData.dialogueQuestions[qnindex].options[1];
+        optionAtext.text = "A. " + dialogueData.dialogueQuestions[qnindex].options[0];
+        optionBtext.text = "B. " + dialogueData.dialogueQuestions[qnindex].options[1];
         levelManager.optionCButton.SetActive(true);
         levelManager.optionDButton.SetActive(true);
-        if (dialogueData.dialogueQuestions[qnindex].options.Length >= 3) optionCtext.text = "C." + dialogueData.dialogueQuestions[qnindex].options[2];
+        if (dialogueData.dialogueQuestions[qnindex].options.Length >= 3) optionCtext.text = "C. " + dialogueData.dialogueQuestions[qnindex].options[2];
         else
         {
             optionCtext.text = "";
             levelManager.optionCButton.SetActive(false);
         }
-        if (dialogueData.dialogueQuestions[qnindex].options.Length >= 4) optionDtext.text = "D." + dialogueData.dialogueQuestions[qnindex].options[3];
+        if (dialogueData.dialogueQuestions[qnindex].options.Length >= 4) optionDtext.text = "D. " + dialogueData.dialogueQuestions[qnindex].options[3];
         else
         {
             optionDtext.text = "";

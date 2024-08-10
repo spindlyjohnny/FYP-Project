@@ -6,28 +6,31 @@ public class Player : MonoBehaviour
 {
     Vector3 movement;
     public float movespeed, maxspeed;
-    public bool canMove,NPC;
+    public bool canMove, NPC;
     LevelManager levelManager;
     TutorialUI tutorial;
-    public float energy,maxenergy;
+    public float energy, maxenergy;
     public MeshRenderer[] meshes;
     public SkinnedMeshRenderer[] skin;
-    public Color originalColor,hitColor;
+    public Color originalColor, hitColor;
     public AudioClip hitsfx;
     public GameObject inputtext;
     public bool invincibility = false;
-    public float originalInvincibleTime,maxInvincibleTime;
+    public float originalInvincibleTime, maxInvincibleTime;
     [SerializeField] float invincibilitytime, hitTime;
     Tile tile;
     public Image avatar;
-    public Sprite dialogueSprite,loseSprite,pauseSprite; // these vars exist cuz there's 2 playable charas
+    public Sprite dialogueSprite, loseSprite, pauseSprite; // these vars exist cuz there's 2 playable charas
     public Animator anim;
-    public int lane=1, newlane;
+    public int lane = 1, newlane;
     public Transform npcPosition;
     bool animating = false;
     public Material[] invincibleMats;
     public Material[] originalMats;
     bool hit;
+    public GeneralDIalogueSO generalData;
+    public static List<int> list= new List<int>();
+    public List<int> tempList= new List<int>();
     // Start is called before the first frame update
     private void Awake() {
         if (PlayerPrefs.GetInt("bool") == 1) {
@@ -42,7 +45,7 @@ public class Player : MonoBehaviour
             PlayerPrefs.SetFloat("Invincibility Time", 5f);
             energy = PlayerPrefs.GetFloat("energy");
         }
-        
+
     }
     void Start()
     {
@@ -65,6 +68,29 @@ public class Player : MonoBehaviour
             foreach (Material mat in mesh.materials) originalColor = mat.color;
         }
         hit = false;
+        if (list.Count>0) return;
+        for (int i = 0; i < generalData.dialogueQuestions.Length; i++)
+        {
+            if ((generalData.dialogueQuestions[i].typing == TypeQuestion.Wheelchair || generalData.dialogueQuestions[i].typing == TypeQuestion.Elderly)
+                && LevelManager.levelNum == LevelManager.LevelNum.Level1) 
+            {
+                list.Add(i);
+            }//search for valid question with the correct type for level 1
+            else if((generalData.dialogueQuestions[i].typing == TypeQuestion.hearing || generalData.dialogueQuestions[i].typing == TypeQuestion.Visual)
+                && LevelManager.levelNum == LevelManager.LevelNum.Level2)
+            {
+                list.Add(i);
+            }//search for valid question with the correct type for level 2
+            else if ((generalData.dialogueQuestions[i].typing == TypeQuestion.invisible || generalData.dialogueQuestions[i].typing == TypeQuestion.Autism
+                || generalData.dialogueQuestions[i].typing == TypeQuestion.intelluctual)
+               && LevelManager.levelNum == LevelManager.LevelNum.Level3)
+            {
+                list.Add(i);
+            }//search for valid question with the correct type for level 3
+        }
+        tempList= new List<int>(list);
+        print(RandomIndexForGeneralQuestion());
+
     }
     // Update is called once per frame
     void Update()
@@ -153,7 +179,7 @@ public class Player : MonoBehaviour
             anim.SetBool("CanMove", canMove);
         }
         RaycastHit tilehit; // for detecting tile to access lane variables
-        Physics.Raycast(transform.position, Vector3.down, out tilehit);
+        Physics.Raycast(transform.position, Vector3.down, out tilehit);if(!invincibility)energy -= .01f;
         if (tilehit.collider)
         {
             if (tilehit.collider.GetComponent<Tile>())
@@ -224,7 +250,17 @@ public class Player : MonoBehaviour
         }
         skin[0].material = invincibleMats[^1];
     }
-
+    public int RandomIndexForGeneralQuestion()
+    {
+        if (list.Count <= 0)
+        {
+            list = new List<int>(tempList);
+        }
+        int chosen = Random.Range(0, list.Count);
+        int index = list[chosen];
+        list.RemoveAt(chosen);
+        return index;
+    }
     //IEnumerator HitReaction()
     //{
     //    float timer = 10f;
@@ -244,3 +280,5 @@ public class Player : MonoBehaviour
     //    canMove = true;
     //}
 }
+[System.Serializable]
+public enum TypeQuestion { General,Wheelchair, Visual,hearing,Elderly,Autism,invisible,intelluctual };

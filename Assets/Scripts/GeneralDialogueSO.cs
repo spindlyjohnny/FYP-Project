@@ -12,6 +12,7 @@ public class GeneralData
     public string question;
     public bool isMutli;
     public string type;
+    public TypeQuestion typing;
     public string[] options;    
     public bool[] answer;
     public string explain;

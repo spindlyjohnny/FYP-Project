@@ -1111,6 +1111,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: d0baac70d39c1394f8376b64612b3f0d, type: 2}
   - {fileID: 2100000, guid: 71cee5f8d8b2f3243a8f7faee8938871, type: 2}
   - {fileID: 2100000, guid: 56dda0e0a2b694e49992a78f7cee3616, type: 2}
+  generalData: {fileID: 11400000, guid: 2fa9f4077118518448a5276e0ea1347b, type: 2}
 --- !u!54 &7809966220103301839
 Rigidbody:
   m_ObjectHideFlags: 0
