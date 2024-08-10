@@ -90,7 +90,7 @@ public class NPCQuestion : MonoBehaviour
             levelManager.taskCompleteImg.gameObject.SetActive(true);
             npcmanager.myNPC.tasksuccess = NPC.Task.Fail;
             AudioManager.instance.PlaySFX(wrongsound);
-            Time.timeScale = 1;
+            //Time.timeScale = 1;
         } 
         else if (option == Options.CorrectOption) {
            
@@ -102,6 +102,7 @@ public class NPCQuestion : MonoBehaviour
                 npcmanager.myNPC.UpdateCanvas();
                 levelManager.dialoguescreen.SetActive(true);
                 npcmanager.myNPC.StartDialogue();
+                Time.timeScale = 1;
                 return;
             }
             //this is npc second correct outcome

@@ -104,7 +104,7 @@ public class NPC : MonoBehaviour
         followplayer = false;
         //GetComponent<Collider>().enabled = true;
         tasksuccess = Task.Success;
-        StartCoroutine(Transition(levelManager.level)); // does the actual transition, bus moves to train station/ player leaves train
+        Transition(levelManager.level); // does the actual transition, bus moves to train station/ player leaves train
         levelManager.taskcompletescreen.SetActive(true);
         player.inputtext.SetActive(false);
 
@@ -121,7 +121,7 @@ public class NPC : MonoBehaviour
         //}
         AudioManager.instance.PlaySFX(correctsound);
     }
-    IEnumerator Transition(LevelManager.Level level)
+    void Transition(LevelManager.Level level)
     {
         if (level == LevelManager.Level.Bus && street != null)
         {// called by bus.cs go from bus to bus interior
@@ -131,9 +131,8 @@ public class NPC : MonoBehaviour
             gameObject.SetActive(false);
             player.gameObject.SetActive(false);
         }
-        else if (level == LevelManager.Level.MRT)
+        if (level == LevelManager.Level.MRT)
         { // called by interactable.cs go from mrt to bus
-            yield return new WaitForSeconds((float)levelManager.loadingScreen.videoPlayer.length);
             StartCoroutine(levelManager.Move(1, LevelManager.Level.Bus));
         } /*else if (level == LevelManager.Level.BusInterior) {// called by interactable.cs
             levelManager.Move(3, LevelManager.Level.MRT);
@@ -141,12 +140,19 @@ public class NPC : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Player>() && !npcmanager.myNPC)
+        if (other.GetComponent<Player>())
         {
             Assess();
             player.canMove = false;
             player.GetComponent<Rigidbody>().velocity = Vector3.zero;
             levelManager.dialoguescreen.SetActive(true);
+            if (npcmanager.myNPC != null) {
+                Destroy(npcmanager.myNPC);
+                npcmanager.myNPC = GetComponent<NPC>();
+            } 
+            else {
+                npcmanager.myNPC = GetComponent<NPC>();
+            }
             StartDialogue();
         }
     }
@@ -163,7 +169,7 @@ public class NPC : MonoBehaviour
         avatar.sprite = dialogueSprite;
         dialoguetext.text = "";
         currentline = 0;
-        npcmanager.myNPC = GetComponent<NPC>();
+        //npcmanager.myNPC = GetComponent<NPC>();
         dialogueco = StartCoroutine(Dialogue());
         //Time.timeScale = 0;
     }
@@ -174,6 +180,7 @@ public class NPC : MonoBehaviour
         player.canMove = true;
         player.NPC = false;
         levelManager.dialoguescreen.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void Guide()
@@ -298,7 +305,7 @@ public class NPC : MonoBehaviour
             Debug.LogError("No valid question with the assigned Location");
         }
         int index = Random.Range(0, locationIndexs.Count);
-        qnindex = locationIndexs[index];
+        qnindex = locationIndexs[0];
         print(qnindex);
 
         levelManager.optionAButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;

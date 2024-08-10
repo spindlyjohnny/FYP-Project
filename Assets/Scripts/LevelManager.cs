@@ -162,8 +162,10 @@ public class LevelManager : SceneLoader {
         loadingScreen.PlayVideo();
         yield return new WaitForSeconds(3);
         LoadScene(index,true);
+        print("Yagami");
         SaveData();
         PlayerPrefs.Save();
+        print("EEEYAAGAAMII");
         //loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];
     }
     public void Spawn(int amount,float size) {
@@ -172,8 +174,8 @@ public class LevelManager : SceneLoader {
             if (amount == 1) {
                 x = numberOfTiles;
             }
-            //tileindex = 6;
-            RandomTile();
+            /*if(level != Level.MRT)tileindex = 8;
+            else*/ RandomTile();
             TutorialTile();
             mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
             objectPool.Remove();

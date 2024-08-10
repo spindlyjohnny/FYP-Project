@@ -21,9 +21,15 @@ public class NPCManagement : MonoBehaviour
     void Update()
     {
         if (myNPC != null) {
-            if (myNPC.tasksuccess == NPC.Task.Fail || (myNPC.tasksuccess == NPC.Task.Success)) {
+            if (myNPC.tasksuccess == NPC.Task.Fail) {
                 //myNPC.gameObject.SetActive(false);
                 Destroy(myNPC.gameObject, .1f);
+            }
+            else if(myNPC.tasksuccess == NPC.Task.Success) {
+                myNPC.gameObject.SetActive(false);
+                //foreach(var i in myNPC.GetComponents<Renderer>())i.enabled = false;
+                //foreach(var i in myNPC.GetComponents<Collider>())i.isTrigger = true;
+                //myNPC = null;
             }
         }
     }

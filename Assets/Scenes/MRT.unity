@@ -374,6 +374,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &911246322 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 498722185929378904, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+  m_PrefabInstance: {fileID: 7196524405884246908}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1132753881 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7783975354104787969, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
@@ -1109,7 +1120,7 @@ PrefabInstance:
     - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: taskCompleteImg
       value: 
-      objectReference: {fileID: 1352966202}
+      objectReference: {fileID: 911246322}
     - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: tasksuccesstext
       value: 
@@ -1118,6 +1129,10 @@ PrefabInstance:
       propertyPath: taskcompletescreen
       value: 
       objectReference: {fileID: 339019863}
+    - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: taskCompleteImgResponse
+      value: 
+      objectReference: {fileID: 1352966202}
     - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: tasksuccessResponsetext
       value: 

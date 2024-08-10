@@ -9,7 +9,7 @@ public class Interactable : MonoBehaviour
     public ObjectPool objectPool;
     [SerializeField]Vector3 trainsize;
     [SerializeField] int location;
-    bool touchingPlayer;
+    bool touchingPlayer,transitioning;
     //public GameObject[] L1Destinations, L2Destinations, L3Destinations;
     //public GameObject[] destinations;
     //public string location;
@@ -23,6 +23,7 @@ public class Interactable : MonoBehaviour
         levelManager = FindObjectOfType<LevelManager>();
         if (levelManager.level == LevelManager.Level.MRT) transform.localScale = trainsize;
         touchingPlayer = false;
+        //transitioning = false;
     }
 
     // Update is called once per frame
@@ -33,7 +34,9 @@ public class Interactable : MonoBehaviour
                 levelManager.guidebox.SetActive(false);
                 if (npcmanager.myNPC != null && (int)npcmanager.myNPC.dialogueData.dialogueQuestions[npcmanager.myNPC.qnindex].outcomeLocation == location) { // bus to bus interior, mrt to bus
                     npcmanager.myNPC.Transitioninator();
-                } else {
+                    //transitioning = true;
+                } 
+                else /*if(!transitioning)*/{
                     if (levelManager.level == LevelManager.Level.Bus) {
                         StartCoroutine(levelManager.Move(3, LevelManager.Level.MRT)); // go from bus to mrt
                     }
@@ -83,7 +86,7 @@ public class Interactable : MonoBehaviour
                 }
             } 
             else {
-                if (levelManager.level == LevelManager.Level.BusInterior && npcmanager.myNPC != null && (int)npcmanager.myNPC.dialogueData.dialogueQuestions[npcmanager.myNPC.qnindex].outcomeLocation == location) { // stop player no matter what if have NPC
+                if (levelManager.level == LevelManager.Level.BusInterior && npcmanager.myNPC != null && (int)npcmanager.myNPC.dialogueData.dialogueQuestions[npcmanager.myNPC.qnindex].outcomeLocation == location) {
                     //player.canMove = false;
                     player.inputtext.SetActive(true);
                     //if (GetComponentInParent<RoadTile>()) npcmanager.myNPC.street = GetComponentInParent<RoadTile>();

@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
             transform.Translate(movespeed * Time.deltaTime * movement, Space.Self);
             if (movement.z > 0) {
                 levelManager.score++;
-                if(!invincibility)energy -= .01f;
+                //if(!invincibility)energy -= .01f;
             }
         }
         if(energy <= 0) {
