@@ -305,7 +305,7 @@ public class NPC : MonoBehaviour
             Debug.LogError("No valid question with the assigned Location");
         }
         int index = Random.Range(0, locationIndexs.Count);
-        qnindex = locationIndexs[0];
+        qnindex = locationIndexs[index];
         print(qnindex);
 
         levelManager.optionAButton.GetComponent<NPCQuestion>().option = NPCQuestion.Options.WrongOption;
