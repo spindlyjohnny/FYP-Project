@@ -131,28 +131,30 @@ public class NPC : MonoBehaviour
             gameObject.SetActive(false);
             player.gameObject.SetActive(false);
         }
-        if (level == LevelManager.Level.MRT)
-        { // called by interactable.cs go from mrt to bus
-            StartCoroutine(levelManager.Move(1, LevelManager.Level.Bus));
-        } /*else if (level == LevelManager.Level.BusInterior) {// called by interactable.cs
-            levelManager.Move(3, LevelManager.Level.MRT);
-        }*/
+        //if (level == LevelManager.Level.MRT)
+        //{ // called by interactable.cs go from mrt to bus
+        //    StartCoroutine(levelManager.Move(1, LevelManager.Level.Bus));
+        //}
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<Player>())
         {
+            if (npcmanager.myNPC != null && !npcmanager.myNPC.gameObject.activeSelf) {
+                Destroy(npcmanager.myNPC);
+                npcmanager.myNPC = GetComponent<NPC>();
+            } 
+            else if(npcmanager.myNPC == null){
+                npcmanager.myNPC = GetComponent<NPC>();
+            } 
+            else {
+                return;
+            }
             Assess();
             player.canMove = false;
             player.GetComponent<Rigidbody>().velocity = Vector3.zero;
             levelManager.dialoguescreen.SetActive(true);
-            if (npcmanager.myNPC != null) {
-                Destroy(npcmanager.myNPC);
-                npcmanager.myNPC = GetComponent<NPC>();
-            } 
-            else {
-                npcmanager.myNPC = GetComponent<NPC>();
-            }
+            
             StartDialogue();
         }
     }

@@ -166,6 +166,7 @@ MonoBehaviour:
   L2Destinations: []
   L3Destinations: []
   destinations: []
+  randomNPCs: 0
 --- !u!65 &3690181963815278713
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -224,6 +225,7 @@ MonoBehaviour:
   objectPool: {fileID: 0}
   trainsize: {x: 0, y: 0, z: 0}
   location: 0
+  unconditional: 1
 --- !u!65 &7256958542974531341
 BoxCollider:
   m_ObjectHideFlags: 0
