@@ -178,7 +178,7 @@ public class NPC : MonoBehaviour
 
     public void EndDialogue()
     {
-        dialoguebox.SetActive(false);
+        /*if(dialoguetext.text == dialogue[currentline])*/dialoguebox.SetActive(false);
         player.canMove = true;
         player.NPC = false;
         levelManager.dialoguescreen.SetActive(false);

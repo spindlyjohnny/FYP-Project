@@ -36,13 +36,15 @@ public class NPCManagement : MonoBehaviour
     public void ContinueDialogue() {
         if (myNPC.dialogue.Length == 0) return;
         if (!myNPC.gameObject.activeSelf) return;
-        if(myNPC.dialoguetext.text.Length < myNPC.dialogue[myNPC.currentline].Length) {
+        if(myNPC.dialoguetext.text.Length < myNPC.dialogue[myNPC.currentline].Length) { // dialogue hasnt finished typing
             myNPC.Stop();
             if (myNPC.currentline < myNPC.dialogue.Length - 1) { //check if there's more dialogue to type out
-                myNPC.currentline += 1; // go to next line(just print out the whole line instead)
-                myNPC.dialoguetext.text = ""; // reset text
-                myNPC.dialogueco = StartCoroutine(myNPC.Dialogue());
-            } else {
+                myNPC.dialoguetext.text = myNPC.dialogue[myNPC.currentline];
+                //myNPC.currentline += 1; // go to next line(just print out the whole line instead)
+                //myNPC.dialoguetext.text = ""; // reset text
+                //myNPC.dialogueco = StartCoroutine(myNPC.Dialogue());
+            } 
+            else {
                 myNPC.dialoguetext.text = myNPC.dialogue[myNPC.currentline];
                 if (myNPC.indexDialogue == 2)//this is npc second correct outcome 
                 {
@@ -82,6 +84,7 @@ public class NPCManagement : MonoBehaviour
                 myNPC.dialogueco = StartCoroutine(myNPC.Dialogue());
             } 
             else {
+                //myNPC.dialoguetext.text = myNPC.dialogue[myNPC.currentline];
                 if (myNPC.indexDialogue==2)
                 {
                     myNPC.EndDialogue();
@@ -102,7 +105,8 @@ public class NPCManagement : MonoBehaviour
                         //}
                     }
                     return;
-                }else if(myNPC.indexDialogue == 3)
+                }
+                else if(myNPC.indexDialogue == 3)
                 {
                     myNPC.EndDialogue();
                     myNPC.tasksuccess = NPC.Task.Fail;
