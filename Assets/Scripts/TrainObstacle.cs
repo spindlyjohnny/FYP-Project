@@ -20,15 +20,10 @@ public class TrainObstacle : Interactable
     }
     protected override void OnTriggerEnter(Collider other) {
         if (other.GetComponent<Player>()) {
+            touchingPlayer = true;
+            player.canMove = false;
             player.inputtext.SetActive(true);
             excuseMeText.SetActive(true);
-        }
-    }
-    private void OnTriggerStay(Collider other) {
-        if (other.GetComponent<Player>() && Input.GetKeyDown(KeyCode.F)) {
-            MoveNPC();
-            player.inputtext.SetActive(false);
-            excuseMeText.SetActive(false);
         }
     }
     public void SetNPCs() {
@@ -41,7 +36,12 @@ public class TrainObstacle : Interactable
         }
     }
     protected override void Update() {
-       
+        if (touchingPlayer && Input.GetKeyDown(KeyCode.F)) {
+            MoveNPC();
+            player.inputtext.SetActive(false);
+            excuseMeText.SetActive(false);
+            player.canMove = true;
+        }
     }
     // Update is called once per frame
 

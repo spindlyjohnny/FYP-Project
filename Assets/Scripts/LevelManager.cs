@@ -174,8 +174,8 @@ public class LevelManager : SceneLoader {
             if (amount == 1) {
                 x = numberOfTiles;
             }
-            if(level != Level.MRT)tileindex = 8;
-            else RandomTile();
+            /*if(level != Level.MRT)tileindex = 8;
+            else*/ RandomTile();
             TutorialTile();
             mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
             objectPool.Remove();

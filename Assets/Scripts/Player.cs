@@ -114,9 +114,12 @@ public class Player : MonoBehaviour
             movespeed += .1f * Time.deltaTime;
             if (movespeed >= maxspeed) movespeed = maxspeed;
             transform.Translate(movespeed * Time.deltaTime * movement, Space.Self);
-            if (movement.z > 0) {
+            
+            
+            
+            if (movement.z > 0 /*&& !Physics.Raycast(transform.position, transform.forward, .1f)*/) {
                 levelManager.score++;
-                //if(!invincibility)energy -= .01f;
+                if(!invincibility)energy -= .01f;
             }
         }
         if(energy <= 0) {
