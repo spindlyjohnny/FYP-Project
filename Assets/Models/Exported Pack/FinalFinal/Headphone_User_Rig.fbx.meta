@@ -3,7 +3,27 @@ guid: fe750e3e520f7534488b3fcf027f31af
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IK_Rig_lambert2
+    second: {fileID: 2100000, guid: 3425e7b59744ee64a8a5d59ae5bab75d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: character_textures
+    second: {fileID: 2100000, guid: d87ef7388105ccb41a80433fa35d6be2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: b53a871de76977b42b1232b2c14e126e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert3
+    second: {fileID: 2100000, guid: 0d0118fe6ca9605409100159e46cbefd, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
