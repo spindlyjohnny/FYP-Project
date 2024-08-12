@@ -144,6 +144,8 @@ public class LevelManager : SceneLoader {
             tileshiftfactor = 26; //  tileshiftfactor spawns tiles 21 units ahead because when player enters trigger, there are 3 tiles in front. each tile is 7 units long on the x-axis
         }
         if (Input.GetKeyDown(KeyCode.Tab)) ShowFPS();
+
+        //RenderSettings.skybox.SetFloatArray("_Rotation",new List<float>() {90,0,0 });
     }
     //public void RestartLevel() {
     //    LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -175,8 +177,8 @@ public class LevelManager : SceneLoader {
             if (amount == 1) {
                 x = numberOfTiles;
             }
-            if(level != Level.MRT)tileindex = 8;
-            else RandomTile();
+            /*if(level != Level.MRT)tileindex = 8;
+            else*/ RandomTile();
             TutorialTile();
             mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
             objectPool.Remove();
