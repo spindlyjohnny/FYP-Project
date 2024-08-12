@@ -301,6 +301,8 @@ MonoBehaviour:
   myspawner: {fileID: 0}
   spawnoffset: {x: 0, y: 0, z: 0}
   dir: {x: -1, y: 0, z: 0}
+  oppositeLength: 0
+  sensorLength: 0.2
   front: {fileID: 1377114905284737265}
   right: {fileID: 6423100441018237509}
   left: {fileID: 3623175933604640332}

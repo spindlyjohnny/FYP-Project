@@ -7,6 +7,8 @@ public class Obstacle : MonoBehaviour
     public ObstacleSpawn myspawner;
     public Vector3 spawnoffset;
     public Vector3 dir;
+    float oppositeLength=0.6f;
+    public float sensorLength =5f;
     protected LevelManager levelManager;
     //Player player; 
     public Transform front, right, left;
@@ -14,6 +16,7 @@ public class Obstacle : MonoBehaviour
     Rigidbody rb;
     //float timeElapsed;
     public float elapsedFromMoved=0;
+    int laneIndex;
     //float lerpDuration02 = 1f;
     //float duration = 0.8f;
     //bool lerp = false;
@@ -28,6 +31,7 @@ public class Obstacle : MonoBehaviour
     {
         levelManager = FindObjectOfType<LevelManager>();
         rb = GetComponent<Rigidbody>();
+        //oppositeLength = FindObjectOfType<Tile>().lanes[0].z;
         //inital = transform.position;
         //print(inital.z);
     }
@@ -81,9 +85,42 @@ public class Obstacle : MonoBehaviour
     //    dir = -front.forward;
     //}
     void Sensors() {
-        Transform[] rays = { front, left, right };
+        Transform[] rays = { front, front, front };//going right increase the y axis rotation value
         RaycastHit hit;
+        bool[] direction = { false, false, false };
+        float angleInRadian = Mathf.Tan(oppositeLength / sensorLength);
+        float lengthOfSideRay =sensorLength / Mathf.Cos(angleInRadian);
+        if(Physics.Raycast(rays[0].position, rays[0].forward, out hit, sensorLength, LayerMask.GetMask("NPC Obstacle", "Player", "NPC")))
+        {//this is middle
+            Debug.DrawLine(rays[0].position, hit.point, Color.gray);
+            direction[1] = true;
+        }
+        else
+        {
+            direction[1] = false;
+        }
+
+        if(Physics.Raycast(rays[1].position, rays[1].forward+new Vector3(0,0, angleInRadian), out hit, lengthOfSideRay, LayerMask.GetMask("NPC Obstacle", "Player", "NPC")))
+        {//this is right
+            Debug.DrawLine(rays[0].position,hit.point, Color.green);
+            direction[0] = true;
+        }
+        else
+        {
+            direction[0] = false;
+        }
+        if (Physics.Raycast(rays[1].position, rays[1].forward - new Vector3(0, 0, angleInRadian), out hit, lengthOfSideRay, LayerMask.GetMask("NPC Obstacle", "Player", "NPC")))
+        {//this is right
+            Debug.DrawLine(rays[0].position, hit.point, Color.green);
+            direction[2] = true;
+        }
+        else
+        {
+            direction[2] = false;
+        }
+
         int hits = 0;
+        /*
         Vector3 avoidDir = Vector3.zero;
 
         for (int i = 0; i < rays.Length; i++) {
@@ -110,7 +147,7 @@ public class Obstacle : MonoBehaviour
             dir = front.forward;
         }
 
-        print("Total hits: " + hits);
+        print("Total hits: " + hits);*/
     }
 
     //void Sensors() {

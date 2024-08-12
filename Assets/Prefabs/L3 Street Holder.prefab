@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5096820663518056753, guid: f60e1c163f944b349bde26fac60c652a, type: 3}
+  - {fileID: 2100000, guid: 064da87840462954085b7d39a55b9936, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -940,6 +940,7 @@ MonoBehaviour:
   objectPool: {fileID: 0}
   trainsize: {x: 0, y: 0, z: 0}
   location: 1
+  unconditional: 0
 --- !u!1 &6194927181362884026
 GameObject:
   m_ObjectHideFlags: 0
@@ -1310,6 +1311,7 @@ MonoBehaviour:
   L2Destinations: []
   L3Destinations: []
   destinations: []
+  randomNPCs: 0
   bus: {fileID: 6392394581985633441}
   campos: {fileID: 869228552405954623}
   station: {fileID: 0}

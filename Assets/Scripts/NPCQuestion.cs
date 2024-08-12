@@ -102,7 +102,7 @@ public class NPCQuestion : MonoBehaviour
                 npcmanager.myNPC.UpdateCanvas();
                 levelManager.dialoguescreen.SetActive(true);
                 npcmanager.myNPC.StartDialogue();
-                Time.timeScale = 1;//can we just comment this
+                //Time.timeScale = 1;//can we just comment this
                 return;
             }
             //this is npc second correct outcome
@@ -114,7 +114,8 @@ public class NPCQuestion : MonoBehaviour
             levelManager.taskCompleteImg.sprite = levelManager.taskCompletionPanelSprites[1];
             levelManager.taskCompleteImg.gameObject.SetActive(true);
             AudioManager.instance.PlaySFX(correctsound);
-            Time.timeScale = 1;/*
+            //Time.timeScale = 1;
+            /*
             if (npcmanager.myNPC.hasdestination) {
                 npcmanager.myNPC.followplayer = true;
             } 
