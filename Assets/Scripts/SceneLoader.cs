@@ -8,10 +8,11 @@ using UnityEngine.UI;
 public class SceneLoader : MonoBehaviour {
     public static bool Return = false;
     public GameObject levelSelect,fpsCounter,tutorialPanel;
-    [SerializeField] Image img,tutimg;
+    [SerializeField] Image tutimg;
     [SerializeField] Sprite[] checkbox;
     [SerializeField] GameObject tutpanel;
     public Button L2button,L3button;
+    bool fps;
     public virtual void LoadScene(int scene,bool async = false) { // load scene from levelmanager
         if (async) SceneManager.LoadSceneAsync(scene);
         else SceneManager.LoadScene(scene);
@@ -50,7 +51,7 @@ public class SceneLoader : MonoBehaviour {
     private void Start()
     {
         tutorialPanel.SetActive(true);
-        img.sprite = checkbox[PlayerPrefs.GetInt("FPS")];
+        //img.sprite = checkbox[PlayerPrefs.GetInt("FPS")];
         tutimg.sprite = checkbox[PlayerPrefs.GetInt("Show Tutorial",0)];
         tutpanel.SetActive(PlayerPrefs.GetInt("Show Tutorial", 0) != 1);
         if (!PlayerPrefs.HasKey("Tutorial"))
@@ -82,6 +83,7 @@ public class SceneLoader : MonoBehaviour {
     }
     private void Update() {
         FPSCounter(FPS.GetCurrentFPS().ToString());
+        if (Input.GetKeyDown(KeyCode.Tab)) ShowFPS();
     }
     protected void FPSCounter(string fps) {
         if (PlayerPrefs.GetInt("FPS") == 1) {
@@ -93,14 +95,16 @@ public class SceneLoader : MonoBehaviour {
     }
 
     public void ShowFPS() {
-        if (img.sprite == checkbox[0]) {
-            img.sprite = checkbox[1];
-            PlayerPrefs.SetInt("FPS", 1);
-        } 
-        else {
-            img.sprite = checkbox[0];
-            PlayerPrefs.SetInt("FPS", 0);
-        }
+        fps = !fps;
+        PlayerPrefs.SetInt("FPS", fps ? 1 : 0);
+        //if (img.sprite == checkbox[0]) {
+        //    img.sprite = checkbox[1];
+        //    PlayerPrefs.SetInt("FPS", 1);
+        //} 
+        //else {
+        //    img.sprite = checkbox[0];
+        //    PlayerPrefs.SetInt("FPS", 0);
+        //}
     }
     public void HideTutorial() {
         if (tutimg.sprite == checkbox[0]) {
