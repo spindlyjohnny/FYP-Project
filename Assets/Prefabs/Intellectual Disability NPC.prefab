@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf159501d2f414d4a848d9adcea82c94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  file: male-first-names.txt
+  file: dude-names.txt
   names: []
 --- !u!1 &6964791801456276691
 GameObject:

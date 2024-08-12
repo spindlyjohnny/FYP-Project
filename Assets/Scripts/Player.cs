@@ -141,7 +141,7 @@ public class Player : MonoBehaviour
             
             if (movement.z > 0 /*&& !Physics.Raycast(transform.position, transform.forward, .1f)*/) {
                 levelManager.score++;
-                if(!invincibility)energy -= .01f;
+                if(!invincibility)energy -= .001f;
             }
         }
         if(energy <= 0) {
