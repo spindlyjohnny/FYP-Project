@@ -187,6 +187,7 @@ public class NPC : MonoBehaviour
 
     public void Guide()
     {
+        print("yes");
         if (dialogueData.dialogueQuestions[qnindex].outcomeLocation == OutcomeLocation.busStop)
         {
             levelManager.guideText.text = "Ride the bus with the commuter";
