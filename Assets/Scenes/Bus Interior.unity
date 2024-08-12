@@ -6696,6 +6696,11 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 5128633478458813648, guid: 883f847bd93626149a71c25e5090a08a, type: 3}
   m_PrefabInstance: {fileID: 1774274333}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1774274335 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6830174247515868760, guid: 883f847bd93626149a71c25e5090a08a, type: 3}
+  m_PrefabInstance: {fileID: 1774274333}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1784467591
 GameObject:
   m_ObjectHideFlags: 0
@@ -12616,6 +12621,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3213971660527085275, guid: 0e7ab7d58bc2061409b68fa5306e4cc3, type: 3}
+      propertyPath: bendPivotPoint
+      value: 
+      objectReference: {fileID: 1774274335}
+    - target: {fileID: 3213971660527085275, guid: 0e7ab7d58bc2061409b68fa5306e4cc3, type: 3}
+      propertyPath: bendPivotPointPosition.x
+      value: 0.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213971660527085275, guid: 0e7ab7d58bc2061409b68fa5306e4cc3, type: 3}
+      propertyPath: bendPivotPointPosition.y
+      value: 1.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213971660527085275, guid: 0e7ab7d58bc2061409b68fa5306e4cc3, type: 3}
+      propertyPath: bendPivotPointPosition.z
+      value: 0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 6689687775643705085, guid: 0e7ab7d58bc2061409b68fa5306e4cc3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 769.7469

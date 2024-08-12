@@ -13,12 +13,22 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: pasted__Rough_colour_scheme5
-    second: {fileID: 2642196430508620480, guid: cce6f79f5204ca946a4d1c8d8a8b84e1, type: 3}
+    second: {fileID: 2100000, guid: cb249553338e835489e96c4e8ca0cbad, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: pasted__pasted__Rough_colour_scheme4
-    second: {fileID: 2642196430508620480, guid: cce6f79f5204ca946a4d1c8d8a8b84e1, type: 3}
+    second: {fileID: 2100000, guid: cb249553338e835489e96c4e8ca0cbad, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Color_Palette_02
+    second: {fileID: 2800000, guid: 51b30f905e97ea54290442d84e6badd3, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Color_Palette_V2
+    second: {fileID: 2800000, guid: 970b751f5a2234448b445d250fc84c77, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

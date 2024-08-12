@@ -68,7 +68,30 @@ public class Player : MonoBehaviour
             foreach (Material mat in mesh.materials) originalColor = mat.color;
         }
         hit = false;
-        if (list.Count>0) return;
+        if (list.Count>0)
+        {
+            tempList.Clear();
+            for (int i = 0; i < generalData.dialogueQuestions.Length; i++)
+            {
+                if ((generalData.dialogueQuestions[i].typing == TypeQuestion.Wheelchair || generalData.dialogueQuestions[i].typing == TypeQuestion.Elderly)
+                    && LevelManager.levelNum == LevelManager.LevelNum.Level1)
+                {
+                    tempList.Add(i);
+                }//search for valid question with the correct type for level 1
+                else if ((generalData.dialogueQuestions[i].typing == TypeQuestion.hearing || generalData.dialogueQuestions[i].typing == TypeQuestion.Visual)
+                    && LevelManager.levelNum == LevelManager.LevelNum.Level2)
+                {
+                    tempList.Add(i);
+                }//search for valid question with the correct type for level 2
+                else if ((generalData.dialogueQuestions[i].typing == TypeQuestion.invisible || generalData.dialogueQuestions[i].typing == TypeQuestion.Autism
+                    || generalData.dialogueQuestions[i].typing == TypeQuestion.intelluctual)
+                   && LevelManager.levelNum == LevelManager.LevelNum.Level3)
+                {
+                    tempList.Add(i);
+                }//search for valid question with the correct type for level 3
+                return;
+            }
+        }
         for (int i = 0; i < generalData.dialogueQuestions.Length; i++)
         {
             if ((generalData.dialogueQuestions[i].typing == TypeQuestion.Wheelchair || generalData.dialogueQuestions[i].typing == TypeQuestion.Elderly)
@@ -89,7 +112,6 @@ public class Player : MonoBehaviour
             }//search for valid question with the correct type for level 3
         }
         tempList= new List<int>(list);
-        print(RandomIndexForGeneralQuestion());
 
     }
     // Update is called once per frame

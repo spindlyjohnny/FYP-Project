@@ -3,7 +3,32 @@ guid: 215d7a92db707ba47a6d8cd75f59e273
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: characted_textures
+    second: {fileID: 2100000, guid: 177c608bba76b3f4aa3d796e2cb23c5e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: colour_palette3
+    second: {fileID: 2100000, guid: c7240b0e9e4c4984e8a5029fb3151c22, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: 064f08f219915804a9b04772f9936d50, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mouth
+    second: {fileID: 2100000, guid: c3c84184ed57bb742962d20deeec39f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wheelchair_user_eyes
+    second: {fileID: 2100000, guid: 0aece9d963ef2bd4e9319287b2ca1200, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

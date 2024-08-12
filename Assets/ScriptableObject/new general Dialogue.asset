@@ -16,6 +16,7 @@ MonoBehaviour:
   - question: Why should we take public transport?
     isMutli: 0
     type: General
+    typing: 0
     options:
     - We can be more environmentally friendly
     - 'We can eat and drink '
@@ -28,6 +29,7 @@ MonoBehaviour:
       deaf, senior, pregnant lady? Select any that apply. '
     isMutli: 0
     type: General
+    typing: 0
     options:
     - Ask them if they need help
     - 'Ask if they need a seat/Give up your seat '
@@ -39,6 +41,7 @@ MonoBehaviour:
       please?' card and lanyard?
     isMutli: 0
     type: Invisible
+    typing: 6
     options:
     - Give up your seat/nicely ask someone to give their seat to them
     - Ignore them and continue using your phone/chatting with your friends"
@@ -49,6 +52,7 @@ MonoBehaviour:
       I am approaching my stop' card and lanyard?
     isMutli: 0
     type: Visual
+    typing: 2
     options:
     - Ask him/her where they are stopping and help them keep a look out for their
       stop
@@ -60,6 +64,7 @@ MonoBehaviour:
       apply
     isMutli: 0
     type: General
+    typing: 0
     options:
     - We can be caring and kind towards one another, to have a caring commuting culture
     - We can ignore others and be focused on ourselves only
@@ -70,6 +75,7 @@ MonoBehaviour:
   - question: 'What should you do when you see someone put their bags on the seats? '
     isMutli: 0
     type: General
+    typing: 0
     options:
     - Ignore them
     - 'Put your bag on the seat as well '
@@ -81,6 +87,7 @@ MonoBehaviour:
       Select any that apply '
     isMutli: 0
     type: General
+    typing: 0
     options:
     - Give Time, Give Care, Give Care, Give Thanks
     - Give Care, Give Help, Give Advice, Give Thanks
@@ -93,6 +100,7 @@ MonoBehaviour:
       for commuters to give and receive help? '
     isMutli: 0
     type: General
+    typing: 0
     options:
     - Yes
     - No
@@ -103,6 +111,7 @@ MonoBehaviour:
       @ Linkway wheelchairs? '
     isMutli: 0
     type: Wheelchair
+    typing: 1
     options:
     - Ask an adult if they can help
     - Ignore them
@@ -112,6 +121,7 @@ MonoBehaviour:
       with physical disability, holding a cane, pregnant etc? '
     isMutli: 0
     type: General
+    typing: 0
     options:
     - Stare at them
     - Laugh at them
@@ -124,6 +134,7 @@ MonoBehaviour:
   - question: 'What are the three As on how to help someone? Select any that apply '
     isMutli: 0
     type: General
+    typing: 0
     options:
     - Assess, Ask, Assist
     - Alone, Ask Assist
@@ -134,6 +145,7 @@ MonoBehaviour:
   - question: 'Do all pregnant ladies have big stomachs? '
     isMutli: 0
     type: General
+    typing: 0
     options:
     - Yes
     - No
@@ -144,6 +156,7 @@ MonoBehaviour:
       is pregnant?
     isMutli: 0
     type: Pregnant
+    typing: 0
     options:
     - Ignore them
     - Ask if she needs a seat/give up your seat for them
@@ -155,6 +168,7 @@ MonoBehaviour:
       on the train?
     isMutli: 0
     type: General
+    typing: 0
     options:
     - Ask the caregiver/children if they need a seat
     - Ignore them
@@ -166,6 +180,7 @@ MonoBehaviour:
   - question: 'Do all commuters with vision problems completely not see? '
     isMutli: 0
     type: Visual
+    typing: 2
     options:
     - Yes
     - No, there are those with only some vision loss
@@ -175,6 +190,7 @@ MonoBehaviour:
   - question: 'What does a white cane mean? '
     isMutli: 0
     type: Visual
+    typing: 2
     options:
     - User is completely blind
     - User has low vision
@@ -185,6 +201,7 @@ MonoBehaviour:
   - question: 'What does a white cane with red bottom mean? '
     isMutli: 0
     type: Visual
+    typing: 2
     options:
     - User completely cannot see
     - 'User has low vision '
@@ -195,6 +212,7 @@ MonoBehaviour:
   - question: 'What should you do when you see a visually impaired commuter?  '
     isMutli: 0
     type: Visual
+    typing: 2
     options:
     - 'Grab their cane   '
     - Pet and play their guide dog if they have one
@@ -207,6 +225,7 @@ MonoBehaviour:
   - question: Do all blind commuters wear sunglasses?
     isMutli: 0
     type: Visual
+    typing: 2
     options:
     - Yes
     - No
@@ -215,6 +234,7 @@ MonoBehaviour:
   - question: How many active guide dogs are there in Singapore?
     isMutli: 0
     type: General
+    typing: 0
     options:
     - 100
     - 50
@@ -225,6 +245,7 @@ MonoBehaviour:
   - question: How do you guide someone who is blind?
     isMutli: 0
     type: Visual
+    typing: 2
     options:
     - Hold their hand
     - Lead them by their cane
@@ -235,6 +256,7 @@ MonoBehaviour:
   - question: What should you do when you see a commuter wearing a hearing aid?
     isMutli: 0
     type: Hearing
+    typing: 3
     options:
     - Ignore them
     - 'Ask them if they need help if there is an important announcement in the MRT '
@@ -246,6 +268,7 @@ MonoBehaviour:
   - question: Do all deaf commuters know/use sign language?
     isMutli: 0
     type: Hearing
+    typing: 3
     options:
     - Yes
     - No
@@ -255,6 +278,7 @@ MonoBehaviour:
   - question: 'Do all deaf commuters wear hearing aids? '
     isMutli: 0
     type: Hearing
+    typing: 3
     options:
     - Yes
     - No
@@ -266,6 +290,7 @@ MonoBehaviour:
       all that apply.
     isMutli: 1
     type: Hearing
+    typing: 3
     options:
     - Gesture wildly at them
     - Shout at them
@@ -277,6 +302,7 @@ MonoBehaviour:
   - question: What should you do when you see a wheelchair user who is struggling?
     isMutli: 0
     type: Wheelchair
+    typing: 1
     options:
     - Push their wheelchair for them
     - Ask them if they need help
@@ -288,6 +314,7 @@ MonoBehaviour:
       e.g.,on a wheelchair?
     isMutli: 0
     type: Wheelchair
+    typing: 1
     options:
     - Help to hold the lift and press the lift buttons for them
     - 'Allow them to board the bus or train first  '
@@ -299,6 +326,7 @@ MonoBehaviour:
   - question: 'Can you hang your belongings on a wheelchair user''s wheelchair? '
     isMutli: 0
     type: Wheelchair
+    typing: 1
     options:
     - Yes
     - No
@@ -308,6 +336,7 @@ MonoBehaviour:
   - question: 'Do all commuters with physical disabilities use a wheelchair? '
     isMutli: 0
     type: Wheelchair
+    typing: 1
     options:
     - Yes
     - No
@@ -318,6 +347,7 @@ MonoBehaviour:
   - question: What do you call a commuter in a wheelchair?
     isMutli: 0
     type: Wheelchair
+    typing: 1
     options:
     - Wheelchair-bound
     - Wheelchair user
@@ -327,6 +357,7 @@ MonoBehaviour:
       on public transport on their own." '
     isMutli: 0
     type: Intellectual
+    typing: 7
     options:
     - True
     - False
@@ -337,6 +368,7 @@ MonoBehaviour:
       queueing up for the bus or train? '
     isMutli: 0
     type: Intellectual
+    typing: 7
     options:
     - 'Let them board the bus first using the side that they want to board on  '
     - Ask them to move away
@@ -348,6 +380,7 @@ MonoBehaviour:
       strangely." '
     isMutli: 0
     type: Intellectual
+    typing: 7
     options:
     - True
     - False
@@ -358,6 +391,7 @@ MonoBehaviour:
       who is lost?
     isMutli: 0
     type: Intellectual
+    typing: 7
     options:
     - Alert an adult or the Passenger Service Office
     - Laugh at them
@@ -370,6 +404,7 @@ MonoBehaviour:
       you are saying. What should you do?
     isMutli: 0
     type: Intellectual
+    typing: 7
     options:
     - Use shorter and simpler sentences
     - 'Just pull the person in the direction you think he/she should go '
@@ -382,6 +417,7 @@ MonoBehaviour:
       back and forth, talking loudly? Select all that apply '
     isMutli: 1
     type: Autism
+    typing: 5
     options:
     - 'Stare at them '
     - 'Laugh at them '
@@ -393,6 +429,7 @@ MonoBehaviour:
   - question: 'What main problem do commuters with Autism face? '
     isMutli: 0
     type: Autism
+    typing: 5
     options:
     - Communicating with others
     - 'Remembering things  '
@@ -404,6 +441,7 @@ MonoBehaviour:
       for the bus or train? '
     isMutli: 0
     type: Autism
+    typing: 5
     options:
     - Let them board the bus first and the side that they want to board
     - 'Ask them to move away '
@@ -415,6 +453,7 @@ MonoBehaviour:
       crying, waving their hands etc.? '
     isMutli: 0
     type: Autism
+    typing: 5
     options:
     - Do not stare
     - 'Try to stop them   '
@@ -426,6 +465,7 @@ MonoBehaviour:
   - question: 'Do commuters with Autism look like everyone else?  '
     isMutli: 0
     type: Autism
+    typing: 5
     options:
     - Yes
     - No
@@ -434,6 +474,7 @@ MonoBehaviour:
   - question: 'What should you do if you see a commuter with Autism who is lost? '
     isMutli: 0
     type: Autism
+    typing: 5
     options:
     - Alert an adult or the Passenger Service Office
     - 'Drag them away to where you think they should be '
@@ -446,6 +487,7 @@ MonoBehaviour:
       that is lost? '
     isMutli: 0
     type: Elderly
+    typing: 4
     options:
     - 'Notify an adult  '
     - Seek help at the Passenger Service Control Centre/Dementia Go-To Point
@@ -456,6 +498,7 @@ MonoBehaviour:
   - question: 'How do you know someone has dementia? Select all that apply '
     isMutli: 1
     type: Dementia
+    typing: 6
     options:
     - Memory loss
     - 'Confusion  '
@@ -467,6 +510,7 @@ MonoBehaviour:
       What should you do? '
     isMutli: 0
     type: Dementia
+    typing: 6
     options:
     - 'Bring them to the Passenger Service Office  '
     - Ignore them and walk away
@@ -477,6 +521,7 @@ MonoBehaviour:
       should you do? '
     isMutli: 0
     type: Dementia
+    typing: 6
     options:
     - Stare at them
     - 'Laugh at them   '
@@ -486,6 +531,7 @@ MonoBehaviour:
   - question: 'Are all medical conditions visible? '
     isMutli: 0
     type: Invisible
+    typing: 6
     options:
     - Yes
     - No
@@ -494,6 +540,7 @@ MonoBehaviour:
   - question: 'You notice someone has fainted. What should you do? '
     isMutli: 0
     type: Invisible
+    typing: 6
     options:
     - Ignore them
     - Notify the nearest adult and the Passenger Service Office
@@ -504,6 +551,7 @@ MonoBehaviour:
       Select all that apply '
     isMutli: 1
     type: Invisible
+    typing: 6
     options:
     - 'Guide the commuter to a seat  '
     - Ignore them and walk away
@@ -515,6 +563,7 @@ MonoBehaviour:
       that apply  '
     isMutli: 1
     type: Invisible
+    typing: 6
     options:
     - 'Autism '
     - Dementia
@@ -525,6 +574,7 @@ MonoBehaviour:
   - question: '"Only senior commuters have health issues." True or False?'
     isMutli: 0
     type: Elderly
+    typing: 4
     options:
     - True
     - False

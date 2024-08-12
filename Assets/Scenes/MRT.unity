@@ -888,6 +888,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3213971660527085275, guid: 0e7ab7d58bc2061409b68fa5306e4cc3, type: 3}
+      propertyPath: bendPivotPoint
+      value: 
+      objectReference: {fileID: 5605041641245169740}
+    - target: {fileID: 3213971660527085275, guid: 0e7ab7d58bc2061409b68fa5306e4cc3, type: 3}
+      propertyPath: bendPivotPointPosition.x
+      value: -4.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213971660527085275, guid: 0e7ab7d58bc2061409b68fa5306e4cc3, type: 3}
+      propertyPath: bendPivotPointPosition.y
+      value: 3.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213971660527085275, guid: 0e7ab7d58bc2061409b68fa5306e4cc3, type: 3}
+      propertyPath: bendPivotPointPosition.z
+      value: 1.59
+      objectReference: {fileID: 0}
     - target: {fileID: 6689687775643705085, guid: 0e7ab7d58bc2061409b68fa5306e4cc3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 769.7469
@@ -1345,6 +1361,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 883f847bd93626149a71c25e5090a08a, type: 3}
+--- !u!4 &5605041641245169740 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6830174247515868760, guid: 883f847bd93626149a71c25e5090a08a, type: 3}
+  m_PrefabInstance: {fileID: 5605041641245169739}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7196524405884246908
 PrefabInstance:
   m_ObjectHideFlags: 0

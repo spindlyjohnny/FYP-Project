@@ -7,8 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: New_texture_sheet
+    second: {fileID: 2100000, guid: 85d3ef2bc4323ae41b13a418ffd65b3c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Rough_colour_scheme
     second: {fileID: 2100000, guid: 7f993f67ccf2dc14ca41c6b86c16ad43, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Texture_B
+    second: {fileID: 2100000, guid: 064da87840462954085b7d39a55b9936, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
