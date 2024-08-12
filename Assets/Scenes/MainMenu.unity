@@ -3509,6 +3509,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1794472811}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: SetLevelStatus
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Level 3
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &805389852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5591,6 +5603,18 @@ MonoBehaviour:
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1794472811}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: SetLevelStatus
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Level 2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1326027078
@@ -8041,6 +8065,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 88f8743abfde3e745ae53a8b83d3c2d1, type: 3}
   - {fileID: 21300000, guid: 617bcb5ef49834349ad219af9020e55c, type: 3}
   tutpanel: {fileID: 400433675}
+  L2button: {fileID: 805389851}
+  L3button: {fileID: 1124398037}
 --- !u!114 &1794472812
 MonoBehaviour:
   m_ObjectHideFlags: 0

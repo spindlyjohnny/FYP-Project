@@ -11,6 +11,7 @@ public class SceneLoader : MonoBehaviour {
     [SerializeField] Image img,tutimg;
     [SerializeField] Sprite[] checkbox;
     [SerializeField] GameObject tutpanel;
+    public Button L2button,L3button;
     public virtual void LoadScene(int scene,bool async = false) { // load scene from levelmanager
         if (async) SceneManager.LoadSceneAsync(scene);
         else SceneManager.LoadScene(scene);
@@ -32,7 +33,14 @@ public class SceneLoader : MonoBehaviour {
         LevelManager.levelNum = (LevelManager.LevelNum)levelNum;
         PlayerPrefs.SetInt("Level Num", levelNum);
     }
+    public void SetLevelStatus(string level) {
+        if (!PlayerPrefs.HasKey(level)) {
+            PlayerPrefs.SetInt(level, 1);
+        }
+    }
+    //public void SetInteractive(Button button) {
 
+    //}
     public void StopTutorial()
     {
         PlayerPrefs.SetInt("Tutorial", 1);
@@ -44,7 +52,7 @@ public class SceneLoader : MonoBehaviour {
         tutorialPanel.SetActive(true);
         img.sprite = checkbox[PlayerPrefs.GetInt("FPS")];
         tutimg.sprite = checkbox[PlayerPrefs.GetInt("Show Tutorial",0)];
-        tutpanel.SetActive(PlayerPrefs.GetInt("Show Tutorial", 0) == 1 ? false : true);
+        tutpanel.SetActive(PlayerPrefs.GetInt("Show Tutorial", 0) != 1);
         if (!PlayerPrefs.HasKey("Tutorial"))
         {
             PlayerPrefs.SetInt("Tutorial", 0);//0 is  false and 1 is true
@@ -53,6 +61,18 @@ public class SceneLoader : MonoBehaviour {
         if (PlayerPrefs.GetInt("Tutorial") == 1)
         {
             //tutorialPanel.SetActive(false);
+        }
+        if (PlayerPrefs.GetInt("Level 2") == 1) {
+            L2button.interactable = true;
+        } 
+        else {
+            L2button.interactable = false;
+        }
+        if (PlayerPrefs.GetInt("Level 3") == 1) {
+            L3button.interactable = true;
+        } 
+        else {
+            L3button.interactable = false;
         }
         print(PlayerPrefs.GetInt("Tutorial"));
         PlayerPrefs.SetInt("bool", 0);
