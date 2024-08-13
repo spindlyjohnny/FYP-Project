@@ -78,7 +78,7 @@ public class Interactable : MonoBehaviour
         if (other.GetComponent<Player>()) {
             touchingPlayer = true;
             if (gameObject.CompareTag("Transition")) {
-                if (gameObject.name.Contains("Train Station")) { // stop player if touching mrt station even if no NPC
+                if (unconditional) { // stop player if touching mrt station even if no NPC
                     player.canMove = false;
                     player.inputtext.SetActive(true);
                 }
