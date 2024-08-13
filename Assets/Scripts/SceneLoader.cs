@@ -95,7 +95,7 @@ public class SceneLoader : MonoBehaviour {
     }
 
     public void ShowFPS() {
-z        fps = !fps;
+        fps = !fps;
         PlayerPrefs.SetInt("FPS", fps ? 1 : 0);
         //if (img.sprite == checkbox[0]) {
         //    img.sprite = checkbox[1];
