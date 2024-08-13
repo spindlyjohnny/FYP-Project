@@ -24,9 +24,6 @@ public class SceneLoader : MonoBehaviour {
                 PlayerPrefs.SetFloat("energy", 100);
                 PlayerPrefs.SetFloat("Max Energy", 100);
                 PlayerPrefs.SetFloat("Invincibility Time", 5f);
-                //maxenergy = PlayerPrefs.GetFloat("Max Energy");
-                ////energygain = PlayerPrefs.GetFloat("Energy Gain");
-                //originalInvincibleTime = PlayerPrefs.GetFloat("Invincibility Time");
             }
         }
     }
@@ -39,8 +36,16 @@ public class SceneLoader : MonoBehaviour {
             PlayerPrefs.SetInt(level, 1);
         }
     }
-    //public void SetInteractive(Button button) {
-
+    //public void SetPlayer() {
+    //    if (p1img.sprite == altcheckbox[0]) { // select sprite
+    //        p1img.sprite = altcheckbox[1];
+    //        //p2img.sprite = altcheckbox[0];
+    //        PlayerPrefs.SetInt("Player", 0); // boy
+    //    } else if (p1img.sprite == altcheckbox[1]) { // checked sprite
+    //        p1img.sprite = altcheckbox[0];
+    //        //p2img.sprite = altcheckbox[1];
+    //        PlayerPrefs.SetInt("Player", 1); // girl
+    //    }
     //}
     public void StopTutorial()
     {
@@ -97,14 +102,6 @@ public class SceneLoader : MonoBehaviour {
     public void ShowFPS() {
         fps = !fps;
         PlayerPrefs.SetInt("FPS", fps ? 1 : 0);
-        //if (img.sprite == checkbox[0]) {
-        //    img.sprite = checkbox[1];
-        //    PlayerPrefs.SetInt("FPS", 1);
-        //} 
-        //else {
-        //    img.sprite = checkbox[0];
-        //    PlayerPrefs.SetInt("FPS", 0);
-        //}
     }
     public void HideTutorial() {
         if (tutimg.sprite == checkbox[0]) {

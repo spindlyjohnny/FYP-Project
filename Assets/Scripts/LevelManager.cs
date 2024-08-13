@@ -44,6 +44,7 @@ public class LevelManager : SceneLoader {
     public int tilesSpawned;
     public Sprite[] taskCompletionPanelSprites;
     public bool pausing;
+    public GameObject[] players;
     // Start is called before the first frame update
     private void Awake() {
         if (PlayerPrefs.HasKey("Level Num"))
@@ -64,6 +65,14 @@ public class LevelManager : SceneLoader {
         //levelNum = LevelNum.Level1;
     }
     void Start() {
+        for(int i = 0; i < players.Length; i++) {
+            if(i == PlayerPrefs.GetInt("Player", 0)) {
+                players[i].SetActive(true);
+            } 
+            else {
+                players[i].SetActive(false);
+            }
+        }
         if (!PlayerPrefs.HasKey("Tutorial"))
         {
             PlayerPrefs.SetInt("Tutorial", 0);//0 is  false and 1 is true            

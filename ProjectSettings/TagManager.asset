@@ -9,6 +9,7 @@ TagManager:
   - Train
   - Transition
   - Knock
+  - Boy
   layers:
   - Default
   - TransparentFX
