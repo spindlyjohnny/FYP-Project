@@ -36,17 +36,6 @@ public class SceneLoader : MonoBehaviour {
             PlayerPrefs.SetInt(level, 1);
         }
     }
-    //public void SetPlayer() {
-    //    if (p1img.sprite == altcheckbox[0]) { // select sprite
-    //        p1img.sprite = altcheckbox[1];
-    //        //p2img.sprite = altcheckbox[0];
-    //        PlayerPrefs.SetInt("Player", 0); // boy
-    //    } else if (p1img.sprite == altcheckbox[1]) { // checked sprite
-    //        p1img.sprite = altcheckbox[0];
-    //        //p2img.sprite = altcheckbox[1];
-    //        PlayerPrefs.SetInt("Player", 1); // girl
-    //    }
-    //}
     public void StopTutorial()
     {
         PlayerPrefs.SetInt("Tutorial", 1);
@@ -92,10 +81,12 @@ public class SceneLoader : MonoBehaviour {
     }
     protected void FPSCounter(string fps) {
         if (PlayerPrefs.GetInt("FPS") == 1) {
+            fpsCounter.gameObject.SetActive(true);
             fpsCounter.GetComponent<TMP_Text>().text = "FPS:" + fps;
         } 
         else {
             fpsCounter.GetComponent<TMP_Text>().text = "";
+            fpsCounter.gameObject.SetActive(false);
         }
     }
 
