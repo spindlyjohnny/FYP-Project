@@ -72,11 +72,6 @@ public class NPC : MonoBehaviour
         if (levelManager.level == LevelManager.Level.Bus)
         {
             locationNpc = LocationEnum.Pavement;
-            //RaycastHit hit;
-            //Physics.Raycast(transform.position, Vector3.down, out hit);
-            //if (hit.collider.gameObject.CompareTag("Train")) {
-            //    npcLocation = "Train";
-            //}
         }
         else if (levelManager.level == LevelManager.Level.BusInterior)
         {
@@ -261,7 +256,7 @@ public class NPC : MonoBehaviour
         if (once == false)
         {
             once = true;
-            GetComponentInChildren<Image>().gameObject.SetActive(false);
+            transform.Find("Exclaimation mark").gameObject.SetActive(false);
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
         }
         /*

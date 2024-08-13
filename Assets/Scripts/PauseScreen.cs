@@ -31,8 +31,14 @@ public class PauseScreen : MonoBehaviour {
     public void ResumeGame() {
         Time.timeScale = 1;
         pausescreen.SetActive(false);
-        if(!npcmanager.myGeneral)player.canMove = true;
-        AudioManager.instance.ResumeMusic();
+        if (npcmanager.myGeneral || npcmanager.myNPC || player.interactable) {
+            AudioManager.instance.ResumeMusic();
+            return;
+        } 
+        else {
+            player.canMove = true;
+            AudioManager.instance.ResumeMusic();
+        }
     }
     public void BackToMainMenu() {
         SceneLoader.Return = true;

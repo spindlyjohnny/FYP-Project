@@ -62,17 +62,16 @@ public class LevelManager : SceneLoader {
             PlayerPrefs.SetInt("Level Num", (int)levelNum);
             levelNum = (LevelNum)1;
         }
-        //levelNum = LevelNum.Level1;
-    }
-    void Start() {
-        for(int i = 0; i < players.Length; i++) {
-            if(i == PlayerPrefs.GetInt("Player", 0)) {
+        for (int i = 0; i < players.Length; i++) {
+            if (i == PlayerPrefs.GetInt("Player", 0)) {
                 players[i].SetActive(true);
             } 
             else {
                 players[i].SetActive(false);
             }
         }
+    }
+    void Start() {
         if (!PlayerPrefs.HasKey("Tutorial"))
         {
             PlayerPrefs.SetInt("Tutorial", 0);//0 is  false and 1 is true            
@@ -186,8 +185,8 @@ public class LevelManager : SceneLoader {
             if (amount == 1) {
                 x = numberOfTiles;
             }
-            if (level != Level.MRT) tileindex = 8;
-            else tileindex = 0;//RandomTile();
+            /*if (level != Level.MRT) tileindex = 8;
+            else tileindex = 0;*/RandomTile();
             TutorialTile();
             mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
             objectPool.Remove();

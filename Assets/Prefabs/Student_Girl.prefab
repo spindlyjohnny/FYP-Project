@@ -73,7 +73,6 @@ GameObject:
   - component: {fileID: 3394838670992964255}
   - component: {fileID: 4354747548251097026}
   - component: {fileID: 6073162549083386557}
-  - component: {fileID: 1488073531354909503}
   m_Layer: 0
   m_Name: Quad
   m_TagString: Untagged
@@ -146,28 +145,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1488073531354909503
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8080104832033009259}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &677392523645261986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -377,6 +354,7 @@ MonoBehaviour:
   maxspeed: 7
   canMove: 0
   NPC: 0
+  interactable: 0
   energy: 0
   maxenergy: 100
   meshes: []
@@ -401,10 +379,14 @@ MonoBehaviour:
   invincibleMats:
   - {fileID: 2100000, guid: f10a949d062047b4f943a87949bbdf96, type: 2}
   - {fileID: 2100000, guid: 6548bb71d816c3242b26269b2beaaeb4, type: 2}
+  - {fileID: 2100000, guid: 6548bb71d816c3242b26269b2beaaeb4, type: 2}
+  - {fileID: 2100000, guid: 6548bb71d816c3242b26269b2beaaeb4, type: 2}
   - {fileID: 2100000, guid: e725d18569b23654caa1ff70506387c6, type: 2}
   - {fileID: 2100000, guid: 025b36284e7334a41b2831d66dc18945, type: 2}
   originalMats:
   - {fileID: 2100000, guid: ba9abb6f12eb7064eb6c825971d29e87, type: 2}
+  - {fileID: 2100000, guid: d611a0cedc2b95246939804f7302fef6, type: 2}
+  - {fileID: 2100000, guid: d611a0cedc2b95246939804f7302fef6, type: 2}
   - {fileID: 2100000, guid: d611a0cedc2b95246939804f7302fef6, type: 2}
   - {fileID: 2100000, guid: 0af24fe0c90bcb5478409bf13f30f65b, type: 2}
   - {fileID: 2100000, guid: 40a10397d4157e0458243db3f963508d, type: 2}

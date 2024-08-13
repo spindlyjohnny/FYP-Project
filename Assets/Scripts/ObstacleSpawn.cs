@@ -32,7 +32,7 @@ public class ObstacleSpawn : MonoBehaviour
             if (rng > 0 && rng <= .12f) { // jogger
                 myobstacle = Instantiate(obstacles[0], transform.position + new Vector3(Randomness(), 0, 0), transform.rotation);
             } 
-            else if (rng > .35f && rng <= .5f) { // qn cube
+            else if (rng > .1f && rng <= .5f) { // qn cube
                 myobstacle = Instantiate(obstacles[1], transform.position + new Vector3(Randomness(), 0, 0), transform.rotation);
             }
         } 

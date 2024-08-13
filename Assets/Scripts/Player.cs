@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     Vector3 movement;
     public float movespeed, maxspeed;
-    public bool canMove, NPC;
+    public bool canMove, NPC,interactable;
     LevelManager levelManager;
     TutorialUI tutorial;
     public float energy, maxenergy;
@@ -50,6 +50,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         canMove = true;
+        interactable = false;
         levelManager = FindObjectOfType<LevelManager>();
         invincibilitytime = originalInvincibleTime;
         avatar.sprite = dialogueSprite;
@@ -286,24 +287,12 @@ public class Player : MonoBehaviour
         list.RemoveAt(chosen);
         return index;
     }
-    //IEnumerator HitReaction()
-    //{
-    //    float timer = 10f;
-    //    for (int i = 0; i < meshes.Length; i++) {
-    //        meshes[i].material.color = Color.Lerp(originalColor, hitColor, Mathf.PingPong(Time.time * timer,1));
-    //    }
-    //    skin[0].material.color = Color.Lerp(originalColor, hitColor, Mathf.PingPong(Time.time * timer,1));
-    //    AudioManager.instance.PlaySFX(hitsfx);
-    //    canMove = false;
-    //    GetComponent<Rigidbody>().AddForce(-transform.forward * 3, ForceMode.Impulse);
-    //    yield return new WaitForSeconds(0.5f);
-    //    GetComponent<Rigidbody>().velocity = Vector3.zero;
-    //    for (int i = 0; i < meshes.Length; i++) {
-    //        meshes[i].material.color = originalColor;
-    //    }
-    //    skin[0].material.color = originalColor;
-    //    canMove = true;
-    //}
+    private void OnTriggerEnter(Collider other) {
+        if (other.GetComponent<Interactable>()) interactable = true;
+    }
+    private void OnTriggerExit(Collider other) {
+        if (other.GetComponent<Interactable>()) interactable = false;
+    }
 }
 [System.Serializable]
 public enum TypeQuestion { General,Wheelchair, Visual,hearing,Elderly,Autism,invisible,intelluctual };

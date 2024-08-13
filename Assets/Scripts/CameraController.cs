@@ -13,8 +13,8 @@ public class CameraController : MonoBehaviour {
         bus = false;// same thing but for bus
         originalposition = FindObjectOfType<LevelManager>().level == LevelManager.Level.Bus ? FindObjectOfType<Player>().transform.Find("Original Cam Pos")
             : FindObjectOfType<Player>().transform.Find("Bus Interior Cam Pos"); // camera angle for bus level and interior
-        
-        
+
+        target = FindObjectOfType<Player>().transform;
         //trainposition = FindObjectOfType<Player>().transform.Find("Train Cam Pos").transform; // camera angle for train level
         lookOffset = defaultoffset; // defaultoffset is camera offset in bus level. camera is closer in train level so there is a need for a trainoffset variable.
     }
