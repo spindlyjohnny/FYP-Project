@@ -8,7 +8,7 @@ public class Video : MonoBehaviour {
     [SerializeField] string videoName;
     public VideoPlayer videoPlayer;
     // Start is called before the first frame update
-    void Start() {
+    void Awake() {
         videoPlayer = GetComponent<VideoPlayer>();
         if (SceneManager.GetActiveScene().buildIndex == 0) PlayVideo();
     }
