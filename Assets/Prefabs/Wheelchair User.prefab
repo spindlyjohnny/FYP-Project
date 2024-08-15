@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d86bd1010bc6f42af409ec603f5e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isWheelchair: 1
   dialoguebox: {fileID: 0}
   questionbox: {fileID: 0}
   dialogue: []
@@ -177,6 +178,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   file: gal-names.txt
   names: []
+--- !u!1001 &2907944419990664109
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4948512034567079754}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: f173035a13c2eea4c8d0495ee9d39eb9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f173035a13c2eea4c8d0495ee9d39eb9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f173035a13c2eea4c8d0495ee9d39eb9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f173035a13c2eea4c8d0495ee9d39eb9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f173035a13c2eea4c8d0495ee9d39eb9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f173035a13c2eea4c8d0495ee9d39eb9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f173035a13c2eea4c8d0495ee9d39eb9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f173035a13c2eea4c8d0495ee9d39eb9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f173035a13c2eea4c8d0495ee9d39eb9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f173035a13c2eea4c8d0495ee9d39eb9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f173035a13c2eea4c8d0495ee9d39eb9, type: 3}
+      propertyPath: m_Name
+      value: Wheelchair_Rig
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f173035a13c2eea4c8d0495ee9d39eb9, type: 3}
+--- !u!4 &3445712720150795334 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f173035a13c2eea4c8d0495ee9d39eb9, type: 3}
+  m_PrefabInstance: {fileID: 2907944419990664109}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4838585667617333409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -245,9 +308,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wheelchair_User_Sitting_Rig
       objectReference: {fileID: 0}
+    - target: {fileID: 2889161184258459791, guid: 215d7a92db707ba47a6d8cd75f59e273, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 215d7a92db707ba47a6d8cd75f59e273, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 3445712720150795334}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 215d7a92db707ba47a6d8cd75f59e273, type: 3}
 --- !u!4 &4948512034567079754 stripped

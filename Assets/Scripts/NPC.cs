@@ -6,6 +6,7 @@ using TMPro;
 using System.IO;
 public class NPC : MonoBehaviour
 {
+    public bool isWheelchair=false;
     public GameObject dialoguebox, questionbox;
     CameraController cam;
     Player player;
@@ -177,7 +178,7 @@ public class NPC : MonoBehaviour
         player.canMove = true;
         player.NPC = false;
         levelManager.dialoguescreen.SetActive(false);
-        Time.timeScale = 1;
+        ///Time.timeScale = 1;
     }
 
     public void Guide()
