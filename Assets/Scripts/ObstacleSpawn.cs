@@ -47,8 +47,10 @@ public class ObstacleSpawn : MonoBehaviour
         }
     }
     IEnumerator SpawnHeadphone() {
+        float random = Random.Range(0, 4.5f);
+        yield return new WaitForSeconds(random);
         while (enemiesspawned <= spawnamt - 1) {
-            myobstacle = Instantiate(obstacles[Random.Range(0, obstacles.Length)], transform.position + new Vector3(Randomness(), 0, 0), transform.rotation);
+            myobstacle = Instantiate(obstacles[Random.Range(0, obstacles.Length)], transform.position , transform.rotation);
             myobstacle.GetComponent<Obstacle>().myspawner = this;
             myobstacle.transform.position += myobstacle.GetComponent<Obstacle>().spawnoffset;
             if (myobstacle.GetComponent<Collectible>() == null) myobstacle.transform.rotation = Quaternion.Euler(0, -90, 0);
