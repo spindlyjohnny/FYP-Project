@@ -121,7 +121,7 @@ Transform:
   m_GameObject: {fileID: 8097505881767906962}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00030576208, y: 0.15311655, z: 0.057}
+  m_LocalPosition: {x: -0.00030576208, y: -0.071, z: 0.057}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -301,12 +301,15 @@ MonoBehaviour:
   myspawner: {fileID: 0}
   spawnoffset: {x: 0, y: 0, z: 0}
   dir: {x: -1, y: 0, z: 0}
-  oppositeLength: 0
-  sensorLength: 0.2
   front: {fileID: 1377114905284737265}
   right: {fileID: 6423100441018237509}
   left: {fileID: 3623175933604640332}
+  lanes:
+  - -1.3
+  - 0
+  - 1.3
   elapsedFromMoved: 0
+  animating: 0
 --- !u!54 &1700725067293291086
 Rigidbody:
   m_ObjectHideFlags: 0

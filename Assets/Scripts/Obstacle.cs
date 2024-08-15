@@ -9,7 +9,7 @@ public class Obstacle : MonoBehaviour
     public Vector3 dir;
     float oppositeLength=0.6f;
     int laneIndex;
-    float sensorLength =5f;
+    float sensorLength =2f;
     protected LevelManager levelManager;
     //Player player; 
     public Transform front, right, left;
@@ -42,7 +42,7 @@ public class Obstacle : MonoBehaviour
     protected virtual void Update()
     {
         rb.velocity = (5 * dir);
-        //Sensors();
+        Sensors();
         //if (!myspawner.gameObject.activeSelf) Destroy(gameObject);
         
         
@@ -91,10 +91,26 @@ public class Obstacle : MonoBehaviour
         RaycastHit hit;
         LaneProperty[] lane= new LaneProperty[3];
         float distanceBetweenLane = 1.3f;
+        if (transform.position.z > distanceBetweenLane / 2)//check whether the obstacle is in the left lane
+        {
+            laneIndex = 2;
+        }else if(transform.position.z < distanceBetweenLane / 2 && transform.position.z > -distanceBetweenLane / 2)//check whether the obstacle is in the middle lane
+        {
+            laneIndex = 1;
+        }
+        else if (transform.position.z <-distanceBetweenLane/2)//check whether the obstacle is in the right lane
+        {
+            laneIndex = 0;
+        }
+        print(laneIndex);
+        for (int i = 0; i < lane.Length; i++)
+        {
+            lane[i] = new LaneProperty();
+        }
         //index 2 is left, index 1 is middle, index 0 is right
-        if (Physics.Raycast(new Vector3(rays[0].position.x, rays[0].position.y, -distanceBetweenLane), rays[0].forward, out hit, sensorLength, LayerMask.GetMask("NPC Obstacle", "Player", "NPC")))
+        if (Physics.Raycast(new Vector3(rays[0].position.x, rays[0].position.y, -distanceBetweenLane), rays[0].forward, out hit, sensorLength, LayerMask.GetMask("NPC Obstacle", "NPC", "Obstacle")))
         {//this is right
-            Debug.DrawLine(rays[0].position, hit.point, Color.gray);
+            Debug.DrawLine(new Vector3(rays[0].position.x, rays[0].position.y, -distanceBetweenLane), hit.point, Color.gray);
             lane[0].isAvaliable = false;
         }
         else
@@ -103,9 +119,9 @@ public class Obstacle : MonoBehaviour
 
         }
 
-        if (Physics.Raycast(new Vector3(rays[0].position.x, rays[0].position.y,0), rays[0].forward, out hit, sensorLength, LayerMask.GetMask("NPC Obstacle", "Player", "NPC")))
+        if (Physics.Raycast(new Vector3(rays[0].position.x, rays[0].position.y,0), rays[0].forward, out hit, sensorLength, LayerMask.GetMask("NPC Obstacle",  "NPC", "Obstacle")))
         {//this is middle
-            Debug.DrawLine(rays[0].position, hit.point, Color.gray);
+            Debug.DrawLine(new Vector3(rays[0].position.x, rays[0].position.y, 0), hit.point, Color.gray);
             lane[1].isAvaliable = false;
         }
         else
@@ -113,9 +129,9 @@ public class Obstacle : MonoBehaviour
             lane[1].isAvaliable = true;
         }
 
-        if (Physics.Raycast(new Vector3(rays[0].position.x, rays[0].position.y, distanceBetweenLane), rays[0].forward, out hit, sensorLength, LayerMask.GetMask("NPC Obstacle", "Player", "NPC")))
+        if (Physics.Raycast(new Vector3(rays[0].position.x, rays[0].position.y, distanceBetweenLane), rays[0].forward, out hit, sensorLength, LayerMask.GetMask("NPC Obstacle", "NPC","Obstacle")))
         {//this is left
-            Debug.DrawLine(rays[0].position, hit.point, Color.gray);
+            Debug.DrawLine(new Vector3(rays[0].position.x, rays[0].position.y, distanceBetweenLane), hit.point, Color.gray);
             lane[2].isAvaliable = false;
         }
         else
@@ -125,17 +141,7 @@ public class Obstacle : MonoBehaviour
 
 
 
-        if (transform.position.z > distanceBetweenLane / 2)//check whether the obstacle is in the left lane
-        {
-            laneIndex = 2;
-        }else if(transform.position.z < distanceBetweenLane / 2|| transform.position.z > -distanceBetweenLane / 2)//check whether the obstacle is in the middle lane
-        {
-            laneIndex = 1;
-        }
-        else if (transform.position.z <-distanceBetweenLane/2)//check whether the obstacle is in the right lane
-        {
-            laneIndex = 0;
-        }
+
         List<int> avaliability = new List<int>();
         for (int i = 0; i < lane.Length; i++)
         {
@@ -160,11 +166,12 @@ public class Obstacle : MonoBehaviour
         {
             random = avaliability[Random.Range(0, avaliability.Count)];
         }
-        if (lane[laneIndex].isAvaliable == true & animating==false)
+        if (lane[laneIndex].isAvaliable == false & animating==false)
         {
+            print(",pve");
             animating = true;
             StartCoroutine(LaneMoving(random));
-
+            print(lane[random].isAvaliable);
         }
         /*
         if(Physics.Raycast(rays[0].position, rays[0].forward, out hit, sensorLength, LayerMask.GetMask("NPC Obstacle", "Player", "NPC")))
@@ -243,9 +250,9 @@ public class Obstacle : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-
-        transform.position = new Vector3(transform.position.x, transform.position.y, lanes[random]); ;
+        transform.position = new Vector3(transform.position.x, transform.position.y, lanes[random]);
         animating = false;
+        laneIndex = random;
     }
     //void Sensors() {
     //    Transform[] rays = { front, left, right };
