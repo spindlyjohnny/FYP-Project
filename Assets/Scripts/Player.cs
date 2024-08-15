@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     Vector3 movement;
+    [HideInInspector]
+    public bool pushingWheelchair = false;
     public float movespeed, maxspeed;
     public bool canMove, NPC,interactable;
     LevelManager levelManager;
@@ -23,7 +25,7 @@ public class Player : MonoBehaviour
     public Sprite dialogueSprite, loseSprite, pauseSprite; // these vars exist cuz there's 2 playable charas
     public Animator anim;
     public int lane = 1, newlane;
-    public Transform npcPosition;
+    public Transform npcPosition, npcWheelchairPosition;
     bool animating = false;
     public Material[] invincibleMats;
     public Material[] originalMats;
@@ -181,6 +183,7 @@ public class Player : MonoBehaviour
     public void Movement()
     {
         anim.SetBool("CanMove", canMove);
+        anim.SetBool("Wheelchair", pushingWheelchair);
         if (!canMove) return;
         if (levelManager.level == LevelManager.Level.BusInterior && !levelManager.pausing) {
             movement = new Vector3(0, 0, Input.GetButton("Fire1") ? 1 : Input.GetButton("Fire2") ? -1 : 0);

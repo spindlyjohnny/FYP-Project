@@ -252,6 +252,10 @@ public class NPC : MonoBehaviour
         if (!followplayer) return;
         /*if (levelManager.level == LevelManager.Level.Bus) player.GetComponent<Rigidbody>().isKinematic = true;
         else*/ //Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
+        if (isWheelchair)
+        {
+            player.pushingWheelchair = true;
+        }
         transform.position = player.npcPosition.position;
         transform.SetParent(player.transform);
         if (once == false)
