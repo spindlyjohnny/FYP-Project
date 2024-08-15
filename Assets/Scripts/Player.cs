@@ -156,26 +156,16 @@ public class Player : MonoBehaviour
                 meshes[i].material.color = Color.Lerp(originalColor, hitColor, Mathf.PingPong(Time.time * timer, 1));
             }
             skin[0].material.color = Color.Lerp(originalColor, hitColor, Mathf.PingPong(Time.time * timer, 1));
-            //GetComponent<Rigidbody>().velocity = Vector3.zero;
-            //canMove = false;
-            //GetComponent<Rigidbody>().AddForce(-transform.forward * 3f, ForceMode.Force);
-            //GetComponent<Rigidbody>().isKinematic = true;
-            //GetComponent<Collider>().isTrigger = true;
-            //Physics.IgnoreLayerCollision(gameObject.layer, 8, true);
             hitTime -= Time.deltaTime;
         }
         if(hitTime <= 0) {
             hit = false;
             hitTime = 1.5f;
             rb.velocity = Vector3.zero;
-            //GetComponent<Rigidbody>().isKinematic = false;
-            //Physics.IgnoreLayerCollision(gameObject.layer, 8, false);
-            //GetComponent<Collider>().isTrigger = false;
             for (int i = 0; i < meshes.Length; i++) {
                 meshes[i].material.color = originalColor;
             }
             skin[0].material.color = originalColor;
-            //canMove = true;
         }
     }
     public void Movement()
@@ -266,7 +256,6 @@ public class Player : MonoBehaviour
         invincibility = true;
         invincibilitytime = originalInvincibleTime;
         Physics.IgnoreLayerCollision(gameObject.layer, 8, true);
-        //Physics.IgnoreLayerCollision(gameObject.layer, 7, true);
         for(int i = 0; i < meshes.Length; i++) {
             meshes[i].material = invincibleMats[i];
         }
