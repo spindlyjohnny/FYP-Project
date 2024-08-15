@@ -92,6 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d86bd1010bc6f42af409ec603f5e61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  stick: {fileID: 4446510810366090314}
   isWheelchair: 0
   dialoguebox: {fileID: 0}
   questionbox: {fileID: 0}

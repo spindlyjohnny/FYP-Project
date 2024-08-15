@@ -7,6 +7,7 @@ using System.IO;
 public class NPC : MonoBehaviour
 {
     public Animator anim;
+    public Animator stick;
     public bool isWheelchair=false;
     public GameObject dialoguebox, questionbox;
     CameraController cam;
@@ -251,6 +252,13 @@ public class NPC : MonoBehaviour
     public void FollowPlayer()
     {
         if (!followplayer) return;
+        anim.SetBool("Following", true);
+        anim.SetBool("Moving", player.canMove);
+        if (stick != null)
+        {
+            anim.SetBool("Following", true);
+            anim.SetBool("Moving", player.canMove);
+        }
         /*if (levelManager.level == LevelManager.Level.Bus) player.GetComponent<Rigidbody>().isKinematic = true;
         else*/ //Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
         if (isWheelchair==true)
