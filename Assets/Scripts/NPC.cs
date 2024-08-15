@@ -6,6 +6,7 @@ using TMPro;
 using System.IO;
 public class NPC : MonoBehaviour
 {
+    public Animator anim;
     public bool isWheelchair=false;
     public GameObject dialoguebox, questionbox;
     CameraController cam;

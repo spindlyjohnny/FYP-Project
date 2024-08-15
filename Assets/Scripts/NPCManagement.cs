@@ -51,6 +51,7 @@ public class NPCManagement : MonoBehaviour
                     myNPC.EndDialogue();
                     if (myNPC.hasdestination)
                     {
+                        Time.timeScale = 1;
                         myNPC.followplayer = true;
                         myNPC.Guide();
                     }
@@ -91,6 +92,7 @@ public class NPCManagement : MonoBehaviour
                     myNPC.EndDialogue();
                     if (myNPC.hasdestination)
                     {
+                        Time.timeScale = 1;
                         myNPC.followplayer = true;
                         myNPC.Guide();
                     }
