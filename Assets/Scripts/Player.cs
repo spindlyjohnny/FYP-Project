@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     public GeneralDIalogueSO generalData;
     public static List<int> list= new List<int>();
     public List<int> tempList= new List<int>();
+    Rigidbody rb;
     // Start is called before the first frame update
     private void Awake() {
         if (PlayerPrefs.GetInt("bool") == 1) {
@@ -49,13 +50,13 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
-        canMove = true;
         interactable = false;
         levelManager = FindObjectOfType<LevelManager>();
+        canMove = true;
         invincibilitytime = originalInvincibleTime;
         avatar.sprite = dialogueSprite;
         levelManager.energyslider.maxValue = maxenergy;
-        //npcmanager = FindObjectOfType<NPCManagement>();
+        rb = GetComponent<Rigidbody>();
         meshes = GetComponentsInChildren<MeshRenderer>();
         skin = GetComponentsInChildren<SkinnedMeshRenderer>();
         if (FindObjectOfType<TutorialUI>())
@@ -137,15 +138,14 @@ public class Player : MonoBehaviour
             movespeed += .1f * Time.deltaTime;
             if (movespeed >= maxspeed) movespeed = maxspeed;
             transform.Translate(movespeed * Time.deltaTime * movement, Space.Self);
-            
-            
-            
-            if (movement.z > 0 /*&& !Physics.Raycast(transform.position, transform.forward, .1f)*/) {
+            if (movement.z > 0) {
                 levelManager.score++;
-                if(!invincibility)energy -= .001f;
+                if (!invincibility) {
+                    energy -= .001f;
+                }
             }
         }
-        if(energy <= 0) {
+        if (energy <= 0) {
             gameObject.SetActive(false);
             levelManager.gameover = true;
         }
@@ -167,7 +167,7 @@ public class Player : MonoBehaviour
         if(hitTime <= 0) {
             hit = false;
             hitTime = 1.5f;
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            rb.velocity = Vector3.zero;
             //GetComponent<Rigidbody>().isKinematic = false;
             //Physics.IgnoreLayerCollision(gameObject.layer, 8, false);
             //GetComponent<Collider>().isTrigger = false;
@@ -178,10 +178,6 @@ public class Player : MonoBehaviour
             //canMove = true;
         }
     }
-    //IEnumerator TempInvincible() {
-    //    yield return new WaitForSeconds(.2f);
-    //    canMove = true;
-    //}
     public void Movement()
     {
         anim.SetBool("CanMove", canMove);
@@ -205,7 +201,7 @@ public class Player : MonoBehaviour
             anim.SetBool("CanMove", canMove);
         }
         RaycastHit tilehit; // for detecting tile to access lane variables
-        Physics.Raycast(transform.position, Vector3.down, out tilehit);if(!invincibility)energy -= .01f;
+        Physics.Raycast(transform.position, Vector3.down, out tilehit);
         if (tilehit.collider)
         {
             if (tilehit.collider.GetComponent<Tile>())
@@ -258,7 +254,7 @@ public class Player : MonoBehaviour
         {
             hit = true;
             if (other.gameObject.CompareTag("Knock")) {
-                GetComponent<Rigidbody>().AddForce(-transform.forward * 3, ForceMode.Impulse);
+                rb.AddForce(-transform.forward * 3, ForceMode.Impulse);
             }
             else other.collider.isTrigger = true;
             AudioManager.instance.PlaySFX(hitsfx);
