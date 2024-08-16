@@ -230,8 +230,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.16306955
-          value: 0.47979796
+          time: 0.2110009
+          value: 0.7739468
           inSlope: 0.041296307
           outSlope: 0.041296307
           tangentMode: 0
@@ -239,8 +239,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.38369307
-          value: 0.55050504
+          time: 0.41659158
+          value: 0.73180103
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -248,8 +248,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.8057554
-          value: 0.55050504
+          time: 0.7754734
+          value: 0.62068963
           inSlope: -0.6075172
           outSlope: -0.6075172
           tangentMode: 0
@@ -329,10 +329,10 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.28
+    m_Value: 0.272
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.258
+    m_Value: 0.213
   rounded:
     m_OverrideState: 0
     m_Value: 0
@@ -348,13 +348,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
   m_Name: ColorAdjustments
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.2
   contrast:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: -12
   colorFilter:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -362,8 +362,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0
   saturation:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 40
 --- !u!114 &-786929151020870630
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -382,7 +382,7 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 1.23
+    m_Value: 1.25
   intensity:
     m_OverrideState: 1
     m_Value: 1.24
@@ -446,9 +446,9 @@ MonoBehaviour:
   active: 1
   lift:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.95784515, z: 0.8247546, w: -0.05616404}
+    m_Value: {x: 0.9745954, y: 1, z: 0.99829614, w: -0.03081545}
   gamma:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: {x: 0.9752516, y: 0.98581713, z: 1, w: 0.17398082}
   gain:
     m_OverrideState: 1
