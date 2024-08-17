@@ -252,12 +252,13 @@ public class NPC : MonoBehaviour
     public void FollowPlayer()
     {
         if (!followplayer) return;
-        anim.SetBool("Following", true);
-        anim.SetBool("Moving", player.canMove);
-        if (stick != null)
-        {
+        if (anim) {
             anim.SetBool("Following", true);
             anim.SetBool("Moving", player.canMove);
+            if (stick != null) {
+                anim.SetBool("Following", true);
+                anim.SetBool("Moving", player.canMove);
+            }
         }
         /*if (levelManager.level == LevelManager.Level.Bus) player.GetComponent<Rigidbody>().isKinematic = true;
         else*/ //Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
