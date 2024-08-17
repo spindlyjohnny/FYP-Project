@@ -113,9 +113,11 @@ public class Obstacle : MonoBehaviour
         {//this is right
             Debug.DrawLine(new Vector3(rays[0].position.x, rays[0].position.y, -distanceBetweenLane), hit.point, Color.gray);
             lane[0].isAvaliable = false;
+            lane[0].distance = hit.distance;
         }
         else
         {
+            lane[0].distance = sensorLength + 2;
             lane[0].isAvaliable = true;
 
         }
@@ -124,19 +126,23 @@ public class Obstacle : MonoBehaviour
         {//this is middle
             Debug.DrawLine(new Vector3(rays[0].position.x, rays[0].position.y, 0), hit.point, Color.gray);
             lane[1].isAvaliable = false;
+            lane[1].distance = hit.distance;
         }
         else
         {
             lane[1].isAvaliable = true;
+            lane[1].distance = sensorLength + 2;
         }
         
         if (Physics.BoxCast(new Vector3(rays[0].position.x, rays[0].position.y, distanceBetweenLane), new Vector3(0.5f, 0.5f, 0.5f), rays[0].forward, out hit, Quaternion.identity, sensorLength, LayerMask.GetMask("NPC Obstacle", "NPC", "Obstacle")))
         {//this is left
             Debug.DrawLine(new Vector3(rays[0].position.x, rays[0].position.y, distanceBetweenLane), hit.point, Color.gray);
             lane[2].isAvaliable = false;
+            lane[2].distance = hit.distance;
         }
         else
         {
+            lane[2].distance = sensorLength + 2;
             lane[2].isAvaliable = true;
         }
 
@@ -278,7 +284,7 @@ public class Obstacle : MonoBehaviour
     public class LaneProperty
     {
         public bool isAvaliable;
-        public int distance;
+        public float distance;
     }
 }
 
