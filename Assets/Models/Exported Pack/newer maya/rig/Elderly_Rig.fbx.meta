@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: character_textures
+    second: {fileID: 2100000, guid: 753b311f3488bda448aea20df7d40c37, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: lambert2
     second: {fileID: 2100000, guid: e4617023f0f05934a91735b5e1cccea1, type: 2}
   - first:
