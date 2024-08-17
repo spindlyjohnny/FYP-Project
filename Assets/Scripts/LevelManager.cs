@@ -170,8 +170,14 @@ public class LevelManager : SceneLoader {
         print("video");
         level = lvl;
         loadingScreen.gameObject.SetActive(true);
+        if(lvl == Level.Bus || lvl == Level.BusInterior) {
+            loadingScreen.videoName = "Bus_Loading_Transition.mp4";
+        } 
+        else {
+            loadingScreen.videoName = "MRT_Loading_Transition.mp4";
+        }
         loadingScreen.PlayVideo();
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(8f);
         LoadScene(index,true);
         print("Yagami");
         SaveData();

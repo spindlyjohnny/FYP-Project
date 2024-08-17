@@ -85,6 +85,7 @@ public class NPC : MonoBehaviour
             locationNpc = LocationEnum.Mrt;
         }
         startpos = transform.localPosition;
+        anim = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame

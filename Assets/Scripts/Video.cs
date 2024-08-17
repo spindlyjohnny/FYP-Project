@@ -5,7 +5,7 @@ using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 
 public class Video : MonoBehaviour {
-    [SerializeField] string videoName;
+    public string videoName;
     public VideoPlayer videoPlayer;
     // Start is called before the first frame update
     void Awake() {
