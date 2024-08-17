@@ -47,20 +47,6 @@ public class Tile : MonoBehaviour {
                 destinations = L3Destinations;
                 break;
         }
-        if (destinations.Length > 0 /*&& destinationSpawnPoints.Length > 0*/) {
-            if (randomNPCs) {
-                destinations[Random.Range(0, destinations.Length)].SetActive(true);
-            } 
-            else {
-                foreach (var i in destinations) i.SetActive(true);
-            }
-            //if(levelManager.level == LevelManager.Level.BusInterior) {
-            //    foreach (var i in destinations) i.SetActive(true);
-            //} 
-            //else {
-            //    destinations[Random.Range(0, destinations.Length)].SetActive(true);
-            //}
-        }
         if (!hasNPC) return;
         switch (LevelManager.levelNum) {
             case LevelManager.LevelNum.Level1:
@@ -86,6 +72,29 @@ public class Tile : MonoBehaviour {
 
     }
     // Update is called once per frame
+    private void Update() {
+        if (destinations.Length > 0) {
+            if(npcmanager.myNPC != null) {
+                foreach(var i in destinations) {
+                    if(i.GetComponent<Interactable>().location == (int)npcmanager.myNPC.dialogueData.dialogueQuestions[npcmanager.myNPC.qnindex].outcomeLocation) {
+                        i.SetActive(true);
+                    }
+                }
+            }
+            //if (randomNPCs) {
+            //    destinations[Random.Range(0, destinations.Length)].SetActive(true);
+            //} 
+            //else {
+            //    foreach (var i in destinations) i.SetActive(true);
+            //}
+            //if(levelManager.level == LevelManager.Level.BusInterior) {
+            //    foreach (var i in destinations) i.SetActive(true);
+            //} 
+            //else {
+            //    destinations[Random.Range(0, destinations.Length)].SetActive(true);
+            //}
+        }
+    }
     protected void OnTriggerEnter(Collider other) {
         if (once == true) return;
         //spawn tiles at designated area by either calling the manager or spawning the tiles itself

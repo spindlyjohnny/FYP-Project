@@ -8,7 +8,7 @@ public class Interactable : MonoBehaviour
     protected LevelManager levelManager;
     public ObjectPool objectPool;
     [SerializeField]Vector3 trainsize;
-    [SerializeField] int location;
+    public int location;
     protected bool touchingPlayer;
     public bool unconditional; // does object transition unconditionally?
     //public GameObject[] L1Destinations, L2Destinations, L3Destinations;
