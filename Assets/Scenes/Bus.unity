@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.15896621, g: 0.51753515, b: 1.0392404, a: 1}
+  m_IndirectSpecularColor: {r: 0.16007265, g: 0.5168968, b: 1.04459, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -414,6 +414,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &502891604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5815061512351730170, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+  m_PrefabInstance: {fileID: 7196524405884246908}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &529794729 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 253940137492651724, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
@@ -1498,6 +1503,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1482969499}
     - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: boostResponse
+      value: 
+      objectReference: {fileID: 502891604}
+    - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: loadingScreen
       value: 
       objectReference: {fileID: 1255536039}
@@ -1989,7 +1998,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &7196524405884246913 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 5815061512351730170, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7877014868081202767, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
   m_PrefabInstance: {fileID: 7196524405884246908}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8004116751846742633

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.16007265, g: 0.5168968, b: 1.04459, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7818,7 +7818,7 @@ PrefabInstance:
     - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: boost
       value: 
-      objectReference: {fileID: 1923099092}
+      objectReference: {fileID: 1959123649}
     - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: level
       value: 1
@@ -7919,6 +7919,10 @@ PrefabInstance:
       propertyPath: questiontext
       value: 
       objectReference: {fileID: 1923099106}
+    - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
+      propertyPath: boostResponse
+      value: 
+      objectReference: {fileID: 1923099092}
     - target: {fileID: 3946415225683732795, guid: 0d0f7d3af1b1a1d46a25017dc8d7419e, type: 3}
       propertyPath: loadingScreen
       value: 
@@ -8986,6 +8990,11 @@ Animator:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 006e95427e243f14c89851b925901122, type: 3}
   m_PrefabInstance: {fileID: 1944026207}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1959123649 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7877014868081202767, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+  m_PrefabInstance: {fileID: 1923099090}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2009706405
 GameObject:

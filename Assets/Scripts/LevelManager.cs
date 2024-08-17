@@ -36,7 +36,7 @@ public class LevelManager : SceneLoader {
     CameraController cam;
     //public Sprite[] loadingimgs;
     [HideInInspector]public Player player;
-    public GameObject upgradeText, boost;
+    public GameObject upgradeText, boost,boostResponse;
     public Image taskCompleteImgResponse, taskCompleteImg;
     ObjectPool objectPool;
     public Image npcAvatar,pauseImg,failImg;

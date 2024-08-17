@@ -26,6 +26,7 @@ public class NPCQuestion : MonoBehaviour
             if (option == Options.WrongOption)
             {
                 levelManager.boost.SetActive(false);//this is general question wrong outcome
+                levelManager.boostResponse.SetActive(false);//this is general question wrong outcome
                 Explain();
                 levelManager.tasksuccessResponsetext.text = "Wrong!";
                 levelManager.taskcompletescreenResponse.SetActive(true);
@@ -49,8 +50,8 @@ public class NPCQuestion : MonoBehaviour
                 levelManager.taskcompletescreenResponse.SetActive(true);
 
                 //levelManager.upgradeText.SetActive(true);
-                levelManager.boost.GetComponentInChildren<TMP_Text>().text = "Timed Boost: Invincibility";
-                levelManager.boost.SetActive(true);
+                levelManager.boostResponse.GetComponentInChildren<TMP_Text>().text = "Timed Boost: Invincibility";
+                levelManager.boostResponse.SetActive(true);
                 levelManager.taskCompleteImgResponse.sprite = levelManager.taskCompletionPanelSprites[2];
                 levelManager.taskCompleteImgResponse.gameObject.SetActive(true);
                 //foreach (var i in levelManager.boost.GetComponentsInChildren<Image>()) i.enabled = false;
