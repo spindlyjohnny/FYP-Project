@@ -82,18 +82,16 @@ public class Interactable : MonoBehaviour
                     player.canMove = false;
                     player.inputtext.SetActive(true);
                 }
-                if (npcmanager.myNPC != null && (int)npcmanager.myNPC.dialogueData.dialogueQuestions[npcmanager.myNPC.qnindex].outcomeLocation == location) { // stop player no matter what if have NPC
-                    player.canMove = false;
+                if (levelManager.level == LevelManager.Level.BusInterior) { // dont stop player if in bus 
                     player.inputtext.SetActive(true);
-                    if (GetComponentInParent<RoadTile>()) npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
-                } 
-                else /*if(npcmanager.myNPC == null)*/
-                    {
-                    if (levelManager.level == LevelManager.Level.BusInterior) { // dont stop player if in bus 
+                    GetComponentInChildren<Canvas>().transform.GetChild(0).gameObject.SetActive(true);
+                }
+                else {
+                    if (npcmanager.myNPC != null && (int)npcmanager.myNPC.dialogueData.dialogueQuestions[npcmanager.myNPC.qnindex].outcomeLocation == location) { // stop player no matter what if have NPC
+                        player.canMove = false;
                         player.inputtext.SetActive(true);
-                        GetComponentInChildren<Canvas>().transform.GetChild(0).gameObject.SetActive(true);
+                        if (GetComponentInParent<RoadTile>()) npcmanager.myNPC.street = GetComponentInParent<RoadTile>();
                     }
-
                 }
             } 
             else {
