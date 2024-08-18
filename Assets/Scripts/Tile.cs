@@ -28,6 +28,7 @@ public class Tile : MonoBehaviour {
         npcmanager = FindObjectOfType<NPCManagement>();
         rng = Random.Range(0f, 1f);
         objectPool = GetComponent<ObjectPool>();
+        once = false;
         //lanes[0].z = 1.3f;
         //lanes[1].z = 0;
         //lanes[2].z = -1.3f;
