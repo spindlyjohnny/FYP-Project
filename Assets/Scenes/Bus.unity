@@ -1836,15 +1836,23 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2010205466573014046, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2010205466573014046, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2010205466573014046, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -4.600006
+      value: 3.300003
       objectReference: {fileID: 0}
     - target: {fileID: 2040893653974814812, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092525823467751028, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
+      propertyPath: m_Value
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3360952233430093869, guid: c27fb285ec371434f8668c1eac4a7cc7, type: 3}
