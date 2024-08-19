@@ -7,10 +7,11 @@ using UnityEngine.SceneManagement;
 public class Video : MonoBehaviour {
     public string videoName;
     public VideoPlayer videoPlayer;
+    [SerializeField] RenderTexture BGTexture;
     // Start is called before the first frame update
     void Awake() {
         videoPlayer = GetComponent<VideoPlayer>();
-        if (SceneManager.GetActiveScene().buildIndex == 0) PlayVideo();
+        if (SceneManager.GetActiveScene().buildIndex == 0 && videoPlayer.targetTexture == BGTexture) PlayVideo();
     }
 
     // Update is called once per frame
