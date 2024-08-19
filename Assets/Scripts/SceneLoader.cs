@@ -36,6 +36,15 @@ public class SceneLoader : MonoBehaviour {
             PlayerPrefs.SetInt(level, 1);
         }
     }
+    public void OpenLevelSelect() {
+        levelSelect.SetActive(true);
+        if(PlayerPrefs.GetInt("Show Tutorial", 0) == 0) {
+            tutpanel.SetActive(true);
+        } 
+        else {
+            tutpanel.SetActive(false);
+        }
+    }
     public void StopTutorial()
     {
         PlayerPrefs.SetInt("Tutorial", 1);
