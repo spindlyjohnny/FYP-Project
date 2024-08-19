@@ -299,7 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   objectPool: {fileID: 0}
-  trainsize: {x: 1, y: 1, z: 1}
+  trainsize: {x: 0.0056825406, y: 0.0056825406, z: 0.0056825406}
   location: 2
   unconditional: 0
 --- !u!1 &5576530783826361240
@@ -402,7 +402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   objectPool: {fileID: 0}
-  trainsize: {x: 1, y: 1, z: 1}
+  trainsize: {x: 0.0056825406, y: 0.0056825406, z: 0.0056825406}
   location: 2
   unconditional: 0
 --- !u!1001 &954649963085683781
@@ -1399,7 +1399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 505568459918264757, guid: e606723dff88456419db8d9ec1c8b59f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0003107929
+      value: 0.00003
       objectReference: {fileID: 0}
     - target: {fileID: 505568459918264757, guid: e606723dff88456419db8d9ec1c8b59f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2373,7 +2373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 505568459918264757, guid: e606723dff88456419db8d9ec1c8b59f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00011
+      value: 0.00003
       objectReference: {fileID: 0}
     - target: {fileID: 505568459918264757, guid: e606723dff88456419db8d9ec1c8b59f, type: 3}
       propertyPath: m_LocalPosition.z
