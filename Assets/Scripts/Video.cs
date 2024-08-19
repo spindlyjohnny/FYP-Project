@@ -20,6 +20,7 @@ public class Video : MonoBehaviour {
     }
     public void PlayVideo() {
         if (videoPlayer) {
+            print(videoPlayer.targetTexture);
             string videoPath = System.IO.Path.Combine(Application.streamingAssetsPath, videoName);
             print(videoPath);
             videoPlayer.url = videoPath;
