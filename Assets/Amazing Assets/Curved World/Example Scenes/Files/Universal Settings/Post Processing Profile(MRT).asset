@@ -114,7 +114,7 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.93
+    m_Value: 1.13
   intensity:
     m_OverrideState: 1
     m_Value: 1.91
@@ -195,7 +195,7 @@ MonoBehaviour:
     m_Value: {x: 0.9384219, y: 0.9592612, z: 1, w: -0.04836778}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 0.95248175, y: 0.9659114, z: 1, w: -0.30229703}
+    m_Value: {x: 0.95248175, y: 0.9659114, z: 1, w: -0.38290992}
   gain:
     m_OverrideState: 1
     m_Value: {x: 0.97019243, y: 0.99384093, z: 1, w: 0.13422908}
@@ -415,8 +415,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.35625708
-          value: 0.8150849
+          time: 0.34047353
+          value: 0.9026761
           inSlope: 0.041296307
           outSlope: 0.041296307
           tangentMode: 0
@@ -425,7 +425,7 @@ MonoBehaviour:
           outWeight: 0
         - serializedVersion: 3
           time: 0.5118377
-          value: 0.63016975
+          value: 0.72749364
           inSlope: 0
           outSlope: 0
           tangentMode: 0
