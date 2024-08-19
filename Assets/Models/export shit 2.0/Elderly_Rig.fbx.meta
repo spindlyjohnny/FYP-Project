@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: character_textures
-    second: {fileID: 3601138494407523140, guid: a1237658f5012954fb15a935c020e148, type: 3}
+    second: {fileID: 2100000, guid: 028f7b6dec20b084dae59af4d3b31833, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
