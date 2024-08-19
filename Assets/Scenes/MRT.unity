@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.16007265, g: 0.5168968, b: 1.04459, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -980,16 +980,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5605041641245169740}
     - target: {fileID: 3213971660527085275, guid: 0e7ab7d58bc2061409b68fa5306e4cc3, type: 3}
+      propertyPath: bendVerticalSize
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3213971660527085275, guid: 0e7ab7d58bc2061409b68fa5306e4cc3, type: 3}
       propertyPath: bendPivotPointPosition.x
-      value: -4.12
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3213971660527085275, guid: 0e7ab7d58bc2061409b68fa5306e4cc3, type: 3}
       propertyPath: bendPivotPointPosition.y
-      value: 3.18
+      value: 3.61
       objectReference: {fileID: 0}
     - target: {fileID: 3213971660527085275, guid: 0e7ab7d58bc2061409b68fa5306e4cc3, type: 3}
       propertyPath: bendPivotPointPosition.z
-      value: 1.59
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 6689687775643705085, guid: 0e7ab7d58bc2061409b68fa5306e4cc3, type: 3}
       propertyPath: m_LocalPosition.x
