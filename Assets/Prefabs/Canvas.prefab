@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoName: loading_screen_video.mp4
   videoPlayer: {fileID: 5984350595880415289}
+  BGTexture: {fileID: 8400000, guid: f2a811dff4b971a4790152e03155080e, type: 2}
 --- !u!1 &146602296887141804
 GameObject:
   m_ObjectHideFlags: 0
@@ -7658,7 +7659,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fill: {fileID: 6830699694752612284}
-  slide: {fileID: 0}
 --- !u!1 &7720399667744455033
 GameObject:
   m_ObjectHideFlags: 0
