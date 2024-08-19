@@ -194,6 +194,7 @@ public class LevelManager : SceneLoader {
             /*if (level != Level.MRT) tileindex = 8;
             else tileindex = 0;*/RandomTile();
             TutorialTile();
+            tileindex = 3;
             mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
             objectPool.Remove();
             GameObject temp=objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(size * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
