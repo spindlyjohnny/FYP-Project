@@ -38,7 +38,11 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+<<<<<<< Updated upstream
   m_IndirectSpecularColor: {r: 0.16007265, g: 0.5168968, b: 1.04459, a: 1}
+=======
+  m_IndirectSpecularColor: {r: 0.15896621, g: 0.51753515, b: 1.0392404, a: 1}
+>>>>>>> Stashed changes
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -276,8 +280,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.7106918, g: 0.6287018, b: 0.46708986, a: 1}
-  m_Intensity: 1.51
+  m_Color: {r: 0.8862745, g: 0.6745098, b: 0.58431375, a: 1}
+  m_Intensity: 1.43
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -630,8 +634,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.9245283, g: 0.8408358, b: 0.6134448, a: 1}
-  m_Intensity: 1.9
+  m_Color: {r: 0.9607843, g: 0.85882354, b: 0.7529412, a: 1}
+  m_Intensity: 1.8
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -640,7 +644,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 0.147
+    m_Strength: 0.176
     m_Bias: 0.05
     m_NormalBias: 0.59
     m_NearPlane: 0.2
@@ -689,13 +693,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179562177}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.28694984, y: -0.109227575, z: 0.7374722, w: 0.60155135}
+  m_LocalRotation: {x: 0.5697509, y: -0.06778298, z: 0.5136814, w: 0.6379034}
   m_LocalPosition: {x: -41.4, y: 20.4, z: 25.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 30.42, y: 19.78, z: 107.02}
+  m_LocalEulerAnglesHint: {x: 52.8, y: 55.6, z: 107.02}
 --- !u!114 &1179562180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1417,15 +1421,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6830174247515868760, guid: 883f847bd93626149a71c25e5090a08a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: 3.15
       objectReference: {fileID: 0}
     - target: {fileID: 6830174247515868760, guid: 883f847bd93626149a71c25e5090a08a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.61
+      value: 4.11
       objectReference: {fileID: 0}
     - target: {fileID: 6830174247515868760, guid: 883f847bd93626149a71c25e5090a08a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.25
+      value: 1.45
       objectReference: {fileID: 0}
     - target: {fileID: 6830174247515868760, guid: 883f847bd93626149a71c25e5090a08a, type: 3}
       propertyPath: m_LocalRotation.w
