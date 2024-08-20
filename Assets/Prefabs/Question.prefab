@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3609741727890302629}
   - component: {fileID: 9065065050529480453}
   - component: {fileID: 6452399239193911258}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2183313704167250602}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Final question (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 6967244963559918321}
   - component: {fileID: 5230289266139865803}
   - component: {fileID: 8628930641612764713}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Question
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 7628048627539651658}
   - component: {fileID: 6872014183546004766}
   - component: {fileID: 6104201271050363389}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 6677234065907719967}
   - component: {fileID: 2047322757572968468}
   - component: {fileID: 3819698493921862713}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,9 +450,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6936916373028061857, guid: b6723ce3f45808b48b792241f4215285, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b6723ce3f45808b48b792241f4215285, type: 3}
       propertyPath: m_Name
       value: qn cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6723ce3f45808b48b792241f4215285, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6387848941270248248, guid: b6723ce3f45808b48b792241f4215285, type: 3}
       propertyPath: m_LocalScale.x
@@ -578,7 +586,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 51c841cf515abf544af626814394f35c, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -647,7 +655,12 @@ MonoBehaviour:
   front: {fileID: 0}
   right: {fileID: 0}
   left: {fileID: 0}
+  lanes:
+  - -1.3
+  - 0
+  - 1.3
   elapsedFromMoved: 0
+  animating: 0
   trainsize: {x: 1.76, y: 1.76, z: 1.76}
   bussize: {x: 0.6606864, y: 0.6606864, z: 0.6606864}
   collectsound: {fileID: 8300000, guid: 2961c5ebeac5950449d9a23af8b32f78, type: 3}

@@ -79,6 +79,7 @@ public class NPC : MonoBehaviour
         else if (levelManager.level == LevelManager.Level.BusInterior)
         {
             locationNpc = LocationEnum.BusInterior;
+            transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
         }
         else if (levelManager.level == LevelManager.Level.MRT)
         {
