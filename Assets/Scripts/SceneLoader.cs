@@ -51,6 +51,12 @@ public class SceneLoader : MonoBehaviour {
         PlayerPrefs.SetInt("Tutorial", 1);
         print(PlayerPrefs.GetInt("Tutorial"));
         PlayerPrefs.Save();
+    } 
+    public void ShowTutorial()
+    {
+        PlayerPrefs.SetInt("Tutorial", 0);
+        print(PlayerPrefs.GetInt("Tutorial"));
+        PlayerPrefs.Save();
     }
     private void Start()
     {
