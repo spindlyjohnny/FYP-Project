@@ -27,7 +27,7 @@ MonoBehaviour:
     m_Value: 0
   saturation:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: -6
 --- !u!114 &-6730972636760459470
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -114,7 +114,7 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 1.13
+    m_Value: 1.2
   intensity:
     m_OverrideState: 1
     m_Value: 1.91
@@ -415,8 +415,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.34047353
-          value: 0.9026761
+          time: 0.30665162
+          value: 0.76155657
           inSlope: 0.041296307
           outSlope: 0.041296307
           tangentMode: 0
@@ -424,8 +424,8 @@ MonoBehaviour:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.5118377
-          value: 0.72749364
+          time: 0.47801584
+          value: 0.60097265
           inSlope: 0
           outSlope: 0
           tangentMode: 0
