@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     public bool invincibility = false;
     public float originalInvincibleTime, maxInvincibleTime;
     [SerializeField] float invincibilitytime, hitTime;
-    Tile tile;
+    public Tile tile;
     public Image avatar;
     public Sprite dialogueSprite, loseSprite, pauseSprite; // these vars exist cuz there's 2 playable charas
     public Animator anim;
@@ -195,8 +195,10 @@ public class Player : MonoBehaviour
         }
         RaycastHit tilehit; // for detecting tile to access lane variables
         Physics.Raycast(transform.position, Vector3.down, out tilehit);
+        
         if (tilehit.collider)
         {
+            print(tilehit.collider.GetComponent<Tile>());
             if (tilehit.collider.GetComponent<Tile>())
             {
                 tile = tilehit.collider.GetComponent<Tile>();
@@ -223,7 +225,7 @@ public class Player : MonoBehaviour
         animating = true;
         float elapsedTime = 0;
         float duration = 0.2f;
-
+        print("move");
         while (elapsedTime<duration)
         {
 

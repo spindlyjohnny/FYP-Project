@@ -109,7 +109,7 @@ public class Obstacle : MonoBehaviour
         }
         //index 2 is left, index 1 is middle, index 0 is right
         if (Physics.BoxCast(new Vector3(rays[0].position.x, rays[0].position.y, -distanceBetweenLane),
-            new Vector3(0.5f, 0.5f, 0.5f), rays[0].forward, out hit, Quaternion.identity, sensorLength, LayerMask.GetMask("NPC Obstacle", "NPC", "Obstacle")))
+            new Vector3(0.5f, 0.5f, 0.5f), rays[0].forward, out hit, Quaternion.identity, sensorLength, LayerMask.GetMask("NPC Obstacle", "NPC", "Obstacle","Default")))
         {//this is right
             if (hit.collider.GetComponent<HeadphoneObstacle>()==null)
             {
@@ -126,7 +126,7 @@ public class Obstacle : MonoBehaviour
 
         }
 
-        if (Physics.BoxCast(new Vector3(rays[0].position.x, rays[0].position.y, 0), new Vector3(0.5f, 0.5f, 0.5f), rays[0].forward, out hit, Quaternion.identity, sensorLength, LayerMask.GetMask("NPC Obstacle", "NPC", "Obstacle")))
+        if (Physics.BoxCast(new Vector3(rays[0].position.x, rays[0].position.y, 0), new Vector3(0.5f, 0.5f, 0.5f), rays[0].forward, out hit, Quaternion.identity, sensorLength, LayerMask.GetMask("NPC Obstacle", "NPC", "Obstacle", "Default")))
         {//this is middle
             if (hit.collider.GetComponent<HeadphoneObstacle>() ==null)
             {
@@ -142,7 +142,7 @@ public class Obstacle : MonoBehaviour
             lane[1].distance = sensorLength + 2;
         }
         
-        if (Physics.BoxCast(new Vector3(rays[0].position.x, rays[0].position.y, distanceBetweenLane), new Vector3(0.5f, 0.5f, 0.5f), rays[0].forward, out hit, Quaternion.identity, sensorLength, LayerMask.GetMask("NPC Obstacle", "NPC", "Obstacle")))
+        if (Physics.BoxCast(new Vector3(rays[0].position.x, rays[0].position.y, distanceBetweenLane), new Vector3(0.5f, 0.5f, 0.5f), rays[0].forward, out hit, Quaternion.identity, sensorLength, LayerMask.GetMask("NPC Obstacle", "NPC", "Obstacle", "Default")))
         {//this is left
             if(hit.collider.GetComponent<HeadphoneObstacle>() == null)
             {
