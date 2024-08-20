@@ -207,11 +207,11 @@ public class Player : MonoBehaviour
             Physics.Raycast(transform.position, transform.right, out right, .67f);
             Physics.Raycast(transform.position, -transform.right, out left, .67f);
             if (left.collider != null || right.collider != null) return;
-            if (Input.GetButtonDown("Fire1") & animating == false) {
+            if (Input.GetButtonDown("Fire1") & animating == false & lane != 0) {
                 newlane = Mathf.Clamp(lane - 1, 0, 2);
                 StartCoroutine(LaneMoving());
             } 
-            else if (Input.GetButtonDown("Fire2") & animating == false) {
+            else if (Input.GetButtonDown("Fire2") & animating == false & lane !=2) {
                 newlane = Mathf.Clamp(lane + 1, 0, 2);
                 StartCoroutine(LaneMoving());
             }
