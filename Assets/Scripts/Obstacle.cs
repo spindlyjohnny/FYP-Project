@@ -111,9 +111,13 @@ public class Obstacle : MonoBehaviour
         if (Physics.BoxCast(new Vector3(rays[0].position.x, rays[0].position.y, -distanceBetweenLane),
             new Vector3(0.5f, 0.5f, 0.5f), rays[0].forward, out hit, Quaternion.identity, sensorLength, LayerMask.GetMask("NPC Obstacle", "NPC", "Obstacle")))
         {//this is right
-            Debug.DrawLine(new Vector3(rays[0].position.x, rays[0].position.y, -distanceBetweenLane), hit.point, Color.gray);
-            lane[0].isAvaliable = false;
-            lane[0].distance = hit.distance;
+            if (hit.collider.GetComponent<HeadphoneObstacle>()==null)
+            {
+                Debug.DrawLine(new Vector3(rays[0].position.x, rays[0].position.y, -distanceBetweenLane), hit.point, Color.gray);
+                lane[0].isAvaliable = false;
+                lane[0].distance = hit.distance;
+            }
+
         }
         else
         {
@@ -124,9 +128,13 @@ public class Obstacle : MonoBehaviour
 
         if (Physics.BoxCast(new Vector3(rays[0].position.x, rays[0].position.y, 0), new Vector3(0.5f, 0.5f, 0.5f), rays[0].forward, out hit, Quaternion.identity, sensorLength, LayerMask.GetMask("NPC Obstacle", "NPC", "Obstacle")))
         {//this is middle
-            Debug.DrawLine(new Vector3(rays[0].position.x, rays[0].position.y, 0), hit.point, Color.gray);
-            lane[1].isAvaliable = false;
-            lane[1].distance = hit.distance;
+            if (hit.collider.GetComponent<HeadphoneObstacle>() ==null)
+            {
+                Debug.DrawLine(new Vector3(rays[0].position.x, rays[0].position.y, 0), hit.point, Color.gray);
+                lane[1].isAvaliable = false;
+                lane[1].distance = hit.distance;                
+            }
+
         }
         else
         {
@@ -136,9 +144,13 @@ public class Obstacle : MonoBehaviour
         
         if (Physics.BoxCast(new Vector3(rays[0].position.x, rays[0].position.y, distanceBetweenLane), new Vector3(0.5f, 0.5f, 0.5f), rays[0].forward, out hit, Quaternion.identity, sensorLength, LayerMask.GetMask("NPC Obstacle", "NPC", "Obstacle")))
         {//this is left
-            Debug.DrawLine(new Vector3(rays[0].position.x, rays[0].position.y, distanceBetweenLane), hit.point, Color.gray);
-            lane[2].isAvaliable = false;
-            lane[2].distance = hit.distance;
+            if(hit.collider.GetComponent<HeadphoneObstacle>() == null)
+            {
+                Debug.DrawLine(new Vector3(rays[0].position.x, rays[0].position.y, distanceBetweenLane), hit.point, Color.gray);
+                lane[2].isAvaliable = false;
+                lane[2].distance = hit.distance;
+            }
+
         }
         else
         {
