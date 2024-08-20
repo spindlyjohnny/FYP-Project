@@ -109,7 +109,7 @@ public class Obstacle : MonoBehaviour
         }
         //index 2 is left, index 1 is middle, index 0 is right
         if (Physics.BoxCast(new Vector3(rays[0].position.x, rays[0].position.y, -distanceBetweenLane),
-            new Vector3(0.5f, 0.5f, 0.5f), rays[0].forward, out hit, Quaternion.identity, sensorLength, LayerMask.GetMask("NPC Obstacle", "NPC")))
+            new Vector3(0.5f, 0.5f, 0.5f), rays[0].forward, out hit, Quaternion.identity, sensorLength, LayerMask.GetMask("NPC Obstacle", "NPC", "Obstacle")))
         {//this is right
             if (hit.collider.GetComponent<HeadphoneObstacle>()==null)
             {
