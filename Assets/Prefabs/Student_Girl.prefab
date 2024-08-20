@@ -411,7 +411,7 @@ MonoBehaviour:
   lane: 1
   newlane: 0
   npcPosition: {fileID: 8710057387378498078}
-  npcWheelchairPosition: {fileID: 0}
+  npcWheelchairPosition: {fileID: 4723082350125319130}
   invincibleMats:
   - {fileID: 2100000, guid: f10a949d062047b4f943a87949bbdf96, type: 2}
   - {fileID: 2100000, guid: 6548bb71d816c3242b26269b2beaaeb4, type: 2}
