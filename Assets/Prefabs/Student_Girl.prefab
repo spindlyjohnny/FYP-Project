@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1075284525650345801}
   m_LocalEulerAnglesHint: {x: 3.914, y: 22.888, z: -21.68}
+--- !u!1 &6978632185127815974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4723082350125319130}
+  m_Layer: 6
+  m_Name: NPC WheelchairPosition (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4723082350125319130
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6978632185127815974}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.0283, z: 0.0351}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1075284525650345801}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7524214809191302578
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,6 +330,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0ee827e1cd1859e4fbafe33c34f3b7a6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3394838670992964255}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0ee827e1cd1859e4fbafe33c34f3b7a6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4723082350125319130}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0ee827e1cd1859e4fbafe33c34f3b7a6, type: 3}
       insertIndex: -1
@@ -350,6 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc8b828751cd594695fa274440a371f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pushingWheelchair: 0
   movespeed: 3
   maxspeed: 7
   canMove: 0
@@ -376,6 +411,7 @@ MonoBehaviour:
   lane: 1
   newlane: 0
   npcPosition: {fileID: 8710057387378498078}
+  npcWheelchairPosition: {fileID: 0}
   invincibleMats:
   - {fileID: 2100000, guid: f10a949d062047b4f943a87949bbdf96, type: 2}
   - {fileID: 2100000, guid: 6548bb71d816c3242b26269b2beaaeb4, type: 2}
