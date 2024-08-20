@@ -30,6 +30,7 @@ public class SceneLoader : MonoBehaviour {
     public void SetLevel(int levelNum) {
         LevelManager.levelNum = (LevelManager.LevelNum)levelNum;
         PlayerPrefs.SetInt("Level Num", levelNum);
+        PlayerPrefs.SetInt("score", 0);
     }
     public void SetLevelStatus(string level) {
         if (!PlayerPrefs.HasKey(level)) {

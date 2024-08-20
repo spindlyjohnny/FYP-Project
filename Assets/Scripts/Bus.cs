@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class Bus : Obstacle
+public class Bus : MonoBehaviour
 {
     [SerializeField]bool moving = true; // control when the bus moves
     [SerializeField] Collider destination; // bus stop
+    public Vector3 dir;
     // Start is called before the first frame update
     void Start()
     {
         
     }
-    protected override void Update() {
+    protected void Update() {
         if(moving)transform.Translate(5 * Time.deltaTime * dir);
     }
     // Update is called once per frame
