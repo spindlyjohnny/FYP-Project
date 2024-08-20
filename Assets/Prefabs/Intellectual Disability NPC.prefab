@@ -61,8 +61,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.34955937, y: 0.34955937, z: 0.34955937}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.45000002, y: 0.45000002, z: 0.45000002}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3950901737290613748}
   - {fileID: 4884213140654156580}
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 7112154009991123789}
+  stick: {fileID: 0}
   isWheelchair: 0
   dialoguebox: {fileID: 0}
   questionbox: {fileID: 0}
@@ -148,7 +149,7 @@ MonoBehaviour:
   followplayer: 0
   once: 0
   npcmanager: {fileID: 0}
-  names: {fileID: 11400000, guid: 25483c98ee02e124eb5cf31a8a4a0839, type: 2}
+  names: {fileID: 0}
   dialogueData: {fileID: 11400000, guid: 45d77f3b6975868469cb5d3698a7ab35, type: 2}
   movespeed: 5
   startpos: {x: 0, y: 0, z: 0}
