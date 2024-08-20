@@ -25,7 +25,7 @@ public class CameraController : MonoBehaviour {
             targetposition = target.position; // when NPC or bus is true, camera exactly tracks the target. The bus and NPC prefabs have empty gameObjects as children that act as targets for the camera to track.
         }
         else {
-            targetposition = new Vector3(target.position.x - lookOffset, transform.position.y, target.position.z);
+            targetposition = new Vector3(target.position.x - lookOffset,transform.position.y, target.position.z);
         }
         transform.position = Vector3.Lerp(transform.position, targetposition, Time.deltaTime * smoothing);
     }
