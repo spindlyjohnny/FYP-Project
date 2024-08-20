@@ -208,12 +208,11 @@ public class Player : MonoBehaviour
             RaycastHit left, right;
             Physics.Raycast(transform.position, transform.right, out right, .67f);
             Physics.Raycast(transform.position, -transform.right, out left, .67f);
-            if (left.collider != null || right.collider != null) return;
-            if (Input.GetButtonDown("Fire1") & animating == false & lane != 0) {
+            if (Input.GetButtonDown("Fire1") & animating == false & lane != 0 & left.collider == null) {
                 newlane = Mathf.Clamp(lane - 1, 0, 2);
                 StartCoroutine(LaneMoving());
             } 
-            else if (Input.GetButtonDown("Fire2") & animating == false & lane !=2) {
+            else if (Input.GetButtonDown("Fire2") & animating == false & lane !=2 & right.collider == null) {
                 newlane = Mathf.Clamp(lane + 1, 0, 2);
                 StartCoroutine(LaneMoving());
             }
