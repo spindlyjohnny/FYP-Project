@@ -29,7 +29,7 @@ public class TrainObstacle : Interactable
     public void SetNPCs() {
         for (int i = 0; i < NPCGroup.Length; i++) {
             NPCGroup[i] = Instantiate(NPCs[Random.Range(0, NPCs.Length)], NPCGroup[i].transform.position, Quaternion.Euler(0, -90, 0));
-            NPCGroup[i].transform.localScale *= 20;
+            NPCGroup[i].transform.localScale *= 25;
             NPCGroup[i].transform.SetParent(transform);
             moveNPC = NPCGroup[1];
             foreach(var x in NPCGroup[i].GetComponentsInChildren<Animator>())x.enabled = false;
