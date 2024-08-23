@@ -125,6 +125,13 @@ public class Player : MonoBehaviour
         Movement();
         if (invincibility) {
             invincibilitytime -= Time.deltaTime;
+            float timer = 10f;
+
+            for (int i = 0; i < meshes.Length; i++) {
+                meshes[i].material.Lerp(originalMats[i], invincibleMats[i], Mathf.PingPong(Time.time * timer, 1));//.color = Color.Lerp(originalColor, hitColor, Mathf.PingPong(Time.time * timer, 1));
+            }
+            skin[0].material.Lerp(originalMats[^1], invincibleMats[^1], Mathf.PingPong(Time.time * timer, 1));//color = Color.Lerp(originalColor, hitColor, Mathf.PingPong(Time.time * timer, 1));
+            //hitTime -= Time.deltaTime;
         }
         if(invincibilitytime <= 0) {
             invincibility = false;
