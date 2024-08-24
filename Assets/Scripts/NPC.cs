@@ -45,6 +45,7 @@ public class NPC : MonoBehaviour
     public int qnindex;
     public int indexDialogue = 0;
     [SerializeField] string nameFile;
+    public GameObject spawner;
     // Start is called before the first frame update
     void Start()
     {
@@ -92,6 +93,7 @@ public class NPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!spawner.activeSelf) gameObject.SetActive(false);
         FollowPlayer();
         if (TutorialUI.state != TutorialUI.TutorialState.fifthInstruction) return;
         if (Mathf.Abs(transform.position.z - player.transform.position.z) >= 0.5f) return;

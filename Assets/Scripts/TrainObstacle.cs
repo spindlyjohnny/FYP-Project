@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TrainObstacle : Interactable
 {
     public GameObject moveNPC;
     public Transform NPClocation;
-    public GameObject[] NPCGroup;
+    public List<GameObject> NPCGroup;
     [SerializeField] GameObject[] NPCs;
+    GameObject[] npcarray = new GameObject[3];
     public GameObject excuseMeText;
+    int npcCount;
     // Start is called before the first frame update
     protected override void Start() {
         base.Start();
+        npcCount = 0;
         SetNPCs();
     }
     public void MoveNPC() {
@@ -26,13 +30,27 @@ public class TrainObstacle : Interactable
             excuseMeText.SetActive(true);
         }
     }
+    private void OnEnable() {
+        //SetNPCs();
+    }
+    private void OnDisable() {
+        npcCount = 0;
+        foreach (var i in npcarray) {
+            Destroy(i);
+        }
+        Array.Clear(npcarray,0,npcarray.Length);
+    }
     public void SetNPCs() {
-        for (int i = 0; i < NPCGroup.Length; i++) {
-            NPCGroup[i] = Instantiate(NPCs[Random.Range(0, NPCs.Length)], NPCGroup[i].transform.position, Quaternion.Euler(0, -90, 0));
-            NPCGroup[i].transform.localScale *= 25;
-            NPCGroup[i].transform.SetParent(transform);
-            moveNPC = NPCGroup[1];
-            foreach(var x in NPCGroup[i].GetComponentsInChildren<Animator>())x.enabled = false;
+        //NPCGroup = new List<GameObject>(3);
+        //if (npcCount == 3) return;
+        for (int i = 0; i < NPCGroup.Count; i++) {
+            //NPCGroup.Insert(i, Instantiate(NPCs[UnityEngine.Random.Range(0, NPCs.Length)], NPCGroup[i].transform.position, Quaternion.Euler(0, -90, 0)));
+            npcarray[i] = Instantiate(NPCs[UnityEngine.Random.Range(0, NPCs.Length)], NPCGroup[i].transform.position, Quaternion.Euler(0, -90, 0));
+            npcarray[i].transform.localScale *= 25;
+            npcarray[i].transform.SetParent(transform);
+            //npcCount++;
+            moveNPC = npcarray[1];
+            foreach(var x in npcarray[i].GetComponentsInChildren<Animator>())x.enabled = false;
         }
     }
     protected override void Update() {

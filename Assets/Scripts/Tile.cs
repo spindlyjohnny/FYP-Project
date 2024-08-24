@@ -68,6 +68,7 @@ public class Tile : MonoBehaviour {
             NPCIndex = (rng > .33f && rng <= .66f) ? 0 : (rng > .66f && rng <= 1) ? 1 : 2;
         }
         spawnedNpc = objectPool.SpawnFromPool(NPC[NPCIndex].name, new Vector3(spawnpt.position.x, spawnpt.position.y, spawnpt.position.z));
+        spawnedNpc.GetComponent<NPC>().spawner = gameObject;
         if (stopSpawningNpc==true) spawnedNpc.SetActive(false);
         if (gameObject.CompareTag("Train") & spawnedNpc != null) spawnedNpc.transform.localScale = new Vector3(.8f, .8f, .8f);
 
@@ -104,7 +105,9 @@ public class Tile : MonoBehaviour {
             once = true;
             float size = levelManager.level == LevelManager.Level.Bus ? 13 : 30/*26.5f*/;
             levelManager.Spawn(1,size);
-            if (GetComponentInChildren<TrainObstacle>()) GetComponentInChildren<TrainObstacle>().SetNPCs();
+            //if (GetComponentInChildren<TrainObstacle>()) {
+            //    foreach (var i in GetComponentInChildren<TrainObstacle>().NPCGroup) Destroy(i);
+            //}
         }
     }
 

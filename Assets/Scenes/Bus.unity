@@ -205,6 +205,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 613446721095523866, guid: f6ddb29c6ac1e444c8c264d2d714cfe1, type: 3}
+      propertyPath: hasNPC
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 613446721095523866, guid: f6ddb29c6ac1e444c8c264d2d714cfe1, type: 3}
       propertyPath: spawnpt
       value: 
       objectReference: {fileID: 0}
