@@ -92,7 +92,8 @@ MonoBehaviour:
     Dialogues:
     - speechLine: (The elderly man looks confused, maybe he needs help)
       npcTalking: 1
-    question: (The elderly man looks confused, maybe he needs help)
+    question: Hi, I want to ride the bus back home, but I have fear that might miss
+      the stop again.
     Dial:
     - option: (Gently asks if he needs help)
       isCorrect: 1

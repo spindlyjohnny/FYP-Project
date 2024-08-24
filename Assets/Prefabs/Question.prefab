@@ -662,7 +662,7 @@ MonoBehaviour:
   elapsedFromMoved: 0
   animating: 0
   trainsize: {x: 1.76, y: 1.76, z: 1.76}
-  bussize: {x: 0.6606864, y: 0.6606864, z: 0.6606864}
+  bussize: {x: 0.40413675, y: 0.40413675, z: 0.40413675}
   collectsound: {fileID: 8300000, guid: 2961c5ebeac5950449d9a23af8b32f78, type: 3}
   questionbox: {fileID: 0}
   type:
