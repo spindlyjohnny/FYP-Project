@@ -145,9 +145,12 @@ public class LevelManager : SceneLoader {
             }
         }
         currenttiles = FindObjectsOfType<Tile>();//why is this in update(), why not move to start()?
-        if (currenttiles.Length == 1 || level == Level.MRT) {
+        if (currenttiles.Length == 1) {
             tileshiftfactor = 0; // in mrt level, tileshiftfactor is 0 because the size of the train already shifts them properly (i think)(trust bro) (me no trust)
-        } 
+        }
+        else if(level == Level.MRT) {
+            tileshiftfactor = 60; // lmao at line 149 comment
+        }
         else if (level == Level.Bus) {
             tileshiftfactor = 26; //  tileshiftfactor spawns tiles 21 units ahead because when player enters trigger, there are 3 tiles in front. each tile is 7 units long on the x-axis
         }
@@ -167,23 +170,19 @@ public class LevelManager : SceneLoader {
     }
     public IEnumerator Move(int index,Level lvl) { // transition between levels
         // index is the buildIndex of the level that you are going to, lvl is the Level enum value of the level that you are going to
-        print("video");
         level = lvl;
         loadingScreen.gameObject.SetActive(true);
-        if(lvl == Level.Bus || lvl == Level.BusInterior) {
+        if (lvl == Level.Bus || lvl == Level.BusInterior) {
             loadingScreen.videoName = "Bus_Loading_Transition.mp4";
         } 
         else {
             loadingScreen.videoName = "MRT_Loading_Transition.mp4";
         }
         loadingScreen.PlayVideo();
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(lvl == Level.MRT ? 6f : 8f);
         LoadScene(index,true);
-        print("Yagami");
         SaveData();
         PlayerPrefs.Save();
-        print("EEEYAAGAAMII");
-        //loadingscreen.GetComponent<Image>().sprite = loadingimgs[UnityEngine.Random.Range(0, loadingimgs.Length)];
     }
     public void Spawn(int amount,float size) {
         for (int x = 0; x < amount; x++) { // spawn amount tiles at a time
@@ -191,12 +190,17 @@ public class LevelManager : SceneLoader {
             if (amount == 1) {
                 x = numberOfTiles;
             }
-            RandomTile();
+            if(level != Level.MRT)tileindex = 8;
+            else RandomTile();
             TutorialTile();
             mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
             objectPool.Remove();
             GameObject temp=objectPool.SpawnFromPool(tiles[tileindex].name, mytile.spawnpt.position + new Vector3(size * x, 0, 0) + new Vector3(tileshiftfactor, 0, 0));
+            print("x value: " + x);
             tilesSpawned++;
+            print("Tiles spawned: " + tilesSpawned);
+            print("num tiles: "+numberOfTiles);
+            //print("Tile position: "+temp.transform.position);
             if (temp!= null)
             {
                 if (temp.GetComponent<Tile>().spawnedNpc != null)
