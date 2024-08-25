@@ -15,7 +15,6 @@ MonoBehaviour:
   dialogueQuestions:
   - question: Why should we take public transport?
     isMutli: 0
-    type: General
     typing: 0
     options:
     - We can be more environmentally friendly
@@ -28,7 +27,6 @@ MonoBehaviour:
   - question: 'What should you do when you see a vulnerable commuter e.g., Visually-impaired,
       deaf, senior, pregnant lady? Select any that apply. '
     isMutli: 0
-    type: General
     typing: 0
     options:
     - Ask them if they need help
@@ -40,10 +38,9 @@ MonoBehaviour:
   - question: What should you do when you see someone wearing the 'May I have a seat
       please?' card and lanyard?
     isMutli: 0
-    type: Invisible
     typing: 6
     options:
-    - Give up your seat/nicely ask someone to give their seat to them
+    - Give up your seat/politely ask someone to give their seat to them
     - Ignore them and continue using your phone/chatting with your friends"
     answer: 0100
     explain: The 'May I have a seat please?'card is to let others known that those
@@ -51,7 +48,6 @@ MonoBehaviour:
   - question: What should you do when you see someone wearing the 'Alert me when
       I am approaching my stop' card and lanyard?
     isMutli: 0
-    type: Visual
     typing: 2
     options:
     - Ask him/her where they are stopping and help them keep a look out for their
@@ -63,7 +59,6 @@ MonoBehaviour:
   - question: Why is being caring on public transport important? Select any that
       apply
     isMutli: 0
-    type: General
     typing: 0
     options:
     - We can be caring and kind towards one another, to have a caring commuting culture
@@ -74,7 +69,6 @@ MonoBehaviour:
     explain: Together, we can be Caring Commuters!
   - question: 'What should you do when you see someone put their bags on the seats? '
     isMutli: 0
-    type: General
     typing: 0
     options:
     - Ignore them
@@ -86,7 +80,6 @@ MonoBehaviour:
   - question: 'What are the Four Caring Norms you should show on public transport?
       Select any that apply '
     isMutli: 0
-    type: General
     typing: 0
     options:
     - Give Time, Give Care, Give Care, Give Thanks
@@ -99,7 +92,6 @@ MonoBehaviour:
   - question: 'Is the Heart Zone one of the places  at MRT stations and bus interchanges
       for commuters to give and receive help? '
     isMutli: 0
-    type: General
     typing: 0
     options:
     - Yes
@@ -110,7 +102,6 @@ MonoBehaviour:
   - question: 'What should you do if you see someone who needs help using Heartwheels
       @ Linkway wheelchairs? '
     isMutli: 0
-    type: Wheelchair
     typing: 1
     options:
     - Ask an adult if they can help
@@ -120,7 +111,6 @@ MonoBehaviour:
   - question: 'What should you NOT do when you see a vulnerable commuter e.g, commuter
       with physical disability, holding a cane, pregnant etc? '
     isMutli: 0
-    type: General
     typing: 0
     options:
     - Stare at them
@@ -133,7 +123,6 @@ MonoBehaviour:
       can be Caring Commuters!
   - question: 'What are the three As on how to help someone? Select any that apply '
     isMutli: 0
-    type: General
     typing: 0
     options:
     - Assess, Ask, Assist
@@ -144,7 +133,6 @@ MonoBehaviour:
       would like to be helped and Assist them accordingly
   - question: 'Do all pregnant ladies have big stomachs? '
     isMutli: 0
-    type: General
     typing: 0
     options:
     - Yes
@@ -155,7 +143,6 @@ MonoBehaviour:
   - question: What should you do when you see a pregnant lady or suspect a woman
       is pregnant?
     isMutli: 0
-    type: Pregnant
     typing: 0
     options:
     - Ignore them
@@ -167,7 +154,6 @@ MonoBehaviour:
   - question: What should you do when you see young children (below 6 years old)
       on the train?
     isMutli: 0
-    type: General
     typing: 0
     options:
     - Ask the caregiver/children if they need a seat
@@ -177,41 +163,38 @@ MonoBehaviour:
     answer: 01000000
     explain: Young children may not be able to balance well in a moving bus or train 
       or might feel tired more easily
-  - question: 'Do all commuters with vision problems completely not see? '
+  - question: '"All commuters with visual vision impairment are not able to see anything."
+      True or False?'
     isMutli: 0
-    type: Visual
     typing: 2
     options:
-    - Yes
-    - No, there are those with only some vision loss
+    - True
+    - False, there are those with only some vision loss
     answer: 0001
     explain: Blindness is a range - it can vary from having low vision to being completely
       blind
-  - question: 'What does a white cane mean? '
+  - question: What does it mean when a commuter uses a white cane?
     isMutli: 0
-    type: Visual
     typing: 2
     options:
     - User is completely blind
     - User has low vision
     - User is blind and deaf
-    answer: 010000
+    answer: 010100
     explain: Commuters with visual impairment or blindness use a white cane. However,
       persons with low vision do not touch the floor with the cane
-  - question: 'What does a white cane with red bottom mean? '
+  - question: What does it mean when a commuter uses a white and red striped cane?
     isMutli: 0
-    type: Visual
     typing: 2
     options:
     - User completely cannot see
     - 'User has low vision '
-    - User is blind and dea
-    answer: 000100
+    - User is blind and deaf
+    answer: 000001
     explain: A white and red striped cane means that the user is completely blind
       and deaf
-  - question: 'What should you do when you see a visually impaired commuter?  '
+  - question: 'What should you do when you see a visually impaired commuter in distress? '
     isMutli: 0
-    type: Visual
     typing: 2
     options:
     - 'Grab their cane   '
@@ -222,9 +205,8 @@ MonoBehaviour:
     explain: A visually impaired commuter may need help finding their destination. 
       We must not pet or play with the guide dog as it distracts them from their
       duty
-  - question: Do all blind commuters wear sunglasses?
+  - question: Do all visually impaired commuters wear sunglasses?
     isMutli: 0
-    type: Visual
     typing: 2
     options:
     - Yes
@@ -233,8 +215,7 @@ MonoBehaviour:
     explain: Not all visually imapired commuters wear sunglasses
   - question: How many active guide dogs are there in Singapore?
     isMutli: 0
-    type: General
-    typing: 0
+    typing: 2
     options:
     - 100
     - 50
@@ -244,7 +225,6 @@ MonoBehaviour:
       10 active guide dogs '
   - question: How do you guide someone who is blind?
     isMutli: 0
-    type: Visual
     typing: 2
     options:
     - Hold their hand
@@ -253,13 +233,14 @@ MonoBehaviour:
     answer: 000001
     explain: Letting blind commuters hold your elbow is the right way to guide commuters
       with visual impairment
-  - question: What should you do when you see a commuter wearing a hearing aid?
+  - question: 'What should you do when you see a commuter wearing a hearing aid who
+      looks distressed? '
     isMutli: 0
-    type: Hearing
     typing: 3
     options:
     - Ignore them
-    - 'Ask them if they need help if there is an important announcement in the MRT '
+    - "Ask if they need help if they look lost and help inform them if there is any
+      important announcement made via the intercom\r"
     - Shout at them because they cannot hear
     answer: 000100
     explain: Commuters who are deaf may not be able to hear important announcements
@@ -267,7 +248,6 @@ MonoBehaviour:
       writing.
   - question: Do all deaf commuters know/use sign language?
     isMutli: 0
-    type: Hearing
     typing: 3
     options:
     - Yes
@@ -277,7 +257,6 @@ MonoBehaviour:
       of hearing loss or loss their hearing at an older age
   - question: 'Do all deaf commuters wear hearing aids? '
     isMutli: 0
-    type: Hearing
     typing: 3
     options:
     - Yes
@@ -289,7 +268,6 @@ MonoBehaviour:
   - question: How do you communicate someone who is deaf/cannot hear clearly? Select
       all that apply.
     isMutli: 1
-    type: Hearing
     typing: 3
     options:
     - Gesture wildly at them
@@ -299,9 +277,9 @@ MonoBehaviour:
     answer: 00000101
     explain: Writing/typing out and pointing at screens are some ways to help deaf/hard-of-hearing
       commuters
-  - question: What should you do when you see a wheelchair user who is struggling?
+  - question: What should you do when you see a wheelchair user who is facing some
+      challenges with their mobility?
     isMutli: 0
-    type: Wheelchair
     typing: 1
     options:
     - Push their wheelchair for them
@@ -313,7 +291,6 @@ MonoBehaviour:
   - question: What should you do when you see a commuter with physical disabilty
       e.g.,on a wheelchair?
     isMutli: 0
-    type: Wheelchair
     typing: 1
     options:
     - Help to hold the lift and press the lift buttons for them
@@ -323,9 +300,8 @@ MonoBehaviour:
     answer: 01010000
     explain: Commuters with physical disabilities have challenges in moving about
       and we should do our part to help them
-  - question: 'Can you hang your belongings on a wheelchair user''s wheelchair? '
+  - question: Is it appropriate to hang your belongings on a wheelchair user's wheelchair?
     isMutli: 0
-    type: Wheelchair
     typing: 1
     options:
     - Yes
@@ -335,7 +311,6 @@ MonoBehaviour:
       without permission.
   - question: 'Do all commuters with physical disabilities use a wheelchair? '
     isMutli: 0
-    type: Wheelchair
     typing: 1
     options:
     - Yes
@@ -344,9 +319,8 @@ MonoBehaviour:
     explain: Not all commuters with physical disabilities use a wheelchair and may
       use other mobility aids like crutches and walking frames.  Some disabilities
       may not be so easily visible
-  - question: What do you call a commuter in a wheelchair?
+  - question: How do you refer to a commuter in a wheelchair?
     isMutli: 0
-    type: Wheelchair
     typing: 1
     options:
     - Wheelchair-bound
@@ -356,7 +330,6 @@ MonoBehaviour:
   - question: 'True or False? "Some people with Intellectual Disability can travel
       on public transport on their own." '
     isMutli: 0
-    type: Intellectual
     typing: 7
     options:
     - True
@@ -367,7 +340,6 @@ MonoBehaviour:
   - question: 'What should you do if  you see someone with Intellectual Disability
       queueing up for the bus or train? '
     isMutli: 0
-    type: Intellectual
     typing: 7
     options:
     - 'Let them board the bus first using the side that they want to board on  '
@@ -377,9 +349,8 @@ MonoBehaviour:
     explain: Some commuters with Intellectual Disability have specific routines they
       wish to follow
   - question: 'True or False?"Commuters with Intellectual Disability always behave
-      strangely." '
+      differently." '
     isMutli: 0
-    type: Intellectual
     typing: 7
     options:
     - True
@@ -388,22 +359,21 @@ MonoBehaviour:
     explain: Commuters with Intellectual Disability may behave differently at times. 
       We should not judge them but be caring towards them
   - question: What should you do if you see a commuter with Intellectual Disability
-      who is lost?
-    isMutli: 0
-    type: Intellectual
+      who is lost? Select all that apply.
+    isMutli: 1
     typing: 7
     options:
     - Alert an adult or the Passenger Service Office
     - Laugh at them
     - 'Drag them away to where you think they should be  '
     - Ignore them
-    answer: 01000000
+    - "Ask if they need help and help them if you can \r"
+    answer: 01000001
     explain: Ask if they need help and help them if you know the directions. If not,
       it may be better to ask an adult for help with the commuter.
   - question: A commuter with intellectual disabilities does not understand what
       you are saying. What should you do?
     isMutli: 0
-    type: Intellectual
     typing: 7
     options:
     - Use shorter and simpler sentences
@@ -416,7 +386,6 @@ MonoBehaviour:
   - question: 'What should you do when someone with Autism is stimming e.g., rocking
       back and forth, talking loudly? Select all that apply '
     isMutli: 1
-    type: Autism
     typing: 5
     options:
     - 'Stare at them '
@@ -426,9 +395,8 @@ MonoBehaviour:
     answer: 00000101
     explain: We should not judge others who may be behaving differently from us,
       and should be caring towards them instead
-  - question: 'What main problem do commuters with Autism face? '
+  - question: 'What main problem do persons with Autism face? '
     isMutli: 0
-    type: Autism
     typing: 5
     options:
     - Communicating with others
@@ -440,7 +408,6 @@ MonoBehaviour:
   - question: 'What should you do if you identify someone with Autism queueing up
       for the bus or train? '
     isMutli: 0
-    type: Autism
     typing: 5
     options:
     - Let them board the bus first and the side that they want to board
@@ -452,7 +419,6 @@ MonoBehaviour:
   - question: 'What should you do if you observe someone having a meltdown e.g. screaming,
       crying, waving their hands etc.? '
     isMutli: 0
-    type: Autism
     typing: 5
     options:
     - Do not stare
@@ -462,9 +428,8 @@ MonoBehaviour:
     answer: 01000001
     explain: Sometimes, commuters with Autism having a meltdown can have difficulty
       expressing themselves, and we should not judge them
-  - question: 'Do commuters with Autism look like everyone else?  '
+  - question: 'Do persons with Autism look like everyone else?  '
     isMutli: 0
-    type: Autism
     typing: 5
     options:
     - Yes
@@ -473,7 +438,6 @@ MonoBehaviour:
     explain: Autism is a hidden condition
   - question: 'What should you do if you see a commuter with Autism who is lost? '
     isMutli: 0
-    type: Autism
     typing: 5
     options:
     - Alert an adult or the Passenger Service Office
@@ -486,7 +450,6 @@ MonoBehaviour:
   - question: 'What should you do if you see a commuter with dementia/elderly commuter
       that is lost? '
     isMutli: 0
-    type: Elderly
     typing: 4
     options:
     - 'Notify an adult  '
@@ -497,7 +460,6 @@ MonoBehaviour:
     explain: It may be better to ask an adult for help with the commuter
   - question: 'How do you know someone has dementia? Select all that apply '
     isMutli: 1
-    type: Dementia
     typing: 6
     options:
     - Memory loss
@@ -509,7 +471,6 @@ MonoBehaviour:
   - question: 'Someone approaches you for help but you''re not sure how to help them.
       What should you do? '
     isMutli: 0
-    type: Dementia
     typing: 6
     options:
     - 'Bring them to the Passenger Service Office  '
@@ -520,17 +481,15 @@ MonoBehaviour:
   - question: 'You see a commuter behaving oddly e.g., talking to themselves. What
       should you do? '
     isMutli: 0
-    type: Dementia
     typing: 6
     options:
     - Stare at them
-    - 'Laugh at them   '
+    - "Take a video of them\r"
     - ' Alert an adult or the Passenger Service Office, as they may need help'
     answer: 000001
     explain: It may be better to ask an adult for help with the commuter
   - question: 'Are all medical conditions visible? '
     isMutli: 0
-    type: Invisible
     typing: 6
     options:
     - Yes
@@ -539,7 +498,6 @@ MonoBehaviour:
     explain: There are some invisible medical conditions as well e.g. Autism, cancer
   - question: 'You notice someone has fainted. What should you do? '
     isMutli: 0
-    type: Invisible
     typing: 6
     options:
     - Ignore them
@@ -550,7 +508,6 @@ MonoBehaviour:
   - question: 'You notice someone looks weak, tired or in pain. What should you do?
       Select all that apply '
     isMutli: 1
-    type: Invisible
     typing: 6
     options:
     - 'Guide the commuter to a seat  '
@@ -562,7 +519,6 @@ MonoBehaviour:
   - question: 'What are some examples of invisible medical conditions? Select all
       that apply  '
     isMutli: 1
-    type: Invisible
     typing: 6
     options:
     - 'Autism '
@@ -573,7 +529,6 @@ MonoBehaviour:
       include headache, fever and mental disorders
   - question: '"Only senior commuters have health issues." True or False?'
     isMutli: 0
-    type: Elderly
     typing: 4
     options:
     - True

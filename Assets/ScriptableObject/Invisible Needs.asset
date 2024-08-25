@@ -42,7 +42,6 @@ MonoBehaviour:
         the man) '
     - response:
       - (I walked away, leaving it to someone else....)
-    outcome: Task Complete
     outcomeLocation: 0
   - assessQuestion: (Maybe he needs some assistance)
     assDialogue:
@@ -71,17 +70,16 @@ MonoBehaviour:
       - '"Thank you for the help."'
     - response:
       - '"Oh, maybe I''ll figure it out..."'
-    outcome: 'Start task: Ride the bus with the commuter'
     outcomeLocation: 1
   - assessQuestion: '(A man looks weak while standing in the train) '
     assDialogue:
     - speechLine: '(A man looks weak while standing in the train) '
-      npcTalking: 0
+      npcTalking: 1
     assDial:
     - option: (Ask if he needs help)
-      isCorrect: 0
-    - option: (Ignore him)
       isCorrect: 1
+    - option: (Ignore him)
+      isCorrect: 0
     Dialogues:
     - speechLine: '"Huff..I am feeling quite tired, I was standing up for really
         long"'
@@ -98,7 +96,6 @@ MonoBehaviour:
       - '"That will be great. Thank you"'
     - response:
       - '"Oh... I hope I can get home soon"'
-    outcome: 'Start Task: Find an empty seat for the commuter'
     outcomeLocation: 5
   - assessQuestion: (I think he's feeling unwell)
     assDialogue:
@@ -126,7 +123,6 @@ MonoBehaviour:
       - '"I think it will be best to ask for their help. Thank you"'
     - response:
       - '"Ugghh"'
-    outcome: 'Start task: Bring commuter to the station staff'
     outcomeLocation: 3
   - assessQuestion: (Should I do something to help him?)
     assDialogue:
@@ -158,7 +154,6 @@ MonoBehaviour:
       - '(It is important to be nice when approaching others for help ) '
     - response:
       - (Shouting at others is very rude)
-    outcome: 'Start task: Find a seat for the commuter'
     outcomeLocation: 5
   - assessQuestion: (Maybe I should ask what he needs)
     assDialogue:
@@ -174,7 +169,7 @@ MonoBehaviour:
     Dialogues:
     - speechLine: '"Urgh, the noise level in the bus is too high right now, I am
         starting to feel agitated."'
-      npcTalking: 0
+      npcTalking: 1
     - speechLine: (When I turn around, next to the man was a group of students loudly
         laughing and talking, what should I do?)
       npcTalking: 0
@@ -191,5 +186,4 @@ MonoBehaviour:
       - '"Thanks for your help, I feel much calmer now"'
     - response:
       - '"Unfortunately, the situation did not improve"'
-    outcome: Task Complete
     outcomeLocation: 0

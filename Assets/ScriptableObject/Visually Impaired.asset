@@ -25,7 +25,7 @@ MonoBehaviour:
     - option: (Pretend nothing happened)
       isCorrect: 0
     Dialogues:
-    - speechLine: '"Hi, I''m in a bit of a pickle"'
+    - speechLine: "\"Hi, I'm a bit lost\"\r\""
       npcTalking: 1
     - speechLine: '"It''s my first time taking this route and I can''t see very well"'
       npcTalking: 1
@@ -43,7 +43,6 @@ MonoBehaviour:
       - '"Thank you, I only need to ride a few stops"'
     - response:
       - '"Then, maybe next time"'
-    outcome: 'Start task: Ride the bus with the commuter'
     outcomeLocation: 1
   - assessQuestion: (Does she need help to locate something?)
     assDialogue:
@@ -77,7 +76,6 @@ MonoBehaviour:
       - '"Oh, okay..."'
     - response:
       - '"That does not seem right..."'
-    outcome: Task Complete
     outcomeLocation: 0
   - assessQuestion: (What do you think she needs?)
     assDialogue:
@@ -107,7 +105,6 @@ MonoBehaviour:
       - '"Thank you! I think the bus stop is right ahead this path"'
     - response:
       - '"Oh, nevermind then"'
-    outcome: 'Start task: Bring Commuter to the Bus Stop'
     outcomeLocation: 1
   - assessQuestion: (She looks distressed, what should I do?)
     assDialogue:
@@ -136,12 +133,11 @@ MonoBehaviour:
       - '"Really? I guess it cannot be helped"'
     - response:
       - '"Thank you, lead the way!"'
-    outcome: 'Start task: Bring commuter to the transport officer'
     outcomeLocation: 3
   - assessQuestion: '"Hi, if you do not mind could you do me a favor?"'
     assDialogue:
     - speechLine: '(A visually impaired lady lightly taps my shoulder) '
-      npcTalking: 1
+      npcTalking: 0
     - speechLine: '"Hi, if you do not mind could you do me a favor?"'
       npcTalking: 1
     assDial:
@@ -167,12 +163,11 @@ MonoBehaviour:
       - '"Oh...Please don''t do that"'
     - response:
       - '"Okay, thank you for offering your help!"'
-    outcome: 'Start Task: Find an empty seat for the commuter'
     outcomeLocation: 5
   - assessQuestion: (Continue on your way)
     assDialogue:
     - speechLine: '(A visually impaired lady calls out to me as I walk near her) '
-      npcTalking: 0
+      npcTalking: 1
     - speechLine: (Does she need my help?)
       npcTalking: 0
     assDial:
@@ -195,7 +190,6 @@ MonoBehaviour:
       - '"Thanks!"'
     - response:
       - '"Oh, nevermind"'
-    outcome: 'Start Task: Find a seat for the commuter'
     outcomeLocation: 5
   - assessQuestion: '(Maybe I should help her) '
     assDialogue:
@@ -212,7 +206,7 @@ MonoBehaviour:
     - speechLine: '"Oh dear, I flagged down this bus but I forgot to ask the bus
         driver if this is the correct route"'
       npcTalking: 1
-    - speechLine: '"Could you help me ask the bus captain if this bus stops at Jurong
+    - speechLine: '"Could you help me ask the Bus Captain if this bus stops at Jurong
         West?"'
       npcTalking: 1
     question: 'Could you help me ask the bus captain if this bus stops at Jurong
@@ -228,5 +222,4 @@ MonoBehaviour:
       - '"Ok, thanks for you help!"'
     - response:
       - '"Oh, nevermind then...(sigh)"'
-    outcome: 'Start Task: Ask the bus driver about the route'
     outcomeLocation: 6

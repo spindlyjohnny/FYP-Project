@@ -42,7 +42,6 @@ MonoBehaviour:
       - '"Ok let''s go!"'
     - response:
       - '"Oh, nevermind..."'
-    outcome: Start task
     outcomeLocation: 1
   - assessQuestion: (She looks like she is struggling with her wheelchair)
     assDialogue:
@@ -74,7 +73,6 @@ MonoBehaviour:
       - '"Yes, please help me ride the bus, it''s only a stop away"'
     - response:
       - (She angrily glares at you)
-    outcome: 'Start task: Bring Commuter to Bus Stop'
     outcomeLocation: 1
   - assessQuestion: (She waves at you, with a worried look)
     assDialogue:
@@ -109,7 +107,6 @@ MonoBehaviour:
       - '"Great! Thanks for your help! "'
     - response:
       - '"Oh... then maybe it''s too difficult..."'
-    outcome: Start task
     outcomeLocation: 2
   - assessQuestion: (She calls out to you)
     assDialogue:
@@ -139,11 +136,10 @@ MonoBehaviour:
       - '"I greatly appreciate it!"'
     - response:
       - (She looks stressed out)
-    outcome: 'Task Complete '
     outcomeLocation: 0
   - assessQuestion: (She might need help pressing it, what should I do?)
     assDialogue:
-    - speechLine: '(The girl using a wheelchair is reaching to the stop button) '
+    - speechLine: (The girl using a wheelchair is reaching to the stop button)
       npcTalking: 1
     - speechLine: (She might need help pressing it, what should I do?)
       npcTalking: 0
@@ -168,7 +164,6 @@ MonoBehaviour:
       - '"Thank you so much!"'
     - response:
       - (She managed to pressed the button, but strained her arm)
-    outcome: 'Task Complete '
     outcomeLocation: 0
   - assessQuestion: (However, a foldable chair is blocking her way)
     assDialogue:
@@ -198,5 +193,4 @@ MonoBehaviour:
       - '"Thank you!"'
     - response:
       - '"Oh okay..."'
-    outcome: 'Task Complete '
     outcomeLocation: 0
