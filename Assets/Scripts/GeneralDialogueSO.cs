@@ -9,11 +9,13 @@ public class GeneralDIalogueSO : ScriptableObject
 [System.Serializable]
 public class GeneralData
 {
+    [TextArea(2, 10)]
     public string question;
     public bool isMutli;
-    public string type;
     public TypeQuestion typing;
+    [TextArea(2, 10)]
     public string[] options;    
     public bool[] answer;
+    [TextArea(2, 10)]
     public string explain;
 }

@@ -44,7 +44,6 @@ MonoBehaviour:
         p-place"'
     - response:
       - '"Oh, but how will I find it myself?"'
-    outcome: 'Start task: Ride the bus with the commuter'
     outcomeLocation: 1
   - assessQuestion: (Is he looking for something?)
     assDialogue:
@@ -76,7 +75,6 @@ MonoBehaviour:
       - '"I see, I''ll ruh-remember that. Thank y-you for your help!"'
     - response:
       - '"Oh, n-nevermind"'
-    outcome: Task Complete
     outcomeLocation: 0
   - assessQuestion: (Does he need my help?)
     assDialogue:
@@ -106,7 +104,6 @@ MonoBehaviour:
       - '"Ohh, I see now. Thank you so much!"'
     - response:
       - (He walked away embarrassed)
-    outcome: 'Task Complete '
     outcomeLocation: 0
   - assessQuestion: (Maybe I should help)
     assDialogue:
@@ -118,7 +115,7 @@ MonoBehaviour:
     - option: '"Ask if he needs your help"'
       isCorrect: 1
     - option: '"Turn away"'
-      isCorrect: 1
+      isCorrect: 0
     Dialogues:
     - speechLine: '"Ah y-yeah, I think I got on the wrong bus, I accidentally mixed
         up the name of the place I was supposed to go"'
@@ -138,7 +135,6 @@ MonoBehaviour:
         you!"'
     - response:
       - '"Oh..maybe I need to call someone..."'
-    outcome: Task Complete
     outcomeLocation: 0
   - assessQuestion: (I think he needs my help)
     assDialogue:
@@ -169,5 +165,4 @@ MonoBehaviour:
         maybe you can help me say it"'
     - response:
       - '"Oh.. Okay then"'
-    outcome: 'Start task: Ask the bus captain about the route'
     outcomeLocation: 6

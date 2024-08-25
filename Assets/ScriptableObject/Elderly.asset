@@ -47,7 +47,6 @@ MonoBehaviour:
       - '(He angrily walks away) '
     - response:
       - (He accepted your help, and the adult managed to contact his relative)
-    outcome: 'Task complete '
     outcomeLocation: 0
   - assessQuestion: (It looks like the bags are pulling him down)
     assDialogue:
@@ -76,7 +75,6 @@ MonoBehaviour:
       - '"Thanks ah, carry to bus stop only"'
     - response:
       - (He shakes his head in dismay)
-    outcome: Start task
     outcomeLocation: 1
   - assessQuestion: '(An elderly man was looking troubled and paces about) '
     assDialogue:
@@ -90,7 +88,10 @@ MonoBehaviour:
     - option: (Pretend not to see)
       isCorrect: 0
     Dialogues:
-    - speechLine: (The elderly man looks confused, maybe he needs help)
+    - speechLine: '"Hi, I want to ride the bus back home, but I have fear that might
+        miss the stop again."
+
+'
       npcTalking: 1
     question: Hi, I want to ride the bus back home, but I have fear that might miss
       the stop again.
@@ -105,7 +106,6 @@ MonoBehaviour:
       - '"Yes, my bus is approaching soon"'
     - response:
       - (He gave a disappointed look)
-    outcome: Start task
     outcomeLocation: 1
   - assessQuestion: (Did something happen?)
     assDialogue:
@@ -125,8 +125,8 @@ MonoBehaviour:
       npcTalking: 1
     - speechLine: '"What should I do?"'
       npcTalking: 1
-    question: 'Oh dear,.. I''m in the wrong train route, I can''t remember where
-      I went. What should I do? '
+    question: 'Oh no... I''m in the wrong train route, I can''t remember where I
+      went. What should I do? '
     Dial:
     - option: '"I''ll help you find a Transport Officer" '
       isCorrect: 1
@@ -138,7 +138,6 @@ MonoBehaviour:
       - '"Oh okay, let''s go"'
     - response:
       - '"How shoould I find my way home?"'
-    outcome: Start task
     outcomeLocation: 3
   - assessQuestion: '(Maybe I should help him) '
     assDialogue:
@@ -153,7 +152,7 @@ MonoBehaviour:
     - option: (No, I don't think I can help)
       isCorrect: 0
     Dialogues:
-    - speechLine: '"Please help! my grandchild was wandering in the train and I can''t
+    - speechLine: '"Please help! My grandchild was wandering in the train and I can''t
         find her! Please help me look for her!" '
       npcTalking: 1
     question: 'Please help! my grandchild was wandering in the train and I can''t
@@ -169,7 +168,6 @@ MonoBehaviour:
       - '"Thank you, once we find her and alight the train, we will take our leave"'
     - response:
       - '"Oh nevermind, maybe I will find her myself"'
-    outcome: Start task:grandkid
     outcomeLocation: 4
   - assessQuestion: '(Maybe I should help him) '
     assDialogue:
@@ -201,7 +199,6 @@ MonoBehaviour:
       - '"Thank you for your help!"'
     - response:
       - (I just shrugged it off)
-    outcome: 'Task Complete '
     outcomeLocation: 0
   - assessQuestion: (He looks tense, what should I do?)
     assDialogue:
@@ -233,5 +230,4 @@ MonoBehaviour:
       - '(It''s better to ask an adult as I wasn''t sure what to do) '
     - response:
       - (In the end, I could not help him)
-    outcome: 'Task Complete '
     outcomeLocation: 0

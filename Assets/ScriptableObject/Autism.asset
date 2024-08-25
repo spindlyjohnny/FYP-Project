@@ -20,7 +20,7 @@ MonoBehaviour:
     - speechLine: (Should I step in?)
       npcTalking: 0
     assDial:
-    - option: 'Ask if something is wrong '
+    - option: (Ask if something is wrong)
       isCorrect: 1
     - option: No, I think she's fine
       isCorrect: 0
@@ -41,7 +41,6 @@ MonoBehaviour:
         when I reach my stop?"'
     - response:
       - '(She gave a bothered look) '
-    outcome: 'Start task: Ride the bus with the commuter'
     outcomeLocation: 1
   - assessQuestion: (What is she doing?)
     assDialogue:
@@ -69,7 +68,6 @@ MonoBehaviour:
       - '(She gave a sad look) '
     - response:
       - (I should be respectful of a person's mannerisms)
-    outcome: Task Complete
     outcomeLocation: 0
   - assessQuestion: (I think she is panicking)
     assDialogue:
@@ -100,7 +98,6 @@ MonoBehaviour:
       - '"Let''s go find a station staff"'
     - response:
       - '"W-what? Oh dear...."'
-    outcome: 'Start task: Bring commuter to the station staff'
     outcomeLocation: 3
   - assessQuestion: (She might be in distress)
     assDialogue:
@@ -131,7 +128,6 @@ MonoBehaviour:
       - '"Okay, Lead the way!"'
     - response:
       - '"Oh, nevermind..."'
-    outcome: 'Start task: Find an empty seat for the commuter'
     outcomeLocation: 5
   - assessQuestion: (What is she doing?)
     assDialogue:
@@ -159,5 +155,4 @@ MonoBehaviour:
       - '(I should not judge others for behaving differently) '
     - response:
       - (She gave an embarrassed look)
-    outcome: Task Complete
     outcomeLocation: 0

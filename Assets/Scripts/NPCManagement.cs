@@ -38,6 +38,8 @@ public class NPCManagement : MonoBehaviour
         if (!myNPC.gameObject.activeSelf) return;
         if(myNPC.dialoguetext.text.Length < myNPC.dialogue[myNPC.currentline].Length) { // dialogue hasnt finished typing
             myNPC.Stop();
+            myNPC.dialoguetext.text = myNPC.dialogue[myNPC.currentline];
+            /*
             if (myNPC.currentline < myNPC.dialogue.Length - 1) { //check if there's more dialogue to type out
                 myNPC.dialoguetext.text = myNPC.dialogue[myNPC.currentline];
                 //myNPC.currentline += 1; // go to next line(just print out the whole line instead)
@@ -77,7 +79,7 @@ public class NPCManagement : MonoBehaviour
                 }
                 if (!myNPC.questionbox.activeSelf) myNPC.questionbox.SetActive(true);
                 //myNPC.EndDialogue();
-            }
+            }*/
         }
         else if (myNPC.dialoguetext.text.Length >= myNPC.dialogue[myNPC.currentline].Length) { // check if all the text in the current line has been typed out.
             if (myNPC.currentline < myNPC.dialogue.Length - 1) { //check if there's more dialogue to type out

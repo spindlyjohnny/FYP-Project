@@ -18,13 +18,13 @@ public class Data
     public DialOptions[] Dial;
     public LocationEnum locationE;
     public Response[] response;// the  length of this is the length of the possible options
-    public string outcome;
     public OutcomeLocation outcomeLocation;
 }
 
 [System.Serializable]
 public class Response
 {
+    [TextArea(2, 10)]
     public string[] response;
 }
 
@@ -55,6 +55,7 @@ public enum OutcomeLocation
 [System.Serializable]
 public class DialogueQoute
 {
+    [TextArea(3,10)]
     public string speechLine;
     public bool npcTalking;
 }
@@ -62,6 +63,7 @@ public class DialogueQoute
 [System.Serializable]
 public class DialOptions
 {
+    [TextArea(2, 10)]
     public string option;
     public bool isCorrect;
 }
