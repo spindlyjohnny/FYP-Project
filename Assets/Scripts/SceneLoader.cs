@@ -115,11 +115,13 @@ public class SceneLoader : MonoBehaviour {
             tutimg.sprite = checkbox[1];
             tutpanel.SetActive(false);
             PlayerPrefs.SetInt("Show Tutorial", 1);
+            StopTutorial();
         } 
         else {
             tutimg.sprite = checkbox[0];
             tutpanel.SetActive(true);
             PlayerPrefs.SetInt("Show Tutorial", 0);
+            ShowTutorial();
         }
     }
 }

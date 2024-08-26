@@ -72,8 +72,7 @@ public class LevelManager : SceneLoader {
         }
     }
     void Start() {
-        if (!PlayerPrefs.HasKey("Tutorial"))
-        {
+        if (!PlayerPrefs.HasKey("Tutorial")) {
             PlayerPrefs.SetInt("Tutorial", 0);//0 is  false and 1 is true            
         }
         tilesSpawned = 0;
@@ -136,12 +135,10 @@ public class LevelManager : SceneLoader {
             if (npcmanager.myNPC.tasksuccess == NPC.Task.Fail) {
                 tasksuccessResponsetext.text = "Task failed!";
                 tasksuccesstext.text = "Task failed!";
-                //taskCompleteImg.SetActive(true);
             } 
             else if (npcmanager.myNPC.tasksuccess == NPC.Task.Success) {
                 tasksuccessResponsetext.text = "Task success!";
                 tasksuccesstext.text = "Task success!";
-                //taskCompleteImg.SetActive(false);
             }
         }
         currenttiles = FindObjectsOfType<Tile>();//why is this in update(), why not move to start()?
@@ -155,13 +152,7 @@ public class LevelManager : SceneLoader {
             tileshiftfactor = 26; //  tileshiftfactor spawns tiles 21 units ahead because when player enters trigger, there are 3 tiles in front. each tile is 7 units long on the x-axis
         }
         if (Input.GetKeyDown(KeyCode.Tab)) ShowFPS();
-
-        //RenderSettings.skybox.SetFloatArray("_Rotation",new List<float>() {90,0,0 });
     }
-    //public void RestartLevel() {
-    //    LoadScene(SceneManager.GetActiveScene().buildIndex);
-    //    Initalize();
-    //}
     public void DisableTaskScreen() {
         if(npcmanager.myGeneral == null)player.canMove = true;
         taskcompletescreenResponse.SetActive(false);
@@ -190,8 +181,8 @@ public class LevelManager : SceneLoader {
             if (amount == 1) {
                 x = numberOfTiles;
             }
-            /*if(level != Level.MRT)tileindex = 8;
-            else*/ RandomTile();
+            if(level != Level.MRT)tileindex = 8;
+            else RandomTile();
             TutorialTile();
             mytile = tiles[tileindex].GetComponent<Tile>(); // tileindex is randomised by RandomTile()
             objectPool.Remove();
@@ -255,13 +246,7 @@ public class LevelManager : SceneLoader {
         PlayerPrefs.Save();
     }
     void RandomTile() {
-        //if (Mathf.FloorToInt(player.distTravelled.magnitude) % 50 == 0 && player.distTravelled.magnitude > 0) {
-        //    foreach (var i in tiles) {
-        //        if (i.CompareTag("Transition")) tileindex = Array.IndexOf(tiles, i);
-        //     }
-        //} 
         tilerng = UnityEngine.Random.Range(0f, 1f);
-        //print(tilerng);
         if (tilerng > .85f && tilerng <= 1f && tilesSpawned >= 15) {
             foreach (var i in tiles) {
                 if (i.CompareTag("Transition")) tileindex = Array.IndexOf(tiles, i);

@@ -11,18 +11,17 @@ public class TrainObstacle : Interactable
     [SerializeField] GameObject[] NPCs;
     GameObject[] npcarray = new GameObject[3];
     public GameObject excuseMeText;
-    int npcCount;
     // Start is called before the first frame update
     protected override void Start() {
         base.Start();
-        npcCount = 0;
-        SetNPCs();
+        //SetNPCs();
     }
     public void MoveNPC() {
         moveNPC.transform.position = NPClocation.position;
         player.inputtext.SetActive(false);
     }
     protected override void OnTriggerEnter(Collider other) {
+        //if (npcarray[0] == null) return;
         if (other.GetComponent<Player>()) {
             touchingPlayer = true;
             player.canMove = false;
@@ -31,10 +30,9 @@ public class TrainObstacle : Interactable
         }
     }
     private void OnEnable() {
-        //SetNPCs();
+        SetNPCs();
     }
     private void OnDisable() {
-        npcCount = 0;
         foreach (var i in npcarray) {
             Destroy(i);
         }
@@ -48,7 +46,6 @@ public class TrainObstacle : Interactable
             npcarray[i] = Instantiate(NPCs[UnityEngine.Random.Range(0, NPCs.Length)], NPCGroup[i].transform.position, Quaternion.Euler(0, -90, 0));
             npcarray[i].transform.localScale *= 25;
             npcarray[i].transform.SetParent(transform);
-            //npcCount++;
             moveNPC = npcarray[1];
             foreach(var x in npcarray[i].GetComponentsInChildren<Animator>())x.enabled = false;
         }

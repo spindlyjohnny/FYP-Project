@@ -128,10 +128,9 @@ public class Player : MonoBehaviour
             float timer = 10f;
 
             for (int i = 0; i < meshes.Length; i++) {
-                meshes[i].material.Lerp(originalMats[i], invincibleMats[i], Mathf.PingPong(Time.time * timer, 1));//.color = Color.Lerp(originalColor, hitColor, Mathf.PingPong(Time.time * timer, 1));
+                meshes[i].material.Lerp(originalMats[i], invincibleMats[i], Mathf.PingPong(Time.time * timer, 1));
             }
-            skin[0].material.Lerp(originalMats[^1], invincibleMats[^1], Mathf.PingPong(Time.time * timer, 1));//color = Color.Lerp(originalColor, hitColor, Mathf.PingPong(Time.time * timer, 1));
-            //hitTime -= Time.deltaTime;
+            skin[0].material.Lerp(originalMats[^1], invincibleMats[^1], Mathf.PingPong(Time.time * timer, 1));
         }
         if(invincibilitytime <= 0) {
             invincibility = false;
@@ -147,7 +146,7 @@ public class Player : MonoBehaviour
             movespeed += .1f * Time.deltaTime;
             if (movespeed >= maxspeed) movespeed = maxspeed;
             transform.Translate(movespeed * Time.deltaTime * movement, Space.Self);
-            if (movement.z > 0) {
+            if (movement.z > 0 && !hit) {
                 levelManager.score++;
                 if (!invincibility) {
                     energy -= .001f;
@@ -259,7 +258,7 @@ public class Player : MonoBehaviour
             }
             else other.collider.isTrigger = true;
             AudioManager.instance.PlaySFX(hitsfx);
-            energy -= energy * .1f;
+            energy -= 10f;
         }
     }
     public void Invincibility()
