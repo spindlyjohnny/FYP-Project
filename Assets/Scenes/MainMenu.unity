@@ -2709,6 +2709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c156356a2430d049b04304fbb571c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  othimg: {fileID: 974443550}
   checkbox:
   - {fileID: 21300000, guid: 8ad27cac1c95b9647902981be4486795, type: 3}
   - {fileID: 21300000, guid: 4df36e158681996409fd83a0373b01e0, type: 3}
@@ -4519,6 +4520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c156356a2430d049b04304fbb571c65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  othimg: {fileID: 432924467}
   checkbox:
   - {fileID: 21300000, guid: 8ad27cac1c95b9647902981be4486795, type: 3}
   - {fileID: 21300000, guid: 4df36e158681996409fd83a0373b01e0, type: 3}
