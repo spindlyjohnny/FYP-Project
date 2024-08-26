@@ -93,7 +93,7 @@ public class NPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!spawner.activeSelf) gameObject.SetActive(false);
+        if (!spawner.activeSelf && !followplayer) gameObject.SetActive(false);
         FollowPlayer();
         if (TutorialUI.state != TutorialUI.TutorialState.fifthInstruction) return;
         if (Mathf.Abs(transform.position.z - player.transform.position.z) >= 0.5f) return;
