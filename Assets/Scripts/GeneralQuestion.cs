@@ -78,6 +78,21 @@ public class GeneralQuestion : Collectible
             Time.timeScale = 0;
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (once == false) return;
+        if (other.GetComponent<Player>() && !player.NPC)
+        {
+            once = false;
+            UpdateCanvas();
+            Destroying();
+            player.canMove = false;
+            //player.NPC = true;
+            questionbox.SetActive(true);
+            npcManager.myGeneral = this;
+            Time.timeScale = 0;
+        }
+    }
     override protected void Update()
     {
         if (myspawner == null) Destroy(gameObject);
