@@ -453,8 +453,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushingWheelchair: 0
-  movespeed: 3
-  maxspeed: 7
+  movespeed: 4
+  maxspeed: 8
   canMove: 0
   NPC: 0
   interactable: 0
