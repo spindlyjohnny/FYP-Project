@@ -8870,8 +8870,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2049649734}
   - {fileID: 395532630}
+  - {fileID: 2049649734}
   - {fileID: 595513643}
   - {fileID: 1214729516}
   - {fileID: 1335275086}
@@ -9487,8 +9487,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -5.763489}
-  m_SizeDelta: {x: 0, y: 11.527}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!328 &2049649735
 VideoPlayer:
