@@ -11,6 +11,7 @@ public class TrainObstacle : Interactable
     [SerializeField] GameObject[] NPCs;
     GameObject[] npcarray = new GameObject[3];
     public GameObject excuseMeText;
+    public AudioClip excusemesound;
     // Start is called before the first frame update
     protected override void Start() {
         base.Start();
@@ -53,6 +54,7 @@ public class TrainObstacle : Interactable
     protected override void Update() {
         if (touchingPlayer && Input.GetKeyDown(KeyCode.F)) {
             MoveNPC();
+            AudioManager.instance.PlaySFX(excusemesound);
             player.inputtext.SetActive(false);
             excuseMeText.SetActive(false);
             player.canMove = true;

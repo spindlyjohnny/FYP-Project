@@ -241,14 +241,17 @@ public class NPC : MonoBehaviour
             dialoguebox.transform.Find("Player Name Boks").gameObject.SetActive(true);
             player.avatar.gameObject.SetActive(true);
         }
-        for (int i = 0; i < 5; i++)
-        {
-            AudioManager.instance.PlaySFX(dialoguesound);
-            yield return new WaitForSecondsRealtime(wordspeed);
-        }
+        //for (int i = 0; i < 5; i++)
+        //{
+        //    AudioManager.instance.PlaySFX(dialoguesound);
+        //    yield return new WaitForSecondsRealtime(wordspeed);
+        //}
         foreach (char chr in dialogue[currentline])
         { // types out dialogue character by character
             dialoguetext.text += chr;
+            if(dialogue[currentline].IndexOf(chr) % 5 == 0) {
+                AudioManager.instance.PlaySFX(dialoguesound);
+            }
             yield return new WaitForSecondsRealtime(wordspeed);
         }
     }

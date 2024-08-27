@@ -934,6 +934,7 @@ MonoBehaviour:
   - {fileID: 3297237490245076983, guid: c5dadacb88bdfc64abfb937f8f7462de, type: 3}
   - {fileID: 887195354605392655, guid: e606723dff88456419db8d9ec1c8b59f, type: 3}
   excuseMeText: {fileID: 7646131411283873736}
+  excusemesound: {fileID: 8300000, guid: cce9b847c7a9edc46904861157cb72cd, type: 3}
 --- !u!1 &9074201800206338564
 GameObject:
   m_ObjectHideFlags: 0
