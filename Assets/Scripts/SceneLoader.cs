@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour {
+    public GameObject tutorial;
     public static bool Return = false;
     public GameObject levelSelect,fpsCounter,tutorialPanel;
     [SerializeField] Image tutimg;
@@ -106,6 +107,20 @@ public class SceneLoader : MonoBehaviour {
         }
     }
 
+    public void TutorialVideo()
+    {
+        tutorial.SetActive(true);
+        SetLevel(1);
+        Video vid =tutorial.GetComponent<Video>();
+        vid.PlayVideo();
+        StartCoroutine(Video());
+    }
+    public IEnumerator Video()
+    {
+        yield return new WaitForSeconds(23);
+        LoadScene(1);
+    }
+         
     public void ShowFPS() {
         fps = !fps;
         PlayerPrefs.SetInt("FPS", fps ? 1 : 0);
