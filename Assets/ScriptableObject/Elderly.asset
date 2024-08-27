@@ -137,7 +137,7 @@ MonoBehaviour:
     - response:
       - '"Oh okay, let''s go"'
     - response:
-      - '"How shoould I find my way home?"'
+      - '"How should I find my way home?"'
     outcomeLocation: 3
   - assessQuestion: '(Maybe I should help him) '
     assDialogue:

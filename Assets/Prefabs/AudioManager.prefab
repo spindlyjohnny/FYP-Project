@@ -174,11 +174,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db0fc1bf424d35458ecad1c9182524d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: 9198b72f724e56c46bc9158166c8c938, type: 2}
   audio: {fileID: 2813256128797556129}
   sfxaudio: {fileID: 5056042052936110296}
+  mixer: {fileID: 24100000, guid: 9198b72f724e56c46bc9158166c8c938, type: 2}
   levelmusic: {fileID: 8300000, guid: f8c41532f41986440972f3254bae37f7, type: 3}
   titlemusic: {fileID: 8300000, guid: 1675b8be6f8509443a689850849b522d, type: 3}
+  correctsound: {fileID: 8300000, guid: 95465fb1e58813e4b91097a1d15aa71c, type: 3}
 --- !u!82 &2813256128797556129
 AudioSource:
   m_ObjectHideFlags: 0

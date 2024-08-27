@@ -64,7 +64,7 @@ public class Interactable : MonoBehaviour
                     npcmanager.myNPC.tasksuccess = NPC.Task.Success;
                     player.inputtext.SetActive(false);
                     gameObject.SetActive(false);
-                    //AudioManager.instance.PlaySFX(correctsound);
+                    AudioManager.instance.PlaySFX(AudioManager.instance.correctsound);
                 }
             }
         }

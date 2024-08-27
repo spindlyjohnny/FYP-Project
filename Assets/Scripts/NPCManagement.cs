@@ -116,6 +116,7 @@ public class NPCManagement : MonoBehaviour
                     myNPC.EndDialogue();
                     myNPC.tasksuccess = NPC.Task.Fail;
                     levelManager.taskcompletescreen.SetActive(true);
+                    levelManager.taskCompleteImg.sprite = levelManager.taskCompletionPanelSprites[0];
                     return;
                 }
                 myNPC.questionbox.SetActive(true);//need to change this probably

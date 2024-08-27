@@ -74,9 +74,9 @@ public class Tile : MonoBehaviour {
 
     }
     // Update is called once per frame
-    private void Update() {
+    protected virtual void Update() {
         if (destinations.Length > 0) {
-            if(npcmanager.myNPC != null && npcmanager.myNPC.followplayer) {
+            if(npcmanager.myNPC != null && npcmanager.myNPC.followplayer && npcmanager.myNPC.gameObject.activeSelf) {
                 foreach(var i in destinations) {
                     if(i.GetComponent<Interactable>().location == (int)npcmanager.myNPC.dialogueData.dialogueQuestions[npcmanager.myNPC.qnindex].outcomeLocation) {
                         i.SetActive(true);
