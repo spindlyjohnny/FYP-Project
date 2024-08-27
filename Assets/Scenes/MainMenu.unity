@@ -2834,7 +2834,7 @@ VideoPlayer:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: 
+  m_Url: cinematic_fixed.mp4
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
@@ -2856,7 +2856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8229bd24e11d3540b2ffb968f7012cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  videoName: CinematicFIXED.mp4
+  videoName: cinematic_fixed.mp4
   videoPlayer: {fileID: 468395827}
   BGTexture: {fileID: 8400000, guid: f2a811dff4b971a4790152e03155080e, type: 2}
 --- !u!114 &468395829
