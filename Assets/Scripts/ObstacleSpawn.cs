@@ -33,12 +33,13 @@ public class ObstacleSpawn : MonoBehaviour
                 myobstacle = Instantiate(obstacles[0], transform.position + new Vector3(Randomness(), 0, 0), transform.rotation);
             } 
             else if (rng > .3f && rng <= .5f) { // qn cube
+
                 myobstacle = Instantiate(obstacles[1], transform.position + new Vector3(Randomness(), 0, 0), transform.rotation);
             }
         } 
         else {
             // qn cube
-            if(rng > .35f && rng <= .5f)myobstacle = Instantiate(obstacles[0], transform.position + new Vector3(Randomness(), 0, 0), transform.rotation);
+            if(rng > .3f && rng <= .5f)myobstacle = Instantiate(obstacles[0], transform.position + new Vector3(Randomness(), 0, 0), transform.rotation);
         }
         if(myobstacle != null) { // myobstacle would be null if rng falls out of range
             myobstacle.GetComponent<Obstacle>().myspawner = this;
