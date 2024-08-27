@@ -155,7 +155,7 @@ public class Player : MonoBehaviour
             if (movement.z > 0 && !hit) {
                 levelManager.score++;
                 if (!invincibility) {
-                    energy -= .001f;
+                    energy -= .003f;
                 }
             }
         }
