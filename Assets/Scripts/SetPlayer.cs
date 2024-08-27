@@ -29,10 +29,6 @@ public class SetPlayer : MonoBehaviour
             else {
                 PlayerPrefs.SetInt("Player", 1); // girl
             }
-        } 
-        else if (img.sprite == checkbox[1]) { // checked sprite
-            img.sprite = checkbox[0];
-            othimg.sprite = checkbox[1];
         }
     }
 }
