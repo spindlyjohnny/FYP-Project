@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour {
     public static AudioManager instance;
     [SerializeField] AudioSource audio, sfxaudio; // one audio source for music, one for sfx
     [SerializeField] AudioMixer mixer;
-    public AudioClip levelmusic,titlemusic;
+    public AudioClip levelmusic,titlemusic,correctsound;
     // Start is called before the first frame update
     private void Awake() {
         if (instance == null) { // create singleton.

@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     public static List<int> list= new List<int>();
     public List<int> tempList= new List<int>();
     Rigidbody rb;
+    [SerializeField] Transform lefthit, righthit;
     // Start is called before the first frame update
     private void Awake() {
         if (PlayerPrefs.GetInt("bool") == 1) {
@@ -182,7 +183,7 @@ public class Player : MonoBehaviour
         anim.SetBool("Wheelchair", pushingWheelchair);
         if (!canMove) return;
         if (levelManager.level == LevelManager.Level.BusInterior && !levelManager.pausing) {
-            movement = new Vector3(0, 0, Input.GetButton("Fire1") ? 1 : Input.GetButton("Fire2") ? -1 : 0);
+            movement = new Vector3(0, 0, (Input.GetButton("Fire1") || Input.GetAxisRaw("Vertical") > 0) ? 1 : (Input.GetButton("Fire2") || Input.GetAxisRaw("Vertical") < 0) ? -1 : 0);
         } 
         else {
             movement = new Vector3(0, 0, hit? .5f : 1);
@@ -212,8 +213,10 @@ public class Player : MonoBehaviour
         }
         if(levelManager.level != LevelManager.Level.BusInterior && !levelManager.pausing) {
             RaycastHit left, right;
-            Physics.Raycast(transform.position, transform.right, out right, .67f);
-            Physics.Raycast(transform.position, -transform.right, out left, .67f);
+            Physics.Raycast(righthit.position, transform.right, out right, .7f);
+            Debug.DrawRay(righthit.position, transform.right * .7f,Color.blue);
+            Physics.Raycast(lefthit.position, -transform.right, out left, .7f);
+            Debug.DrawRay(lefthit.position, -transform.right * .7f,Color.red);
             if (Input.GetButtonDown("Fire1") & animating == false & lane != 0 & left.collider == null) {
                 newlane = Mathf.Clamp(lane - 1, 0, 2);
                 StartCoroutine(LaneMoving());

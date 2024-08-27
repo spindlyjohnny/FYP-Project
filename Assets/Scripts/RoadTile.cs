@@ -6,7 +6,6 @@ public class RoadTile : Tile
 {
     public Bus bus;
     public Transform campos;
-    public GameObject station;
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -20,7 +19,8 @@ public class RoadTile : Tile
     }
 
     // Update is called once per frame
-    void Update() {
+    protected override void Update() {
+        base.Update();
         for (int i = 0; i < lanes.Length; i++) { // position at which player snaps to changes as they move
             lanes[i] = new Vector3(levelManager.player.transform.position.x, lanes[i].y, lanes[i].z);
         }

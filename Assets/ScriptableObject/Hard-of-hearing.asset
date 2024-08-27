@@ -37,7 +37,6 @@ MonoBehaviour:
       - (He gives look of annoyance)
     - response:
       - (I kindly pointed out the directions using the MRT map)
-    outcome: Task Complete
     outcomeLocation: 0
   - assessQuestion: (He seems to be on high alert about something, should I help?)
     assDialogue:
@@ -69,7 +68,6 @@ MonoBehaviour:
       - '(He flinches in surprise, and turns away) '
     - response:
       - (I offer to notify him when it arrives)
-    outcome: Task Complete
     outcomeLocation: 0
   - assessQuestion: (He waved at me, does he need my help?)
     assDialogue:
@@ -97,13 +95,11 @@ MonoBehaviour:
       - '(He looks at you awkwardly) '
     - response:
       - '"Okay, we should head there now!"'
-    outcome: 'Start task: Ride the bus with the commuter'
     outcomeLocation: 1
   - assessQuestion: '(A man wearing hearing aid looks like he is in distress) (A
       man wearing hearing aid looks like he is in distress) '
     assDialogue:
-    - speechLine: '(A man wearing hearing aid looks like he is in distress) (A man
-        wearing hearing aid looks like he is in distress) '
+    - speechLine: '(A man wearing hearing aid looks like he is in distress) '
       npcTalking: 1
     - speechLine: (I should help him)
       npcTalking: 0
@@ -131,8 +127,7 @@ MonoBehaviour:
         a seat first!"'
     - response:
       - '"Oh, Okay then"'
-    outcome: 'Start task: Find the commuter''s grandkid and leave at their stop'
-    outcomeLocation: 4
+    outcomeLocation: 5
   - assessQuestion: (Does he need something?)
     assDialogue:
     - speechLine: '(A man wearing hearing aids waves at you) '
@@ -159,7 +154,6 @@ MonoBehaviour:
       - '(I wrote down what they said on the intercom and showed it to him) '
     - response:
       - '"Oh, nevermind then"'
-    outcome: Task Complete
     outcomeLocation: 0
   - assessQuestion: No, I think he's fine
     assDialogue:
@@ -189,7 +183,6 @@ MonoBehaviour:
       - '"Oh I see, thank you!"'
     - response:
       - '"No, please don''t do that, I can''t hear well"'
-    outcome: Task Complete
     outcomeLocation: 0
   - assessQuestion: '(There is a man wearing hearing aids that looks annoyed) '
     assDialogue:
@@ -216,5 +209,4 @@ MonoBehaviour:
         be a conducive environment for others) '
     - response:
       - (I didn't approach them)
-    outcome: 'Start Task: Approach the commuters'
     outcomeLocation: 0
