@@ -61,6 +61,8 @@ public class SceneLoader : MonoBehaviour {
     }
     private void Start()
     {
+        TutorialUI.isMrt = false;
+        TutorialUI.isBusInterrior = false;
         tutorialPanel.SetActive(true);
         //img.sprite = checkbox[PlayerPrefs.GetInt("FPS")];
         tutimg.sprite = checkbox[PlayerPrefs.GetInt("Show Tutorial",0)];

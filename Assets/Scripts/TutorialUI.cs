@@ -8,6 +8,7 @@ public class TutorialUI : MonoBehaviour
     public GameObject panel;
     [HideInInspector]
     public bool stop=false;
+    public static bool isBusInterrior=false, isMrt = false;
     public TextMeshProUGUI text;
     [TextArea(3,10)]
     public string[] tutorialTexts;
@@ -38,7 +39,7 @@ public class TutorialUI : MonoBehaviour
         manager = FindObjectOfType<LevelManager>();
         if (!PlayerPrefs.HasKey("Tutorial"))
         {
-            PlayerPrefs.SetInt("Tutorial", 0);
+            PlayerPrefs.SetInt("Tutorial", 1);
             two = 0; 
         }
         if (PlayerPrefs.GetInt("Tutorial") == 1) return;
@@ -141,6 +142,7 @@ public class TutorialUI : MonoBehaviour
         {
             PlayerPrefs.SetInt("Tutorial", 1);
         }
+        isBusInterrior = true;
     }
 
     IEnumerator EightTutorial()
@@ -167,7 +169,7 @@ public class TutorialUI : MonoBehaviour
         {
             PlayerPrefs.SetInt("Tutorial", 1);
         }
-        
+        isMrt = true;
     }
 
     // Update is called once per frame

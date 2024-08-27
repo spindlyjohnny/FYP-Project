@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
+        
         interactable = false;
         levelManager = FindObjectOfType<LevelManager>();
         canMove = true;
@@ -117,7 +118,11 @@ public class Player : MonoBehaviour
             }//search for valid question with the correct type for level 3
         }
         tempList= new List<int>(list);
-
+        for(int i = 0; i < 100; i++)
+        {
+            print("removed index: " + RandomIndexForGeneralQuestion());
+            print("count: " + list.Count);
+        }
     }
     // Update is called once per frame
     void Update()
