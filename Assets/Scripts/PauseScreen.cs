@@ -23,6 +23,10 @@ public class PauseScreen : MonoBehaviour {
         }
     }
     public void PauseGame() {
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
         AudioManager.instance.PauseMusic();
         Time.timeScale = 0; // freeze game
         pausescreen.SetActive(true);
