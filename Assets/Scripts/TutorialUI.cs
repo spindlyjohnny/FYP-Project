@@ -39,7 +39,7 @@ public class TutorialUI : MonoBehaviour
         manager = FindObjectOfType<LevelManager>();
         if (!PlayerPrefs.HasKey("Tutorial"))
         {
-            PlayerPrefs.SetInt("Tutorial", 1);
+            PlayerPrefs.SetInt("Tutorial", 0);
             two = 0; 
         }
         if (PlayerPrefs.GetInt("Tutorial") == 1) return;
@@ -49,11 +49,11 @@ public class TutorialUI : MonoBehaviour
             state = (TutorialState)1;
             StartCoroutine(FirstTutorial());  
         }
-        if( manager.level == LevelManager.Level.BusInterior && state == (TutorialState)7)
+        if( manager.level == LevelManager.Level.BusInterior && state == (TutorialState)7 && isBusInterrior == false)
         {
             StartCoroutine(SeventhTutorial());
         }
-        if (manager.level == LevelManager.Level.MRT && state == (TutorialState)7)
+        if (manager.level == LevelManager.Level.MRT && state == (TutorialState)7 && isMrt==false)
         {
             StartCoroutine(EightTutorial());
         }
