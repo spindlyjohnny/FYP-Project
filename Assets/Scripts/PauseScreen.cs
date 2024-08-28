@@ -23,7 +23,7 @@ public class PauseScreen : MonoBehaviour {
         }
     }
     public void PauseGame() {
-        if (Time.timeScale == 0)
+        if (Time.timeScale == 0 || levelManager.gameover)
         {
             return;
         }
