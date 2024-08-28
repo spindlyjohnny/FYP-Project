@@ -14,6 +14,7 @@ public class SceneLoader : MonoBehaviour {
     [SerializeField] GameObject tutpanel;
     public Button L2button,L3button;
     bool fps;
+    [SerializeField]Video bgvid;
     public virtual void LoadScene(int scene,bool async = false) { // load scene from levelmanager
         if (async) SceneManager.LoadSceneAsync(scene);
         else SceneManager.LoadScene(scene);
@@ -97,6 +98,7 @@ public class SceneLoader : MonoBehaviour {
     private void Update() {
         FPSCounter(FPS.GetCurrentFPS().ToString());
         if (Input.GetKeyDown(KeyCode.Tab)) ShowFPS();
+        if(tutorial.GetComponent<Video>().videoPlayer.isPlaying) bgvid.videoPlayer.Stop();
     }
     protected void FPSCounter(string fps) {
         if (PlayerPrefs.GetInt("FPS") == 1) {

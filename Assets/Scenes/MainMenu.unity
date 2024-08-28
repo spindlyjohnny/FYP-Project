@@ -8913,6 +8913,7 @@ MonoBehaviour:
   tutpanel: {fileID: 400433675}
   L2button: {fileID: 805389851}
   L3button: {fileID: 1124398037}
+  bgvid: {fileID: 2049649736}
 --- !u!114 &1794472812
 MonoBehaviour:
   m_ObjectHideFlags: 0

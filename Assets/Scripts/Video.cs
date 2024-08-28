@@ -16,7 +16,7 @@ public class Video : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
+        print(videoName + videoPlayer.isPlaying);
     }
     public void PlayVideo() {
         if (videoPlayer) {
