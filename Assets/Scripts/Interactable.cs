@@ -75,7 +75,8 @@ public class Interactable : MonoBehaviour
     //    }
     //}
     protected virtual void OnTriggerEnter(Collider other) {
-        if (other.GetComponent<Player>()) {
+        print(other.name);
+        if (other.GetComponent<Player>() || other.GetComponentInParent<Player>()) {
             touchingPlayer = true;
             if (gameObject.CompareTag("Transition")) {
                 if (gameObject.name.Contains("Train Station")) { // stop player if touching mrt station even if no NPC

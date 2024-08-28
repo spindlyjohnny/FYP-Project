@@ -266,8 +266,9 @@ public class NPC : MonoBehaviour
                 anim.SetBool("Moving", player.canMove);
             }
         }
-        /*if (levelManager.level == LevelManager.Level.Bus) player.GetComponent<Rigidbody>().isKinematic = true;
-        else*/ //Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
+        foreach(var i in gameObject.GetComponents<Collider>()) {
+            if (i.isTrigger) i.enabled = false;
+        }
         if (isWheelchair==true)
         {
             player.pushingWheelchair = true;

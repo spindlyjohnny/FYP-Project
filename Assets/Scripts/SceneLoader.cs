@@ -121,7 +121,7 @@ public class SceneLoader : MonoBehaviour {
     }
     public IEnumerator Video()
     {
-        yield return new WaitForSeconds(23);
+        yield return new WaitForSeconds(30);
         LoadScene(1);
     }
          

@@ -189,6 +189,14 @@ public class Player : MonoBehaviour
         if (!canMove) return;
         if (levelManager.level == LevelManager.Level.BusInterior && !levelManager.pausing) {
             movement = new Vector3(0, 0, (Input.GetButton("Fire1") || Input.GetAxisRaw("Vertical") > 0) ? 1 : (Input.GetButton("Fire2") || Input.GetAxisRaw("Vertical") < 0) ? -1 : 0);
+            if((Input.GetButtonDown("Fire2") || Input.GetAxisRaw("Vertical") < 0) && transform.localScale.z > 0) {
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, -transform.eulerAngles.y, transform.eulerAngles.z);
+                //transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, -transform.localScale.z);
+            }
+            else if ((Input.GetButtonDown("Fire1") || Input.GetAxisRaw("Vertical") > 0) && transform.localScale.z < 0) {
+                transform.eulerAngles = Vector3.zero;
+                //transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, Mathf.Abs(transform.localScale.z));
+            }
         } 
         else {
             movement = new Vector3(0, 0, hit? .5f : 1);
