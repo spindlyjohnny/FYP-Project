@@ -1480,6 +1480,7 @@ MonoBehaviour:
   tempList: 
   lefthit: {fileID: 6420734887986183055}
   righthit: {fileID: 869900217929221026}
+  energyDecrease: 0.003
 --- !u!54 &7809966220103301839
 Rigidbody:
   m_ObjectHideFlags: 0

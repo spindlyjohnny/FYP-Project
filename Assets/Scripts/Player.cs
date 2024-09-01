@@ -35,12 +35,15 @@ public class Player : MonoBehaviour
     public List<int> tempList= new List<int>();
     Rigidbody rb;
     [SerializeField] Transform lefthit, righthit;
+    Vector3 originalOrientation;
+    Vector3 inputOriginalOrientation;
+    public float energyDecrease;
     // Start is called before the first frame update
     private void Awake() {
         if (PlayerPrefs.GetInt("bool") == 1) {
             energy = PlayerPrefs.GetFloat("energy");
             maxenergy = PlayerPrefs.GetFloat("Max Energy");
-            //energygain = PlayerPrefs.GetFloat("Energy Gain");
+            energyDecrease = PlayerPrefs.GetFloat("Energy Decrease");
             originalInvincibleTime = PlayerPrefs.GetFloat("Invincibility Time");
         } else {
             PlayerPrefs.SetFloat("energy", 100);
@@ -48,6 +51,7 @@ public class Player : MonoBehaviour
             //PlayerPrefs.SetFloat("Energy Gain", 10f);
             PlayerPrefs.SetFloat("Invincibility Time", 5f);
             energy = PlayerPrefs.GetFloat("energy");
+            PlayerPrefs.SetFloat("Energy Decrease", 0.003f);
         }
 
     }
@@ -55,6 +59,8 @@ public class Player : MonoBehaviour
     {
         
         interactable = false;
+        originalOrientation = transform.eulerAngles;
+        inputOriginalOrientation = inputtext.transform.eulerAngles;
         levelManager = FindObjectOfType<LevelManager>();
         canMove = true;
         invincibilitytime = originalInvincibleTime;
@@ -155,7 +161,7 @@ public class Player : MonoBehaviour
             if (movement.z > 0 && !hit) {
                 levelManager.score++;
                 if (!invincibility) {
-                    energy -= .003f;
+                    energy -= energyDecrease;
                 }
             }
         }
@@ -188,14 +194,19 @@ public class Player : MonoBehaviour
         anim.SetBool("Wheelchair", pushingWheelchair);
         if (!canMove) return;
         if (levelManager.level == LevelManager.Level.BusInterior && !levelManager.pausing) {
-            movement = new Vector3(0, 0, (Input.GetButton("Fire1") || Input.GetAxisRaw("Vertical") > 0) ? 1 : (Input.GetButton("Fire2") || Input.GetAxisRaw("Vertical") < 0) ? -1 : 0);
-            if((Input.GetButtonDown("Fire2") || Input.GetAxisRaw("Vertical") < 0) && transform.localScale.z > 0) {
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, -transform.eulerAngles.y, transform.eulerAngles.z);
-                //transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, -transform.localScale.z);
+            if (transform.rotation.y < 0) {
+                movement = new Vector3(0, 0, (Input.GetButton("Fire1") || Input.GetAxisRaw("Vertical") > 0) ? -1 : (Input.GetButton("Fire2") || Input.GetAxisRaw("Vertical") < 0) ? 1 : 0);
+            } 
+            else {
+                movement = new Vector3(0, 0, (Input.GetButton("Fire1") || Input.GetAxisRaw("Vertical") > 0) ? 1 : (Input.GetButton("Fire2") || Input.GetAxisRaw("Vertical") < 0) ? -1 : 0);
             }
-            else if ((Input.GetButtonDown("Fire1") || Input.GetAxisRaw("Vertical") > 0) && transform.localScale.z < 0) {
-                transform.eulerAngles = Vector3.zero;
-                //transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, Mathf.Abs(transform.localScale.z));
+            if ((Input.GetButtonDown("Fire2") || Input.GetAxisRaw("Vertical") < 0) && transform.rotation.y > 0) {
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, -transform.eulerAngles.y, transform.eulerAngles.z);
+                inputtext.transform.eulerAngles = new Vector3(inputtext.transform.eulerAngles.x, -inputtext.transform.eulerAngles.y, inputtext.transform.eulerAngles.z);
+            }
+            else if ((Input.GetButtonDown("Fire1") || Input.GetAxisRaw("Vertical") > 0) && transform.rotation.y < 0) {
+                transform.eulerAngles = originalOrientation;
+                inputtext.transform.eulerAngles = inputOriginalOrientation;
             }
         } 
         else {

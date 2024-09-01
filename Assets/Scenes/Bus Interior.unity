@@ -3826,6 +3826,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1509404879}
     - target: {fileID: 2737777695695530235, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
+      propertyPath: energyDecrease
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 2737777695695530235, guid: 302621ba28ae3cc4fa7e7f9b7f087476, type: 3}
       propertyPath: originalEnergyGain
       value: 10
       objectReference: {fileID: 0}
