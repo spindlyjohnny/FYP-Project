@@ -16,7 +16,9 @@ public class Settings : MonoBehaviour {
     }
     void Start() {
         SFXSlider.value = PlayerPrefs.GetFloat("SFX Volume", 1f);
-        musicSlider.value = PlayerPrefs.GetFloat("Music Volume", 1f);
+        musicSlider.value = PlayerPrefs.GetFloat("Music Volume", .7f);
+        SFXSlider.maxValue = 1f;
+        musicSlider.maxValue = .7f;
         //volumeSlider.value = volume;
     }
     private void OnDisable() {

@@ -22,7 +22,8 @@ public class AudioManager : MonoBehaviour {
     }
     void LoadVolume() {
         mixer.SetFloat("SFX Volume", Mathf.Log10(PlayerPrefs.GetFloat("SFX Volume", 1f)) * 20);
-        mixer.SetFloat("BGM Volume", Mathf.Log10(PlayerPrefs.GetFloat("Music Volume", 1f)) * 20);
+        mixer.SetFloat("BGM Volume", Mathf.Log10(PlayerPrefs.GetFloat("Music Volume", .7f)) * 20);
+        print(PlayerPrefs.GetFloat("Music Volume"));
     }
     public void StopMusic() {
         audio.Stop();
