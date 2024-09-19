@@ -2,15 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Video : MonoBehaviour {
     public string videoName;
+    public GameObject objs;
     public VideoPlayer videoPlayer;
     [SerializeField] RenderTexture BGTexture;
     // Start is called before the first frame update
     void Awake() {
         videoPlayer = GetComponent<VideoPlayer>();
+        if (objs !=null)
+        {
+            objs.GetComponent<RawImage>().enabled = true;
+        }
         if (SceneManager.GetActiveScene().buildIndex == 0 && videoPlayer.targetTexture == BGTexture) PlayVideo();
     }
 
